@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             '2fa' => \App\Http\Middleware\EnsureTwoFactorAuthenticated::class,
         ]);
+        
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
