@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TwoFactorController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
@@ -95,6 +96,26 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::delete('/clients/{id}/force-delete', [ClientController::class, 'forceDelete'])
         ->name('clients.force-delete')
         ->withTrashed();
+
+
+
+    // ==========================================
+    // PROJECTS MODULE
+    // ==========================================
+
+    // Resource routes
+    Route::resource('projects', ProjectController::class);
+
+    // Restore and force delete
+    Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
+    Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
+
+    // API: Search clients (for project form)
+    Route::get('/api/clients/search', [ProjectController::class, 'searchClients'])->name('api.clients.search');
+
+
+
+        
 
 }); 
 

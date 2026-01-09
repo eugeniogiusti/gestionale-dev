@@ -5,4 +5,5 @@ return [
     'profile'   => 'Profilo',
     'settings'  => 'Impostazioni',
     'logout'    => 'Esci',
+
 ];
