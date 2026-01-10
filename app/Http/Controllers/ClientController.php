@@ -5,39 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
-use Illuminate\Http\Request;
+use App\Queries\ClientIndexQuery;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(ClientIndexQuery $query)
     {
-        $query = Client::query();
-
-        // Filtro per status (se presente)
-        if ($request->has('status') && $request->status !== '') {
-            $query->where('status', $request->status);
-        }
-
-        // Ricerca per nome o email
-        if ($request->has('search') && $request->search !== '') {
-            $search = $request->search;
-            $query->where(function($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('email', 'like', "%{$search}%");
-            });
-        }
-
-        // Ordinamento
-        $sortBy = $request->get('sort_by', 'created_at');
-        $sortDirection = $request->get('sort_direction', 'desc');
-        $query->orderBy($sortBy, $sortDirection);
-
-        // Pagination
-        $clients = $query->paginate(15);
-
+        $clients = $query->handle();
+        
         return view('clients.index', compact('clients'));
     }
 
@@ -46,9 +24,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $statuses = Client::getStatusOptions();
-        
-        return view('clients.create', compact('statuses'));
+        return view('clients.create');
     }
 
     /**
@@ -56,12 +32,10 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-    $data = $this->decodeHtmlEntities($request->validated());
-    
-    Client::create($data);
+        Client::create($request->validated());
 
-    return redirect()->route('clients.index')
-        ->with('success', __('clients.created_successfully'));
+        return redirect()->route('clients.index')
+            ->with('success', __('clients.created_successfully'));
     }
 
     /**
@@ -77,9 +51,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        $statuses = Client::getStatusOptions();
-        
-        return view('clients.edit', compact('client', 'statuses'));
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -87,12 +59,10 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-    $data = $this->decodeHtmlEntities($request->validated());
-    
-    $client->update($data);
+        $client->update($request->validated());
 
-    return redirect()->route('clients.index')
-        ->with('success', __('clients.updated_successfully'));
+        return redirect()->route('clients.index')
+            ->with('success', __('clients.updated_successfully'));
     }
 
     /**
@@ -100,7 +70,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        $client->delete(); // Soft delete
+        $client->delete();
 
         return redirect()->route('clients.index')
             ->with('success', __('clients.deleted_successfully'));
@@ -129,26 +99,4 @@ class ClientController extends Controller
         return redirect()->route('clients.index')
             ->with('success', __('clients.permanently_deleted'));
     }
-
-        /**
-     * Decode HTML entities from validated data
-     */
-    private function decodeHtmlEntities(array $data): array
-    {
-        $fieldsTodecode = [
-            'name',
-            'billing_address',
-            'billing_city',
-            'notes',
-        ];
-
-        foreach ($fieldsTodecode as $field) {
-            if (isset($data[$field]) && is_string($data[$field])) {
-                $data[$field] = html_entity_decode($data[$field], ENT_QUOTES, 'UTF-8');
-            }
-        }
-
-        return $data;
-    }
-    
 }

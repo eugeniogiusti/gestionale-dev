@@ -3,6 +3,7 @@
 return [
     // Page titles
     'title' => 'Progetti',
+    'projects_list' => 'Lista Progetti',
     'create_project' => 'Nuovo Progetto',
     'edit_project' => 'Modifica Progetto',
     'project_details' => 'Dettagli Progetto',
@@ -70,10 +71,12 @@ return [
     
     // Buttons
     'save' => 'Salva Progetto',
+    'filter' => 'Filtra',
     'cancel' => 'Annulla',
     'edit' => 'Modifica',
     'details' => 'Dettagli',
     'delete' => 'Elimina',
+    'reset' => 'Reimposta', 
     'confirm_delete' => 'Sei sicuro di voler eliminare questo progetto?',
     
     // Messages

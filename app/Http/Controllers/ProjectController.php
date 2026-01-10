@@ -5,49 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-use Illuminate\Http\Request;
+use App\Queries\ProjectIndexQuery;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(ProjectIndexQuery $query)
     {
-        $query = Project::with('client');
-
-        // Filter by client
-        if ($request->has('client_id') && $request->client_id !== '') {
-            $query->where('client_id', $request->client_id);
-        }
-
-        // Filter by status
-        if ($request->has('status') && $request->status !== '') {
-            $query->where('status', $request->status);
-        }
-
-        // Filter by priority
-        if ($request->has('priority') && $request->priority !== '') {
-            $query->where('priority', $request->priority);
-        }
-
-        // Search by name or description
-        if ($request->has('search') && $request->search !== '') {
-            $search = $request->search;
-            $query->where(function($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%");
-            });
-        }
-
-        // Sorting
-        $sortBy = $request->get('sort_by', 'created_at');
-        $sortDirection = $request->get('sort_direction', 'desc');
-        $query->orderBy($sortBy, $sortDirection);
-
-        // Pagination
-        $projects = $query->paginate(15);
-
+        $projects = $query->handle();
+        
         return view('projects.index', compact('projects'));
     }
 
@@ -64,9 +32,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $data = $this->decodeHtmlEntities($request->validated());
-        
-        Project::create($data);
+        Project::create($request->validated());
 
         return redirect()->route('projects.index')
             ->with('success', __('projects.created_successfully'));
@@ -95,9 +61,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $data = $this->decodeHtmlEntities($request->validated());
-        
-        $project->update($data);
+        $project->update($request->validated());
 
         return redirect()->route('projects.index')
             ->with('success', __('projects.updated_successfully'));
@@ -137,46 +101,4 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')
             ->with('success', __('projects.permanently_deleted'));
     }
-
-    /**
-     * Decode HTML entities from validated data
-     */
-    private function decodeHtmlEntities(array $data): array
-    {
-        $fieldsToDecode = [
-            'name',
-            'description',
-            'notes',
-        ];
-
-        foreach ($fieldsToDecode as $field) {
-            if (isset($data[$field]) && is_string($data[$field])) {
-                $data[$field] = html_entity_decode($data[$field], ENT_QUOTES, 'UTF-8');
-            }
-        }
-
-        return $data;
-    }
-
-
-        /**
-     * Search clients for autocomplete (API endpoint)
-     */
-    public function searchClients(Request $request)
-    {
-        $query = $request->get('q', '');
-        
-        if (strlen($query) < 2) {
-            return response()->json([]);
-        }
-        
-        $clients = \App\Models\Client::where('name', 'like', "%{$query}%")
-            ->orWhere('email', 'like', "%{$query}%")
-            ->limit(10)
-            ->get(['id', 'name', 'email']);
-        
-        return response()->json($clients);
-    }
-
-
 }

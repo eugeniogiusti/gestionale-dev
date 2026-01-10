@@ -63,7 +63,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-// Change locale
+    // Change locale
     Route::get('/locale/{locale}', function (string $locale) {
     $allowed = ['it', 'en'];
     if (!in_array($locale, $allowed, true)) {
@@ -79,7 +79,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     }
     
     return back();
-})->name('locale.switch');
+    })->name('locale.switch');
 
     // ==========================================
     // CLIENTS MODULE
@@ -97,8 +97,6 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         ->name('clients.force-delete')
         ->withTrashed();
 
-
-
     // ==========================================
     // PROJECTS MODULE
     // ==========================================
@@ -110,9 +108,13 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
 
-    // API: Search clients (for project form)
-    Route::get('/api/clients/search', [ProjectController::class, 'searchClients'])->name('api.clients.search');
+    // ==========================================
+    // API ROUTES SEARCH CLIENTS
+    // ==========================================
 
+    // API: Search clients (for project form)
+    Route::get('/api/clients/search', \App\Http\Controllers\Api\ClientSearchController::class)
+    ->name('api.clients.search');
 
 
         

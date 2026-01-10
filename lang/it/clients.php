@@ -7,6 +7,7 @@ return [
     'clients_list' => 'Lista Clienti',
     'create_client' => 'Nuovo Cliente',
     'edit_client' => 'Modifica Cliente',
+    'all_statuses' => 'Tutti gli stati',
     'client_details' => 'Dettagli Cliente',
 
     // Actions

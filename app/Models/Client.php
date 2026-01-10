@@ -45,14 +45,13 @@ class Client extends Model
         'deleted_at' => 'datetime',
     ];
 
-    /**
-     * Get the available status options.
-     *
-     * @return array<string>
+
+        /**
+     * Get the projects for the client.
      */
-    public static function getStatusOptions(): array
+    public function projects()
     {
-        return ['lead', 'active', 'archived'];
+        return $this->hasMany(Project::class);
     }
 
     /**
