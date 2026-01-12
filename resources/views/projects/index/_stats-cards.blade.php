@@ -10,13 +10,13 @@
                     {{ __('projects.stats.total') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    24
+                    {{ $stats['total'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-green-600 dark:text-green-400 font-medium">↗ +3</span>
-            <span class="text-gray-600 dark:text-gray-400">questo mese</span>
+            <span class="text-green-600 dark:text-green-400 font-medium">↗ +{{ $stats['new_this_month'] }}</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ __('projects.stats.this_month') }}</span>
         </div>
     </div>
 
@@ -29,12 +29,12 @@
                     {{ __('projects.stats.in_progress') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    8
+                    {{ $stats['in_progress'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-gray-600 dark:text-gray-400">33% del totale</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ $stats['in_progress_percentage'] }}% {{ __('projects.stats.of_total') }}</span>
         </div>
     </div>
 
@@ -47,13 +47,13 @@
                     {{ __('projects.stats.completed') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    12
+                    {{ $stats['completed'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-green-600 dark:text-green-400 font-medium">↗ +2</span>
-            <span class="text-gray-600 dark:text-gray-400">questa settimana</span>
+            <span class="text-green-600 dark:text-green-400 font-medium">↗ +{{ $stats['completed_this_week'] }}</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ __('projects.stats.this_week') }}</span>
         </div>
     </div>
 
@@ -66,12 +66,12 @@
                     {{ __('projects.stats.archived') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    4
+                    {{ $stats['archived'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-gray-600 dark:text-gray-400">17% del totale</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ $stats['archived_percentage'] }}% {{ __('projects.stats.of_total') }}</span>
         </div>
     </div>
 

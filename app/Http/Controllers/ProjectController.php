@@ -6,17 +6,28 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Queries\ProjectIndexQuery;
+use App\Queries\ProjectStatsQuery;
+
 
 class ProjectController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
+     * 
+     * Retrieves paginated projects with applied filters and calculates
+     * aggregated statistics for index page cards.
+     *
+     * @return \Illuminate\View\View
      */
-    public function index(ProjectIndexQuery $query)
+    public function index()
     {
-        $projects = $query->handle();
+        // Retrieve paginated projects with filters applied
+        $projects = (new ProjectIndexQuery())->handle();
         
-        return view('projects.index', compact('projects'));
+        // Calculate aggregated statistics for index cards
+        $stats = (new ProjectStatsQuery())->handle();
+        
+        return view('projects.index', compact('projects', 'stats'));
     }
 
     /**

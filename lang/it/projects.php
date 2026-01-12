@@ -146,11 +146,15 @@ return [
     // Actions
     'open' => 'Apri',
 
-    // Stats
+    // Stats Cards
     'stats' => [
         'total' => 'Totale Progetti',
         'in_progress' => 'In Corso',
         'completed' => 'Completati',
         'archived' => 'Archiviati',
+        'this_month' => 'questo mese',
+        'this_week' => 'questa settimana',
+        'of_total' => 'del totale',
     ],
+    
 ];

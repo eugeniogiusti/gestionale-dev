@@ -134,12 +134,15 @@ return [
     'sdi_code' => 'Codice SDI',
     'company' => 'Azienda',
 
-    // Stats
+        // Stats Cards
     'stats' => [
-    'total' => 'Totale Clienti',
-    'lead' => 'Lead',
-    'active' => 'Attivi',
-    'archived' => 'Archiviati',
+        'total' => 'Totale Clienti',
+        'lead' => 'Lead',
+        'active' => 'Attivi',
+        'archived' => 'Archiviati',
+        'this_month' => 'questo mese',
+        'of_total' => 'del totale',
+        'converted' => 'convertiti',
     ],
 
 ];

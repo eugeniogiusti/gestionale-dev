@@ -10,13 +10,13 @@
                     {{ __('clients.stats.total') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    42
+                    {{ $stats['total'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-green-600 dark:text-green-400 font-medium">↗ +5</span>
-            <span class="text-gray-600 dark:text-gray-400">questo mese</span>
+            <span class="text-green-600 dark:text-green-400 font-medium">↗ +{{ $stats['new_this_month'] }}</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ __('clients.stats.this_month') }}</span>
         </div>
     </div>
 
@@ -29,12 +29,12 @@
                     {{ __('clients.stats.lead') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    12
+                    {{ $stats['lead'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-gray-600 dark:text-gray-400">29% del totale</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ $stats['lead_percentage'] }}% {{ __('clients.stats.of_total') }}</span>
         </div>
     </div>
 
@@ -47,13 +47,13 @@
                     {{ __('clients.stats.active') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    25
+                    {{ $stats['active'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-green-600 dark:text-green-400 font-medium">↗ +3</span>
-            <span class="text-gray-600 dark:text-gray-400">convertiti</span>
+            <span class="text-green-600 dark:text-green-400 font-medium">↗ +{{ $stats['converted_this_month'] }}</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ __('clients.stats.converted') }}</span>
         </div>
     </div>
 
@@ -66,12 +66,12 @@
                     {{ __('clients.stats.archived') }}
                 </p>
                 <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                    5
+                    {{ $stats['archived'] }}
                 </p>
             </div>
         </div>
         <div class="flex items-center gap-1 text-sm">
-            <span class="text-gray-600 dark:text-gray-400">12% del totale</span>
+            <span class="text-gray-600 dark:text-gray-400">{{ $stats['archived_percentage'] }}% {{ __('clients.stats.of_total') }}</span>
         </div>
     </div>
 

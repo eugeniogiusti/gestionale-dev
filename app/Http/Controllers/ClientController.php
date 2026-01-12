@@ -6,17 +6,27 @@ use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Queries\ClientIndexQuery;
+use App\Queries\ClientStatsQuery;
 
 class ClientController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
+     * 
+     * Retrieves paginated clients with applied filters and calculates
+     * aggregated statistics for index page cards.
+     *
+     * @return \Illuminate\View\View
      */
-    public function index(ClientIndexQuery $query)
+    public function index()
     {
-        $clients = $query->handle();
+        // Retrieve paginated clients with filters applied
+        $clients = (new ClientIndexQuery())->handle();
         
-        return view('clients.index', compact('clients'));
+        // Calculate aggregated statistics for index page cards
+        $stats = (new ClientStatsQuery())->handle();
+        
+        return view('clients.index', compact('clients', 'stats'));
     }
 
     /**
