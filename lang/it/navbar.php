@@ -5,5 +5,12 @@ return [
     'profile'   => 'Profilo',
     'settings'  => 'Impostazioni',
     'logout'    => 'Esci',
-
+    
+    // Search
+    'search_placeholder' => 'Cerca progetti...',
+    'no_projects_found' => 'Nessun progetto trovato',
+    'internal_project' => 'Progetto interno',
+    
+    // Theme
+    'theme' => 'Tema',
 ];

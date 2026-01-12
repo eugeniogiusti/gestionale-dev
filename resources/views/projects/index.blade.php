@@ -3,6 +3,8 @@
         
         @include('projects.index._header')
 
+        @include('projects.index._stats-cards')
+
         @include('projects.index._filters')
 
         @if($projects->count() > 0)

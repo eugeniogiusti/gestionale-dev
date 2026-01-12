@@ -107,7 +107,7 @@ return [
         'billing_province' => 'Es: MI',
         'billing_country' => 'Es: IT',
         'billing_recipient_code' => 'Es: ABCDEFG',
-        'search' => 'Cerca per nome o email...',
+        'search' => 'Cerca per nome, email o piva...',
         'notes' => 'Aggiungi note...',
     ],
 
@@ -117,4 +117,29 @@ return [
         'billing_recipient_code' => 'Codice univoco per fatturazione elettronica (7 caratteri)',
         'billing_province' => 'Sigla provincia (es: RM, MI, NA)',
     ],
+
+    // Empty states for details
+    'no_contact_info' => 'Nessuna informazione di contatto disponibile',
+    'no_billing_info' => 'Nessun dato di fatturazione disponibile',
+    'no_web_social' => 'Nessun link web o social disponibile',
+
+    // Actions for client details
+    'view_profile' => 'Vedi Profilo',
+    'view_page' => 'Vedi Pagina',
+    'send_email' => 'Invia Email',
+
+    // Additional fields (solo quelli che usi)
+    'address' => 'Indirizzo',
+    'fiscal_code' => 'Codice Fiscale',
+    'sdi_code' => 'Codice SDI',
+    'company' => 'Azienda',
+
+    // Stats
+    'stats' => [
+    'total' => 'Totale Clienti',
+    'lead' => 'Lead',
+    'active' => 'Attivi',
+    'archived' => 'Archiviati',
+    ],
+
 ];

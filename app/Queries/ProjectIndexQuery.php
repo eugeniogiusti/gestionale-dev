@@ -23,7 +23,10 @@ class ProjectIndexQuery
                 $search = request('search');
                 $query->where(function($q) use ($search) {
                     $q->where('name', 'like', "%{$search}%")
-                      ->orWhere('description', 'like', "%{$search}%");
+                      ->orWhereHas('client', function($clientQuery) use ($search) {
+                          $clientQuery->where('name', 'like', "%{$search}%")
+                                      ->orWhere('vat_number', 'like', "%{$search}%");
+                      });
                 });
             })
             ->orderBy(

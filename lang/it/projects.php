@@ -69,6 +69,7 @@ return [
     
     // Internal project label
     'internal_project' => 'Progetto interno',
+    'internal_project_desc' => 'Questo è un progetto interno. Non ci sono informazioni cliente associate.',
     
     // Buttons
     'save' => 'Salva Progetto',
@@ -76,6 +77,7 @@ return [
     'cancel' => 'Annulla',
     'edit' => 'Modifica',
     'details' => 'Dettagli',
+    'client_details' => 'Dettagli Cliente',
     'delete' => 'Elimina',
     'reset' => 'Reimposta', 
     'confirm_delete' => 'Sei sicuro di voler eliminare questo progetto?',
@@ -96,7 +98,7 @@ return [
     'filter_by_client' => 'Filtra per cliente',
     'filter_by_status' => 'Filtra per stato',
     'filter_by_priority' => 'Filtra per priorità',
-    'search_placeholder' => 'Cerca per nome o descrizione...',
+    'search_placeholder' => 'Cerca per nome, cliente o piva...',
     'all_clients' => 'Tutti i clienti',
     'all_statuses' => 'Tutti gli stati',
     'all_priorities' => 'Tutte le priorità',
@@ -143,4 +145,12 @@ return [
 
     // Actions
     'open' => 'Apri',
+
+    // Stats
+    'stats' => [
+        'total' => 'Totale Progetti',
+        'in_progress' => 'In Corso',
+        'completed' => 'Completati',
+        'archived' => 'Archiviati',
+    ],
 ];

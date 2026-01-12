@@ -20,7 +20,8 @@ class ClientIndexQuery
                 $search = request('search');
                 $query->where(function($q) use ($search) {
                     $q->where('name', 'like', "%{$search}%")
-                      ->orWhere('email', 'like', "%{$search}%");
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('vat_number', 'like', "%{$search}%");
                 });
             })
             ->orderBy(

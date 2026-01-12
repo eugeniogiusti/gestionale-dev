@@ -36,19 +36,24 @@
                                 {{ $project->name }}
                             </div>
                         </td>
-
-                        {{-- Client --}}
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            @if($project->client)
-                                <div class="text-sm text-gray-900 dark:text-white">
-                                    {{ $project->client->name }}
-                                </div>
-                            @else
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                                    {{ __('projects.internal_project') }}
-                                </span>
-                            @endif
-                        </td>
+                        
+                                {{-- Client --}}
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if($project->client)
+                                        <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                            {{ $project->client->name }}
+                                        </div>
+                                        @if($project->client->vat_number)
+                                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                {{ $project->client->vat_number }}
+                                            </div>
+                                        @endif
+                                    @else
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                                            {{ __('projects.internal_project') }}
+                                        </span>
+                                    @endif
+                                </td>
 
                         {{-- Status --}}
                         <td class="px-6 py-4 whitespace-nowrap">

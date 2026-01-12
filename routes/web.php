@@ -109,12 +109,16 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
 
     // ==========================================
-    // API ROUTES SEARCH CLIENTS
+    // API ROUTES
     // ==========================================
 
-    // API: Search clients (for project form)
+    // Search clients (for project form)
     Route::get('/api/clients/search', \App\Http\Controllers\Api\ClientSearchController::class)
-    ->name('api.clients.search');
+        ->name('api.clients.search');
+
+    // Search projects (navbar global search)
+    Route::get('/api/search/projects', \App\Http\Controllers\Api\ProjectSearchController::class)
+        ->name('api.search.projects');
 
 
         
