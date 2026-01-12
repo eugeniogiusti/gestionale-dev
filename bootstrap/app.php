@@ -13,7 +13,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class, // Add the SetLocale middleware
-            \App\Http\Middleware\DecodeHtmlEntities::class, // Add the DecodeHtmlEntities middleware
         ]);
 
         // Register middleware aliases

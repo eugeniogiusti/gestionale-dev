@@ -79,7 +79,7 @@
                 @input.debounce.300ms="searchClients()"
                 @focus="if (searchResults.length > 0) { showDropdown = true; }"
                 @click.away="showDropdown = false"
-                :placeholder="__('projects.placeholder.client')"
+                placeholder="{{ __('projects.placeholder.client') }}"
                 class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg 
                        bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
                        focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500
@@ -121,8 +121,8 @@
             {{-- Selected Client Display --}}
             <div x-show="selectedClient && !showDropdown" class="mt-2 flex items-center justify-between p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
                 <div>
-                    <div class="text-sm font-medium text-gray-900 dark:text-white" x-text="selectedClient.name"></div>
-                    <div class="text-xs text-gray-500 dark:text-gray-400" x-text="selectedClient.email"></div>
+                    <div class="text-sm font-medium text-gray-900 dark:text-white" x-text="selectedClient?.name"></div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" x-text="selectedClient?.email"></div>
                 </div>
                 <button 
                     type="button"
@@ -171,7 +171,6 @@
             :label="__('projects.priority')"
             :value="$project->priority ?? ''"
             :options="[
-                '' => '-',
                 'low' => __('projects.priority_low'),
                 'medium' => __('projects.priority_medium'),
                 'high' => __('projects.priority_high'),
@@ -185,7 +184,7 @@
     
     <x-form-input
         name="repo_url"
-        type="url"
+        type="text"
         :label="__('projects.repo_url')"
         :placeholder="__('projects.placeholder.repo_url')"
         :value="$project->repo_url ?? ''"
@@ -193,7 +192,7 @@
 
     <x-form-input
         name="staging_url"
-        type="url"
+        type="text"
         :label="__('projects.staging_url')"
         :placeholder="__('projects.placeholder.staging_url')"
         :value="$project->staging_url ?? ''"
@@ -201,7 +200,7 @@
 
     <x-form-input
         name="production_url"
-        type="url"
+        type="text"
         :label="__('projects.production_url')"
         :placeholder="__('projects.placeholder.production_url')"
         :value="$project->production_url ?? ''"
@@ -209,7 +208,7 @@
 
     <x-form-input
         name="figma_url"
-        type="url"
+        type="text"
         :label="__('projects.figma_url')"
         :placeholder="__('projects.placeholder.figma_url')"
         :value="$project->figma_url ?? ''"
@@ -217,7 +216,7 @@
 
     <x-form-input
         name="docs_url"
-        type="url"
+        type="text"
         :label="__('projects.docs_url')"
         :placeholder="__('projects.placeholder.docs_url')"
         :value="$project->docs_url ?? ''"

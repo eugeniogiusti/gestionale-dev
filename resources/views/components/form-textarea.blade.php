@@ -32,8 +32,9 @@
         ]) }}
         placeholder="{{ $placeholder }}"
         {{ $required ? 'required' : '' }}
-    >{{ old($name, $value) }}</textarea>
-    
+    >{{ html_entity_decode(old($name, $value) ?? '', ENT_QUOTES, 'UTF-8') }}</textarea>
+
+        
     @if($hint)
         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{{ $hint }}</p>
     @endif

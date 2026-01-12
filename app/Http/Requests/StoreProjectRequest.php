@@ -15,21 +15,6 @@ class StoreProjectRequest extends FormRequest
     }
 
     /**
-     * Prepare the data for validation.
-     */
-    protected function prepareForValidation(): void
-    {
-        // Add https:// if missing for URL fields
-        $this->merge([
-            'repo_url' => $this->prependHttps($this->repo_url),
-            'staging_url' => $this->prependHttps($this->staging_url),
-            'production_url' => $this->prependHttps($this->production_url),
-            'figma_url' => $this->prependHttps($this->figma_url),
-            'docs_url' => $this->prependHttps($this->docs_url),
-        ]);
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
@@ -81,19 +66,4 @@ class StoreProjectRequest extends FormRequest
         ];
     }
 
-    /**
-     * Prepend https:// to URL if missing
-     */
-    private function prependHttps(?string $url): ?string
-    {
-        if (empty($url)) {
-            return null;
-        }
-
-        if (!preg_match('/^https?:\/\//i', $url)) {
-            return 'https://' . $url;
-        }
-
-        return $url;
-    }
 }

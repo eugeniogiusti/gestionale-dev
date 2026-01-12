@@ -63,6 +63,13 @@ class ProjectController extends Controller
     {
         $project->update($request->validated());
 
+        // if the request arrives from show, return to show
+        if ($request->input('back') === 'show') {
+            return redirect()->route('projects.show', $project)
+                ->with('success', __('projects.updated_successfully'));
+        }
+
+        // Otherwise, return to index
         return redirect()->route('projects.index')
             ->with('success', __('projects.updated_successfully'));
     }
@@ -89,7 +96,7 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')
             ->with('success', __('projects.restored_successfully'));
     }
-
+    
     /**
      * Permanently delete a project.
      */
@@ -101,4 +108,6 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')
             ->with('success', __('projects.permanently_deleted'));
     }
+
+    
 }

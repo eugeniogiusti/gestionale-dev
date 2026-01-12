@@ -37,12 +37,13 @@ return [
         'client' => 'Cerca cliente...',
         'description' => 'Breve descrizione del progetto...',
         'notes' => 'Note e appunti generali sul progetto...',
-        'repo_url' => 'Es: github.com/username/repo',
-        'staging_url' => 'Es: staging.progetto.com',
-        'production_url' => 'Es: progetto.com',
-        'figma_url' => 'Es: figma.com/file/...',
-        'docs_url' => 'Es: notion.so/...',
+        'repo_url' => 'https://github.com/username/repo',
+        'staging_url' => 'https://staging.myapp.com',
+        'production_url' => 'https://myapp.com',
+        'figma_url' => 'https://figma.com/file/...',
+        'docs_url' => 'https://docs.myapp.com',
     ],
+
     
     // Status options
     'status_draft' => 'Bozza',
@@ -125,4 +126,21 @@ return [
     'open_production' => 'Apri Produzione',
     'open_figma' => 'Apri Figma',
     'open_docs' => 'Apri Documentazione',
+
+    // Show page - Sidebar & Tabs
+    'overview' => 'Panoramica',
+    'quick_info' => 'Info Rapide',
+    'quick_links' => 'Link Rapidi',
+    'created_at' => 'Creato il',
+    'updated_at' => 'Aggiornato il',
+
+    // Empty states
+    'no_description' => 'Nessuna descrizione',
+    'no_notes' => 'Nessuna nota',
+    'no_priority' => 'Nessuna priorità',
+    'no_links' => 'Nessun link configurato',
+    'no_links_configured' => 'Nessun link configurato',
+
+    // Actions
+    'open' => 'Apri',
 ];
