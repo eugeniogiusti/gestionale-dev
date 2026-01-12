@@ -11,47 +11,12 @@
     />
 
     {{-- Internal Project Checkbox + Client Search --}}
-    <div x-data="{
-        isInternal: {{ isset($project) && !$project->client_id ? 'true' : 'false' }},
-        searchQuery: '',
-        searchResults: [],
-        selectedClient: {{ isset($project->client) ? json_encode(['id' => $project->client->id, 'name' => $project->client->name]) : 'null' }},
-        isSearching: false,
-        showDropdown: false,
-        
-        async searchClients() {
-            if (this.searchQuery.length < 2) {
-                this.searchResults = [];
-                this.showDropdown = false;
-                return;
-            }
-            
-            this.isSearching = true;
-            try {
-                const response = await fetch(`{{ route('api.clients.search') }}?q=${encodeURIComponent(this.searchQuery)}`);
-                this.searchResults = await response.json();
-                this.showDropdown = this.searchResults.length > 0;
-            } catch (error) {
-                console.error('Error searching clients:', error);
-            } finally {
-                this.isSearching = false;
-            }
-        },
-        
-        selectClient(client) {
-            this.selectedClient = client;
-            this.searchQuery = client.name;
-            this.showDropdown = false;
-        },
-        
-        clearClient() {
-            this.selectedClient = null;
-            this.searchQuery = '';
-            this.searchResults = [];
-        }
-    }" 
-    x-init="if (selectedClient) { searchQuery = selectedClient.name; }">
-        
+    <div x-data="clientSearch(
+    {{ isset($project->client) ? $project->client->id : 'null' }}, 
+    {{ isset($project->client) ? '\'' . addslashes($project->client->name) . '\'' : 'null' }}
+    )">
+    
+
         {{-- Checkbox Progetto Interno --}}
         <div class="flex items-center mb-4">
             <input 

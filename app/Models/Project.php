@@ -42,26 +42,46 @@ class Project extends Model
         'deleted_at' => 'datetime',
     ];
 
-    /**
+        /**
      * Boot the model.
      */
     protected static function boot()
     {
         parent::boot();
 
-        // Auto-generate slug from name
+        // Auto-generate slug on create
         static::creating(function ($project) {
             if (empty($project->slug)) {
-                $project->slug = Str::slug($project->name);
-                
-                // Ensure unique slug
-                $originalSlug = $project->slug;
-                $count = 1;
-                while (static::where('slug', $project->slug)->exists()) {
-                    $project->slug = $originalSlug . '-' . $count++;
-                }
+                $project->slug = static::generateUniqueSlug($project->name);
             }
         });
+
+        // Update slug if name changes
+        static::updating(function ($project) {
+            if ($project->isDirty('name') && empty($project->slug)) {
+                $project->slug = static::generateUniqueSlug($project->name, $project->id);
+            }
+        });
+    }
+
+    /**
+     * Generate unique slug
+     */
+    protected static function generateUniqueSlug($name, $ignoreId = null)
+    {
+        $slug = Str::slug($name);
+        $originalSlug = $slug;
+        $count = 1;
+        
+        while (static::where('slug', $slug)
+            ->when($ignoreId, fn($q) => $q->where('id', '!=', $ignoreId))
+            ->withTrashed()
+            ->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+        
+        return $slug;
     }
 
     /**
