@@ -21,8 +21,8 @@ class DisableTwoFactorRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'password.required' => 'La password è obbligatoria.',
-            'password.current_password' => 'La password non è corretta.',
+            'password.required' => __('two_factor.password_required'),
+            'password.current_password' => __('two_factor.password_incorrect'),
         ];
     }
 }

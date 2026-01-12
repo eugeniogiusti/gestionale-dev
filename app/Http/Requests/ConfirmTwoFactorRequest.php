@@ -21,8 +21,8 @@ class ConfirmTwoFactorRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'one_time_password.required' => 'Il codice è obbligatorio.',
-            'one_time_password.size' => 'Il codice deve essere di 6 cifre.',
+            'one_time_password.required' => __('two_factor.code_required'),
+            'one_time_password.size' => __('two_factor.code_must_be_6_digits'),
         ];
     }
 }

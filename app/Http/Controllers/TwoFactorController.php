@@ -44,13 +44,13 @@ class TwoFactorController extends Controller
 
         if (!$secret) {
             return back()->withErrors([
-                'one_time_password' => 'Nessun setup 2FA in corso.',
+                'one_time_password' => __('two_factor.no_setup_in_progress'),
             ]);
         }
 
         if (!$this->twoFactorService->verifyCode($secret, $request->input('one_time_password'))) {
             return back()->withErrors([
-                'one_time_password' => 'Codice non valido.',
+                'one_time_password' => __('two_factor.invalid_code'),
             ])->withInput();
         }
 
@@ -107,7 +107,7 @@ class TwoFactorController extends Controller
 
         if (!$this->twoFactorService->verifyCodeOrRecovery($user, $code)) {
             return back()->withErrors([
-                'one_time_password' => 'Codice non valido o scaduto.'
+                'one_time_password' => __('two_factor.invalid_or_expired'),
             ]);
         }
 

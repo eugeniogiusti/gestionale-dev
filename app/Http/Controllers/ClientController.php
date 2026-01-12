@@ -15,8 +15,6 @@ class ClientController extends Controller
      * 
      * Retrieves paginated clients with applied filters and calculates
      * aggregated statistics for index page cards.
-     *
-     * @return \Illuminate\View\View
      */
     public function index()
     {

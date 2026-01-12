@@ -16,8 +16,6 @@ class ProjectController extends Controller
      * 
      * Retrieves paginated projects with applied filters and calculates
      * aggregated statistics for index page cards.
-     *
-     * @return \Illuminate\View\View
      */
     public function index()
     {
