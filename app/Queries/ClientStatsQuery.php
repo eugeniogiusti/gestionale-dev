@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class ClientStatsQuery
 {
     /**
-     * Get all client statistics
+     * Get all client statistics for index cards
      */
     public function handle(): array
     {

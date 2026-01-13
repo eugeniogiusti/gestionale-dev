@@ -4,6 +4,9 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Api\ClientSearchController;
+use App\Http\Controllers\Api\ProjectSearchController;
+use App\Http\Controllers\BusinessSettingsController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
@@ -101,7 +104,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // PROJECTS MODULE
     // ==========================================
 
-    // Resource routes
+    // Resource routes for projects (index, create, store, show, edit, update, destroy)
     Route::resource('projects', ProjectController::class);
 
     // Restore and force delete
@@ -119,6 +122,17 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Search projects (navbar global search)
     Route::get('/api/search/projects', \App\Http\Controllers\Api\ProjectSearchController::class)
         ->name('api.search.projects');
+
+    // ==========================================
+    // BUSINESS SETTINGS MODULE
+    // ==========================================
+
+    // Business Settings Routes
+    Route::prefix('settings')->middleware(['auth', 'verified', '2fa'])->group(function () {
+    Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
+    Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
+    Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
+    });
 
 
         

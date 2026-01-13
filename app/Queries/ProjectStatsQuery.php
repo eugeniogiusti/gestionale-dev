@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class ProjectStatsQuery
 {
     /**
-     * Get all project statistics
+     * Get all project statistics for index cards
      */
     public function handle(): array
     {

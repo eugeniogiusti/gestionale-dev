@@ -42,7 +42,7 @@
                 x-transition
                 class="absolute z-50 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-xl max-h-96 overflow-auto"
             >
-                @include('layouts.partials._project-search-results')
+                @include('layouts.navigation._project-search-results')
             </div>
         </div>
     </div>
