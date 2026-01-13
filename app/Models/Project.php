@@ -22,6 +22,7 @@ class Project extends Model
         'slug',
         'description',
         'status',
+        'type',
         'priority',
         'repo_url',
         'staging_url',
@@ -29,6 +30,8 @@ class Project extends Model
         'figma_url',
         'docs_url',
         'notes',
+        'start_date',
+        'due_date',
     ];
 
     /**
@@ -40,6 +43,8 @@ class Project extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
+        'start_date' => 'date',
+        'due_date' => 'date',
     ];
 
         /**
@@ -53,13 +58,6 @@ class Project extends Model
         static::creating(function ($project) {
             if (empty($project->slug)) {
                 $project->slug = static::generateUniqueSlug($project->name);
-            }
-        });
-
-        // Update slug if name changes
-        static::updating(function ($project) {
-            if ($project->isDirty('name') && empty($project->slug)) {
-                $project->slug = static::generateUniqueSlug($project->name, $project->id);
             }
         });
     }

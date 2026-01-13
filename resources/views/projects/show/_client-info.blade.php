@@ -9,27 +9,10 @@
     </div>
     
     @if($project->client)
-        <div class="space-y-3">
-            {{-- Nome Cliente --}}
-            <p class="font-medium text-gray-900 dark:text-white">
-                {{ $project->client->name }}
-            </p>
-            
-            {{-- P.IVA --}}
-            <x-vat-display :vat="$project->client->vat_number" />
-            
-            {{-- Email con icona --}}
-            <x-email-link :email="$project->client->email" />
-            
-            {{-- WhatsApp con icona --}}
-            <x-whatsapp-link 
-                :phone="$project->client->phone" 
-                :prefix="$project->client->phone_prefix" 
-            />
-        </div>
-    @else
-        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">
-            🏢 {{ __('projects.internal_project') }}
-        </span>
-    @endif
+    <x-client-summary :client="$project->client" />
+@else
+    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">
+        🏢 {{ __('projects.internal_project') }}
+    </span>
+@endif
 </div>

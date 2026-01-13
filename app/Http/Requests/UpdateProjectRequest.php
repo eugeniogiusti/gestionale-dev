@@ -25,6 +25,15 @@ class UpdateProjectRequest extends FormRequest
             // Required fields
             'name' => 'required|string|max:255',
             'status' => 'required|in:draft,in_progress,completed,archived',
+
+            // Project type (macro category)
+            'type' => 'required|in:client_work,product,content,asset',
+
+            // Optional project start date (informational / target)
+            'start_date' => 'nullable|date',
+
+            // Optional target due date
+            'due_date' => 'nullable|date|after_or_equal:start_date',
             
             // Optional client (nullable for internal projects)
             'client_id' => 'nullable|exists:clients,id',

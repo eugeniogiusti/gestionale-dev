@@ -19,8 +19,13 @@
       if (useDark) document.documentElement.classList.add('dark');
     </script>
 
+  <!-- Alpine.js (no flash) -->
+<style>
+  [x-cloak]{display:none!important;}
+</style>
+
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/theme.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 

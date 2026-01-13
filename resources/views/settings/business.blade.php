@@ -116,10 +116,7 @@
                 {{-- Actions (sempre visibili sotto i tab) --}}
                 <div class="border-t border-gray-200 dark:border-gray-700 px-6 py-4 bg-gray-50 dark:bg-gray-900/50">
                     <div class="flex justify-end gap-3">
-                        <a href="{{ route('profile.edit') }}" 
-                           class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                            {{ __('business_settings.cancel') }}
-                        </a>
+                        
                         <button type="submit"
                                 class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
                             {{ __('business_settings.save') }}

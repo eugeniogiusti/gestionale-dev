@@ -1,4 +1,4 @@
-// Imposta il tema corretto prima del rendering (evita flash)
+// Set the correct theme before rendering (avoids flash)
 if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -8,7 +8,7 @@ if (
     document.documentElement.classList.remove('dark');
 }
 
-// Espone una funzione globale per togglare il tema
+// Expose the toggleTheme function to the global scope
 window.toggleTheme = function () {
     if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');

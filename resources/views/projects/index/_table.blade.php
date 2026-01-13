@@ -35,102 +35,39 @@
                             <div class="text-sm font-medium text-gray-900 dark:text-white">
                                 {{ $project->name }}
                             </div>
-                        </td>
+                                {{-- Project Type Badge --}}
+                            <div class="mt-1">
+                                <x-project-type-badge :type="$project->type" />
+                            </div>
+                        
+
+                            {{-- Due date (only if exists) --}}
+                            @if($project->due_date)
+                                <div class="mt-1">
+                                    <x-project-due-date :date="$project->due_date" />
+                                </div>
+                            @endif
+                                </td>
                         
                                 {{-- Client --}}
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if($project->client)
-                                        <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                            {{ $project->client->name }}
-                                        </div>
-                                        @if($project->client->vat_number)
-                                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                                {{ $project->client->vat_number }}
-                                            </div>
-                                        @endif
-                                    @else
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                                            {{ __('projects.internal_project') }}
-                                        </span>
-                                    @endif
-                                </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <x-project-client-badge :client="$project->client" />
+                            </td>
 
-                        {{-- Status --}}
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            @php
-                                $statusColors = [
-                                    'draft' => 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
-                                    'in_progress' => 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
-                                    'completed' => 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
-                                    'archived' => 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
-                                ];
-                            @endphp
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $statusColors[$project->status] ?? '' }}">
-                                {{ __('projects.status_' . $project->status) }}
-                            </span>
-                        </td>
+                            {{-- Status --}}
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <x-project-status-badge :status="$project->status" />
+                            </td>
 
-                        {{-- Priority --}}
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            @if($project->priority)
-                                @php
-                                    $priorityColors = [
-                                        'low' => 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
-                                        'medium' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300',
-                                        'high' => 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300',
-                                    ];
-                                @endphp
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $priorityColors[$project->priority] ?? '' }}">
-                                    {{ __('projects.priority_' . $project->priority) }}
-                                </span>
-                            @else
-                                <span class="text-gray-400 dark:text-gray-600">-</span>
-                            @endif
-                        </td>
+                            {{-- Priority --}}
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <x-project-priority-badge :priority="$project->priority" />
+                            </td>
 
                         {{-- Quick Links --}}
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex space-x-2">
-                                @if($project->repo_url)
-                                    <a href="{{ $project->repo_url }}" target="_blank" 
-                                       class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                       title="{{ __('projects.open_repo') }}">
-                                        🔗
-                                    </a>
-                                @endif
-                                @if($project->staging_url)
-                                    <a href="{{ $project->staging_url }}" target="_blank" 
-                                       class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                       title="{{ __('projects.open_staging') }}">
-                                        🌐
-                                    </a>
-                                @endif
-                                @if($project->production_url)
-                                    <a href="{{ $project->production_url }}" target="_blank" 
-                                       class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                       title="{{ __('projects.open_production') }}">
-                                        ✅
-                                    </a>
-                                @endif
-                                @if($project->figma_url)
-                                    <a href="{{ $project->figma_url }}" target="_blank" 
-                                       class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                       title="{{ __('projects.open_figma') }}">
-                                        📐
-                                    </a>
-                                @endif
-                                @if($project->docs_url)
-                                    <a href="{{ $project->docs_url }}" target="_blank" 
-                                       class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                       title="{{ __('projects.open_docs') }}">
-                                        📚
-                                    </a>
-                                @endif
-                                @if(!$project->repo_url && !$project->staging_url && !$project->production_url && !$project->figma_url && !$project->docs_url)
-                                    <span class="text-gray-400 dark:text-gray-600">-</span>
-                                @endif
-                            </div>
-                        </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <x-project-links :project="$project" />
+                    </td>
 
                         {{-- Created At --}}
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">

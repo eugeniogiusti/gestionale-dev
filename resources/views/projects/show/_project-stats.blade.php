@@ -26,5 +26,14 @@
                 {{ $project->updated_at->diffForHumans() }}
             </dd>
         </div>
+
+        <div>
+            <dt class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                {{ __('projects.due_date') }}
+            </dt>
+            <dd class="mt-1">
+                <x-project-due-date :date="$project->due_date" />
+            </dd>
+        </div>
     </dl>
 </div>

@@ -27,6 +27,22 @@ return [
     'production_url' => 'Produzione',
     'figma_url' => 'Figma',
     'docs_url' => 'Documentazione',
+
+    // Project type
+    'type' => 'Tipo Progetto',
+    'type_client_work' => 'Lavoro per cliente',
+    'type_product' => 'Prodotto',
+    'type_content' => 'Contenuto',
+    'type_asset' => 'Asset (template/plugin)',
+
+    // Dates
+    'start_date' => 'Data inizio',
+    'due_date' => 'Scadenza',
+
+    // Due date labels
+
+    'due_soon' => 'In scadenza',
+    'overdue' => 'Scaduto',
     
     // Form labels - Tab 3: Notes
     'notes' => 'Note',

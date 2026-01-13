@@ -2,24 +2,15 @@
 
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm">
     <form method="POST" action="{{ $action }}" 
-          x-data="{ 
-              activeTab: 'info',
-              errors: {{ json_encode($errors->messages()) }},
-              hasErrors(tab) {
-                  const tabFields = {
-                      'info': ['name', 'client_id', 'description', 'status', 'priority'],
-                      'links': ['repo_url', 'staging_url', 'production_url', 'figma_url', 'docs_url'],
-                      'notes': ['notes']
-                  };
-                  return tabFields[tab]?.some(field => this.errors[field]);
-              }
-          }">
+          x-data="projectForm"
+          data-errors="{{ json_encode($errors->messages()) }}">
+        
         @csrf
         @if($method !== 'POST')
             @method($method)
         @endif
 
-        {{-- Campo hidden per redirect intelligente (solo edit) --}}
+        {{-- Hidden input for intelligent redirect (only edit) --}}
         @if(isset($project) && request('back') === 'show')
             <input type="hidden" name="back" value="show">
         @endif
@@ -28,8 +19,10 @@
         @include('projects.forms._tabs-nav')
 
         {{-- Tab Content --}}
-        <div class="p-6">
-            @include('projects.forms._fields', ['project' => $project])
+            <div class="p-6">
+            @include('projects.forms.tabs._info', ['project' => $project])
+            @include('projects.forms.tabs._links', ['project' => $project])
+            @include('projects.forms.tabs._notes', ['project' => $project])
         </div>
 
         {{-- Form Actions --}}

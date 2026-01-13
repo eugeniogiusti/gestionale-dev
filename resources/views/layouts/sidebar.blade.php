@@ -18,7 +18,11 @@
         @include('layouts.sidebar._nav-main')
         
         {{-- Divider --}}
-        <div class="my-3 border-t border-gray-200 dark:border-gray-600" x-show="!collapsed"></div>
+        <div
+        class="my-3 border-t border-gray-200 dark:border-gray-600"
+        x-show="!collapsed"
+        x-cloak
+        ></div>
         
         {{-- Settings Navigation --}}
         @include('layouts.sidebar._nav-settings')
