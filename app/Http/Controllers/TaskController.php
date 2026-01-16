@@ -7,18 +7,23 @@ use App\Models\Task;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Queries\TaskIndexQuery;
+use App\Queries\TaskStatsQuery;
 
 class TaskController extends Controller
 {
+    
     /**
-     * Display a listing of tasks (global index with filters)
+     * Retrieves paginated Task with applied filters and calculates
+     * aggregated statistics for index page cards.
      */
-    public function index(TaskIndexQuery $query)
+    public function index(TaskIndexQuery $indexQuery, TaskStatsQuery $statsQuery)
     {
-        $tasks = $query->handle();
+        $tasks = $indexQuery->handle();
+        $stats = $statsQuery->handle();
         
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks', 'stats'));
     }
+
 
     /**
      * Store a new task (from project show page)

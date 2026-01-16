@@ -7,6 +7,7 @@ return [
     'clients_list' => 'Clients List',
     'create_client' => 'New Client',
     'edit_client' => 'Edit Client',
+    'all_statuses' => 'All Statuses',
     'client_details' => 'Client Details',
 
     // Actions
@@ -16,19 +17,19 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'restore' => 'Restore',
-    'force_delete' => 'Permanently Delete',
+    'force_delete' => 'Delete Permanently',
     'search' => 'Search',
     'filter' => 'Filter',
     'reset' => 'Reset',
 
     // Form labels
-    'name' => 'Name / Company Name',
+    'name' => 'Company Name',
     'email' => 'Email',
     'status' => 'Status',
     'vat_number' => 'VAT Number',
     'phone_prefix' => 'Prefix',
     'phone' => 'Phone',
-    'pec' => 'PEC',
+    'pec' => 'Certified Email (PEC)',
     'website' => 'Website',
     'linkedin' => 'LinkedIn',
     'notes' => 'Notes',
@@ -38,7 +39,7 @@ return [
     'billing_address' => 'Address',
     'billing_city' => 'City',
     'billing_zip' => 'ZIP Code',
-    'billing_province' => 'State/Province',
+    'billing_province' => 'Province',
     'billing_country' => 'Country',
     'billing_recipient_code' => 'Recipient Code',
 
@@ -60,16 +61,16 @@ return [
 
     // Validation messages
     'validation' => [
-        'name_required' => 'The name is required',
-        'email_required' => 'The email is required',
-        'email_invalid' => 'The email is not valid',
+        'name_required' => 'Company name is required',
+        'email_required' => 'Email is required',
+        'email_invalid' => 'Email is not valid',
         'email_unique' => 'This email is already in use',
-        'status_required' => 'The status is required',
-        'status_invalid' => 'The selected status is not valid',
-        'country_code_invalid' => 'The country code must be 2 characters (e.g., IT, US)',
-        'recipient_code_invalid' => 'The recipient code must be 7 characters',
-        'website_invalid' => 'The website URL is not valid',
-        'linkedin_invalid' => 'The LinkedIn URL is not valid',
+        'status_required' => 'Status is required',
+        'status_invalid' => 'Selected status is not valid',
+        'country_code_invalid' => 'Country code must be 2 characters (e.g., IT, US)',
+        'recipient_code_invalid' => 'Recipient code must be 7 characters',
+        'website_invalid' => 'Website URL is not valid',
+        'linkedin_invalid' => 'LinkedIn URL is not valid',
     ],
 
     // Table headers
@@ -78,7 +79,7 @@ return [
         'email' => 'Email',
         'status' => 'Status',
         'phone' => 'Phone',
-        'created_at' => 'Created',
+        'created_at' => 'Created At',
         'actions' => 'Actions',
     ],
 
@@ -93,20 +94,20 @@ return [
 
     // Placeholders
     'placeholder' => [
-        'name' => 'e.g., Acme Inc.',
-        'email' => 'e.g., info@acme.com',
-        'vat_number' => 'e.g., GB123456789',
-        'phone' => 'e.g., +1 555 123 4567',
-        'pec' => 'e.g., acme@pec.com',
-        'website' => 'e.g., https://www.acme.com',
-        'linkedin' => 'e.g., https://www.linkedin.com/company/acme',
-        'billing_address' => 'e.g., 123 Main St',
-        'billing_city' => 'e.g., New York',
-        'billing_zip' => 'e.g., 10001',
-        'billing_province' => 'e.g., NY',
-        'billing_country' => 'e.g., US',
-        'billing_recipient_code' => 'e.g., ABCDEFG',
-        'search' => 'Search by name or email...',
+        'name' => 'E.g.: Acme Ltd.',
+        'email' => 'E.g.: info@acme.it',
+        'vat_number' => 'E.g.: IT12345678901',
+        'phone' => 'E.g.: 333 1234567',
+        'pec' => 'E.g.: acme@pec.it',
+        'website' => 'E.g.: https://www.acme.it',
+        'linkedin' => 'E.g.: https://www.linkedin.com/company/acme',
+        'billing_address' => 'E.g.: 10 Via Roma',
+        'billing_city' => 'E.g.: Milan',
+        'billing_zip' => 'E.g.: 20100',
+        'billing_province' => 'E.g.: MI',
+        'billing_country' => 'E.g.: IT',
+        'billing_recipient_code' => 'E.g.: ABCDEFG',
+        'search' => 'Search by name, email, or VAT...',
         'notes' => 'Add notes...',
     ],
 
@@ -114,6 +115,33 @@ return [
     'hint' => [
         'billing_country' => '2-character ISO code (IT, US, FR, etc.)',
         'billing_recipient_code' => 'Unique code for electronic invoicing (7 characters)',
-        'billing_province' => 'State/Province code (e.g., NY, CA, TX)',
+        'billing_province' => 'Province abbreviation (e.g., RM, MI, NA)',
+    ],
+
+    // Empty states for details
+    'no_contact_info' => 'No contact information available',
+    'no_billing_info' => 'No billing information available',
+    'no_web_social' => 'No web or social links available',
+
+    // Actions for client details
+    'view_profile' => 'View Profile',
+    'view_page' => 'View Page',
+    'send_email' => 'Send Email',
+
+    // Additional fields (only those you use)
+    'address' => 'Address',
+    'fiscal_code' => 'Tax Code',
+    'sdi_code' => 'SDI Code',
+    'company' => 'Company',
+
+    // Stats Cards
+    'stats' => [
+        'total' => 'Total Clients',
+        'lead' => 'Leads',
+        'active' => 'Active',
+        'archived' => 'Archived',
+        'this_month' => 'this month',
+        'of_total' => 'of total',
+        'converted' => 'converted',
     ],
 ];

@@ -71,4 +71,16 @@ return [
         'description' => 'Descrizione dettagliata del task...',
         'search' => 'Cerca task...',
     ],
+
+    // Index Statistics
+        'stats' => [
+        'todo' => 'Da Fare',
+        'backlog' => 'Backlog',
+        'in_progress' => 'In Corso',
+        'working_on' => 'In lavorazione',
+        'blocked' => 'Bloccate',
+        'need_attention' => 'Richiedono attenzione',
+        'bugs_open' => 'Bug Aperti',
+        'to_fix' => 'Da fixare',
+    ],
 ];

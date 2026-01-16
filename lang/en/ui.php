@@ -9,4 +9,8 @@ return [
     'close'  => 'Close',
     'confirm'=> 'Confirm',
     'theme'  => 'Theme',
+    'filter' => 'Filter',      
+    'reset'  => 'Reset',   
+    'actions'=> 'Actions',    
+    'none'   => 'None', 
 ];
