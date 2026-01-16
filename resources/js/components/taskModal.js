@@ -1,0 +1,52 @@
+export default function taskModal() {
+    return {
+        open: false,
+        isEdit: false,
+        taskId: null,
+        formData: {
+            title: '',
+            description: '',
+            type: 'feature',
+            status: 'todo',
+            priority: '',
+            due_date: ''
+        },
+        
+        resetForm() {
+            this.formData = {
+                title: '',
+                description: '',
+                type: 'feature',
+                status: 'todo',
+                priority: '',
+                due_date: ''
+            };
+            this.isEdit = false;
+            this.taskId = null;
+        },
+        
+        openCreate() {
+            this.resetForm();
+            this.open = true;
+        },
+        
+        openEdit(taskData) {
+            this.isEdit = true;
+            this.taskId = taskData.id;
+            this.formData = {
+                title: taskData.title,
+                description: taskData.description || '',
+                type: taskData.type,
+                status: taskData.status,
+                priority: taskData.priority || '',
+                due_date: taskData.due_date || ''
+            };
+            this.open = true;
+        },
+        
+        closeModal() {
+            this.open = false;
+            this.resetForm();
+        }
+    }
+}

@@ -11,8 +11,6 @@ use App\Queries\ClientStatsQuery;
 class ClientController extends Controller
 {
         /**
-     * Display a listing of the resource.
-     * 
      * Retrieves paginated clients with applied filters and calculates
      * aggregated statistics for index page cards.
      */

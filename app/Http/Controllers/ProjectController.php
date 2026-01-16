@@ -12,8 +12,6 @@ use App\Queries\ProjectStatsQuery;
 class ProjectController extends Controller
 {
         /**
-     * Display a listing of the resource.
-     * 
      * Retrieves paginated projects with applied filters and calculates
      * aggregated statistics for index page cards.
      */
@@ -53,6 +51,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $project->load('client');
+        $project->load('tasks');
         
         return view('projects.show', compact('project'));
     }

@@ -64,6 +64,11 @@ class Task extends Model
         return $this->belongsTo(Project::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class)->orderBy('order');
+    }
+
     /* -----------------------------------------------------------------
      |  SCOPES (filters for queries)
      |-----------------------------------------------------------------*/
@@ -115,4 +120,6 @@ class Task extends Model
             && $this->due_date->isPast()
             && $this->status !== 'done';
     }
+
+
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Api\ClientSearchController;
 use App\Http\Controllers\Api\ProjectSearchController;
 use App\Http\Controllers\BusinessSettingsController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
@@ -132,6 +133,27 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
     Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
     Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
+    });
+    
+    // ==========================================
+    // TASKS MODULE
+    // ==========================================
+
+    // Task routes
+    Route::prefix('tasks')->name('tasks.')->group(function () {
+    // Global task index with filters (accessible from sidebar/main menu)
+    Route::get('/', [TaskController::class, 'index'])->name('index');
+    });
+
+    Route::prefix('projects/{project}/tasks')->name('tasks.')->group(function () {
+    // Create task within project context
+    Route::post('/', [TaskController::class, 'store'])->name('store');
+    
+    // Update existing task
+    Route::put('/{task}', [TaskController::class, 'update'])->name('update');
+    
+    // Delete task (soft delete if implemented, otherwise hard delete)
+    Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
     });
 
 

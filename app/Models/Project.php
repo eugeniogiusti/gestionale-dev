@@ -89,6 +89,15 @@ class Project extends Model
     {
         return $this->belongsTo(Client::class);
     }
+    
+    /**
+     * Relationship: Project has many Tasks
+     */
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class)->orderBy('order')->orderBy('created_at', 'desc');
+    }
 
     /**
      * Check if project is internal (no client)
