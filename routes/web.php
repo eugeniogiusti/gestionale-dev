@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TwoFactorController;
+use App\Http\Controllers\TwoFactorSetupController;
+use App\Http\Controllers\TwoFactorChallengeController;
+use App\Http\Controllers\TrustedDeviceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Api\ClientSearchController;
 use App\Http\Controllers\Api\ProjectSearchController;
@@ -16,39 +18,14 @@ Route::get('/', function () {
 });
 
 // ==========================================
-// Routes for 2FA management
-// Only 'auth', NO middleware '2fa'
+// TWO-FACTOR CHALLENGE (Login Flow)
+// Only 'auth', NO middleware '2fa' (avoid loop)
 // ==========================================
 Route::middleware('auth')->group(function () {
-    Route::post('/two-factor/enable', [TwoFactorController::class, 'enable'])
-        ->name('two-factor.enable');
-    
-    Route::post('/two-factor/confirm', [TwoFactorController::class, 'confirm'])
-        ->name('two-factor.confirm');
-    
-    Route::post('/two-factor/disable', [TwoFactorController::class, 'disable'])
-        ->name('two-factor.disable');
-    
-    // Management trusted devices
-    Route::get('/profile/trusted-devices', [TwoFactorController::class, 'listDevices'])
-        ->name('profile.trusted-devices');
-    
-    Route::delete('/profile/trusted-devices/{device}', [TwoFactorController::class, 'revokeDevice'])
-        ->name('profile.trusted-devices.revoke');
-    
-    Route::delete('/profile/trusted-devices', [TwoFactorController::class, 'revokeAllDevices'])
-        ->name('profile.trusted-devices.revoke-all');
-});
-
-// ==========================================
-// Routes for 2FA challenge
-// Only 'auth', NO middleware '2fa' (this avoid loop)
-// ==========================================
-Route::middleware('auth')->group(function () {
-    Route::get('/two-factor/challenge', [TwoFactorController::class, 'show'])
+    Route::get('/two-factor/challenge', [TwoFactorChallengeController::class, 'show'])
         ->name('2fa.show');
     
-    Route::post('/two-factor/challenge', [TwoFactorController::class, 'verify'])
+    Route::post('/two-factor/challenge', [TwoFactorChallengeController::class, 'verify'])
         ->name('2fa.verify');
 });
 
@@ -67,22 +44,40 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // ==========================================
+    // TWO-FACTOR SETUP (Profile Settings)
+    // ==========================================
+    Route::prefix('two-factor')->name('two-factor.')->group(function () {
+        Route::post('/enable', [TwoFactorSetupController::class, 'enable'])->name('enable');
+        Route::post('/confirm', [TwoFactorSetupController::class, 'confirm'])->name('confirm');
+        Route::delete('/disable', [TwoFactorSetupController::class, 'disable'])->name('disable');
+    });
+
+    // ==========================================
+    // TRUSTED DEVICES MANAGEMENT
+    // ==========================================
+    Route::prefix('profile/trusted-devices')->name('profile.trusted-devices.')->group(function () {
+        Route::get('/', [TrustedDeviceController::class, 'index'])->name('index');
+        Route::delete('/{deviceId}', [TrustedDeviceController::class, 'revoke'])->name('revoke');
+        Route::delete('/', [TrustedDeviceController::class, 'revokeAll'])->name('revoke-all');
+    });
+
     // Change locale
     Route::get('/locale/{locale}', function (string $locale) {
-    $allowed = ['it', 'en'];
-    if (!in_array($locale, $allowed, true)) {
-        $locale = config('app.locale');
-    }
-    
-    // Save the session
-    session(['locale' => $locale]);
-    
-    // if user logged, save on DB as well
-    if (auth()->check()) {
-        auth()->user()->update(['preferred_locale' => $locale]);
-    }
-    
-    return back();
+        $allowed = ['it', 'en'];
+        if (!in_array($locale, $allowed, true)) {
+            $locale = config('app.locale');
+        }
+        
+        // Save the session
+        session(['locale' => $locale]);
+        
+        // if user logged, save on DB as well
+        if (auth()->check()) {
+            auth()->user()->update(['preferred_locale' => $locale]);
+        }
+        
+        return back();
     })->name('locale.switch');
 
     // ==========================================
@@ -129,10 +124,10 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
 
     // Business Settings Routes
-    Route::prefix('settings')->middleware(['auth', 'verified', '2fa'])->group(function () {
-    Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
-    Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
-    Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
+    Route::prefix('settings')->group(function () {
+        Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
+        Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
+        Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
     });
     
     // ==========================================
@@ -141,23 +136,20 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
     // Task routes
     Route::prefix('tasks')->name('tasks.')->group(function () {
-    // Global task index with filters (accessible from sidebar/main menu)
-    Route::get('/', [TaskController::class, 'index'])->name('index');
+        // Global task index with filters (accessible from sidebar/main menu)
+        Route::get('/', [TaskController::class, 'index'])->name('index');
     });
 
     Route::prefix('projects/{project}/tasks')->name('tasks.')->group(function () {
-    // Create task within project context
-    Route::post('/', [TaskController::class, 'store'])->name('store');
-    
-    // Update existing task
-    Route::put('/{task}', [TaskController::class, 'update'])->name('update');
-    
-    // Delete task (soft delete if implemented, otherwise hard delete)
-    Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
-    });
-
-
+        // Create task within project context
+        Route::post('/', [TaskController::class, 'store'])->name('store');
         
+        // Update existing task
+        Route::put('/{task}', [TaskController::class, 'update'])->name('update');
+        
+        // Delete task (soft delete if implemented, otherwise hard delete)
+        Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
+    });
 
 }); 
 

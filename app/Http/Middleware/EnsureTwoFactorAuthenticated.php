@@ -4,11 +4,15 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\Models\TrustedDevice;
+use App\Services\TrustedDeviceService;
 use Symfony\Component\HttpFoundation\Response;
 
 class EnsureTwoFactorAuthenticated
 {
+    public function __construct(
+        private TrustedDeviceService $trustedDeviceService
+    ) {}
+
     public function handle(Request $request, Closure $next): Response
     {
         $user = auth()->user();
@@ -23,8 +27,8 @@ class EnsureTwoFactorAuthenticated
             return $next($request);
         }
 
-        // Generate device hash
-        $deviceHash = TrustedDevice::generateDeviceHash($request);
+        // Generate device hash via service
+        $deviceHash = $this->trustedDeviceService->generateDeviceHash($request);
 
         // if device is trusted, pass through
         if ($user->hasValidTrustedDevice($deviceHash)) {
