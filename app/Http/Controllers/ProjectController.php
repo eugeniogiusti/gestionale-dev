@@ -52,6 +52,7 @@ class ProjectController extends Controller
     {
         $project->load('client');
         $project->load('tasks');
+        $project->load('meetings');
         
         return view('projects.show', compact('project'));
     }

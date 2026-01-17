@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ClientSearchController;
 use App\Http\Controllers\Api\ProjectSearchController;
 use App\Http\Controllers\BusinessSettingsController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\MeetingController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
@@ -150,6 +151,26 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         
         // Delete task (soft delete if implemented, otherwise hard delete)
         Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
+    });
+
+    // ==========================================
+    // MEETINGS MODULE
+    // ==========================================
+
+    // Global meetings index (stats + list)
+    Route::prefix('meetings')->name('meetings.')->group(function () {
+        Route::get('/', [MeetingController::class, 'index'])->name('index');
+    });
+
+    // Meeting CRUD in project context
+    Route::prefix('projects/{project}/meetings')->name('meetings.')->group(function () {
+        Route::post('/', [MeetingController::class, 'store'])->name('store');
+        Route::put('/{meeting}', [MeetingController::class, 'update'])->name('update');
+        Route::delete('/{meeting}', [MeetingController::class, 'destroy'])->name('destroy');
+        
+        // Actions
+        Route::post('/{meeting}/complete', [MeetingController::class, 'markCompleted'])->name('complete');
+        Route::post('/{meeting}/cancel', [MeetingController::class, 'markCancelled'])->name('cancel');
     });
 
 }); 

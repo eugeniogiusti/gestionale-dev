@@ -53,7 +53,22 @@
    :title="collapsed ? '{{ __('tasks.title') }}' : ''"
 >
     <svg class="w-5 h-5" :class="collapsed ? '' : 'mr-3'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <!-- Icona checklist/task con checkmark -->
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-</svg>
-<span x-show="!collapsed">{{ __('tasks.title') }}</span>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+    </svg>
+    <span x-show="!collapsed">{{ __('tasks.title') }}</span>
+</a>
+
+{{-- Meetings --}}
+<a href="{{ route('meetings.index') }}"
+   class="flex items-center px-3 py-2 rounded-md text-sm font-medium
+          text-gray-700 dark:text-gray-300
+          hover:bg-gray-100 dark:hover:bg-gray-700
+          {{ request()->routeIs('meetings.*') ? 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white' : '' }}
+          transition"
+   :title="collapsed ? '{{ __('meetings.title') }}' : ''"
+>
+    <svg class="w-5 h-5" :class="collapsed ? '' : 'mr-3'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+    <span x-show="!collapsed">{{ __('meetings.title') }}</span>
+</a>

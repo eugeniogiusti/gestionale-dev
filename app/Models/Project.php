@@ -99,6 +99,14 @@ class Project extends Model
         return $this->hasMany(Task::class)->orderBy('order')->orderBy('created_at', 'desc');
     }
 
+     /**
+     * Relationship: Project has many Meetings
+     */
+    public function meetings()
+    {
+        return $this->hasMany(Meeting::class)->orderBy('scheduled_at', 'desc');
+    }
+
     /**
      * Check if project is internal (no client)
      */

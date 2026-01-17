@@ -7,6 +7,7 @@ import clientSearch from './components/clientSearch'
 import ClientForm from './components/ClientForm';
 import ProjectForm from './components/ProjectForm';
 import taskModal from './components/taskModal';
+import meetingModal from './components/meetingModal'; 
 
 
 window.Alpine = Alpine
@@ -19,6 +20,7 @@ Alpine.data('projectSearch', projectSearch);
 Alpine.data('clientSearch', clientSearch)
 Alpine.data('clientForm', ClientForm);
 Alpine.data('projectForm', ProjectForm);
-Alpine.data('taskModal', taskModal)
+Alpine.data('taskModal', taskModal);
+window.meetingModal = meetingModal;
 
 Alpine.start()
