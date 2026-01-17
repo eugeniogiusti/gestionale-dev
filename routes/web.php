@@ -50,6 +50,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::prefix('two-factor')->name('two-factor.')->group(function () {
         Route::post('/enable', [TwoFactorSetupController::class, 'enable'])->name('enable');
         Route::post('/confirm', [TwoFactorSetupController::class, 'confirm'])->name('confirm');
+        Route::post('/cancel', [TwoFactorSetupController::class, 'cancel'])->name('cancel'); 
         Route::delete('/disable', [TwoFactorSetupController::class, 'disable'])->name('disable');
     });
 

@@ -33,7 +33,7 @@ class TwoFactorSetupController extends Controller
     /**
      * Confirm 2FA with OTP code
      */
-        public function confirm(ConfirmTwoFactorRequest $request)
+    public function confirm(ConfirmTwoFactorRequest $request)
     {
         $user = $request->user();
         $secret = $request->session()->get('2fa_secret');
@@ -56,25 +56,27 @@ class TwoFactorSetupController extends Controller
         $request->session()->forget('2fa_secret');
         $request->session()->put('recovery_codes', $recoveryCodes);
         $request->session()->put('status', 'two-factor-enabled');
-        
-        
         $request->session()->put('2fa_verified_' . $user->id, true);
 
         return back()->withFragment('two-factor');
     }
 
     /**
-     * Disable 2FA
+     * Cancel 2FA setup (no password required)
      */
-        public function disable(DisableTwoFactorRequest $request)
+    public function cancel(Request $request)
+    {
+        $request->session()->forget('2fa_secret');
+        
+        return back()->withFragment('two-factor')->with('status', 'two-factor-setup-cancelled');
+    }
+
+    /**
+     * Disable 2FA (password required)
+     */
+    public function disable(DisableTwoFactorRequest $request)
     {
         $user = $request->user();
-
-        // Cancel setup if in progress
-        if (session('2fa_secret') && !$user->two_factor_confirmed_at) {
-            $request->session()->forget('2fa_secret');
-            return back()->withFragment('two-factor')->with('status', 'two-factor-setup-cancelled');
-        }
 
         $this->twoFactorService->disable($user);
         
@@ -86,5 +88,4 @@ class TwoFactorSetupController extends Controller
 
         return back()->withFragment('two-factor')->with('status', 'two-factor-disabled');
     }
-    
 }

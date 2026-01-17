@@ -56,10 +56,8 @@
         </div>
     </form>
 
-    {{-- Hidden Cancel Form --}}
-    <form id="two-factor-cancel-form" method="post" action="{{ route('two-factor.disable') }}" class="hidden">
+    {{-- Hidden Cancel Form - USE CANCEL, NOT DISABLE --}}
+    <form id="two-factor-cancel-form" method="post" action="{{ route('two-factor.cancel') }}" class="hidden">
         @csrf
-        @method('DELETE')
-        <input type="hidden" name="password" value="">
     </form>
 </div>
