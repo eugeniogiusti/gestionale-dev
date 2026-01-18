@@ -108,6 +108,22 @@ class Project extends Model
     }
 
     /**
+     * Relationship: Project has many Payments
+     */
+    public function payments()
+    {
+        return $this->hasMany(Payment::class)->orderBy('paid_at', 'desc');
+    }
+
+    /**
+     * Relationship: Project has many Costs
+     */
+    public function costs()
+    {
+        return $this->hasMany(Cost::class)->orderBy('paid_at', 'desc');
+    }
+
+    /**
      * Check if project is internal (no client)
      */
     public function isInternal(): bool

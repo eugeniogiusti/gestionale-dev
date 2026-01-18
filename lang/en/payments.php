@@ -1,0 +1,57 @@
+<?php
+
+return [
+    'title' => 'Payments',
+    'subtitle' => 'Track payments received from clients',
+    'payment_list' => 'Payment List',
+    'create_payment' => 'Create Payment',
+    'edit_payment' => 'Edit Payment',
+    'add_payment' => 'Add Payment',
+    'view_all' => 'View All Payments',
+    'view_project' => 'View Project',
+    'no_payments' => 'No payments yet',
+    'no_payments_description' => 'Record your first payment for this project',
+    'confirm_delete' => 'Are you sure you want to delete this payment?',
+    'recent' => 'Recent',
+    
+    'project' => 'Project',
+    'amount' => 'Amount',
+    'currency' => 'Currency',
+    'paid_at' => 'Paid At',
+    'method' => 'Payment Method',
+    'reference' => 'Reference',
+    'notes' => 'Notes',
+
+    'all_methods' => 'All Methods',
+    'all_currencies' => 'All Currencies',
+    
+    'method_cash' => 'Cash',
+    'method_bank' => 'Bank Transfer',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Payment created successfully',
+    'updated_successfully' => 'Payment updated successfully',
+    'deleted_successfully' => 'Payment deleted successfully',
+
+    'stats' => [
+        'total_all_time' => 'Total All Time',
+        'all_projects' => 'All projects',
+        'this_month' => 'This Month',
+        'this_year' => 'This Year',
+        'currencies' => 'Currencies',
+    ],
+
+    'placeholder' => [
+        'search' => 'Search by reference or notes...',
+        'amount' => 'e.g., 1500.00',
+        'reference' => 'e.g., Invoice #2024-001, Stripe ch_xxx',
+        'notes' => 'Additional notes...',
+    ],
+
+    'amount_required' => 'Amount is required',
+    'amount_min' => 'Amount must be at least 0.01',
+    'paid_at_required' => 'Payment date is required',
+    'method_required' => 'Payment method is required',
+    'currency_invalid' => 'Invalid currency selected',
+];

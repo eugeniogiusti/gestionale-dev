@@ -7,8 +7,8 @@ import clientSearch from './components/clientSearch'
 import ClientForm from './components/ClientForm';
 import ProjectForm from './components/ProjectForm';
 import taskModal from './components/taskModal';
-import meetingModal from './components/meetingModal'; 
-
+import meetingModal from './components/meetingModal';
+import paymentModal from './components/paymentModal';
 
 window.Alpine = Alpine
 
@@ -17,10 +17,13 @@ Alpine.store('toast', createToastStore())
 
 // Components
 Alpine.data('projectSearch', projectSearch);
-Alpine.data('clientSearch', clientSearch)
+Alpine.data('clientSearch', clientSearch);
 Alpine.data('clientForm', ClientForm);
 Alpine.data('projectForm', ProjectForm);
-Alpine.data('taskModal', taskModal);
+
+// Modal components 
+window.taskModal = taskModal;
 window.meetingModal = meetingModal;
+window.paymentModal = paymentModal;
 
 Alpine.start()

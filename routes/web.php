@@ -11,6 +11,9 @@ use App\Http\Controllers\Api\ProjectSearchController;
 use App\Http\Controllers\BusinessSettingsController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\CostController;
+
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
@@ -171,6 +174,39 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         // Actions
         Route::post('/{meeting}/complete', [MeetingController::class, 'markCompleted'])->name('complete');
         Route::post('/{meeting}/cancel', [MeetingController::class, 'markCancelled'])->name('cancel');
+    });
+
+    // ==========================================
+    // PAYMENTS MODULE
+    // ==========================================
+
+    // Global payments index (stats + list)
+    Route::prefix('payments')->name('payments.')->group(function () {
+        Route::get('/', [PaymentController::class, 'index'])->name('index');
+    });
+
+    // Payment CRUD in project context
+    Route::prefix('projects/{project}/payments')->name('payments.')->group(function () {
+        Route::post('/', [PaymentController::class, 'store'])->name('store');
+        Route::put('/{payment}', [PaymentController::class, 'update'])->name('update');
+        Route::delete('/{payment}', [PaymentController::class, 'destroy'])->name('destroy');
+    });
+
+    
+    // ==========================================
+    // COSTS MODULE
+    // ==========================================
+
+    // Global costs index (stats + list)
+    Route::prefix('costs')->name('costs.')->group(function () {
+        Route::get('/', [CostController::class, 'index'])->name('index');
+    });
+
+    // Cost CRUD in project context
+    Route::prefix('projects/{project}/costs')->name('costs.')->group(function () {
+        Route::post('/', [CostController::class, 'store'])->name('store');
+        Route::put('/{cost}', [CostController::class, 'update'])->name('update');
+        Route::delete('/{cost}', [CostController::class, 'destroy'])->name('destroy');
     });
 
 }); 
