@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Queries\ProjectIndexQuery;
 use App\Queries\ProjectStatsQuery;
+use App\Queries\ProjectProfitStatsQuery;
 
 
 class ProjectController extends Controller
@@ -48,7 +49,7 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Project $project, ProjectProfitStatsQuery $profitStats)
     {
         $project->load('client');
         $project->load('tasks');
@@ -56,7 +57,9 @@ class ProjectController extends Controller
         $project->load('payments');
         $project->load('costs');
         
-        return view('projects.show', compact('project'));
+        $profitData = $profitStats->handle($project);
+    
+        return view('projects.show', compact('project', 'profitData'));
     }
 
     /**

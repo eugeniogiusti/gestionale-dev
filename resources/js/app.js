@@ -9,6 +9,7 @@ import ProjectForm from './components/ProjectForm';
 import taskModal from './components/taskModal';
 import meetingModal from './components/meetingModal';
 import paymentModal from './components/paymentModal';
+import costModal from './components/costModal';
 
 window.Alpine = Alpine
 
@@ -25,5 +26,6 @@ Alpine.data('projectForm', ProjectForm);
 window.taskModal = taskModal;
 window.meetingModal = meetingModal;
 window.paymentModal = paymentModal;
+window.costModal = costModal;
 
 Alpine.start()
