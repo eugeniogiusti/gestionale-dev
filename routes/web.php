@@ -14,9 +14,10 @@ use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CostController;
 use App\Http\Controllers\InvoiceController;
-
+use App\Http\Controllers\ReceiptController;
 
 use Illuminate\Support\Facades\Route;
+
 
 // Redirect root to login
 Route::get('/', function () {
@@ -39,13 +40,18 @@ Route::middleware('auth')->group(function () {
 // ROUTES PROTECTED BY 2FA
 // ==========================================
 Route::middleware(['auth', 'verified', '2fa'])->group(function () {
-    
-    // Dashboard
+    // ==========================================
+    // DASHBOARD
+    // ==========================================
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // Profile
+    // ==========================================
+    // PROFILE MANAGEMENT
+    // ==========================================
+
+    // Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -53,6 +59,8 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
     // TWO-FACTOR SETUP (Profile Settings)
     // ==========================================
+
+    // Manage 2FA setup
     Route::prefix('two-factor')->name('two-factor.')->group(function () {
         Route::post('/enable', [TwoFactorSetupController::class, 'enable'])->name('enable');
         Route::post('/confirm', [TwoFactorSetupController::class, 'confirm'])->name('confirm');
@@ -61,15 +69,21 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     });
 
     // ==========================================
-    // TRUSTED DEVICES MANAGEMENT
+    // TRUSTED DEVICES MANAGEMENT (2FA)
     // ==========================================
+
+    // Manage trusted devices for 2FA
     Route::prefix('profile/trusted-devices')->name('profile.trusted-devices.')->group(function () {
         Route::get('/', [TrustedDeviceController::class, 'index'])->name('index');
         Route::delete('/{deviceId}', [TrustedDeviceController::class, 'revoke'])->name('revoke');
         Route::delete('/', [TrustedDeviceController::class, 'revokeAll'])->name('revoke-all');
     });
 
-    // Change locale
+    // ==========================================
+    // LOCALE SWITCHING
+    // ==========================================
+
+    // Switch application locale
     Route::get('/locale/{locale}', function (string $locale) {
         $allowed = ['it', 'en'];
         if (!in_array($locale, $allowed, true)) {
@@ -212,7 +226,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     });
 
     // ==========================================
-    // INVOICE MODULE
+    // INVOICE MODULE (for payments)
     // ==========================================
 
     Route::prefix('invoices')->name('invoices.')->group(function () {
@@ -220,6 +234,18 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::get('/payments/{payment}/download', [InvoiceController::class, 'download'])->name('download');
         Route::get('/payments/{payment}/preview', [InvoiceController::class, 'preview'])->name('preview');
         Route::delete('/payments/{payment}', [InvoiceController::class, 'destroy'])->name('destroy'); 
+    });
+
+     // ==========================================
+    // RECEIPTS MODULE (for costs)
+    // ==========================================
+
+    // Receipt management in project context
+    Route::prefix('projects/{project}/costs/{cost}/receipt')->name('receipts.')->group(function () {
+        Route::post('/', [ReceiptController::class, 'upload'])->name('upload');
+        Route::get('/download', [ReceiptController::class, 'download'])->name('download');
+        Route::get('/preview', [ReceiptController::class, 'preview'])->name('preview');
+        Route::delete('/', [ReceiptController::class, 'destroy'])->name('destroy');
     });
 
 }); 

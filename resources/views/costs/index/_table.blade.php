@@ -18,6 +18,10 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {{ __('costs.paid_at') }}
                     </th>
+                    {{-- ⬅️ NUOVA COLONNA --}}
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {{ __('receipts.receipt') }}
+                    </th>
                     <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {{ __('ui.actions') }}
                     </th>
@@ -79,6 +83,13 @@
                                     {{ __('costs.recent') }}
                                 </span>
                             @endif
+                        </td>
+
+                        {{-- ⬅️ RECEIPT COLUMN --}}
+                        <td class="px-6 py-4 whitespace-nowrap text-center">
+                            <div class="flex justify-center gap-2">
+                                <x-costs.receipt-actions-readonly :cost="$cost" />
+                            </div>
                         </td>
 
                         {{-- Actions --}}

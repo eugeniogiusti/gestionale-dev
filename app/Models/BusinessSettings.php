@@ -19,6 +19,7 @@ class BusinessSettings extends Model
         'legal_country',
         'tax_id',
         'vat_number',
+        'iban',
         'email',
         'certified_email',
         'phone_prefix',

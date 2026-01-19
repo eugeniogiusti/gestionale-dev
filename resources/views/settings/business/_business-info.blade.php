@@ -26,6 +26,15 @@
         :value="$settings->website"
     />
 
+    {{-- IBAN --}}
+    <x-form-input
+        name="iban"
+        :label="__('business_settings.iban')"
+        :placeholder="__('business_settings.placeholder.iban')"
+        :value="$settings->iban"
+        hint="{{ __('business_settings.iban_hint') }}"
+    />
+
     {{-- Logo Upload --}}
     <div>
         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">

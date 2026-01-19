@@ -28,6 +28,7 @@ return [
     // Tax Info
     'tax_id' => 'Codice Fiscale',
     'vat_number' => 'Partita IVA',
+    'iban' => 'IBAN',
     
     // Contacts
     'email' => 'Email',
@@ -62,6 +63,7 @@ return [
         'legal_country' => 'es. IT',
         'tax_id' => 'es. RSSMRA80A01H501U',
         'vat_number' => 'es. IT12345678901',
+        'iban' => 'es. IT60X0542811101000000123456', 
         'email' => 'es. info@tuaazienda.it',
         'certified_email' => 'es. pec@tuaazienda.it',
         'phone_prefix' => 'es. +39',
@@ -73,9 +75,11 @@ return [
     
     // Hints
     'logo_hint' => 'Formati accettati: JPG, PNG, SVG. Dimensione massima: 2MB.',
+    'iban_hint' => 'Codice IBAN del conto corrente (es. IT60X0542811101000000123456)',
     
     // Validation
     'logo_must_be_image' => 'Il file deve essere un\'immagine.',
     'logo_max_size' => 'Il logo non può superare 2MB.',
     'logo_allowed_formats' => 'Formati consentiti: JPEG, JPG, PNG, SVG.',
+    'iban_invalid_format' => 'Formato IBAN non valido', 
 ];

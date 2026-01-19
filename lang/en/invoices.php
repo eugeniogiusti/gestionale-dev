@@ -11,6 +11,8 @@ return [
     'no_fiscal_value' => 'This document has no fiscal value',
     'tax_code' => 'Tax Code',
     'vat_number' => 'VAT',
+    'payment_method' => 'Payment Instructions',
+    'payment_instruction' => 'Please transfer the payment to the following bank account:',
     'recipient' => 'Recipient',
     'amount_of' => 'Amount of',
     'due_on' => 'due on',

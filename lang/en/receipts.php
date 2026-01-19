@@ -1,0 +1,18 @@
+<?php
+
+return [
+    'upload' => 'Upload Receipt',
+    'upload_receipt' => 'Upload Receipt',
+    'choose_file' => 'Choose file',         
+    'or_drag' => 'or drag and drop',  
+    'select_file' => 'Select File',
+    'file_requirements' => 'PDF, JPG, PNG - Max 5MB',
+    'preview' => 'Preview',
+    'download' => 'Download',
+    'delete' => 'Delete Receipt',
+    'confirm_delete' => 'Are you sure you want to delete this receipt?',
+    'uploaded_successfully' => 'Receipt uploaded successfully',
+    'deleted_successfully' => 'Receipt deleted successfully',
+    'receipt' => 'Receipt',               
+    'no_receipt' => 'No receipt', 
+];

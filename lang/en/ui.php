@@ -8,6 +8,7 @@ return [
     'create' => 'Create',
     'close'  => 'Close',
     'confirm'=> 'Confirm',
+    'upload' => 'Upload',
     'theme'  => 'Theme',
     'filter' => 'Filter',      
     'reset'  => 'Reset',   

@@ -44,4 +44,7 @@
     {{-- Modal Form --}}
     @include('costs.partials._modal-form', ['project' => $project])
 
+    {{-- Modal Upload Receipt --}}
+    @include('costs.partials._upload-receipt-modal')
+
 </div>

@@ -124,6 +124,37 @@
         font-size: 14pt;
         font-weight: bold;
     }
+
+    .payment-instructions {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .payment-title {
+        font-weight: bold;
+        font-size: 10pt;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .payment-text {
+        font-size: 9pt;
+        color: #666;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+
+    .payment-iban {
+        font-size: 10pt;
+        color: #333;
+        padding: 8px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
     
     .footer {
         margin-top: 30px;

@@ -10,6 +10,7 @@ import taskModal from './components/taskModal';
 import meetingModal from './components/meetingModal';
 import paymentModal from './components/paymentModal';
 import costModal from './components/costModal';
+import receiptUploadModal from './components/receiptUploadModal';
 
 window.Alpine = Alpine
 
@@ -27,5 +28,6 @@ window.taskModal = taskModal;
 window.meetingModal = meetingModal;
 window.paymentModal = paymentModal;
 window.costModal = costModal;
+window.receiptUploadModal = receiptUploadModal;
 
 Alpine.start()

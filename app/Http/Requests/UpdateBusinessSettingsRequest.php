@@ -28,6 +28,7 @@ class UpdateBusinessSettingsRequest extends FormRequest
             // Tax Info
             'tax_id' => ['nullable', 'string', 'max:50'],
             'vat_number' => ['nullable', 'string', 'max:50'],
+            'iban' => ['nullable', 'string', 'regex:/^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$/'],
             
             // Contacts
             'email' => ['nullable', 'email', 'max:255'],
@@ -51,6 +52,7 @@ class UpdateBusinessSettingsRequest extends FormRequest
             'logo.image' => __('business_settings.logo_must_be_image'),
             'logo.max' => __('business_settings.logo_max_size'),
             'logo.mimes' => __('business_settings.logo_allowed_formats'),
+            'iban.regex' => __('business_settings.iban_invalid_format'),
         ];
     }
 }

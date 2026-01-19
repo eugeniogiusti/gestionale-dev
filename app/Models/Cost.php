@@ -135,8 +135,56 @@ class Cost extends Model
         return $this->paid_at->isAfter(now()->subDays(7));
     }
 
+
+     /**
+     * Check if cost has receipt uploaded
+     */
     public function hasReceipt(): bool
     {
         return !is_null($this->receipt_path);
+    }
+
+    /**
+     * Get receipt upload URL
+     */
+    public function getReceiptUploadUrl(): string
+    {
+        return route('receipts.upload', [$this->project, $this]);
+    }
+
+    /**
+     * Get receipt download URL
+     */
+    public function getReceiptDownloadUrl(): ?string
+    {
+        if (!$this->hasReceipt()) {
+            return null;
+        }
+        
+        return route('receipts.download', [$this->project, $this]);
+    }
+
+    /**
+     * Get receipt preview URL
+     */
+    public function getReceiptPreviewUrl(): ?string
+    {
+        if (!$this->hasReceipt()) {
+            return null;
+        }
+        
+        return route('receipts.preview', [$this->project, $this]);
+    }
+
+    /**
+     * Get receipt delete URL
+     */
+    public function getReceiptDeleteUrl(): ?string
+    {
+        if (!$this->hasReceipt()) {
+            return null;
+        }
+        
+        return route('receipts.destroy', [$this->project, $this]);
     }
 }

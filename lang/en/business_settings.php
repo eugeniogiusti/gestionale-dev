@@ -28,6 +28,7 @@ return [
     // Tax Info
     'tax_id' => 'Tax Code',
     'vat_number' => 'VAT Number',
+    'iban' => 'IBAN', 
     
     // Contacts
     'email' => 'Email',
@@ -62,6 +63,7 @@ return [
         'legal_country' => 'e.g. IT',
         'tax_id' => 'e.g. RSSMRA80A01H501U',
         'vat_number' => 'e.g. IT12345678901',
+        'iban' => 'e.g. IT60X0542811101000000123456', 
         'email' => 'e.g. info@yourcompany.com',
         'certified_email' => 'e.g. pec@yourcompany.com',
         'phone_prefix' => 'e.g. +39',
@@ -73,9 +75,11 @@ return [
     
     // Hints
     'logo_hint' => 'Accepted formats: JPG, PNG, SVG. Maximum size: 2MB.',
+    'iban_hint' => 'International Bank Account Number (e.g., IT60X0542811101000000123456)',
     
     // Validation
     'logo_must_be_image' => 'The file must be an image.',
     'logo_max_size' => 'The logo cannot exceed 2MB.',
     'logo_allowed_formats' => 'Allowed formats: JPEG, JPG, PNG, SVG.',
+    'iban_invalid_format' => 'Invalid IBAN format', 
 ];

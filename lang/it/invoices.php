@@ -11,6 +11,8 @@ return [
     'no_fiscal_value' => 'Questo documento non ha alcuna valenza fiscale',
     'tax_code' => 'CF',
     'vat_number' => 'P.IVA',
+    'payment_method' => 'Modalità di Pagamento',
+    'payment_instruction' => 'Si prega di effettuare il bonifico sul seguente IBAN:',
     'recipient' => 'Destinatario',
     'amount_of' => 'Importo di',
     'due_on' => 'in scadenza in data',
