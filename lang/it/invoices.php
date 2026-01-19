@@ -1,0 +1,23 @@
+<?php
+
+return [
+    'generate' => 'Genera Fattura',
+    'download' => 'Scarica Fattura',
+    'preview' => 'Anteprima Fattura',
+    'delete' => 'Elimina Fattura',
+    'invoice_number' => 'Fattura n.',
+    'invoice' => 'Fattura',
+    'courtesy_copy' => 'Copia di cortesia',
+    'no_fiscal_value' => 'Questo documento non ha alcuna valenza fiscale',
+    'tax_code' => 'CF',
+    'vat_number' => 'P.IVA',
+    'recipient' => 'Destinatario',
+    'amount_of' => 'Importo di',
+    'due_on' => 'in scadenza in data',
+    'description' => 'Descrizione',
+    'payment' => 'Pagamento',
+    'currency' => 'Valuta',
+    'confirm_delete' => 'Sei sicuro di voler eliminare questa fattura? Questa azione non può essere annullata.',
+    'deleted_successfully' => 'Fattura eliminata con successo',
+    'default_currency' => 'EUR',
+];

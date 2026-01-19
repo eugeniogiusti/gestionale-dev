@@ -55,6 +55,23 @@
 
     </div>
 
+    {{-- Due Date --}}
+    <div>
+        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            {{ __('payments.due_date') }}
+        </label>
+        <input type="date" 
+               name="due_date" 
+               x-model="formData.due_date"
+               class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+        @error('due_date')
+            <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+        @enderror
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            {{ __('payments.due_date_help') }}
+        </p>
+    </div>
+
     {{-- Method --}}
     <div>
         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
@@ -101,6 +118,9 @@
         @error('notes')
             <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
         @enderror
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            {{ __('payments.notes_help') }}
+        </p>
     </div>
 
 </div>

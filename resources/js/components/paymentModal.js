@@ -11,6 +11,7 @@ export default function paymentModal(projectPayments = []) {
             amount: '',
             currency: 'EUR',
             paid_at: '',
+            due_date: '',
             method: 'bank',
             reference: '',
             notes: ''
@@ -24,6 +25,7 @@ export default function paymentModal(projectPayments = []) {
                 amount: '',
                 currency: 'EUR',
                 paid_at: '',
+                due_date: '',
                 method: 'bank',
                 reference: '',
                 notes: ''
@@ -69,6 +71,7 @@ export default function paymentModal(projectPayments = []) {
                     amount: payment.amount || '',
                     currency: payment.currency || 'EUR',
                     paid_at: payment.paid_at || '',
+                    due_date: payment.due_date || '',
                     method: payment.method || 'bank',
                     reference: payment.reference || '',
                     notes: payment.notes || ''

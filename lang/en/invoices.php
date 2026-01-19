@@ -1,0 +1,23 @@
+<?php
+
+return [
+    'generate' => 'Generate Invoice',
+    'download' => 'Download Invoice',
+    'preview' => 'Preview Invoice',
+    'delete' => 'Delete Invoice',
+    'invoice_number' => 'Invoice #',
+    'invoice' => 'Invoice',
+    'courtesy_copy' => 'Courtesy Copy',
+    'no_fiscal_value' => 'This document has no fiscal value',
+    'tax_code' => 'Tax Code',
+    'vat_number' => 'VAT',
+    'recipient' => 'Recipient',
+    'amount_of' => 'Amount of',
+    'due_on' => 'due on',
+    'description' => 'Description',
+    'payment' => 'Payment',
+    'currency' => 'Currency',
+    'confirm_delete' => 'Are you sure you want to delete this invoice? This action cannot be undone.',
+    'deleted_successfully' => 'Invoice deleted successfully',
+    'default_currency' => 'GBP', 
+];

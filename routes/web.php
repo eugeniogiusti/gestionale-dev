@@ -13,6 +13,8 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CostController;
+use App\Http\Controllers\InvoiceController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -207,6 +209,17 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::post('/', [CostController::class, 'store'])->name('store');
         Route::put('/{cost}', [CostController::class, 'update'])->name('update');
         Route::delete('/{cost}', [CostController::class, 'destroy'])->name('destroy');
+    });
+
+    // ==========================================
+    // INVOICE MODULE
+    // ==========================================
+
+    Route::prefix('invoices')->name('invoices.')->group(function () {
+        Route::post('/payments/{payment}/generate', [InvoiceController::class, 'generate'])->name('generate');
+        Route::get('/payments/{payment}/download', [InvoiceController::class, 'download'])->name('download');
+        Route::get('/payments/{payment}/preview', [InvoiceController::class, 'preview'])->name('preview');
+        Route::delete('/payments/{payment}', [InvoiceController::class, 'destroy'])->name('destroy'); 
     });
 
 }); 

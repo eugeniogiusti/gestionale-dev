@@ -18,9 +18,12 @@ return [
     'amount' => 'Importo',
     'currency' => 'Valuta',
     'paid_at' => 'Pagato il',
+    'due_date' => 'Scadenza',
+    'due' => 'Scadenza',
     'method' => 'Metodo di Pagamento',
     'reference' => 'Riferimento',
     'notes' => 'Note',
+    'invoice' => 'Fattura',
 
     'all_methods' => 'Tutti i Metodi',
     'all_currencies' => 'Tutte le Valute',
@@ -47,11 +50,15 @@ return [
         'amount' => 'es., 1500.00',
         'reference' => 'es., Fattura #2024-001, Stripe ch_xxx',
         'notes' => 'Note aggiuntive...',
+        'due_date' => 'es., 2025-02-15',
     ],
 
     'amount_required' => 'L\'importo è obbligatorio',
     'amount_min' => 'L\'importo deve essere almeno 0.01',
     'paid_at_required' => 'La data di pagamento è obbligatoria',
+    'due_date_invalid' => 'La scadenza deve essere uguale o successiva alla data di pagamento',
     'method_required' => 'Il metodo di pagamento è obbligatorio',
     'currency_invalid' => 'Valuta non valida',
+    'due_date_help' => 'Opzionale: Data di scadenza del pagamento per la fattura',
+    'notes_help' => 'Questa descrizione verrà usata nella fattura',
 ];

@@ -22,7 +22,7 @@ class EnsureTwoFactorAuthenticated
             return $next($request);
         }
 
-        // Se 2FA disable for this user, pass through
+        // if 2FA disable for this user, pass through
         if (!$user->two_factor_confirmed_at) {
             return $next($request);
         }

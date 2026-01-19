@@ -18,9 +18,12 @@ return [
     'amount' => 'Amount',
     'currency' => 'Currency',
     'paid_at' => 'Paid At',
+    'due_date' => 'Due Date',
+    'due' => 'Due',
     'method' => 'Payment Method',
     'reference' => 'Reference',
     'notes' => 'Notes',
+    'invoice' => 'Invoice',
 
     'all_methods' => 'All Methods',
     'all_currencies' => 'All Currencies',
@@ -47,11 +50,15 @@ return [
         'amount' => 'e.g., 1500.00',
         'reference' => 'e.g., Invoice #2024-001, Stripe ch_xxx',
         'notes' => 'Additional notes...',
+        'due_date' => 'e.g., 2025-02-15',
     ],
 
     'amount_required' => 'Amount is required',
     'amount_min' => 'Amount must be at least 0.01',
     'paid_at_required' => 'Payment date is required',
+    'due_date_invalid' => 'Due date must be on or after payment date',
     'method_required' => 'Payment method is required',
     'currency_invalid' => 'Invalid currency selected',
+    'due_date_help' => 'Optional: Payment due date for invoice',
+    'notes_help' => 'This description will be used in the invoice',
 ];

@@ -18,6 +18,9 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {{ __('payments.reference') }}
                     </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {{ __('payments.invoice') }}
+                    </th>
                     <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         {{ __('ui.actions') }}
                     </th>
@@ -83,6 +86,11 @@
                                     {{ Str::limit($payment->notes, 50) }}
                                 </div>
                             @endif
+                        </td>
+
+                        {{-- Invoice Actions (Component) --}}
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <x-payments.invoice-actions :payment="$payment" />
                         </td>
 
                         {{-- Actions --}}
