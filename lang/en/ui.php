@@ -13,5 +13,6 @@ return [
     'filter' => 'Filter',      
     'reset'  => 'Reset',   
     'actions'=> 'Actions',    
-    'none'   => 'None', 
+    'none'   => 'None',
+    'search' => 'Search',
 ];

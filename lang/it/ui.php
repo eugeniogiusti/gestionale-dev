@@ -13,5 +13,6 @@ return [
     'filter' => 'Filtra',      
     'reset'  => 'Reimposta',   
     'actions'=> 'Azioni',    
-    'none'   => 'Nessuno', 
+    'none'   => 'Nessuno',
+    'search' => 'Cerca',
 ];
