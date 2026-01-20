@@ -11,6 +11,10 @@ import meetingModal from './components/meetingModal';
 import paymentModal from './components/paymentModal';
 import costModal from './components/costModal';
 import receiptUploadModal from './components/receiptUploadModal';
+import documentModal from './components/documentModal';
+import labelModal from './components/labelModal';
+
+
 
 window.Alpine = Alpine
 
@@ -29,5 +33,7 @@ window.meetingModal = meetingModal;
 window.paymentModal = paymentModal;
 window.costModal = costModal;
 window.receiptUploadModal = receiptUploadModal;
+window.documentModal = documentModal;
+window.labelModal = labelModal;
 
 Alpine.start()

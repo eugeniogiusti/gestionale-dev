@@ -15,6 +15,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CostController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\LabelController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -246,6 +248,35 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::get('/download', [ReceiptController::class, 'download'])->name('download');
         Route::get('/preview', [ReceiptController::class, 'preview'])->name('preview');
         Route::delete('/', [ReceiptController::class, 'destroy'])->name('destroy');
+    });
+
+    // ==========================================
+    // DOCUMENTS MODULE
+    // ==========================================
+
+    // Global documents index (stats + list)
+    Route::prefix('documents')->name('documents.')->group(function () {
+        Route::get('/', [DocumentController::class, 'index'])->name('index');
+    });
+
+    // Document CRUD in project context
+    Route::prefix('projects/{project}/documents')->name('documents.')->group(function () {
+        Route::post('/', [DocumentController::class, 'store'])->name('store');
+        Route::put('/{document}', [DocumentController::class, 'update'])->name('update');
+        Route::delete('/{document}', [DocumentController::class, 'destroy'])->name('destroy');
+        Route::get('/{document}/download', [DocumentController::class, 'download'])->name('download');
+        Route::get('/{document}/preview', [DocumentController::class, 'preview'])->name('preview');
+    });
+
+    // ==========================================
+    // LABELS MODULE
+    // ==========================================
+
+    Route::prefix('labels')->name('labels.')->group(function () {
+        Route::get('/', [LabelController::class, 'index'])->name('index');
+        Route::post('/', [LabelController::class, 'store'])->name('store');
+        Route::put('/{label}', [LabelController::class, 'update'])->name('update');
+        Route::delete('/{label}', [LabelController::class, 'destroy'])->name('destroy');
     });
 
 }); 

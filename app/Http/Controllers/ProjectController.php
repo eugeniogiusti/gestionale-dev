@@ -56,6 +56,8 @@ class ProjectController extends Controller
         $project->load('meetings');
         $project->load('payments');
         $project->load('costs');
+        $project->load('documents.labels'); 
+        
         
         $profitData = $profitStats->handle($project);
     

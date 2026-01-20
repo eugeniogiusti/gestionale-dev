@@ -124,6 +124,14 @@ class Project extends Model
     }
 
     /**
+     * Relationship: Project has many Documents
+     */
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
+
+    /**
      * Check if project is internal (no client)
      */
     public function isInternal(): bool

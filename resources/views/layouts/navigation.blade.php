@@ -3,10 +3,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center gap-4">
 
-            {{-- Logo / Brand --}}
+            
             <div class="shrink-0 flex items-center">
-                {{-- Vuoto per ora --}}
-            </div>
+                </div>
 
             {{-- Project Search --}}
             @include('layouts.navigation._project-search')
