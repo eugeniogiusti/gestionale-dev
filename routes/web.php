@@ -17,8 +17,6 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\LabelController;
-use App\Http\Controllers\QuoteController;
-use App\Http\Controllers\CalendarController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -283,30 +281,6 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::put('/{label}', [LabelController::class, 'update'])->name('update');
         Route::delete('/{label}', [LabelController::class, 'destroy'])->name('destroy');
     });
-
-    // ==========================================
-    // QUOTES MODULE
-    // ==========================================
-
-    // Global quotes index (stats + list)
-    Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes.index');
-
-    // Quote CRUD in project context
-    Route::prefix('projects/{project}/quotes')->name('quotes.')->group(function () {
-        Route::post('/', [QuoteController::class, 'store'])->name('store');
-        Route::put('/{quote}', [QuoteController::class, 'update'])->name('update'); 
-        Route::patch('/{quote}/status', [QuoteController::class, 'updateStatus'])->name('update-status');
-        Route::delete('/{quote}', [QuoteController::class, 'destroy'])->name('destroy');
-        Route::get('/{quote}/download', [QuoteController::class, 'download'])->name('download');
-    });
-
-    // ==========================================
-    // CALENDAR MODULE
-    // ==========================================
-
-    // Calendar routes
-    Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
-    Route::get('/calendar/events', [CalendarController::class, 'events'])->name('calendar.events');
 
 }); 
 

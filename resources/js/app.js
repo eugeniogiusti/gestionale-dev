@@ -13,8 +13,6 @@ import costModal from './components/costModal';
 import receiptUploadModal from './components/receiptUploadModal';
 import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
-import quoteModal from './components/quoteModal';
-import calendar from './components/calendar/index'; 
 
 
 
@@ -37,8 +35,6 @@ window.paymentModal = paymentModal;
 window.costModal = costModal;
 window.receiptUploadModal = receiptUploadModal;
 window.documentModal = documentModal;
-window.quoteModal = quoteModal;
-window.calendar = calendar;
 
 
 Alpine.start()

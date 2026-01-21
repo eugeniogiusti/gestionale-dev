@@ -134,15 +134,6 @@ class Project extends Model
         return $this->hasMany(Document::class);
     }
 
-    /**
-     * Relationship: Project has many Quotes
-     */
-    public function quotes()
-    {
-        return $this->hasMany(Quote::class);
-    }
-
-
     // ==========================================
     // CUSTOM METHODS
     // ==========================================
