@@ -3,11 +3,12 @@
 return [
 
     // Navigation
-    'nav_title' => 'Documenti', 
+    'nav_title' => 'Documenti',
     
     // Page titles
     'title' => 'Documenti',
     'document_list' => 'Elenco Documenti',
+    'subtitle' => 'Lista dei Documenti caricati nei tuoi progetti.',
     'add_document' => 'Aggiungi Documento',
     'create_document' => 'Carica Documento',
     'edit_document' => 'Modifica Documento',

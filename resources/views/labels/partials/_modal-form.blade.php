@@ -1,5 +1,5 @@
-<div x-data="labelModal(@js($labels))"
-     @open-label-modal.window="openCreate()"
+{{-- _modal-form.blade.php --}}
+<div @open-label-modal.window="openCreate()"
      @edit-label.window="openEdit($event.detail)"
      @keydown.escape.window="close()"
      x-cloak>

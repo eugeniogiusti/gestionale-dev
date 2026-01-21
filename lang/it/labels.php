@@ -6,7 +6,7 @@ return [
     
     // Page titles
     'title' => 'Etichette',
-    'manage_labels' => 'Gestisci Etichette',
+    'manage_labels' => 'Gestisci le etichette per i tuoi documenti',
     'create_label' => 'Crea Etichetta',
     'edit_label' => 'Modifica Etichetta',
     

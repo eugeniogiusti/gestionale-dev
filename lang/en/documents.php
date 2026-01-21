@@ -8,6 +8,7 @@ return [
     // Page titles
     'title' => 'Documents',
     'document_list' => 'Document List',
+    'subtitle' => 'List Documents uploaded to your projects.',
     'add_document' => 'Add Document',
     'create_document' => 'Upload Document',
     'edit_document' => 'Edit Document',

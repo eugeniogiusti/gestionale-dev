@@ -9,5 +9,14 @@
         <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
             {{ __('labels.no_labels_description') }}
         </p>
+        <div class="mt-6">
+            <button @click="$dispatch('open-label-modal')"
+                    class="inline-flex items-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                {{ __('labels.create_label') }}
+            </button>
+        </div>
     </div>
 </div>

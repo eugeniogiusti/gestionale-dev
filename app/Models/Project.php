@@ -82,6 +82,9 @@ class Project extends Model
         return $slug;
     }
 
+    // ==========================================
+    // RELATIONSHIPS
+    // ==========================================
     /**
      * Relationship: Project belongs to Client
      */
@@ -132,6 +135,19 @@ class Project extends Model
     }
 
     /**
+     * Relationship: Project has many Quotes
+     */
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class);
+    }
+
+
+    // ==========================================
+    // CUSTOM METHODS
+    // ==========================================
+
+    /**
      * Check if project is internal (no client)
      */
     public function isInternal(): bool
@@ -155,6 +171,9 @@ class Project extends Model
         return ['low', 'medium', 'high'];
     }
 
+    // ==========================================
+    // SCOPES
+    // ==========================================
     /**
      * Scope: Filter by status
      */

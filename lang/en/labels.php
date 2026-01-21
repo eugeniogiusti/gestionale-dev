@@ -7,7 +7,7 @@ return [
     
     // Page titles
     'title' => 'Labels',
-    'manage_labels' => 'Manage Labels',
+    'manage_labels' => 'Manage Labels for your Documents',
     'create_label' => 'Create Label',
     'edit_label' => 'Edit Label',
     

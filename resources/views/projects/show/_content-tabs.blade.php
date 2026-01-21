@@ -73,6 +73,16 @@
                 📄 {{ __('documents.title') }}
             </button>
 
+            {{-- TAB QUOTES --}}
+            <button 
+                @click="activeTab = 'quotes'"
+                :class="activeTab === 'quotes' 
+                    ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
+                class="px-6 py-4 border-b-2 font-medium text-sm transition">
+                📋 {{ __('quotes.title') }}
+            </button>
+
         </nav>
     </div>
 
@@ -112,6 +122,11 @@
         {{-- TAB: Documents --}}
         <div x-show="activeTab === 'documents'" x-cloak>
             @include('projects.show._tab-documents')
+        </div>
+
+        {{-- TAB: Quotes --}}
+        <div x-show="activeTab === 'quotes'" x-cloak>
+            @include('projects.show._tab-quotes')
         </div>
 
     </div>
