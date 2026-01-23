@@ -13,5 +13,8 @@
             @include('clients.index._empty-state')
         @endif
 
+        {{-- Modal --}}
+        @include('clients.modals._client-form')
+
     </div>
 </x-app-layout>

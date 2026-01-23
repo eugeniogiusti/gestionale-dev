@@ -1,9 +1,8 @@
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700" 
-     x-data="{ activeTab: 'personal' }"
-     x-init="
-         const hash = window.location.hash.substring(1);
-         if (hash) activeTab = hash;
-     ">
+     x-data="{ activeTab: '{{ request()->query('tab', 'personal') }}' }">
+    
+    {{-- Hidden input per passare il tab attivo al submit --}}
+    <input type="hidden" name="_active_tab" :value="activeTab">
     
     {{-- Tabs Navigation --}}
     @include('settings.business._tabs-navigation')

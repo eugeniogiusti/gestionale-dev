@@ -2,6 +2,7 @@
 
 return [
     'generate' => 'Generate Invoice',
+    'generated_successfully' => 'Invoice generated successfully',
     'download' => 'Download Invoice',
     'preview' => 'Preview Invoice',
     'delete' => 'Delete Invoice',

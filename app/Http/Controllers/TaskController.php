@@ -33,8 +33,7 @@ class TaskController extends Controller
         $project->tasks()->create($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('tasks')
+            ->route('projects.show', ['project' => $project, 'tab' => 'tasks'])
             ->with('success', __('tasks.created_successfully'));
     }
 
@@ -46,8 +45,7 @@ class TaskController extends Controller
         $task->update($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('tasks')
+            ->route('projects.show', ['project' => $project, 'tab' => 'tasks'])
             ->with('success', __('tasks.updated_successfully'));
     }
 
@@ -59,8 +57,7 @@ class TaskController extends Controller
         $task->delete();
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('tasks')
+            ->route('projects.show', ['project' => $project, 'tab' => 'tasks'])
             ->with('success', __('tasks.deleted_successfully'));
     }
 }

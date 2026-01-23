@@ -17,6 +17,19 @@ class InvoiceService
     ) {}
 
     /**
+     * Generate invoice and save (no download)
+     */
+    public function generateAndSave(Payment $payment): void
+    {
+        $this->ensureInvoiceNumber($payment);
+        
+        $pdf = $this->pdfGenerator->generate($payment);
+        $path = $this->storageManager->save($pdf, $payment->invoice_number);
+        
+        $payment->update(['invoice_path' => $path]);
+    }
+
+    /**
      * Generate invoice and download
      */
     public function generateAndDownload(Payment $payment): StreamedResponse

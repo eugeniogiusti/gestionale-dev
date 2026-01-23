@@ -2,6 +2,7 @@
 
 return [
     'generate' => 'Genera Fattura',
+    'generated_successfully' => 'Fattura generata con successo',
     'download' => 'Scarica Fattura',
     'preview' => 'Anteprima Fattura',
     'delete' => 'Elimina Fattura',

@@ -30,8 +30,7 @@ class PaymentController extends Controller
         $project->payments()->create($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('payments')
+            ->route('projects.show', ['project' => $project, 'tab' => 'payments'])
             ->with('success', __('payments.created_successfully'));
     }
 
@@ -43,8 +42,7 @@ class PaymentController extends Controller
         $payment->update($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('payments')
+            ->route('projects.show', ['project' => $project, 'tab' => 'payments'])
             ->with('success', __('payments.updated_successfully'));
     }
 
@@ -56,8 +54,7 @@ class PaymentController extends Controller
         $payment->delete();
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('payments')
+            ->route('projects.show', ['project' => $project, 'tab' => 'payments'])
             ->with('success', __('payments.deleted_successfully'));
     }
 }

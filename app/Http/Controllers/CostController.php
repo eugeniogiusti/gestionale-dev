@@ -30,8 +30,7 @@ class CostController extends Controller
         $project->costs()->create($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('costs')
+            ->route('projects.show', ['project' => $project, 'tab' => 'costs'])
             ->with('success', __('costs.created_successfully'));
     }
 
@@ -43,8 +42,7 @@ class CostController extends Controller
         $cost->update($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('costs')
+            ->route('projects.show', ['project' => $project, 'tab' => 'costs'])
             ->with('success', __('costs.updated_successfully'));
     }
 
@@ -56,8 +54,7 @@ class CostController extends Controller
         $cost->delete();
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('costs')
+            ->route('projects.show', ['project' => $project, 'tab' => 'costs'])
             ->with('success', __('costs.deleted_successfully'));
     }
 }

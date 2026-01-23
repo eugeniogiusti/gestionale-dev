@@ -39,8 +39,7 @@ class DocumentController extends Controller
         );
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('documents')
+            ->route('projects.show', ['project' => $project, 'tab' => 'documents'])
             ->with('success', __('documents.created_successfully'));
     }
 
@@ -52,8 +51,7 @@ class DocumentController extends Controller
         $this->documentService->update($document, $request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('documents')
+            ->route('projects.show', ['project' => $project, 'tab' => 'documents'])
             ->with('success', __('documents.updated_successfully'));
     }
 
@@ -65,8 +63,7 @@ class DocumentController extends Controller
         $this->documentService->delete($document);
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('documents')
+            ->route('projects.show', ['project' => $project, 'tab' => 'documents'])
             ->with('success', __('documents.deleted_successfully'));
     }
 

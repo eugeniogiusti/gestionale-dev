@@ -30,8 +30,7 @@ class MeetingController extends Controller
         $project->meetings()->create($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('meetings')
+            ->route('projects.show', ['project' => $project, 'tab' => 'meetings'])
             ->with('success', __('meetings.created_successfully'));
     }
 
@@ -43,8 +42,7 @@ class MeetingController extends Controller
         $meeting->update($request->validated());
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('meetings')
+            ->route('projects.show', ['project' => $project, 'tab' => 'meetings'])
             ->with('success', __('meetings.updated_successfully'));
     }
 
@@ -56,8 +54,7 @@ class MeetingController extends Controller
         $meeting->delete();
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('meetings')
+            ->route('projects.show', ['project' => $project, 'tab' => 'meetings'])
             ->with('success', __('meetings.deleted_successfully'));
     }
 
@@ -68,7 +65,9 @@ class MeetingController extends Controller
     {
         $meeting->update(['status' => 'completed']);
 
-        return back()->with('success', __('meetings.marked_completed'));
+        return redirect()
+            ->route('projects.show', ['project' => $project, 'tab' => 'meetings'])
+            ->with('success', __('meetings.marked_completed'));
     }
 
     /**
@@ -78,6 +77,8 @@ class MeetingController extends Controller
     {
         $meeting->update(['status' => 'cancelled']);
 
-        return back()->with('success', __('meetings.marked_cancelled'));
+        return redirect()
+            ->route('projects.show', ['project' => $project, 'tab' => 'meetings'])
+            ->with('success', __('meetings.marked_cancelled'));
     }
 }

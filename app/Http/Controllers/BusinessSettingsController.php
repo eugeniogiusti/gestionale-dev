@@ -29,7 +29,12 @@ class BusinessSettingsController extends Controller
     {
         $this->service->update($request->validated());
 
-        return back()->with('success', __('business_settings.updated_successfully'));
+        // Prendi il tab attivo dal referer (hash) o usa default
+        $tab = $request->input('_active_tab', 'personal');
+
+        return redirect()
+            ->route('settings.business.edit', ['tab' => $tab])
+            ->with('success', __('business_settings.updated_successfully'));
     }
 
     /**
@@ -39,6 +44,8 @@ class BusinessSettingsController extends Controller
     {
         $this->service->deleteLogo();
 
-        return back()->with('success', __('business_settings.logo_deleted'));
+        return redirect()
+            ->route('settings.business.edit', ['tab' => 'business'])
+            ->with('success', __('business_settings.logo_deleted'));
     }
 }

@@ -106,16 +106,15 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
     // CLIENTS MODULE
     // ==========================================
-    
-    // Resource routes for clients (index, create, store, show, edit, update, destroy)
+
+    // Resource routes (gestisce automaticamente index, create, store, show, edit, update, destroy)
     Route::resource('clients', ClientController::class);
-    
+
     // Additional routes for soft delete management
     Route::post('/clients/{id}/restore', [ClientController::class, 'restore'])
         ->name('clients.restore')
         ->withTrashed();
-    
-    // Force delete
+
     Route::delete('/clients/{id}/force-delete', [ClientController::class, 'forceDelete'])
         ->name('clients.force-delete')
         ->withTrashed();
