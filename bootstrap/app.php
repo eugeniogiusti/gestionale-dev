@@ -12,12 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(append: [
-            \App\Http\Middleware\SetLocale::class, // Add the SetLocale middleware
+            \App\Http\Middleware\Localization\SetLocale::class, // Add the SetLocale middleware
         ]);
 
         // Register middleware aliases
         $middleware->alias([
-            '2fa' => \App\Http\Middleware\EnsureTwoFactorAuthenticated::class,
+            '2fa' => \App\Http\Middleware\TwoFactor\EnsureTwoFactorAuthenticated::class,
         ]);
         
     })

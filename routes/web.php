@@ -1,22 +1,24 @@
 <?php
 
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TwoFactorSetupController;
-use App\Http\Controllers\TwoFactorChallengeController;
-use App\Http\Controllers\TrustedDeviceController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\Api\ClientSearchController;
-use App\Http\Controllers\Api\ProjectSearchController;
-use App\Http\Controllers\BusinessSettingsController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\MeetingController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\CostController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\ReceiptController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\LabelController;
+use App\Http\Controllers\TwoFactor\TwoFactorChallengeController;
+use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\TwoFactor\TwoFactorSetupController;
+use App\Http\Controllers\TwoFactor\TrustedDeviceController;
+use App\Http\Controllers\Settings\LocaleController;
+use App\Http\Controllers\Clients\ClientController;
+use App\Http\Controllers\Projects\ProjectController;
+use App\Http\Controllers\Api\Clients\ClientSearchController;
+use App\Http\Controllers\Api\Projects\ProjectSearchController;
+use App\Http\Controllers\Settings\BusinessSettingsController;
+use App\Http\Controllers\Tasks\TaskController;
+use App\Http\Controllers\Meetings\MeetingController;
+use App\Http\Controllers\Payments\PaymentController;
+use App\Http\Controllers\Costs\CostController;
+use App\Http\Controllers\Invoices\InvoiceController;
+use App\Http\Controllers\Receipts\ReceiptController;
+use App\Http\Controllers\Documents\DocumentController;
+use App\Http\Controllers\Labels\LabelController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -84,24 +86,8 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
     // LOCALE SWITCHING
     // ==========================================
-
-    // Switch application locale
-    Route::get('/locale/{locale}', function (string $locale) {
-        $allowed = ['it', 'en'];
-        if (!in_array($locale, $allowed, true)) {
-            $locale = config('app.locale');
-        }
-        
-        // Save the session
-        session(['locale' => $locale]);
-        
-        // if user logged, save on DB as well
-        if (auth()->check()) {
-            auth()->user()->update(['preferred_locale' => $locale]);
-        }
-        
-        return back();
-    })->name('locale.switch');
+    Route::get('/locale/{locale}', [LocaleController::class, 'switch'])
+        ->name('locale.switch');
 
     // ==========================================
     // CLIENTS MODULE
@@ -135,11 +121,11 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
 
     // Search clients (for project form)
-    Route::get('/api/clients/search', \App\Http\Controllers\Api\ClientSearchController::class)
+    Route::get('/api/clients/search', \App\Http\Controllers\Api\Clients\ClientSearchController::class)
         ->name('api.clients.search');
 
     // Search projects (navbar global search)
-    Route::get('/api/search/projects', \App\Http\Controllers\Api\ProjectSearchController::class)
+    Route::get('/api/search/projects', \App\Http\Controllers\Api\Projects\ProjectSearchController::class)
         ->name('api.search.projects');
 
     // ==========================================
