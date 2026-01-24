@@ -13,5 +13,8 @@
             @include('projects.index._empty-state')
         @endif
 
+        {{-- Project Modal --}}
+        @include('projects.modals._project-form')
+
     </div>
 </x-app-layout>

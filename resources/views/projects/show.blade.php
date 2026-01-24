@@ -21,5 +21,10 @@
             </div>
 
         </div>
+
+                {{-- AGGIUNGI QUESTA RIGA --}}
+        @include('projects.modals._project-form')
+
+        
     </div>
 </x-app-layout>

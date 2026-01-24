@@ -12,7 +12,7 @@ use App\Queries\ProjectProfitStatsQuery;
 
 class ProjectController extends Controller
 {
-        /**
+    /**
      * Retrieves paginated projects with applied filters and calculates
      * aggregated statistics for index page cards.
      */
@@ -25,14 +25,6 @@ class ProjectController extends Controller
         $stats = (new ProjectStatsQuery())->handle();
         
         return view('projects.index', compact('projects', 'stats'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('projects.create');
     }
 
     /**
@@ -58,18 +50,9 @@ class ProjectController extends Controller
         $project->load('costs');
         $project->load('documents.labels');
         
-        
         $profitData = $profitStats->handle($project);
     
         return view('projects.show', compact('project', 'profitData'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Project $project)
-    {
-        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -124,6 +107,4 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')
             ->with('success', __('projects.permanently_deleted'));
     }
-
-    
 }
