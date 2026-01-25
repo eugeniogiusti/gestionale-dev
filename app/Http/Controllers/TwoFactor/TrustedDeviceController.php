@@ -5,6 +5,7 @@ namespace App\Http\Controllers\TwoFactor;
 use App\Http\Controllers\Controller;
 use App\Queries\TwoFactor\TrustedDeviceQuery;
 use App\Services\TwoFactor\TrustedDeviceService;
+use Illuminate\Http\Request;
 
 class TrustedDeviceController extends Controller
 {

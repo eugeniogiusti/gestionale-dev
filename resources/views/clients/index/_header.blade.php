@@ -4,7 +4,7 @@
             {{ __('clients.title') }}
         </h1>
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('clients.subtitle') }}
+            {{ __('clients.clients_list') }}
         </p>
     </div>
     

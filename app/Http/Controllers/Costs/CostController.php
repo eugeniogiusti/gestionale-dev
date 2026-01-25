@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Costs;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
+use App\Models\Cost; 
 use App\Http\Requests\Costs\StoreCostRequest;
 use App\Http\Requests\Costs\UpdateCostRequest;
 use App\Queries\Costs\CostIndexQuery;

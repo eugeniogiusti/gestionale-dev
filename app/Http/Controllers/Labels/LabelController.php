@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Labels;
 
 use App\Http\Controllers\Controller;
+use App\Models\Label;
 use App\Http\Requests\Labels\StoreLabelRequest;
 use App\Http\Requests\Labels\UpdateLabelRequest;
 use App\Services\Labels\LabelService;

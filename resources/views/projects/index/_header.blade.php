@@ -4,7 +4,7 @@
             {{ __('projects.title') }}
         </h1>
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('projects.subtitle') }}
+            {{ __('projects.projects_list') }}
         </p>
     </div>
     

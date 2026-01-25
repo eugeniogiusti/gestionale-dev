@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TwoFactor\ConfirmTwoFactorRequest;
 use App\Http\Requests\TwoFactor\DisableTwoFactorRequest;
 use App\Services\TwoFactor\TwoFactorService;
+use Illuminate\Http\Request;
 
 class TwoFactorSetupController extends Controller
 {

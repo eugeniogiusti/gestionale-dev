@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Documents;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
+use App\Models\Document;
 use App\Http\Requests\Documents\StoreDocumentRequest;
 use App\Http\Requests\Documents\UpdateDocumentRequest;
 use App\Queries\Documents\DocumentIndexQuery;
