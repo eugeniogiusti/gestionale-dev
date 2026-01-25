@@ -114,7 +114,7 @@ class Cost extends Model
     }
 
     /* -----------------------------------------------------------------
-     |  HELPERS (convenience methods)
+     |  HELPERS 
      |-----------------------------------------------------------------*/
 
     public function getCurrencySymbol(): string

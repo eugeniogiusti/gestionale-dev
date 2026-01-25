@@ -11,7 +11,7 @@ class StoreClientRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // Tutti gli utenti autenticati possono creare clienti
+        return true;
     }
 
     /**

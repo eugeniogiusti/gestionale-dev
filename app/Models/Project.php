@@ -96,7 +96,6 @@ class Project extends Model
     /**
      * Relationship: Project has many Tasks
      */
-
     public function tasks()
     {
         return $this->hasMany(Task::class)->orderBy('order')->orderBy('created_at', 'desc');

@@ -95,7 +95,7 @@ class Meeting extends Model
     }
 
     /* -----------------------------------------------------------------
-     |  HELPERS (convenience methods)
+     |  HELPERS
      |-----------------------------------------------------------------*/
 
     public function isUpcoming(): bool

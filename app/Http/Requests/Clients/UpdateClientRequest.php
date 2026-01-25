@@ -12,7 +12,7 @@ class UpdateClientRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // Tutti gli utenti autenticati possono modificare clienti
+        return true;
     }
 
     /**

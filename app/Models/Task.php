@@ -101,7 +101,7 @@ class Task extends Model
     }
 
     /* -----------------------------------------------------------------
-     |  HELPERS (convenience methods)
+     |  HELPERS
      |-----------------------------------------------------------------*/
 
     public function isDone(): bool
