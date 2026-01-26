@@ -13,7 +13,7 @@
     
     <div class="divider"></div>
 
-    {{-- ⬅️ PAYMENT INSTRUCTIONS --}}
+    {{-- PAYMENT INSTRUCTIONS --}}
     @if($business->iban)
         <div class="payment-instructions">
             <div class="payment-title">{{ __('invoices.payment_method') }}</div>
