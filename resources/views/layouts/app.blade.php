@@ -12,6 +12,24 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <!-- Critical CSS (no flash) - MUST be before any scripts -->
+    <style>
+        /* Hide Alpine elements until ready */
+        [x-cloak] { display: none !important; }
+
+        /* Sidebar critical styles - prevents FOUC */
+        .sidebar-element {
+            width: 16rem; /* w-64 default */
+            transition: none !important;
+        }
+        .sidebar-collapsed .sidebar-element {
+            width: 4rem; /* w-16 collapsed */
+        }
+        .sidebar-ready .sidebar-element {
+            transition: width 300ms ease-in-out !important;
+        }
+    </style>
+
     <!-- Theme (no flash) -->
     <meta name="color-scheme" content="dark light">
     <script>
@@ -26,11 +44,6 @@
         document.documentElement.classList.add('sidebar-collapsed');
     }
     </script>
-
-  <!-- Alpine.js (no flash) -->
-<style>
-  [x-cloak]{display:none!important;}
-</style>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -47,7 +60,7 @@
         @include('layouts.sidebar')
 
         {{-- On the right --}}
-        <div class="flex-1 flex flex-col">
+        <div class="flex-1 flex flex-col min-w-0">
             {{-- Breeze Navabar --}}
             @include('layouts.navigation')
 

@@ -1,16 +1,20 @@
-<aside 
-    x-data="{ 
-        collapsed: localStorage.getItem('sidebar-collapsed') === 'true' 
+<aside
+    x-data="{
+        collapsed: localStorage.getItem('sidebar-collapsed') === 'true'
     }"
     x-init="
+        // Sync HTML class with Alpine state on init (in case of mismatch)
+        document.documentElement.classList.toggle('sidebar-collapsed', collapsed);
+        // Enable transitions after first paint
         $nextTick(() => document.documentElement.classList.add('sidebar-ready'));
+        // Watch for changes
         $watch('collapsed', value => {
             localStorage.setItem('sidebar-collapsed', value);
             document.documentElement.classList.toggle('sidebar-collapsed', value);
         })
     "
     :class="collapsed ? 'w-16' : 'w-64'"
-    class="sidebar-element min-h-screen bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col"
+    class="sidebar-element min-h-screen bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col shrink-0"
 >
     
     {{-- Brand + Toggle --}}

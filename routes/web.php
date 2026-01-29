@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TwoFactor\TwoFactorChallengeController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\TwoFactor\TwoFactorSetupController;
 use App\Http\Controllers\TwoFactor\TrustedDeviceController;
@@ -18,7 +19,6 @@ use App\Http\Controllers\Invoices\InvoiceController;
 use App\Http\Controllers\Receipts\ReceiptController;
 use App\Http\Controllers\Documents\DocumentController;
 use App\Http\Controllers\Labels\LabelController;
-use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Statistics\StatisticsController;
 
 use Illuminate\Support\Facades\Route;
