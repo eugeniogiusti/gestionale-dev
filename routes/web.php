@@ -18,7 +18,8 @@ use App\Http\Controllers\Invoices\InvoiceController;
 use App\Http\Controllers\Receipts\ReceiptController;
 use App\Http\Controllers\Documents\DocumentController;
 use App\Http\Controllers\Labels\LabelController;
-
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Statistics\StatisticsController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -47,9 +48,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
     // DASHBOARD
     // ==========================================
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // ==========================================
     // CALENDAR - EMBEDDED GOOGLE CALENDAR VIEW
@@ -280,6 +279,13 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::put('/{label}', [LabelController::class, 'update'])->name('update');
         Route::delete('/{label}', [LabelController::class, 'destroy'])->name('destroy');
     });
+
+    // ==========================================
+    // STATISTICS MODULE
+    // ==========================================
+
+    Route::get('/statistics', [StatisticsController::class, 'index'])->name('statistics.index');
+    Route::get('/statistics/export-pdf', [StatisticsController::class, 'exportPdf'])->name('statistics.export-pdf');
 
 }); 
 

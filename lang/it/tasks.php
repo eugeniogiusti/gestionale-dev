@@ -38,7 +38,9 @@ return [
     // Actions (task-specific)
     'add_task' => 'Aggiungi Task',
     'view_all' => 'Vedi tutti i task',
+    'recent_tasks' => 'Task Recenti',
     'view_project' => 'Vai al progetto',
+    'add_to_calendar' => 'Aggiungi al Calendario',
     
     // Messages
     'created_successfully' => 'Task creato con successo',

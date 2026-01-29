@@ -8,6 +8,7 @@ return [
     'edit_cost' => 'Edit Cost',
     'add_cost' => 'Add Cost',
     'view_all' => 'View All Costs',
+    'recent_costs' => 'Recent Costs',
     'view_project' => 'View Project',
     'no_costs' => 'No costs yet',
     'no_costs_description' => 'Record your first cost for this project',

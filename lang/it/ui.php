@@ -15,4 +15,5 @@ return [
     'actions'=> 'Azioni',    
     'none'   => 'Nessuno',
     'search' => 'Cerca',
+    'view_all' => 'Vedi Tutti',
 ];

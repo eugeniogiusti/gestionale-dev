@@ -12,6 +12,8 @@ return [
 
     // Actions
     'add_client' => 'Aggiungi Cliente',
+    'back_to_list' => 'Torna alla lista',
+    'recent_projects' => 'Progetti Recenti',
     'save' => 'Salva',
     'cancel' => 'Annulla',
     'edit' => 'Modifica',

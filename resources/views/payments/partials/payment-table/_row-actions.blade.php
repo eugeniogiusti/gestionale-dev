@@ -1,7 +1,19 @@
 <td class="px-4 py-4 text-right">
     <div class="flex justify-end gap-2">
+        {{-- Google Calendar --}}
+        @if($payment->googleCalendarUrl())
+            <a href="{{ $payment->googleCalendarUrl() }}"
+               target="_blank"
+               title="{{ __('payments.add_to_calendar') }}"
+               class="text-gray-500 hover:text-gray-700 dark:text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+            </a>
+        @endif
+
         {{-- Edit --}}
-        <button 
+        <button
             @click="$dispatch('edit-payment', {{ $payment->id }})"
             class="text-blue-600 hover:text-blue-800 dark:text-blue-400"
             title="{{ __('ui.edit') }}">

@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Http\Requests\Clients\StoreClientRequest;
 use App\Http\Requests\Clients\UpdateClientRequest;
 use App\Queries\Clients\ClientIndexQuery;
+use App\Queries\Clients\ClientShowQuery;
 use App\Queries\Clients\ClientStatsQuery;
 
 class ClientController extends Controller
@@ -29,7 +30,12 @@ class ClientController extends Controller
 
     public function show(Client $client)
     {
-        return view('clients.show', compact('client'));
+        $data = (new ClientShowQuery($client))->handle();
+
+        return view('clients.show', [
+            'client' => $client,
+            ...$data,
+        ]);
     }
 
     public function update(UpdateClientRequest $request, Client $client)

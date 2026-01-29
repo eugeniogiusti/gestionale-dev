@@ -8,6 +8,7 @@ return [
     'edit_cost' => 'Modifica Costo',
     'add_cost' => 'Aggiungi Costo',
     'view_all' => 'Vedi Tutti i Costi',
+    'recent_costs' => 'Costi Recenti',
     'view_project' => 'Vedi Progetto',
     'no_costs' => 'Nessun costo',
     'no_costs_description' => 'Registra il tuo primo costo per questo progetto',

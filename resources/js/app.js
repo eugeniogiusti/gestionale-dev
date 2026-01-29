@@ -14,6 +14,7 @@ import costModal from './components/costModal';
 import receiptUploadModal from './components/receiptUploadModal';
 import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
+import annualTrendChart from './components/annualTrendChart';
 
 window.Alpine = Alpine
 
@@ -24,6 +25,7 @@ Alpine.store('toast', createToastStore())
 Alpine.data('projectSearch', projectSearch);
 Alpine.data('clientSearch', clientSearch);
 Alpine.data('labelModal', labelModal);
+Alpine.data('annualTrendChart', annualTrendChart);
 
 // Modal components
 window.clientModal = clientModal;

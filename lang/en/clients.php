@@ -12,6 +12,8 @@ return [
 
     // Actions
     'add_client' => 'Add Client',
+    'back_to_list' => 'Back to list',
+    'recent_projects' => 'Recent Projects',
     'save' => 'Save',
     'cancel' => 'Cancel',
     'edit' => 'Edit',

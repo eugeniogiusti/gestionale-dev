@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Contracts\CalendarEventable;
+use App\Services\Calendar\CalendarEvent;
+use App\Services\Calendar\GoogleCalendarLinkBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Builder;
 
-class Payment extends Model
+class Payment extends Model implements CalendarEventable
 {
     use HasFactory;
 
@@ -126,8 +129,8 @@ class Payment extends Model
 
     public function isOverdue(): bool
     {
-        return $this->isPending() 
-            && $this->due_date 
+        return $this->isPending()
+            && $this->due_date
             && $this->due_date->isPast();
     }
 
@@ -140,7 +143,7 @@ class Payment extends Model
     {
         $symbol = $this->getCurrencySymbol();
         $formatted = number_format($this->amount, 2, ',', '.');
-        
+
         return "{$symbol} {$formatted}";
     }
 
@@ -148,7 +151,7 @@ class Payment extends Model
     {
         return $this->paid_at && $this->paid_at->isAfter(now()->subDays(7));
     }
-    
+
     public function hasInvoice(): bool
     {
         return !is_null($this->invoice_path);
@@ -159,7 +162,7 @@ class Payment extends Model
         if (!$this->hasInvoice()) {
             return null;
         }
-        
+
         return route('invoices.download', $this);
     }
 
@@ -168,7 +171,98 @@ class Payment extends Model
         if (!$this->hasInvoice()) {
             return null;
         }
-        
+
         return route('invoices.preview', $this);
+    }
+
+    /* -----------------------------------------------------------------
+     |  CALENDAR
+     |-----------------------------------------------------------------*/
+
+    public function hasCalendarDate(): bool
+    {
+        return $this->paid_at !== null;
+    }
+
+    public function toCalendarEvent(): CalendarEvent
+    {
+        return new CalendarEvent(
+            title: $this->buildCalendarTitle(),
+            description: $this->buildCalendarDescription(),
+            startDate: $this->paid_at,
+        );
+    }
+
+    public function googleCalendarUrl(): ?string
+    {
+        if (!$this->hasCalendarDate()) {
+            return null;
+        }
+
+        return GoogleCalendarLinkBuilder::fromModel($this)->build();
+    }
+
+    private function buildCalendarTitle(): string
+    {
+        return "💰 " . __('payments.invoice') . ": [{$this->project->name}] {$this->getFormattedAmount()}";
+    }
+
+    private function buildCalendarDescription(): string
+    {
+        $sections = [];
+
+        $sections[] = $this->buildProjectSection();
+        $sections[] = $this->buildDetailsSection();
+
+        if ($this->notes) {
+            $sections[] = $this->buildNotesSection();
+        }
+
+        return implode("\n\n", $sections);
+    }
+
+    private function buildProjectSection(): string
+    {
+        $project = $this->project;
+        $lines = [];
+
+        $lines[] = '📁 ' . mb_strtoupper(__('payments.project'));
+        $lines[] = '────────────────';
+        $lines[] = __('projects.name') . ': ' . $project->name;
+
+        if ($project->client) {
+            $lines[] = __('clients.client') . ': ' . $project->client->name;
+        }
+
+        $lines[] = 'Link: ' . route('projects.show', $project);
+
+        return implode("\n", $lines);
+    }
+
+    private function buildDetailsSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '📝 ' . mb_strtoupper(__('projects.details'));
+        $lines[] = '────────────────';
+        $lines[] = __('payments.amount') . ': ' . $this->getFormattedAmount();
+        $lines[] = __('payments.paid_at') . ': ' . $this->paid_at->format('d/m/Y');
+
+        if ($this->reference) {
+            $lines[] = __('payments.reference') . ': ' . $this->reference;
+        }
+
+        return implode("\n", $lines);
+    }
+
+    private function buildNotesSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '📄 ' . mb_strtoupper(__('payments.notes'));
+        $lines[] = '────────────────';
+        $lines[] = $this->notes;
+
+        return implode("\n", $lines);
     }
 }

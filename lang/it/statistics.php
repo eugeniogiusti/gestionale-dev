@@ -1,0 +1,41 @@
+<?php
+
+return [
+    'title' => 'Statistiche',
+    'subtitle' => 'Analisi e report per la tua attività',
+
+    // Filters
+    'year' => 'Anno',
+    'month' => 'Mese',
+    'full_year' => 'Tutto l\'anno',
+    'show_full_year' => 'Mostra anno intero',
+
+    // Summary cards - Financial
+    'profit' => 'Profitto',
+    'payments' => 'Incassi',
+    'costs' => 'Costi',
+    'pending' => 'Da incassare',
+
+    // Summary cards - Operational
+    'projects_started' => 'Progetti Avviati',
+    'projects_completed' => 'Progetti Completati',
+    'tasks_completed' => 'Task Completati',
+    'meetings_held' => 'Meeting Svolti',
+    'new_clients' => 'Nuovi Clienti',
+
+    // Table
+    'monthly_breakdown' => 'Dettaglio Mensile',
+    'projects' => 'Progetti',
+    'tasks' => 'Task',
+    'clients' => 'Clienti',
+    'total' => 'Totale',
+
+    // Chart
+    'chart_title' => 'Andamento Annuale',
+    'chart_title_monthly' => 'Andamento Mensile',
+
+    // PDF
+    'download_pdf' => 'Scarica PDF',
+    'generated_on' => 'Generato il',
+    'financial_summary' => 'Riepilogo Finanziario',
+];

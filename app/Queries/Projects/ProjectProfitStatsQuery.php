@@ -6,15 +6,25 @@ use App\Models\Project;
 
 class ProjectProfitStatsQuery
 {
+    /**
+     * Calculate profit statistics for a project
+     */
     public function handle(Project $project): array
     {
-        // Payments
-        $totalPayments = $project->payments()->where('currency', 'EUR')->sum('amount');
+        // Total payments received for the project
+        // Filter: paid_at IS NOT NULL to count only received payments
+        $totalPayments = $project->payments()
+            ->whereNotNull('paid_at')
+            ->where('currency', 'EUR')
+            ->sum('amount');
         
-        // Costs
-        $totalCosts = $project->costs()->where('currency', 'EUR')->sum('amount');
+        // Total costs paid
+        // Note: costs.paid_at is NOT NULL, so all costs are always included
+        $totalCosts = $project->costs()
+            ->where('currency', 'EUR')
+            ->sum('amount');
         
-        // Profit
+        // Calculate profit and margin
         $totalProfit = $totalPayments - $totalCosts;
         $profitMargin = $totalPayments > 0 ? ($totalProfit / $totalPayments) * 100 : 0;
 

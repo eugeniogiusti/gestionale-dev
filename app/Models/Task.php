@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Contracts\CalendarEventable;
+use App\Services\Calendar\CalendarEvent;
+use App\Services\Calendar\GoogleCalendarLinkBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Task extends Model implements CalendarEventable
 {
     use HasFactory;
 
@@ -121,5 +124,98 @@ class Task extends Model
             && $this->status !== 'done';
     }
 
+    /* -----------------------------------------------------------------
+     |  CALENDAR
+     |-----------------------------------------------------------------*/
 
+    public function hasCalendarDate(): bool
+    {
+        return $this->due_date !== null;
+    }
+
+    public function toCalendarEvent(): CalendarEvent
+    {
+        return new CalendarEvent(
+            title: $this->buildCalendarTitle(),
+            description: $this->buildCalendarDescription(),
+            startDate: $this->due_date,
+        );
+    }
+
+    public function googleCalendarUrl(): ?string
+    {
+        if (!$this->hasCalendarDate()) {
+            return null;
+        }
+
+        return GoogleCalendarLinkBuilder::fromModel($this)->build();
+    }
+
+    private function buildCalendarTitle(): string
+    {
+        return "📋 Task: [{$this->project->name}] {$this->title}";
+    }
+
+    private function buildCalendarDescription(): string
+    {
+        $sections = [];
+
+        // Project section
+        $sections[] = $this->buildProjectSection();
+
+        // Details section
+        $sections[] = $this->buildDetailsSection();
+
+        // Description section (if exists)
+        if ($this->description) {
+            $sections[] = $this->buildDescriptionSection();
+        }
+
+        return implode("\n\n", $sections);
+    }
+
+    private function buildProjectSection(): string
+    {
+        $project = $this->project;
+        $lines = [];
+
+        $lines[] = '📁 ' . mb_strtoupper(__('tasks.project'));
+        $lines[] = '────────────────';
+        $lines[] = __('projects.name') . ': ' . $project->name;
+
+        if ($project->client) {
+            $lines[] = __('clients.client') . ': ' . $project->client->name;
+        }
+
+        $lines[] = 'Link: ' . route('projects.show', $project);
+
+        return implode("\n", $lines);
+    }
+
+    private function buildDetailsSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '📝 ' . mb_strtoupper(__('projects.details'));
+        $lines[] = '────────────────';
+        $lines[] = __('tasks.type') . ': ' . __('tasks.type_' . $this->type);
+        $lines[] = __('tasks.status') . ': ' . __('tasks.status_' . $this->status);
+
+        if ($this->priority) {
+            $lines[] = __('tasks.priority') . ': ' . __('tasks.priority_' . $this->priority);
+        }
+
+        return implode("\n", $lines);
+    }
+
+    private function buildDescriptionSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '📄 ' . mb_strtoupper(__('tasks.description'));
+        $lines[] = '────────────────';
+        $lines[] = $this->description;
+
+        return implode("\n", $lines);
+    }
 }
