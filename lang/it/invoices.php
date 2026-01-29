@@ -23,4 +23,17 @@ return [
     'confirm_delete' => 'Sei sicuro di voler eliminare questa fattura? Questa azione non può essere annullata.',
     'deleted_successfully' => 'Fattura eliminata con successo',
     'default_currency' => 'EUR',
+    'uploaded_successfully' => 'Fattura caricata con successo',
+    'preview' => 'Anteprima',
+    'download' => 'Scarica',
+    'delete' => 'Elimina',
+    'generate' => 'Genera fattura',
+    'upload' => 'Carica manualmente',
+    'confirm_delete' => 'Sei sicuro di voler eliminare questa fattura?',
+    'upload_invoice' => 'Carica fattura',
+    'select_file' => 'Seleziona file PDF',
+    'upload_help' => 'Solo file PDF, dimensione massima 10MB',
+    'no_client' => 'Nessun cliente associato',
+
+
 ];

@@ -52,6 +52,13 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     })->name('dashboard');
 
     // ==========================================
+    // CALENDAR - EMBEDDED GOOGLE CALENDAR VIEW
+    // ==========================================
+    Route::get('/calendar', function () {
+        return view('calendar.index');
+    })->name('calendar.index');
+
+    // ==========================================
     // PROFILE MANAGEMENT
     // ==========================================
 
@@ -217,12 +224,19 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // INVOICE MODULE (for payments)
     // ==========================================
 
-    // Invoice generation and management
     Route::prefix('invoices')->name('invoices.')->group(function () {
+        // Generate and download invoice PDF for a payment
         Route::post('/payments/{payment}/generate', [InvoiceController::class, 'generate'])->name('generate');
+        
+        // Upload manual invoice
+        Route::post('/payments/{payment}/upload', [InvoiceController::class, 'upload'])->name('upload');
+        
+        // Download/preview existing invoice
         Route::get('/payments/{payment}/download', [InvoiceController::class, 'download'])->name('download');
         Route::get('/payments/{payment}/preview', [InvoiceController::class, 'preview'])->name('preview');
-        Route::delete('/payments/{payment}', [InvoiceController::class, 'destroy'])->name('destroy'); 
+        
+        // Delete invoice
+        Route::delete('/payments/{payment}', [InvoiceController::class, 'destroy'])->name('destroy');
     });
 
      // ==========================================

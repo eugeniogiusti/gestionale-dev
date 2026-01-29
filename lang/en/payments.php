@@ -61,4 +61,13 @@ return [
     'currency_invalid' => 'Invalid currency selected',
     'due_date_help' => 'Optional: Payment due date for invoice',
     'notes_help' => 'This description will be used in the invoice',
+    'due_date_required_when_unpaid' => 'Due date is required for unpaid payments',
+    'payment_received' => 'Payment received',
+    'payment_received_help' => 'Check if the payment has already been received',
+    'due_date_help_unpaid' => 'Payment due date',
+    'pending' => 'Pending',
+    'overdue' => 'Overdue',
+    'select_method' => 'Select payment method',
+    'method_not_set' => 'Pending payment',
+
 ];

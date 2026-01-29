@@ -22,5 +22,17 @@ return [
     'currency' => 'Currency',
     'confirm_delete' => 'Are you sure you want to delete this invoice? This action cannot be undone.',
     'deleted_successfully' => 'Invoice deleted successfully',
-    'default_currency' => 'GBP', 
+    'default_currency' => 'GBP',
+    'uploaded_successfully' => 'Invoice uploaded successfully',
+    'preview' => 'Preview',
+    'download' => 'Download',
+    'delete' => 'Delete',
+    'generate' => 'Generate invoice',
+    'upload' => 'Upload manually',
+    'confirm_delete' => 'Are you sure you want to delete this invoice?',
+    'upload_invoice' => 'Upload invoice',
+    'select_file' => 'Select PDF file',
+    'upload_help' => 'PDF files only, maximum 10MB',
+    'no_client' => 'No client associated',
+
 ];

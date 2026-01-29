@@ -117,3 +117,19 @@
     </svg>
     <span x-show="!collapsed">{{ __('documents.title') }}</span>
 </a>
+
+{{-- Calendar --}}
+<a href="{{ route('calendar.index') }}"
+   class="flex items-center px-3 py-2 rounded-md text-sm font-medium
+          text-gray-700 dark:text-gray-300
+          hover:bg-gray-100 dark:hover:bg-gray-700
+          {{ request()->routeIs('calendar.*') ? 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white' : '' }}
+          transition"
+   :title="collapsed ? 'Calendar' : ''"
+>
+    <svg class="w-5 h-5" :class="collapsed ? '' : 'mr-3'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+    <span x-show="!collapsed">Calendar</span>
+</a>

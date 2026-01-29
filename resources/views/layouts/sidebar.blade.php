@@ -1,11 +1,16 @@
-{{-- resources/views/layouts/sidebar.blade.php --}}
 <aside 
     x-data="{ 
         collapsed: localStorage.getItem('sidebar-collapsed') === 'true' 
     }"
-    x-init="$watch('collapsed', value => localStorage.setItem('sidebar-collapsed', value))"
+    x-init="
+        $nextTick(() => document.documentElement.classList.add('sidebar-ready'));
+        $watch('collapsed', value => {
+            localStorage.setItem('sidebar-collapsed', value);
+            document.documentElement.classList.toggle('sidebar-collapsed', value);
+        })
+    "
     :class="collapsed ? 'w-16' : 'w-64'"
-    class="min-h-screen bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col transition-all duration-300"
+    class="sidebar-element min-h-screen bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col"
 >
     
     {{-- Brand + Toggle --}}

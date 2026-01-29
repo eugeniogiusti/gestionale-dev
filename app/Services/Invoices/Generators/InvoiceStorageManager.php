@@ -3,22 +3,23 @@
 namespace App\Services\Invoices\Generators;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class InvoiceStorageManager
 {
     /**
-     * Save PDF to storage
+     * Save uploaded file to storage
      */
-    public function save($pdf, string $invoiceNumber): string
+    public function saveUploadedFile(UploadedFile $file): string
     {
-        $filename = $this->formatFilename($invoiceNumber);
-        $path = "invoices/{$filename}";
-        
         $this->ensureDirectoryExists();
         
-        Storage::put($path, $pdf->output());
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $path = "invoices/{$filename}";
+        
+        Storage::putFileAs('invoices', $file, $filename);
         
         return $path;
     }
@@ -26,18 +27,18 @@ class InvoiceStorageManager
     /**
      * Download invoice file
      */
-    public function download(string $path, string $invoiceNumber): StreamedResponse
+    public function download(string $path): StreamedResponse
     {
-        $filename = $this->formatFilename($invoiceNumber);
+        $filename = basename($path);
         return Storage::download($path, "Fattura-{$filename}");
     }
 
     /**
      * Preview invoice file
      */
-    public function preview(string $path, string $invoiceNumber): BinaryFileResponse
+    public function preview(string $path): BinaryFileResponse
     {
-        $filename = $this->formatFilename($invoiceNumber);
+        $filename = basename($path);
         
         return response()->file(
             Storage::path($path),
@@ -74,13 +75,5 @@ class InvoiceStorageManager
         if (!Storage::exists('invoices')) {
             Storage::makeDirectory('invoices');
         }
-    }
-
-    /**
-     * Format filename
-     */
-    private function formatFilename(string $invoiceNumber): string
-    {
-        return str_replace('/', '-', $invoiceNumber) . '.pdf';
     }
 }

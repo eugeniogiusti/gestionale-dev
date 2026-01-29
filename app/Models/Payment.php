@@ -20,7 +20,6 @@ class Payment extends Model
         'method',
         'reference',
         'notes',
-        'invoice_number',
         'invoice_path',
     ];
 
@@ -73,6 +72,23 @@ class Payment extends Model
         return $query->where('project_id', $projectId);
     }
 
+    public function scopePaid(Builder $query): Builder
+    {
+        return $query->whereNotNull('paid_at');
+    }
+
+    public function scopePending(Builder $query): Builder
+    {
+        return $query->whereNull('paid_at');
+    }
+
+    public function scopeOverdue(Builder $query): Builder
+    {
+        return $query->whereNull('paid_at')
+            ->whereNotNull('due_date')
+            ->where('due_date', '<', now());
+    }
+
     public function scopeThisMonth(Builder $query): Builder
     {
         return $query->whereBetween('paid_at', [
@@ -98,6 +114,23 @@ class Payment extends Model
      |  HELPERS
      |-----------------------------------------------------------------*/
 
+    public function isPaid(): bool
+    {
+        return !is_null($this->paid_at);
+    }
+
+    public function isPending(): bool
+    {
+        return is_null($this->paid_at);
+    }
+
+    public function isOverdue(): bool
+    {
+        return $this->isPending() 
+            && $this->due_date 
+            && $this->due_date->isPast();
+    }
+
     public function getCurrencySymbol(): string
     {
         return self::CURRENCIES[$this->currency] ?? $this->currency;
@@ -113,12 +146,12 @@ class Payment extends Model
 
     public function isRecent(): bool
     {
-        return $this->paid_at->isAfter(now()->subDays(7));
+        return $this->paid_at && $this->paid_at->isAfter(now()->subDays(7));
     }
     
     public function hasInvoice(): bool
     {
-        return !is_null($this->invoice_number) && !is_null($this->invoice_path);
+        return !is_null($this->invoice_path);
     }
 
     public function getInvoiceDownloadUrl(): ?string

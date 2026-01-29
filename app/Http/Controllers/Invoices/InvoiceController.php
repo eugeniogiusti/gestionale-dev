@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Invoices;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use App\Services\Invoices\InvoiceService;
+use App\Http\Requests\Invoices\UploadInvoiceRequest;
 
 class InvoiceController extends Controller
 {
@@ -13,15 +14,23 @@ class InvoiceController extends Controller
     ) {}
 
     /**
-     * Generate invoice PDF from payment
+     * Generate invoice PDF and download
      */
     public function generate(Payment $payment)
     {
-        $this->invoiceService->generateAndSave($payment);
+        return $this->invoiceService->generateAndDownload($payment);
+    }
+
+    /**
+     * Upload manual invoice
+     */
+    public function upload(UploadInvoiceRequest $request, Payment $payment)
+    {
+        $this->invoiceService->upload($payment, $request->file('invoice'));
 
         return redirect()
             ->route('projects.show', ['project' => $payment->project_id, 'tab' => 'payments'])
-            ->with('success', __('invoices.generated_successfully'));
+            ->with('success', __('invoices.uploaded_successfully'));
     }
 
     /**

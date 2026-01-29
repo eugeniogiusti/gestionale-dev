@@ -9,11 +9,16 @@
     
     <div class="to-col">
         <div class="to-label">{{ __('invoices.recipient') }}:</div>
-        <div class="party-line"><strong>{{ $client->name }}</strong></div>
-        <div class="party-line">{{ $client->billing_address }}</div>
-        <div class="party-line">{{ $client->billing_zip }} {{ $client->billing_city }} ({{ $client->billing_province }})</div>
-        @if($client->vat_number)
-            <div class="party-line">{{ __('invoices.vat_number') }}: {{ $client->vat_number }}</div>
+        @if($client)
+            <div class="party-line"><strong>{{ $client->name }}</strong></div>
+            <div class="party-line">{{ $client->billing_address }}</div>
+            <div class="party-line">{{ $client->billing_zip }} {{ $client->billing_city }} ({{ $client->billing_province }})</div>
+            @if($client->vat_number)
+                <div class="party-line">{{ __('invoices.vat_number') }}: {{ $client->vat_number }}</div>
+            @endif
+        @else
+            <div class="party-line"><strong>{{ $project->name }}</strong></div>
+            <div class="party-line text-gray-500">{{ __('invoices.no_client') }}</div>
         @endif
     </div>
 </div>

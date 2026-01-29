@@ -1,3 +1,4 @@
+{{-- resources/views/layouts/app.blade.php --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -19,6 +20,13 @@
       if (useDark) document.documentElement.classList.add('dark');
     </script>
 
+    <!-- Sidebar state (no flash) -->
+    <script>
+    if (localStorage.getItem('sidebar-collapsed') === 'true') {
+        document.documentElement.classList.add('sidebar-collapsed');
+    }
+    </script>
+
   <!-- Alpine.js (no flash) -->
 <style>
   [x-cloak]{display:none!important;}
@@ -28,29 +36,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-
-
 <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <!-- Global toast container  -->
         <x-ui.toast-container />
+    @include('layouts._flash-messages')
 
-
-    {{-- Flash Messages (Success/Error) --}}
-    @if(session('success'))
-        <x-ui.toast type="success" :message="session('success')" />
-    @endif
-
-    @if(session('error'))
-        <x-ui.toast type="error" :message="session('error')" />
-    @endif
-
-    {{-- Validation Errors --}}
-    @if($errors->any())
-        @foreach($errors->all() as $error)
-            <x-ui.toast type="error" :message="$error" />
-        @endforeach
-    @endif
-       
          <!-- Main layout -->
     <div class="min-h-screen flex">
         {{-- Sidebar --}}

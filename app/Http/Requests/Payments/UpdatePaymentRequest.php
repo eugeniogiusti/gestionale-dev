@@ -6,9 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePaymentRequest extends FormRequest
 {
-    public function authorize(): bool
+    
+        protected function prepareForValidation()
     {
-        return true;
+        // if paid_at is not provided, set method to null
+        if (!$this->paid_at) {
+            $this->merge(['method' => null]);
+        }
     }
 
     public function rules(): array
@@ -16,9 +20,9 @@ class UpdatePaymentRequest extends FormRequest
         return [
             'amount' => ['required', 'numeric', 'min:0.01', 'max:999999.99'],
             'currency' => ['required', 'string', 'size:3', 'in:EUR,USD,GBP,CHF,JPY'],
-            'paid_at' => ['required', 'date'],
-            'due_date' => ['nullable', 'date', 'after_or_equal:paid_at'],
-            'method' => ['required', 'in:cash,bank,stripe,paypal'],
+            'paid_at' => ['nullable', 'date'],
+            'due_date' => ['required_without:paid_at', 'nullable', 'date'],
+            'method' => ['nullable', 'required_with:paid_at', 'in:cash,bank,stripe,paypal'], // ← MODIFICA
             'reference' => ['nullable', 'string', 'max:255'],
             'notes' => ['nullable', 'string'],
         ];
@@ -29,8 +33,7 @@ class UpdatePaymentRequest extends FormRequest
         return [
             'amount.required' => __('payments.amount_required'),
             'amount.min' => __('payments.amount_min'),
-            'paid_at.required' => __('payments.paid_at_required'),
-            'due_date.after_or_equal' => __('payments.due_date_invalid'),
+            'due_date.required_without' => __('payments.due_date_required_when_unpaid'),
             'method.required' => __('payments.method_required'),
             'currency.in' => __('payments.currency_invalid'),
         ];

@@ -8,6 +8,7 @@ export default function paymentModal(projectPayments = []) {
         isEdit: false,
         paymentId: null,
         formData: {
+            is_paid: true, // Default: pagamento incassato
             amount: '',
             currency: 'EUR',
             paid_at: '',
@@ -22,6 +23,7 @@ export default function paymentModal(projectPayments = []) {
          */
         resetForm() {
             this.formData = {
+                is_paid: true,
                 amount: '',
                 currency: 'EUR',
                 paid_at: '',
@@ -39,6 +41,8 @@ export default function paymentModal(projectPayments = []) {
          */
         openCreate() {
             this.resetForm();
+            // Setta data odierna di default se incassato
+            this.formData.paid_at = new Date().toISOString().split('T')[0];
             this.open = true;
         },
 
@@ -67,7 +71,11 @@ export default function paymentModal(projectPayments = []) {
             const payment = projectPayments.find(p => p.id === paymentId);
             
             if (payment) {
+                // Determina se è incassato in base a paid_at
+                const isPaid = payment.paid_at !== null;
+                
                 this.formData = {
+                    is_paid: isPaid,
                     amount: payment.amount || '',
                     currency: payment.currency || 'EUR',
                     paid_at: payment.paid_at || '',
@@ -77,6 +85,24 @@ export default function paymentModal(projectPayments = []) {
                     notes: payment.notes || ''
                 };
             }
+        },
+
+        /**
+         * Watch is_paid to clear opposite field
+         */
+        init() {
+            this.$watch('formData.is_paid', (value) => {
+                if (value) {
+                    // Se incassato: setta paid_at a oggi (se vuoto), pulisci due_date
+                    if (!this.formData.paid_at) {
+                        this.formData.paid_at = new Date().toISOString().split('T')[0];
+                    }
+                    this.formData.due_date = '';
+                } else {
+                    // Se NON incassato: pulisci paid_at
+                    this.formData.paid_at = '';
+                }
+            });
         }
     };
 }

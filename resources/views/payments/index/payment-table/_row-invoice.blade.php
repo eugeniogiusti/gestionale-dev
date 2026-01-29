@@ -1,27 +1,66 @@
-<td class="px-6 py-4 whitespace-nowrap">
-    @if($payment->invoice_path)
-        <div class="flex space-x-2">
-            {{-- Visualizza --}}
-            <a href="{{ route('payments.invoice.view', $payment) }}" 
+<td class="px-4 py-4 whitespace-nowrap">
+    <div class="flex items-center gap-2">
+        
+        @if($payment->hasInvoice())
+            {{-- Fattura esistente: Preview, Download, Delete --}}
+            <a href="{{ route('invoices.preview', $payment) }}" 
                target="_blank"
-               class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400"
-               title="{{ __('payments.view_invoice') }}">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="text-blue-600 hover:text-blue-800 dark:text-blue-400"
+               title="{{ __('invoices.preview') }}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
             </a>
-            
-            {{-- Scarica --}}
-            <a href="{{ route('payments.invoice.download', $payment) }}" 
-               class="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400"
-               title="{{ __('payments.download_invoice') }}">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+            <a href="{{ route('invoices.download', $payment) }}" 
+               class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400"
+               title="{{ __('invoices.download') }}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
             </a>
-        </div>
-    @else
-        <span class="text-gray-400">—</span>
-    @endif
+
+            <form method="POST" 
+                  action="{{ route('invoices.destroy', $payment) }}" 
+                  class="inline"
+                  onsubmit="return confirm('{{ __('invoices.confirm_delete') }}')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" 
+                        class="text-red-600 hover:text-red-800 dark:text-red-400"
+                        title="{{ __('invoices.delete') }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </button>
+            </form>
+
+        @else
+            {{-- Nessuna fattura: Genera + Upload --}}
+            <form method="POST" 
+                  action="{{ route('invoices.generate', $payment) }}" 
+                  class="inline">
+                @csrf
+                <button type="submit" 
+                        class="text-purple-600 hover:text-purple-800 dark:text-purple-400"
+                        title="{{ __('invoices.generate') }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </button>
+            </form>
+
+        @endif
+
+        {{-- Upload sempre disponibile --}}
+        <button @click="$dispatch('open-upload-modal', {{ $payment->id }})"
+                class="text-gray-600 hover:text-gray-800 dark:text-gray-400"
+                title="{{ __('invoices.upload') }}">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L9 8m4-4v12" />
+            </svg>
+        </button>
+        
+    </div>
 </td>

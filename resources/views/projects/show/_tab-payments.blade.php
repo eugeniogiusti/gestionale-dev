@@ -44,6 +44,9 @@
     {{-- Modal Form --}}
     @include('payments.partials._modal-form', ['project' => $project])
 
+    {{-- Upload Invoice Modal --}}
+    @include('payments.partials._upload-invoice-modal')
+
 </div>
 
 

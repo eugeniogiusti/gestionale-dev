@@ -9,12 +9,11 @@ import projectModal from './components/projectModal';
 import taskModal from './components/taskModal';
 import meetingModal from './components/meetingModal';
 import paymentModal from './components/paymentModal';
+import uploadInvoiceModal from './components/uploadInvoiceModal';
 import costModal from './components/costModal';
 import receiptUploadModal from './components/receiptUploadModal';
 import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
-
-
 
 window.Alpine = Alpine
 
@@ -32,9 +31,9 @@ window.projectModal = projectModal;
 window.taskModal = taskModal;
 window.meetingModal = meetingModal;
 window.paymentModal = paymentModal;
+window.uploadInvoiceModal = uploadInvoiceModal;
 window.costModal = costModal;
 window.receiptUploadModal = receiptUploadModal;
 window.documentModal = documentModal;
-
 
 Alpine.start()

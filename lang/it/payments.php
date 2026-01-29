@@ -61,4 +61,14 @@ return [
     'currency_invalid' => 'Valuta non valida',
     'due_date_help' => 'Opzionale: Data di scadenza del pagamento per la fattura',
     'notes_help' => 'Questa descrizione verrà usata nella fattura',
+    'due_date_required_when_unpaid' => 'La scadenza è obbligatoria per i pagamenti non incassati',
+    'payment_received' => 'Pagamento incassato',
+    'payment_received_help' => 'Seleziona se il pagamento è già stato ricevuto',
+    'due_date_help_unpaid' => 'Scadenza per il pagamento',
+    'pending' => 'Da incassare',
+    'overdue' => 'Scaduto',
+    'select_method' => 'Seleziona metodo di pagamento',
+    'method_not_set' => 'Da incassare',
+
+    
 ];
