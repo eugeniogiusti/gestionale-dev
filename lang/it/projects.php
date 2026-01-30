@@ -68,6 +68,7 @@ return [
     'status_archived' => 'Archiviato',
     
     // Priority options
+    'select_priority' => 'Seleziona priorità',
     'priority_low' => 'Bassa',
     'priority_medium' => 'Media',
     'priority_high' => 'Alta',

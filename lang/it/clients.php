@@ -30,6 +30,7 @@ return [
     'status' => 'Stato',
     'vat_number' => 'Partita IVA',
     'phone_prefix' => 'Prefisso',
+    'select_prefix' => 'Seleziona',
     'phone' => 'Telefono',
     'pec' => 'PEC',
     'website' => 'Sito Web',

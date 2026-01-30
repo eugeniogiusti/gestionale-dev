@@ -31,6 +31,7 @@ return [
     'status_done' => 'Completato',
     
     // Priorities
+    'select_priority' => 'Seleziona priorità',
     'priority_low' => 'Bassa',
     'priority_medium' => 'Media',
     'priority_high' => 'Alta',

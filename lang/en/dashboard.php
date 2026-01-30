@@ -4,6 +4,16 @@ return [
     'title' => 'Dashboard',
     'welcome_message' => 'Overview of your business',
 
+    // Welcome Card
+    'welcome_title' => 'Welcome to IndieDesk',
+    'welcome_subtitle' => 'Your indie developer Workspace',
+    'welcome_description' => 'Manage clients, projects, tasks, and payments in one dashboard. Everything organized, always under control.',
+    'welcome_feature_clients' => 'Manage your clients',
+    'welcome_feature_projects' => 'Track projects and deadlines',
+    'welcome_feature_payments' => 'Monitor income and payments',
+    'welcome_feature_docs' => 'Organize your documents',
+    'welcome_wiki_hint' => 'Check the Wiki for guides and tutorials',
+
     // Stats Cards
     'profit_this_month' => 'Profit This Month',
     'pending_payments' => 'Pending Payments',

@@ -19,8 +19,18 @@
         {{-- Stats Cards --}}
         @include('dashboard._stats-cards')
 
-        {{-- Annual Trend Chart --}}
-        @include('dashboard._chart')
+        {{-- Annual Trend Chart + Welcome Card --}}
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {{-- Annual Trend Chart --}}
+            <div class="lg:col-span-2">
+                @include('dashboard._chart')
+            </div>
+
+            {{-- Welcome Card --}}
+            <div class="lg:col-span-1">
+                @include('dashboard._welcome-card')
+            </div>
+        </div>
 
         {{-- Quick Lists --}}
         @include('dashboard._lists')

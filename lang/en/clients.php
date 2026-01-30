@@ -30,6 +30,7 @@ return [
     'status' => 'Status',
     'vat_number' => 'VAT Number',
     'phone_prefix' => 'Prefix',
+    'select_prefix' => 'Select',
     'phone' => 'Phone',
     'pec' => 'Certified Email (PEC)',
     'website' => 'Website',

@@ -1,9 +1,12 @@
 {{-- BRAND + Toggle --}}
 <div class="h-16 flex items-center justify-between px-4 border-b border-gray-200 dark:border-gray-700">
-    <a href="{{ route('dashboard') }}" class="flex items-center space-x-2" x-show="!collapsed" x-cloak>
-        <x-application-logo class="h-8 w-auto fill-current text-gray-800 dark:text-gray-200" />
-        <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Gest</span>
-    </a>
+    <a href="{{ route('dashboard') }}" class="flex items-center justify-center">
+    <img 
+        src="{{ asset('images/logo.svg') }}" 
+        alt="IndieDesk"
+        class="h-8 w-auto"
+    >
+</a>
     
     <button 
         @click="collapsed = !collapsed"

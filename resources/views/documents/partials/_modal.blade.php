@@ -27,19 +27,19 @@
          class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20"
          @click.away="closeModal()">
         
-        <div class="mx-auto max-w-2xl">
+        <div class="mx-auto max-w-xl">
             <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl" @click.stop>
-                
+
                 {{-- Header --}}
-                <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
                     <div class="flex items-center justify-between">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        <h3 class="text-base font-semibold text-gray-900 dark:text-white">
                             <span x-show="!isEdit">{{ __('documents.create_document') }}</span>
                             <span x-show="isEdit">{{ __('documents.edit_document') }}</span>
                         </h3>
-                        <button @click="closeModal()" 
+                        <button @click="closeModal()"
                                 class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
-                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -56,19 +56,21 @@
                     <input type="hidden" name="_method" x-bind:value="isEdit ? 'PUT' : 'POST'">
 
                     {{-- Form Fields --}}
-                    <div class="px-6 py-4">
+                    <div class="px-4 py-3 max-h-[60vh] overflow-y-auto">
                         @include('documents.partials._form-fields')
                     </div>
 
                     {{-- Footer --}}
-                    <div class="px-6 py-4 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3">
-                        <button type="button" 
+                    <div class="px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-2">
+                        <button type="button"
                                 @click="closeModal()"
-                                class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                class="px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                             {{ __('ui.cancel') }}
                         </button>
                         <button type="submit"
-                                class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
+                                :disabled="!formData.name || (!isEdit && !fileName)"
+                                :class="(!formData.name || (!isEdit && !fileName)) ? 'bg-gray-300 dark:bg-gray-600 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700'"
+                                class="px-3 py-1.5 text-sm text-white rounded-lg transition">
                             <span x-show="!isEdit">{{ __('documents.upload') }}</span>
                             <span x-show="isEdit">{{ __('ui.save') }}</span>
                         </button>

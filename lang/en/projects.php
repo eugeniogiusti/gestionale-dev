@@ -66,6 +66,7 @@ return [
     'status_archived' => 'Archived',
     
     // Priority options
+    'select_priority' => 'Select priority',
     'priority_low' => 'Low',
     'priority_medium' => 'Medium',
     'priority_high' => 'High',
