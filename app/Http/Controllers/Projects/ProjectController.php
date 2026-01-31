@@ -9,6 +9,7 @@ use App\Http\Requests\Projects\UpdateProjectRequest;
 use App\Queries\Projects\ProjectIndexQuery;
 use App\Queries\Projects\ProjectStatsQuery;
 use App\Queries\Projects\ProjectProfitStatsQuery;
+use App\Queries\Projects\ProjectShowQuery;
 
 
 class ProjectController extends Controller
@@ -21,10 +22,10 @@ class ProjectController extends Controller
     {
         // Retrieve paginated projects with filters applied
         $projects = (new ProjectIndexQuery())->handle();
-        
-        // Calculate aggregated statistics for index cards
-        $stats = (new ProjectStatsQuery())->handle();
-        
+
+        // Calculate aggregated statistics for index cards (reuse total from paginator)
+        $stats = (new ProjectStatsQuery())->handle($projects->total());
+
         return view('projects.index', compact('projects', 'stats'));
     }
 
@@ -45,15 +46,13 @@ class ProjectController extends Controller
     public function show(Project $project, ProjectProfitStatsQuery $profitStats)
     {
         $project->load('client');
-        $project->load('tasks');
-        $project->load('meetings');
-        $project->load('payments');
-        $project->load('costs');
-        $project->load('documents.labels');
-        
+
+        // Load limited related data with counts
+        $showData = (new ProjectShowQuery($project))->handle();
+
         $profitData = $profitStats->handle($project);
-    
-        return view('projects.show', compact('project', 'profitData'));
+
+        return view('projects.show', compact('project', 'profitData', 'showData'));
     }
 
     /**

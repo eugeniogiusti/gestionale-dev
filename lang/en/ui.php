@@ -16,4 +16,5 @@ return [
     'none'   => 'None',
     'search' => 'Search',
     'view_all' => 'View All',
+    'not_set' => 'N/A',
 ];

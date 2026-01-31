@@ -9,11 +9,13 @@ class ClientStatsQuery
 {
     /**
      * Get all client statistics for index cards
+     *
+     * @param int|null $total Optional total count from paginator to avoid duplicate query
      */
-    public function handle(): array
+    public function handle(?int $total = null): array
     {
-        // Total clients
-        $total = Client::count();
+        // Total clients (use provided value or query)
+        $total = $total ?? Client::count();
 
         // Clients by status
         $byStatus = Client::select('status', DB::raw('count(*) as count'))

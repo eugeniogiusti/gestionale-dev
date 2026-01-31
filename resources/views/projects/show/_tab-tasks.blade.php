@@ -13,15 +13,15 @@
     </div>
 
     {{-- Tabella (riutilizza partial) --}}
-    @if($project->tasks->count() > 0)
-        @include('tasks.partials._task-table', ['tasks' => $project->tasks->take(10), 'project' => $project])
+    @if($showData['tasksCount'] > 0)
+        @include('tasks.partials._task-table', ['tasks' => $showData['tasks'], 'project' => $project])
 
         {{-- Link Vedi tutti --}}
-        @if($project->tasks->count() > 10)
+        @if($showData['tasksCount'] > 10)
             <div class="text-center">
-                <a href="{{ route('tasks.index', ['project_id' => $project->id]) }}" 
+                <a href="{{ route('tasks.index', ['project_id' => $project->id]) }}"
                    class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 font-medium">
-                    {{ __('tasks.view_all') }} ({{ $project->tasks->count() }})
+                    {{ __('tasks.view_all') }} ({{ $showData['tasksCount'] }})
                 </a>
             </div>
         @endif

@@ -8,21 +8,25 @@ export default function documentModal(projectDocuments = [], labels = []) {
         isEdit: false,
         documentId: null,
         fileName: '',
-        formData: {
-            name: '',
-            label_ids: [],
-            notes: ''
+        formData: {},
+
+        init() {
+            this.formData = this.getEmptyForm();
+        },
+
+        getEmptyForm() {
+            return {
+                name: '',
+                label_ids: [],
+                notes: ''
+            };
         },
 
         /**
          * Reset form data to defaults
          */
         resetForm() {
-            this.formData = {
-                name: '',
-                label_ids: [],
-                notes: ''
-            };
+            this.formData = this.getEmptyForm();
             this.fileName = '';
             this.isEdit = false;
             this.documentId = null;

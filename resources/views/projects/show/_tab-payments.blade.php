@@ -13,15 +13,15 @@
     </div>
 
     {{-- Tabella (riutilizza partial) --}}
-    @if($project->payments->count() > 0)
-        @include('payments.partials._payment-table', ['payments' => $project->payments->take(10), 'project' => $project])
+    @if($showData['paymentsCount'] > 0)
+        @include('payments.partials._payment-table', ['payments' => $showData['payments'], 'project' => $project])
 
         {{-- Link Vedi tutti --}}
-        @if($project->payments->count() > 10)
+        @if($showData['paymentsCount'] > 10)
             <div class="text-center">
-                <a href="{{ route('payments.index', ['project_id' => $project->id]) }}" 
+                <a href="{{ route('payments.index', ['project_id' => $project->id]) }}"
                    class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 font-medium">
-                    {{ __('payments.view_all') }} ({{ $project->payments->count() }})
+                    {{ __('payments.view_all') }} ({{ $showData['paymentsCount'] }})
                 </a>
             </div>
         @endif

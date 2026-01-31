@@ -4,30 +4,15 @@ export default function clientModal() {
         isEdit: false,
         clientId: null,
         activeTab: 'basic',
-        formData: {
-            // Basic
-            name: '',
-            email: '',
-            status: 'lead',
-            vat_number: '',
-            phone_prefix: '',
-            phone: '',
-            pec: '',
-            // Billing
-            billing_address: '',
-            billing_city: '',
-            billing_zip: '',
-            billing_province: '',
-            billing_country: '',
-            billing_recipient_code: '',
-            // Web
-            website: '',
-            linkedin: '',
-            notes: ''
+        formData: {},
+
+        init() {
+            this.formData = this.getEmptyForm();
         },
-        
-        resetForm() {
-            this.formData = {
+
+        getEmptyForm() {
+            return {
+                // Basic
                 name: '',
                 email: '',
                 status: 'lead',
@@ -35,33 +20,39 @@ export default function clientModal() {
                 phone_prefix: '',
                 phone: '',
                 pec: '',
+                // Billing
                 billing_address: '',
                 billing_city: '',
                 billing_zip: '',
                 billing_province: '',
                 billing_country: '',
                 billing_recipient_code: '',
+                // Web
                 website: '',
                 linkedin: '',
                 notes: ''
             };
+        },
+
+        resetForm() {
+            this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.clientId = null;
             this.activeTab = 'basic';
         },
-        
+
         openCreate() {
             this.resetForm();
             this.open = true;
         },
-        
+
         openEdit(clientData) {
             this.isEdit = true;
             this.clientId = clientData.id;
             this.formData = { ...clientData };
             this.open = true;
         },
-        
+
         closeModal() {
             this.open = false;
             this.resetForm();

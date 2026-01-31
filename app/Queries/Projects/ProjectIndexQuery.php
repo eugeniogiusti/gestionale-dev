@@ -7,6 +7,9 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class ProjectIndexQuery
 {
+    private const ALLOWED_SORT_COLUMNS = ['name', 'status', 'priority', 'type', 'created_at', 'updated_at', 'start_date', 'due_date'];
+    private const ALLOWED_SORT_DIRECTIONS = ['asc', 'desc'];
+
     /**
      * Handle the query
      */
@@ -30,10 +33,22 @@ class ProjectIndexQuery
                 });
             })
             ->orderBy(
-                request('sort_by', 'created_at'),
-                request('sort_direction', 'desc')
+                $this->getSortColumn(),
+                $this->getSortDirection()
             )
             ->paginate(15)
             ->appends(request()->query());
+    }
+
+    private function getSortColumn(): string
+    {
+        $column = request('sort_by', 'created_at');
+        return in_array($column, self::ALLOWED_SORT_COLUMNS) ? $column : 'created_at';
+    }
+
+    private function getSortDirection(): string
+    {
+        $direction = strtolower(request('sort_direction', 'desc'));
+        return in_array($direction, self::ALLOWED_SORT_DIRECTIONS) ? $direction : 'desc';
     }
 }

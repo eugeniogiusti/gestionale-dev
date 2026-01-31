@@ -85,6 +85,7 @@
                           : '{{ route('projects.store') }}'">
                     @csrf
                     <input type="hidden" name="_method" x-bind:value="isEdit ? 'PUT' : 'POST'">
+                    <input type="hidden" name="back" x-bind:value="backTo">
 
                     {{-- Form Fields --}}
                     <div class="px-4 py-3 space-y-4 max-h-[60vh] overflow-y-auto">

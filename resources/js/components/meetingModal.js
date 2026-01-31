@@ -7,22 +7,14 @@ export default function meetingModal(projectMeetings = []) {
         open: false,
         isEdit: false,
         meetingId: null,
-        formData: {
-            title: '',
-            description: '',
-            scheduled_at: '',
-            duration_minutes: 60,
-            location: '',
-            meeting_url: '',
-            status: 'scheduled',
-            notes: ''
+        formData: {},
+
+        init() {
+            this.formData = this.getEmptyForm();
         },
 
-        /**
-         * Reset form data to defaults
-         */
-        resetForm() {
-            this.formData = {
+        getEmptyForm() {
+            return {
                 title: '',
                 description: '',
                 scheduled_at: '',
@@ -32,6 +24,13 @@ export default function meetingModal(projectMeetings = []) {
                 status: 'scheduled',
                 notes: ''
             };
+        },
+
+        /**
+         * Reset form data to defaults
+         */
+        resetForm() {
+            this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.meetingId = null;
         },

@@ -8,10 +8,10 @@
         'high' => 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
     ];
     @endphp
-    
+
     <span class="px-2 py-1 text-xs font-semibold rounded-full {{ $colors[$priority] ?? '' }}">
         {{ __('tasks.priority_' . $priority) }}
     </span>
 @else
-    <span class="text-gray-400 dark:text-gray-500">-</span>
+    <x-not-set-badge />
 @endif

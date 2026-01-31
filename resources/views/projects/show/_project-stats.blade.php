@@ -32,7 +32,7 @@
                 {{ __('projects.due_date') }}
             </dt>
             <dd class="mt-1">
-                <x-project-due-date :date="$project->due_date" />
+                <x-projects.due-date :date="$project->due_date" />
             </dd>
         </div>
     </dl>

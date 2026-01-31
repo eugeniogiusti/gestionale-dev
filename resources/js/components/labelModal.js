@@ -3,9 +3,17 @@ export default function labelModal(labels = []) {
         open: false,
         isEdit: false,
         labelId: null,
-        formData: {
-            name: '',
-            color: 'blue'
+        formData: {},
+
+        init() {
+            this.formData = this.getEmptyForm();
+        },
+
+        getEmptyForm() {
+            return {
+                name: '',
+                color: 'blue'
+            };
         },
 
         openCreate() {
@@ -26,7 +34,7 @@ export default function labelModal(labels = []) {
         },
 
         resetForm() {
-            this.formData = { name: '', color: 'blue' };
+            this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.labelId = null;
         },

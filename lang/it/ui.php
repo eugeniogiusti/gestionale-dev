@@ -16,4 +16,5 @@ return [
     'none'   => 'Nessuno',
     'search' => 'Cerca',
     'view_all' => 'Vedi Tutti',
+    'not_set' => 'N/D',
 ];

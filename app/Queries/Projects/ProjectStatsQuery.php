@@ -10,10 +10,10 @@ class ProjectStatsQuery
     /**
      * Get all project statistics for index cards
      */
-    public function handle(): array
+    public function handle(?int $total = null): array
     {
-        // Total projects
-        $total = Project::count();
+        // Total projects (use provided value to avoid duplicate query)
+        $total = $total ?? Project::count();
 
         // Projects by status
         $byStatus = Project::select('status', DB::raw('count(*) as count'))

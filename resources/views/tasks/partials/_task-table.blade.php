@@ -25,7 +25,7 @@
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($tasks as $task)
-                <x-tasks.table-row :task="$task" :project="$project" />
+                @include('tasks.partials._table-row', ['task' => $task, 'project' => $project])
             @endforeach
         </tbody>
     </table>

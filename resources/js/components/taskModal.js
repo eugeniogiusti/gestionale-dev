@@ -3,17 +3,14 @@ export default function taskModal() {
         open: false,
         isEdit: false,
         taskId: null,
-        formData: {
-            title: '',
-            description: '',
-            type: 'feature',
-            status: 'todo',
-            priority: '',
-            due_date: ''
+        formData: {},
+
+        init() {
+            this.formData = this.getEmptyForm();
         },
-        
-        resetForm() {
-            this.formData = {
+
+        getEmptyForm() {
+            return {
                 title: '',
                 description: '',
                 type: 'feature',
@@ -21,6 +18,10 @@ export default function taskModal() {
                 priority: '',
                 due_date: ''
             };
+        },
+
+        resetForm() {
+            this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.taskId = null;
         },

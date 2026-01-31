@@ -26,7 +26,10 @@ class TaskIndexQuery
             ->when(request('search'), function ($query, $search) {
                 $query->where(function ($q) use ($search) {
                     $q->where('title', 'LIKE', "%{$search}%")
-                      ->orWhere('description', 'LIKE', "%{$search}%");
+                      ->orWhere('description', 'LIKE', "%{$search}%")
+                      ->orWhereHas('project', function ($projectQuery) use ($search) {
+                          $projectQuery->where('name', 'LIKE', "%{$search}%");
+                      });
                 });
             })
             ->orderBy('order')

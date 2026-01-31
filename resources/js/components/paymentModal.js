@@ -7,23 +7,11 @@ export default function paymentModal(projectPayments = []) {
         open: false,
         isEdit: false,
         paymentId: null,
-        formData: {
-            is_paid: true, // Default: pagamento incassato
-            amount: '',
-            currency: 'EUR',
-            paid_at: '',
-            due_date: '',
-            method: 'bank',
-            reference: '',
-            notes: ''
-        },
+        formData: {},
 
-        /**
-         * Reset form data to defaults
-         */
-        resetForm() {
-            this.formData = {
-                is_paid: true,
+        getEmptyForm() {
+            return {
+                is_paid: true, // Default: pagamento incassato
                 amount: '',
                 currency: 'EUR',
                 paid_at: '',
@@ -32,6 +20,13 @@ export default function paymentModal(projectPayments = []) {
                 reference: '',
                 notes: ''
             };
+        },
+
+        /**
+         * Reset form data to defaults
+         */
+        resetForm() {
+            this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.paymentId = null;
         },
@@ -88,9 +83,10 @@ export default function paymentModal(projectPayments = []) {
         },
 
         /**
-         * Watch is_paid to clear opposite field
+         * Initialize form and watch is_paid to clear opposite field
          */
         init() {
+            this.formData = this.getEmptyForm();
             this.$watch('formData.is_paid', (value) => {
                 if (value) {
                     // Se incassato: setta paid_at a oggi (se vuoto), pulisci due_date

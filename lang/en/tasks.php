@@ -23,6 +23,7 @@ return [
     'type_infra' => 'Infra',
     'type_refactor' => 'Refactor',
     'type_research' => 'Research',
+    'type_administrative' => 'Administrative',
     
     // Statuses
     'status_todo' => 'To Do',
@@ -72,7 +73,7 @@ return [
     'placeholder' => [
         'title' => 'e.g. Implement OAuth login',
         'description' => 'Detailed task description...',
-        'search' => 'Search tasks...',
+        'search' => 'Search by title or project name...',
     ],
 
     // Index Statistics

@@ -23,6 +23,7 @@ return [
     'type_infra' => 'Infra',
     'type_refactor' => 'Refactor',
     'type_research' => 'Research',
+    'type_administrative' => 'Amministrativo',
     
     // Statuses
     'status_todo' => 'Da fare',
@@ -72,7 +73,7 @@ return [
     'placeholder' => [
         'title' => 'es. Implementa login OAuth',
         'description' => 'Descrizione dettagliata del task...',
-        'search' => 'Cerca task...',
+        'search' => 'Cerca per titolo o nome progetto...',
     ],
 
     // Index Statistics

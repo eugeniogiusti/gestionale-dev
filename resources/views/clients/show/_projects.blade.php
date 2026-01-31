@@ -20,9 +20,9 @@
                         <div class="min-w-0">
                             <p class="font-medium text-gray-900 dark:text-white truncate">{{ $project->name }}</p>
                             <div class="flex items-center gap-2 mt-1">
-                                <x-project-status-badge :status="$project->status" />
+                                <x-projects.status-badge :status="$project->status" />
                                 @if($project->priority)
-                                    <x-project-priority-badge :priority="$project->priority" />
+                                    <x-projects.priority-badge :priority="$project->priority" />
                                 @endif
                             </div>
                         </div>

@@ -9,5 +9,5 @@
         </h3>
     </div>
 
-    <x-project-links :project="$project" variant="list" />
+    <x-projects.links :project="$project" variant="list" />
 </div>

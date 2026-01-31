@@ -7,21 +7,14 @@ export default function costModal(projectCosts = []) {
         open: false,
         isEdit: false,
         costId: null,
-        formData: {
-            amount: '',
-            currency: 'EUR',
-            type: 'tool',
-            recurring: false,
-            recurring_period: '',
-            paid_at: '',
-            notes: ''
+        formData: {},
+
+        init() {
+            this.formData = this.getEmptyForm();
         },
 
-        /**
-         * Reset form data to defaults
-         */
-        resetForm() {
-            this.formData = {
+        getEmptyForm() {
+            return {
                 amount: '',
                 currency: 'EUR',
                 type: 'tool',
@@ -30,6 +23,13 @@ export default function costModal(projectCosts = []) {
                 paid_at: '',
                 notes: ''
             };
+        },
+
+        /**
+         * Reset form data to defaults
+         */
+        resetForm() {
+            this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.costId = null;
         },

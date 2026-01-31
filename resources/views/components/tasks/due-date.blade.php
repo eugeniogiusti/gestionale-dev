@@ -1,7 +1,7 @@
 @props(['date' => null])
 
 @if(!$date)
-    <span class="text-gray-400 dark:text-gray-500">—</span>
+    <x-not-set-badge />
 @else
     <div class="flex flex-col">
         <span class="text-sm font-medium text-gray-900 dark:text-white">

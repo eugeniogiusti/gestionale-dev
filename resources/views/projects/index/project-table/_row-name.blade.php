@@ -5,13 +5,13 @@
     </div>
     {{-- Project Type Badge --}}
     <div class="mt-1">
-        <x-project-type-badge :type="$project->type" />
+        <x-projects.type-badge :type="$project->type" />
     </div>
 
     {{-- Due date (only if exists) --}}
     @if($project->due_date)
         <div class="mt-1">
-            <x-project-due-date :date="$project->due_date" />
+            <x-projects.due-date :date="$project->due_date" />
         </div>
     @endif
 </td>
