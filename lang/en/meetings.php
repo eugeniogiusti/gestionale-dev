@@ -51,7 +51,7 @@ return [
     ],
 
     'placeholder' => [
-        'search' => 'Search meetings...',
+        'search' => 'Search by title or project name...',
         'title' => 'e.g., Q1 Planning Review',
         'description' => 'Meeting agenda or topics...',
         'location' => 'e.g., Office, Zoom, Google Meet',

@@ -17,7 +17,10 @@ class MeetingIndexQuery
             ->when(request('search'), function($q, $search) {
                 $q->where(function($query) use ($search) {
                     $query->where('title', 'like', "%{$search}%")
-                          ->orWhere('description', 'like', "%{$search}%");
+                          ->orWhere('description', 'like', "%{$search}%")
+                          ->orWhereHas('project', function($projectQuery) use ($search) {
+                              $projectQuery->where('name', 'like', "%{$search}%");
+                          });
                 });
             })
             ->orderBy('scheduled_at', 'desc')

@@ -7,6 +7,24 @@ export default (initialClientId = null, initialClientName = null) => ({
     isSearching: false,
     showDropdown: false,
 
+    // Sync state when project modal opens for edit
+    syncFromProject(clientId, clientName) {
+        this.isInternal = !clientId;
+        this.searchQuery = clientName || '';
+        this.selectedClient = clientId ? { id: clientId, name: clientName } : null;
+        this.searchResults = [];
+        this.showDropdown = false;
+    },
+
+    // Reset state when modal closes or creates new project
+    reset() {
+        this.isInternal = false;
+        this.searchQuery = '';
+        this.selectedClient = null;
+        this.searchResults = [];
+        this.showDropdown = false;
+    },
+
     // Methods
     async searchClients() {
         if (this.searchQuery.length < 2) {

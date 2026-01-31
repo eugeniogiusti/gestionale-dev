@@ -33,7 +33,7 @@ return [
     'type_client_work' => 'Client work',
     'type_product' => 'Product',
     'type_content' => 'Content',
-    'type_asset' => 'Asset (template/plugin)',
+    'type_asset' => 'Asset',
 
     // Dates
     'start_date' => 'Start date',
@@ -160,6 +160,10 @@ return [
 
     // Actions
     'open' => 'Open',
+    'add_to_calendar' => 'Add to Calendar',
+
+    // Calendar
+    'project' => 'Project',
 
     // Stats Cards
     'stats' => [

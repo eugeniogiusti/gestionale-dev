@@ -52,7 +52,22 @@ export default function projectModal() {
             this.projectId = projectData.id;
             this.backTo = projectData._back || '';
             this.formData = { ...projectData };
+
+            // Format dates for input[type="date"] (expects YYYY-MM-DD)
+            if (this.formData.start_date) {
+                this.formData.start_date = this.formatDateForInput(this.formData.start_date);
+            }
+            if (this.formData.due_date) {
+                this.formData.due_date = this.formatDateForInput(this.formData.due_date);
+            }
+
             this.open = true;
+        },
+
+        formatDateForInput(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toISOString().split('T')[0];
         },
 
         closeModal() {

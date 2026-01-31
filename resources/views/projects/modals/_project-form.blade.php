@@ -118,7 +118,9 @@
     </div>
 
 {{-- Client Search con checkbox Interno --}}
-<div x-data="clientSearch(formData.client_id, formData.client_name || '')">
+<div x-data="clientSearch()"
+     @edit-project.window="syncFromProject($event.detail.client_id, $event.detail.client_name)"
+     @open-project-modal.window="reset()">
     {{-- Checkbox Progetto Interno --}}
     <div class="flex items-center mb-2">
         <input type="checkbox" id="is_internal" x-model="isInternal"

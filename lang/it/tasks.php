@@ -43,6 +43,8 @@ return [
     'recent_tasks' => 'Task Recenti',
     'view_project' => 'Vai al progetto',
     'add_to_calendar' => 'Aggiungi al Calendario',
+    'mark_complete' => 'Segna come completato',
+    'mark_incomplete' => 'Segna come non completato',
     
     // Messages
     'created_successfully' => 'Task creato con successo',

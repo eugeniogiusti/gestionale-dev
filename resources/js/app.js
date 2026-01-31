@@ -15,6 +15,7 @@ import receiptUploadModal from './components/receiptUploadModal';
 import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
 import annualTrendChart from './components/annualTrendChart';
+import taskToggle from './components/taskToggle';
 
 window.Alpine = Alpine
 
@@ -26,6 +27,7 @@ Alpine.data('projectSearch', projectSearch);
 Alpine.data('clientSearch', clientSearch);
 Alpine.data('labelModal', labelModal);
 Alpine.data('annualTrendChart', annualTrendChart);
+Alpine.data('taskToggle', taskToggle);
 
 // Modal components
 window.clientModal = clientModal;

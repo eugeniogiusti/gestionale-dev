@@ -203,3 +203,63 @@ test('project factory minimal state creates project with only required fields', 
     expect($project->priority)->toBeNull();
     expect($project->repo_url)->toBeNull();
 });
+
+// ==========================================
+// CALENDAR TESTS
+// ==========================================
+
+test('hasCalendarDate returns true when due_date is set', function () {
+    $project = Project::factory()->create(['due_date' => now()->addDays(7)]);
+
+    expect($project->hasCalendarDate())->toBeTrue();
+});
+
+test('hasCalendarDate returns false when due_date is null', function () {
+    $project = Project::factory()->create(['due_date' => null]);
+
+    expect($project->hasCalendarDate())->toBeFalse();
+});
+
+test('googleCalendarUrl returns url when due_date is set', function () {
+    $project = Project::factory()->create(['due_date' => now()->addDays(7)]);
+
+    $url = $project->googleCalendarUrl();
+
+    expect($url)->not->toBeNull();
+    expect($url)->toContain('calendar.google.com');
+    expect($url)->toContain('action=TEMPLATE');
+});
+
+test('googleCalendarUrl returns null when due_date is null', function () {
+    $project = Project::factory()->create(['due_date' => null]);
+
+    expect($project->googleCalendarUrl())->toBeNull();
+});
+
+test('toCalendarEvent returns correct event for project with client', function () {
+    $client = Client::factory()->create(['name' => 'Test Client']);
+    $project = Project::factory()->forClient($client)->create([
+        'name' => 'Test Project',
+        'due_date' => now()->addDays(7),
+    ]);
+
+    $event = $project->toCalendarEvent();
+
+    expect($event->title)->toContain('Test Client');
+    expect($event->title)->toContain('Test Project');
+    expect($event->description)->toContain('Test Client');
+    expect($event->isAllDay)->toBeTrue();
+});
+
+test('toCalendarEvent returns correct event for internal project', function () {
+    $project = Project::factory()->internal()->create([
+        'name' => 'Internal Test',
+        'due_date' => now()->addDays(7),
+    ]);
+
+    $event = $project->toCalendarEvent();
+
+    expect($event->title)->toContain(__('projects.internal_project'));
+    expect($event->title)->toContain('Internal Test');
+    expect($event->isAllDay)->toBeTrue();
+});

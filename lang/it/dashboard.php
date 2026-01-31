@@ -6,8 +6,8 @@ return [
 
     // Welcome Card
     'welcome_title' => 'Benvenuto su IndieDesk',
-    'welcome_subtitle' => 'Il tuo centro di comando da indie developer',
-    'welcome_description' => 'Gestisci clienti, progetti, task e pagamenti in un\'unica dashboard. Tutto organizzato, sempre sotto controllo.',
+    'welcome_subtitle' => 'Il tuo Indie Developer Workspace',
+    'welcome_description' => 'Gestisci clienti, progetti, task e pagamenti in un\'unica dashboard. Tutto organizzato e sempre sotto controllo.',
     'welcome_feature_clients' => 'Gestisci i tuoi clienti',
     'welcome_feature_projects' => 'Traccia progetti e scadenze',
     'welcome_feature_payments' => 'Monitora incassi e pagamenti',

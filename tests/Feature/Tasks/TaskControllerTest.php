@@ -280,3 +280,62 @@ test('task can be deleted', function () {
 
     $this->assertDatabaseMissing('tasks', ['id' => $task->id]);
 });
+
+/* -----------------------------------------------------------------
+ |  TOGGLE DONE
+ |-----------------------------------------------------------------*/
+
+test('task can be toggled from todo to done', function () {
+    $project = Project::factory()->create();
+    $task = Task::factory()->forProject($project)->todo()->create();
+
+    $response = $this->postJson(route('tasks.toggleDone', [$project, $task]));
+
+    $response->assertOk();
+    $response->assertJson([
+        'status' => 'done',
+        'isDone' => true,
+    ]);
+
+    $task->refresh();
+    expect($task->status)->toBe('done');
+    expect($task->isDone())->toBeTrue();
+});
+
+test('task can be toggled from done to todo', function () {
+    $project = Project::factory()->create();
+    $task = Task::factory()->forProject($project)->done()->create();
+
+    $response = $this->postJson(route('tasks.toggleDone', [$project, $task]));
+
+    $response->assertOk();
+    $response->assertJson([
+        'status' => 'todo',
+        'isDone' => false,
+    ]);
+
+    $task->refresh();
+    expect($task->status)->toBe('todo');
+    expect($task->isDone())->toBeFalse();
+});
+
+test('toggle done returns json response', function () {
+    $project = Project::factory()->create();
+    $task = Task::factory()->forProject($project)->inProgress()->create();
+
+    $response = $this->postJson(route('tasks.toggleDone', [$project, $task]));
+
+    $response->assertOk();
+    $response->assertJsonStructure(['status', 'isDone']);
+});
+
+test('guests cannot toggle task done status', function () {
+    auth()->logout();
+
+    $project = Project::factory()->create();
+    $task = Task::factory()->forProject($project)->create();
+
+    $response = $this->postJson(route('tasks.toggleDone', [$project, $task]));
+
+    $response->assertUnauthorized();
+});

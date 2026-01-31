@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Contracts\CalendarEventable;
+use App\Services\Calendar\CalendarEvent;
+use App\Services\Calendar\GoogleCalendarLinkBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class Project extends Model
+class Project extends Model implements CalendarEventable
 {
     use HasFactory, SoftDeletes;
 
@@ -194,5 +197,129 @@ class Project extends Model
     public function scopeActive($query)
     {
         return $query->whereIn('status', ['draft', 'in_progress', 'completed']);
+    }
+
+    // ==========================================
+    // CALENDAR
+    // ==========================================
+
+    public function hasCalendarDate(): bool
+    {
+        return $this->due_date !== null;
+    }
+
+    public function toCalendarEvent(): CalendarEvent
+    {
+        return new CalendarEvent(
+            title: $this->buildCalendarTitle(),
+            description: $this->buildCalendarDescription(),
+            startDate: $this->due_date,
+            endDate: null,
+            location: null,
+            isAllDay: true,
+        );
+    }
+
+    public function googleCalendarUrl(): ?string
+    {
+        if (!$this->hasCalendarDate()) {
+            return null;
+        }
+
+        return GoogleCalendarLinkBuilder::fromModel($this)->build();
+    }
+
+    private function buildCalendarTitle(): string
+    {
+        $prefix = $this->isInternal()
+            ? __('projects.internal_project')
+            : $this->client->name;
+
+        return "📋 {$prefix}: {$this->name} - " . __('projects.due_date');
+    }
+
+    private function buildCalendarDescription(): string
+    {
+        $sections = [];
+
+        $sections[] = $this->buildProjectSection();
+
+        if ($this->client) {
+            $sections[] = $this->buildClientSection();
+        }
+
+        if ($this->description || $this->notes) {
+            $sections[] = $this->buildNotesSection();
+        }
+
+        return implode("\n\n", $sections);
+    }
+
+    private function buildProjectSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '📁 ' . mb_strtoupper(__('projects.project'));
+        $lines[] = '────────────────';
+        $lines[] = __('projects.name') . ': ' . $this->name;
+        $lines[] = __('projects.status') . ': ' . __('projects.status_' . $this->status);
+        $lines[] = __('projects.type') . ': ' . __('projects.type_' . $this->type);
+
+        if ($this->priority) {
+            $lines[] = __('projects.priority') . ': ' . __('projects.priority_' . $this->priority);
+        }
+
+        if ($this->start_date) {
+            $lines[] = __('projects.start_date') . ': ' . $this->start_date->format('d/m/Y');
+        }
+
+        $lines[] = __('projects.due_date') . ': ' . $this->due_date->format('d/m/Y');
+        $lines[] = 'Link: ' . route('projects.show', $this);
+
+        return implode("\n", $lines);
+    }
+
+    private function buildClientSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '👤 ' . mb_strtoupper(__('clients.client'));
+        $lines[] = '────────────────';
+        $lines[] = __('clients.name') . ': ' . $this->client->name;
+
+        if ($this->client->email) {
+            $lines[] = __('clients.email') . ': ' . $this->client->email;
+        }
+
+        if ($this->client->phone) {
+            $lines[] = __('clients.phone') . ': ' . $this->client->phone;
+        }
+
+        if ($this->client->notes) {
+            $lines[] = __('clients.notes') . ': ' . $this->client->notes;
+        }
+
+        return implode("\n", $lines);
+    }
+
+    private function buildNotesSection(): string
+    {
+        $lines = [];
+
+        $lines[] = '📄 ' . mb_strtoupper(__('projects.notes'));
+        $lines[] = '────────────────';
+
+        if ($this->description) {
+            $lines[] = __('projects.description') . ': ' . $this->description;
+        }
+
+        if ($this->notes) {
+            if ($this->description) {
+                $lines[] = '';
+            }
+            $lines[] = $this->notes;
+        }
+
+        return implode("\n", $lines);
     }
 }

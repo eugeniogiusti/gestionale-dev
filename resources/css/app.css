@@ -3,9 +3,31 @@
 @tailwind utilities;
 
 /*
+ * Alpine.js x-cloak directive
+ * Hides elements until Alpine initializes to prevent FOUC
+ */
+[x-cloak] {
+    display: none !important;
+}
+
+/*
  * Sidebar critical CSS is now INLINE in app.blade.php <head>
  * to prevent FOUC. The styles load BEFORE JavaScript,
  * ensuring the correct width is applied immediately.
  *
  * See: resources/views/layouts/app.blade.php
  */
+
+/*
+ * Fix native date picker visibility in light/dark mode
+ * Forces browser to use appropriate color scheme for datepicker popup
+ */
+input[type="date"],
+input[type="datetime-local"] {
+    color-scheme: light;
+}
+
+.dark input[type="date"],
+.dark input[type="datetime-local"] {
+    color-scheme: dark;
+}

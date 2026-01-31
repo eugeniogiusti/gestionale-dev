@@ -51,7 +51,7 @@ return [
     ],
 
     'placeholder' => [
-        'search' => 'Cerca meeting...',
+        'search' => 'Cerca per titolo o nome progetto...',
         'title' => 'es., Review Trimestrale Q1',
         'description' => 'Agenda o argomenti del meeting...',
         'location' => 'es., Ufficio, Zoom, Google Meet',

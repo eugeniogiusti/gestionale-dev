@@ -99,7 +99,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // CLIENTS MODULE
     // ==========================================
 
-    // Resource routes (gestisce automaticamente index, create, store, show, edit, update, destroy)
+    // Resource routes (index, create, store, show, edit, update, destroy)
     Route::resource('clients', ClientController::class);
 
     // Additional routes for soft delete management
@@ -158,10 +158,13 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::prefix('projects/{project}/tasks')->name('tasks.')->group(function () {
         // Create task within project context
         Route::post('/', [TaskController::class, 'store'])->name('store');
-        
+
         // Update existing task
         Route::put('/{task}', [TaskController::class, 'update'])->name('update');
-        
+
+        // Toggle task done status (AJAX)
+        Route::post('/{task}/toggle-done', [TaskController::class, 'toggleDone'])->name('toggleDone');
+
         // Delete task (soft delete if implemented, otherwise hard delete)
         Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
     });

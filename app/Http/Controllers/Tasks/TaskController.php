@@ -51,6 +51,20 @@ class TaskController extends Controller
     }
 
     /**
+     * Toggle task done status (AJAX)
+     */
+    public function toggleDone(Project $project, Task $task)
+    {
+        $newStatus = $task->status === 'done' ? 'todo' : 'done';
+        $task->update(['status' => $newStatus]);
+
+        return response()->json([
+            'status' => $task->status,
+            'isDone' => $task->isDone(),
+        ]);
+    }
+
+    /**
      * Delete task (from project show page)
      */
     public function destroy(Project $project, Task $task)

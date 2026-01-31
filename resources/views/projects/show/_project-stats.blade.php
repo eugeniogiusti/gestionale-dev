@@ -31,8 +31,18 @@
             <dt class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                 {{ __('projects.due_date') }}
             </dt>
-            <dd class="mt-1">
+            <dd class="mt-1 flex items-center gap-2">
                 <x-projects.due-date :date="$project->due_date" />
+                @if($project->googleCalendarUrl())
+                    <a href="{{ $project->googleCalendarUrl() }}"
+                       target="_blank"
+                       title="{{ __('projects.add_to_calendar') }}"
+                       class="text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                @endif
             </dd>
         </div>
     </dl>
