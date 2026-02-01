@@ -78,7 +78,7 @@
 
     {{-- Tab Content --}}
     <div class="p-6">
-        
+
         {{-- TAB: Overview --}}
         <div x-show="activeTab === 'overview'" x-cloak class="space-y-6">
             @include('projects.show._tab-overview')
