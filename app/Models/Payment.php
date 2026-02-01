@@ -147,6 +147,26 @@ class Payment extends Model implements CalendarEventable
         return "{$symbol} {$formatted}";
     }
 
+    public function getCompactAmount(): string
+    {
+        $symbol = $this->getCurrencySymbol();
+
+        return "{$symbol} " . self::formatCompactNumber((float) $this->amount);
+    }
+
+    public static function formatCompactNumber(float $number): string
+    {
+        if ($number >= 1000000) {
+            return number_format($number / 1000000, 2, ',', '.') . 'M';
+        }
+
+        if ($number >= 1000) {
+            return number_format($number / 1000, 2, ',', '.') . 'K';
+        }
+
+        return number_format($number, 2, ',', '.');
+    }
+
     public function isRecent(): bool
     {
         return $this->paid_at && $this->paid_at->isAfter(now()->subDays(7));

@@ -9,6 +9,22 @@ export default function paymentModal(projectPayments = []) {
         paymentId: null,
         formData: {},
 
+        /**
+         * Parse date from various formats to YYYY-MM-DD for input[type="date"]
+         * Handles ISO 8601 strings from Laravel JSON serialization
+         */
+        parseDate(value) {
+            if (!value) return '';
+            // If already in YYYY-MM-DD format, return as is
+            if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+                return value;
+            }
+            // Parse ISO 8601 or other date formats
+            const date = new Date(value);
+            if (isNaN(date.getTime())) return '';
+            return date.toISOString().split('T')[0];
+        },
+
         getEmptyForm() {
             return {
                 is_paid: true, // Default: pagamento incassato
@@ -64,17 +80,17 @@ export default function paymentModal(projectPayments = []) {
          */
         loadPayment(paymentId) {
             const payment = projectPayments.find(p => p.id === paymentId);
-            
+
             if (payment) {
                 // Determina se è incassato in base a paid_at
                 const isPaid = payment.paid_at !== null;
-                
+
                 this.formData = {
                     is_paid: isPaid,
                     amount: payment.amount || '',
                     currency: payment.currency || 'EUR',
-                    paid_at: payment.paid_at || '',
-                    due_date: payment.due_date || '',
+                    paid_at: this.parseDate(payment.paid_at),
+                    due_date: this.parseDate(payment.due_date),
                     method: payment.method || 'bank',
                     reference: payment.reference || '',
                     notes: payment.notes || ''

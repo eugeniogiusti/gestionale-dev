@@ -44,7 +44,7 @@ class InvoicePdfGenerator
         
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();
-        }, "Fattura-{$safeFilename}.pdf", [
+        }, __('invoices.invoice') . "-{$safeFilename}.pdf", [
             'Content-Type' => 'application/pdf',
         ]);
     }

@@ -4,7 +4,7 @@
             {{ $payment->reference }}
         </div>
     @else
-        <span class="text-gray-400">—</span>
+        <x-not-set-badge />
     @endif
     @if($payment->notes)
         <div class="text-xs text-gray-500 dark:text-gray-400 truncate max-w-xs mt-1">

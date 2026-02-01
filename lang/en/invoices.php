@@ -34,5 +34,5 @@ return [
     'select_file' => 'Select PDF file',
     'upload_help' => 'PDF files only, maximum 10MB',
     'no_client' => 'No client associated',
-
+    'not_found' => 'Invoice not found',
 ];

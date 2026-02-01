@@ -4,6 +4,6 @@
             {{ $payment->reference }}
         </div>
     @else
-        <span class="text-gray-400">—</span>
+        <x-not-set-badge />
     @endif
 </td>

@@ -48,7 +48,7 @@ return [
     ],
 
     'placeholder' => [
-        'search' => 'Cerca per riferimento o note...',
+        'search' => 'Cerca per progetto, riferimento o note...',
         'amount' => 'es., 1500.00',
         'reference' => 'es., Fattura #2024-001, Stripe ch_xxx',
         'notes' => 'Note aggiuntive...',
@@ -72,5 +72,8 @@ return [
     'select_method' => 'Seleziona metodo di pagamento',
     'method_not_set' => 'Da incassare',
 
-    
+    'filters' => [
+        'date_from' => 'Da',
+        'date_to' => 'A',
+    ],
 ];

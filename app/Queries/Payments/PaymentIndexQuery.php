@@ -18,7 +18,8 @@ class PaymentIndexQuery
             ->when(request('search'), function($q, $search) {
                 $q->where(function($query) use ($search) {
                     $query->where('reference', 'like', "%{$search}%")
-                          ->orWhere('notes', 'like', "%{$search}%");
+                          ->orWhere('notes', 'like', "%{$search}%")
+                          ->orWhereHas('project', fn($q) => $q->where('name', 'like', "%{$search}%"));
                 });
             })
             ->orderBy('paid_at', 'desc')

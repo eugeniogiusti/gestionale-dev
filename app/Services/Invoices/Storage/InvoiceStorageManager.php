@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Invoices\Generators;
+namespace App\Services\Invoices\Storage;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
@@ -15,36 +15,38 @@ class InvoiceStorageManager
     public function saveUploadedFile(UploadedFile $file): string
     {
         $this->ensureDirectoryExists();
-        
+
         $filename = time() . '_' . $file->getClientOriginalName();
         $path = "invoices/{$filename}";
-        
+
         Storage::putFileAs('invoices', $file, $filename);
-        
+
         return $path;
     }
 
     /**
      * Download invoice file
      */
-    public function download(string $path): StreamedResponse
+    public function download(string $path, string $downloadName = null): StreamedResponse
     {
-        $filename = basename($path);
-        return Storage::download($path, "Fattura-{$filename}");
+        $filename = $downloadName ?? basename($path);
+        return Storage::download($path, $filename);
     }
 
     /**
      * Preview invoice file
      */
-    public function preview(string $path): BinaryFileResponse
+    public function preview(string $path, string $displayName = null): BinaryFileResponse
     {
-        $filename = basename($path);
-        
+        $filename = $displayName ?? basename($path);
+
         return response()->file(
             Storage::path($path),
             [
                 'Content-Type' => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="Fattura-' . $filename . '"'
+                'Content-Disposition' => 'inline; filename="' . $filename . '"',
+                'X-Content-Type-Options' => 'nosniff',
+                'Cache-Control' => 'private, no-store',
             ]
         );
     }

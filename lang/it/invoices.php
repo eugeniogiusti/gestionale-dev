@@ -34,6 +34,5 @@ return [
     'select_file' => 'Seleziona file PDF',
     'upload_help' => 'Solo file PDF, dimensione massima 10MB',
     'no_client' => 'Nessun cliente associato',
-
-
+    'not_found' => 'Fattura non trovata',
 ];

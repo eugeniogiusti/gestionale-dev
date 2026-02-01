@@ -3,8 +3,9 @@
 namespace App\Services\Invoices;
 
 use App\Models\Payment;
+use App\Services\Invoices\Generators\InvoiceFilenameBuilder;
 use App\Services\Invoices\Generators\InvoicePdfGenerator;
-use App\Services\Invoices\Generators\InvoiceStorageManager;
+use App\Services\Invoices\Storage\InvoiceStorageManager;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Illuminate\Http\UploadedFile;
 
@@ -12,7 +13,8 @@ class InvoiceService
 {
     public function __construct(
         private InvoicePdfGenerator $pdfGenerator,
-        private InvoiceStorageManager $storageManager
+        private InvoiceStorageManager $storageManager,
+        private InvoiceFilenameBuilder $filenameBuilder
     ) {}
 
     /**
@@ -28,6 +30,10 @@ class InvoiceService
      */
     public function upload(Payment $payment, UploadedFile $file): void
     {
+        if ($payment->invoice_path) {
+            $this->storageManager->delete($payment->invoice_path);
+        }
+
         $path = $this->storageManager->saveUploadedFile($file);
         $payment->update(['invoice_path' => $path]);
     }
@@ -38,10 +44,12 @@ class InvoiceService
     public function download(Payment $payment): StreamedResponse
     {
         if (!$this->storageManager->exists($payment->invoice_path)) {
-            abort(404, 'Invoice not found');
+            abort(404, __('invoices.not_found'));
         }
 
-        return $this->storageManager->download($payment->invoice_path);
+        $filename = $this->filenameBuilder->build($payment);
+
+        return $this->storageManager->download($payment->invoice_path, $filename);
     }
 
     /**
@@ -50,10 +58,12 @@ class InvoiceService
     public function preview(Payment $payment): mixed
     {
         if (!$this->storageManager->exists($payment->invoice_path)) {
-            abort(404, 'Invoice not found');
+            abort(404, __('invoices.not_found'));
         }
 
-        return $this->storageManager->preview($payment->invoice_path);
+        $filename = $this->filenameBuilder->build($payment);
+
+        return $this->storageManager->preview($payment->invoice_path, $filename);
     }
 
     /**

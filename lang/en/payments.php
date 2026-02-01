@@ -48,7 +48,7 @@ return [
     ],
 
     'placeholder' => [
-        'search' => 'Search by reference or notes...',
+        'search' => 'Search by project, reference or notes...',
         'amount' => 'e.g., 1500.00',
         'reference' => 'e.g., Invoice #2024-001, Stripe ch_xxx',
         'notes' => 'Additional notes...',
@@ -72,4 +72,8 @@ return [
     'select_method' => 'Select payment method',
     'method_not_set' => 'Pending payment',
 
+    'filters' => [
+        'date_from' => 'From',
+        'date_to' => 'To',
+    ],
 ];
