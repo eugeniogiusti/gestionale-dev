@@ -42,6 +42,12 @@ class ClientController extends Controller
     {
         $client->update($request->validated());
 
+        // if the request arrives from show, return to show
+        if ($request->input('back') === 'show') {
+            return redirect()->route('clients.show', $client)
+                ->with('success', __('clients.updated_successfully'));
+        }
+
         return redirect()->route('clients.index')
             ->with('success', __('clients.updated_successfully'));
     }

@@ -28,6 +28,30 @@
         .sidebar-ready .sidebar-element {
             transition: width 300ms ease-in-out !important;
         }
+
+        /* Hide sidebar text labels when collapsed - pure CSS, no Alpine flash */
+        .sidebar-collapsed .sidebar-label {
+            display: none !important;
+        }
+
+        /* Icon margin - default has margin, collapsed has none */
+        .sidebar-icon {
+            margin-right: 0.75rem; /* mr-3 */
+            flex-shrink: 0;
+        }
+        .sidebar-collapsed .sidebar-icon {
+            margin-right: 0 !important;
+        }
+
+        /* Hide elements that should only show when expanded */
+        .sidebar-collapsed .sidebar-expanded-only {
+            display: none !important;
+        }
+
+        /* Center nav links when collapsed */
+        .sidebar-collapsed .sidebar-nav-link {
+            justify-content: center;
+        }
     </style>
 
     <!-- Theme (no flash) -->

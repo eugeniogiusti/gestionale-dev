@@ -5,7 +5,7 @@
         <a href="{{ route('clients.show', $client) }}">
             <x-action-button
                 type="button"
-                variant="secondary"
+                variant="info"
                 :title="__('clients.view_profile')"
             >
                 <svg class="w-4 h-4 mr-1.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

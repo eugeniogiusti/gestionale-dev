@@ -4,6 +4,7 @@ export default function clientModal() {
         isEdit: false,
         clientId: null,
         activeTab: 'basic',
+        backTo: '',
         formData: {},
 
         init() {
@@ -39,6 +40,7 @@ export default function clientModal() {
             this.isEdit = false;
             this.clientId = null;
             this.activeTab = 'basic';
+            this.backTo = '';
         },
 
         openCreate() {
@@ -49,6 +51,7 @@ export default function clientModal() {
         openEdit(clientData) {
             this.isEdit = true;
             this.clientId = clientData.id;
+            this.backTo = clientData._back || '';
             this.formData = { ...clientData };
             this.open = true;
         },
