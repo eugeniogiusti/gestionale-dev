@@ -3,27 +3,31 @@
 namespace App\Services\Receipts;
 
 use App\Models\Cost;
+use App\Services\Receipts\Storage\ReceiptStorageManager;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ReceiptService
 {
+    public function __construct(
+        private ReceiptStorageManager $storageManager
+    ) {}
+
     /**
      * Upload receipt for cost
      */
     public function upload(Cost $cost, UploadedFile $file): void
     {
-        // Elimina vecchia ricevuta se esiste
-        if ($cost->receipt_path && Storage::exists($cost->receipt_path)) {
-            Storage::delete($cost->receipt_path);
+        // Delete old receipt if exists
+        if ($cost->receipt_path) {
+            $this->storageManager->delete($cost->receipt_path);
         }
 
-        // Salva nuova ricevuta
+        // Save new receipt
         $filename = $this->generateFilename($cost, $file);
-        $path = $file->storeAs('receipts', $filename, 'local');
-        
+        $path = $this->storageManager->saveUploadedFile($file, $filename);
+
         $cost->update(['receipt_path' => $path]);
     }
 
@@ -32,13 +36,9 @@ class ReceiptService
      */
     public function download(Cost $cost): StreamedResponse
     {
-        if (!$this->exists($cost)) {
-            abort(404, 'Receipt not found');
-        }
+        $this->ensureReceiptExists($cost);
 
-        $filename = basename($cost->receipt_path);
-
-        return Storage::download($cost->receipt_path, $filename);
+        return $this->storageManager->download($cost->receipt_path);
     }
 
     /**
@@ -46,11 +46,9 @@ class ReceiptService
      */
     public function preview(Cost $cost): BinaryFileResponse
     {
-        if (!$this->exists($cost)) {
-            abort(404, 'Receipt not found');
-        }
+        $this->ensureReceiptExists($cost);
 
-        return response()->file(Storage::path($cost->receipt_path));
+        return $this->storageManager->preview($cost->receipt_path);
     }
 
     /**
@@ -58,19 +56,19 @@ class ReceiptService
      */
     public function delete(Cost $cost): void
     {
-        if ($cost->receipt_path && Storage::exists($cost->receipt_path)) {
-            Storage::delete($cost->receipt_path);
-        }
+        $this->storageManager->delete($cost->receipt_path);
 
         $cost->update(['receipt_path' => null]);
     }
 
     /**
-     * Check if receipt exists
+     * Ensure receipt exists or abort
      */
-    private function exists(Cost $cost): bool
+    private function ensureReceiptExists(Cost $cost): void
     {
-        return $cost->receipt_path && Storage::exists($cost->receipt_path);
+        if (!$this->storageManager->exists($cost->receipt_path)) {
+            abort(404, 'Receipt not found');
+        }
     }
 
     /**
@@ -78,10 +76,11 @@ class ReceiptService
      */
     private function generateFilename(Cost $cost, UploadedFile $file): string
     {
+        $prefix = __('receipts.filename_prefix');
         $date = $cost->paid_at->format('Y-m-d');
         $type = $cost->type;
         $extension = $file->getClientOriginalExtension();
-        
-        return "ricevuta-{$type}-{$date}-" . time() . ".{$extension}";
+
+        return "{$prefix}-{$type}-{$date}-" . time() . ".{$extension}";
     }
 }

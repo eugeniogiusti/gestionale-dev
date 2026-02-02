@@ -31,8 +31,14 @@ return [
     'upload' => 'Upload manually',
     'confirm_delete' => 'Are you sure you want to delete this invoice?',
     'upload_invoice' => 'Upload invoice',
-    'select_file' => 'Select PDF file',
-    'upload_help' => 'PDF files only, maximum 10MB',
+    'select_file' => 'Select file',
+    'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'No client associated',
     'not_found' => 'Invoice not found',
+
+    // Validation
+    'file_required' => 'Please select a file to upload.',
+    'must_be_file' => 'The upload must be a valid file.',
+    'must_be_valid_format' => 'The file must be a PDF, JPG, or PNG.',
+    'max_size' => 'The file must not exceed 10MB.',
 ];

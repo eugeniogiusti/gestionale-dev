@@ -43,6 +43,8 @@ class Cost extends Model
         'tool',
         'license',
         'ads',
+        'service',
+        'travel',
     ];
 
     public const CURRENCIES = [

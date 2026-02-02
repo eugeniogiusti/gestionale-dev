@@ -59,7 +59,10 @@ class Document extends Model
 
     public function scopeSearch($query, string $search)
     {
-        return $query->where('name', 'like', "%{$search}%");
+        return $query->where(function($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+              ->orWhereHas('project', fn($p) => $p->where('name', 'like', "%{$search}%"));
+        });
     }
 
     public function scopeRecent($query)

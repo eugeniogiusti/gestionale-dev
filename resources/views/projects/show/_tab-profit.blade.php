@@ -43,22 +43,28 @@
         />
 
     </div>
-
-    {{-- Quick Actions --}}
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-            {{ __('profit.quick_actions') }}
-        </h3>
-        <div class="flex gap-4">
+        
+        <div class="flex flex-wrap gap-4">
+            {{-- Button View Payments --}}
             <button 
                 @click="activeTab = 'payments'"
-                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                💰 {{ __('profit.view_payments') }}
+                class="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg active:scale-95">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+                <span>{{ __('profit.view_payments') }}</span>
+                <span class="ml-2 px-2 py-1 text-xs bg-blue-800/50 rounded-full">{{ $project->payments->count() }}</span>
             </button>
+
+            {{-- Button View Costs --}}
             <button 
                 @click="activeTab = 'costs'"
-                class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-                💸 {{ __('profit.view_costs') }}
+                class="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg active:scale-95">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/>
+                </svg>
+                <span>{{ __('profit.view_costs') }}</span>
+                <span class="ml-2 px-2 py-1 text-xs bg-red-800/50 rounded-full">{{ $project->costs->count() }}</span>
             </button>
         </div>
     </div>

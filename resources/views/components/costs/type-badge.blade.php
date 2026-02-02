@@ -22,6 +22,14 @@
             'bg' => 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300',
             'icon' => '📢',
         ],
+        'service' => [
+            'bg' => 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300',
+            'icon' => '👥',
+        ],
+        'travel' => [
+            'bg' => 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
+            'icon' => '✈️',
+        ],
         default => [
             'bg' => 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300',
             'icon' => '❓',

@@ -43,7 +43,7 @@ return [
     'placeholder' => [
         'name' => 'e.g. Contract with Acme Corp',
         'notes' => 'Optional notes about this document...',
-        'search' => 'Search documents...',
+        'search' => 'Search by document or project name...',
     ],
     
     // Hints
@@ -55,6 +55,10 @@ return [
     'this_month' => 'This Month',
     'recent_documents' => 'Recent Documents',
     'by_label' => 'Documents by Label',
+    'stats' => [
+        'all_documents' => 'All documents',
+        'uploaded_this_month' => 'Uploaded this month',
+    ],
     
     // Filters
     'filter_by_project' => 'Filter by Project',

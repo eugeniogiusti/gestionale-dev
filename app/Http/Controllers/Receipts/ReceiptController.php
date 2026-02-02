@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Receipts;
 
-use App\Models\Project;
-use App\Models\Cost;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Receipts\UploadReceiptRequest;
+use App\Models\Cost;
+use App\Models\Project;
 use App\Services\Receipts\ReceiptService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class ReceiptController extends Controller
 {
@@ -18,17 +18,12 @@ class ReceiptController extends Controller
     /**
      * Upload receipt for cost
      */
-    public function upload(Request $request, Project $project, Cost $cost): RedirectResponse
+    public function upload(UploadReceiptRequest $request, Project $project, Cost $cost): RedirectResponse
     {
-        $request->validate([
-            'receipt' => 'required|file|mimes:pdf,jpg,jpeg,png|max:5120', // 5MB
-        ]);
-
         $this->receiptService->upload($cost, $request->file('receipt'));
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('costs')
+            ->route('projects.show', ['project' => $project, 'tab' => 'costs'])
             ->with('success', __('receipts.uploaded_successfully'));
     }
 
@@ -56,8 +51,7 @@ class ReceiptController extends Controller
         $this->receiptService->delete($cost);
 
         return redirect()
-            ->route('projects.show', $project)
-            ->withFragment('costs')
+            ->route('projects.show', ['project' => $project, 'tab' => 'costs'])
             ->with('success', __('receipts.deleted_successfully'));
     }
 }

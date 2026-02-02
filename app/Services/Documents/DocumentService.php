@@ -108,7 +108,7 @@ class DocumentService
         $extension = $file->getClientOriginalExtension();
         $timestamp = time();
         $random = bin2hex(random_bytes(8));
-        
+
         return "doc-{$timestamp}-{$random}.{$extension}";
     }
 }

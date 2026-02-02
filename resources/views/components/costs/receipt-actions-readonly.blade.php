@@ -25,10 +25,5 @@
     </a>
 
 @else
-    
-    {{-- No receipt --}}
-    <span class="text-xs text-gray-400 dark:text-gray-500">
-        {{ __('receipts.no_receipt') }}
-    </span>
-
+    <x-not-set-badge />
 @endif

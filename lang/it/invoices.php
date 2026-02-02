@@ -31,8 +31,14 @@ return [
     'upload' => 'Carica manualmente',
     'confirm_delete' => 'Sei sicuro di voler eliminare questa fattura?',
     'upload_invoice' => 'Carica fattura',
-    'select_file' => 'Seleziona file PDF',
-    'upload_help' => 'Solo file PDF, dimensione massima 10MB',
+    'select_file' => 'Seleziona file',
+    'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'Nessun cliente associato',
     'not_found' => 'Fattura non trovata',
+
+    // Validation
+    'file_required' => 'Seleziona un file da caricare.',
+    'must_be_file' => 'Il caricamento deve essere un file valido.',
+    'must_be_valid_format' => 'Il file deve essere un PDF, JPG o PNG.',
+    'max_size' => 'Il file non deve superare i 10MB.',
 ];

@@ -4,14 +4,19 @@ namespace App\Http\Controllers\Costs;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
-use App\Models\Cost; 
+use App\Models\Cost;
 use App\Http\Requests\Costs\StoreCostRequest;
 use App\Http\Requests\Costs\UpdateCostRequest;
 use App\Queries\Costs\CostIndexQuery;
 use App\Queries\Costs\CostStatsQuery;
+use App\Services\Receipts\ReceiptService;
 
 class CostController extends Controller
 {
+    public function __construct(
+        private ReceiptService $receiptService
+    ) {}
+
     /**
      * Display a listing of costs (global index with filters)
      */
@@ -52,6 +57,11 @@ class CostController extends Controller
      */
     public function destroy(Project $project, Cost $cost)
     {
+        // Delete receipt file if exists
+        if ($cost->hasReceipt()) {
+            $this->receiptService->delete($cost);
+        }
+
         $cost->delete();
 
         return redirect()

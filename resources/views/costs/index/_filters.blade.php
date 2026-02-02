@@ -6,7 +6,7 @@
             @include('costs.index.filters._type')
             @include('costs.index.filters._recurring')
             @include('costs.index.filters._currency')
-            @include('costs.index.filters._date-from')
+            @include('costs.index.filters._date-range')
             @include('costs.index.filters._actions')
         </div>
     </form>

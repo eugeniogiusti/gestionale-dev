@@ -11,7 +11,7 @@
             'profit' => __('dashboard.chart_profit'),
         ]
     ]))"
-    class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6"
+    class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-transform duration-200 hover:scale-[1.02]"
 >
     <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-2">

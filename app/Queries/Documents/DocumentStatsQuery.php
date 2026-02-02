@@ -10,15 +10,10 @@ class DocumentStatsQuery
     public function handle(): array
     {
         return [
-            'total' => Document::count(),
             'this_month' => Document::whereMonth('uploaded_at', now()->month)
                 ->whereYear('uploaded_at', now()->year)
                 ->count(),
             'by_label' => $this->getDocumentsByLabel(),
-            'recent' => Document::with(['project', 'labels'])
-                ->recent()
-                ->limit(5)
-                ->get(),
         ];
     }
 

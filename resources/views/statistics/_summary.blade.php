@@ -3,7 +3,7 @@
     {{-- Financial Stats --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {{-- Profit --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <div class="flex items-center gap-3">
                 <div class="p-2 rounded-lg {{ $stats['summary']['profit'] >= 0 ? 'bg-emerald-100 dark:bg-emerald-900/30' : 'bg-red-100 dark:bg-red-900/30' }}">
                     <svg class="w-5 h-5 {{ $stats['summary']['profit'] >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -20,7 +20,7 @@
         </div>
 
         {{-- Payments --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <div class="flex items-center gap-3">
                 <div class="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30">
                     <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
         </div>
 
         {{-- Costs --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <div class="flex items-center gap-3">
                 <div class="p-2 rounded-lg bg-red-100 dark:bg-red-900/30">
                     <svg class="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@
         </div>
 
         {{-- Pending --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <div class="flex items-center gap-3">
                 <div class="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/30">
                     <svg class="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,31 +74,31 @@
     {{-- Operational Stats --}}
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         {{-- Projects Started --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.projects_started') }}</p>
             <p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ $stats['summary']['projects_started'] }}</p>
         </div>
 
         {{-- Projects Completed --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.projects_completed') }}</p>
             <p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ $stats['summary']['projects_completed'] }}</p>
         </div>
 
         {{-- Tasks Completed --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.tasks_completed') }}</p>
             <p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ $stats['summary']['tasks_completed'] }}</p>
         </div>
 
         {{-- Meetings Held --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.meetings_held') }}</p>
             <p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ $stats['summary']['meetings_held'] }}</p>
         </div>
 
         {{-- New Clients --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 transition-transform duration-200 hover:scale-105">
             <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.new_clients') }}</p>
             <p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">{{ $stats['summary']['new_clients'] }}</p>
         </div>

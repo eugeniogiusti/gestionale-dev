@@ -39,16 +39,32 @@ class InvoiceStorageManager
     public function preview(string $path, string $displayName = null): BinaryFileResponse
     {
         $filename = $displayName ?? basename($path);
+        $mimeType = $this->getMimeType($path);
 
         return response()->file(
             Storage::path($path),
             [
-                'Content-Type' => 'application/pdf',
+                'Content-Type' => $mimeType,
                 'Content-Disposition' => 'inline; filename="' . $filename . '"',
                 'X-Content-Type-Options' => 'nosniff',
                 'Cache-Control' => 'private, no-store',
             ]
         );
+    }
+
+    /**
+     * Get MIME type from file extension
+     */
+    private function getMimeType(string $path): string
+    {
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        return match ($extension) {
+            'pdf' => 'application/pdf',
+            'jpg', 'jpeg' => 'image/jpeg',
+            'png' => 'image/png',
+            default => 'application/octet-stream',
+        };
     }
 
     /**

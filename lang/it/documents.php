@@ -43,7 +43,7 @@ return [
     'placeholder' => [
         'name' => 'es. Contratto con Acme Corp',
         'notes' => 'Note opzionali sul documento...',
-        'search' => 'Cerca documenti...',
+        'search' => 'Cerca per nome documento o progetto...',
     ],
     
     // Hints
@@ -55,6 +55,10 @@ return [
     'this_month' => 'Questo Mese',
     'recent_documents' => 'Documenti Recenti',
     'by_label' => 'Documenti per Etichetta',
+    'stats' => [
+        'all_documents' => 'Tutti i documenti',
+        'uploaded_this_month' => 'Caricati questo mese',
+    ],
     
     // Filters
     'filter_by_project' => 'Filtra per Progetto',

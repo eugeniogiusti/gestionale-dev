@@ -23,6 +23,7 @@ return [
     'recurring_cost' => 'Questo è un costo ricorrente',
     'recurring_period' => 'Periodo Ricorrenza',
     'paid_at' => 'Pagato il',
+    'receipt' => 'Ricevuta',
     'notes' => 'Note',
 
     'all_types' => 'Tutti i Tipi',
@@ -37,6 +38,8 @@ return [
     'type_tool' => 'Tool',
     'type_license' => 'Licenza',
     'type_ads' => 'Pubblicità',
+    'type_service' => 'Servizio',
+    'type_travel' => 'Trasferta',
 
     'period_monthly' => 'Mensile',
     'period_yearly' => 'Annuale',
@@ -56,7 +59,7 @@ return [
     ],
 
     'placeholder' => [
-        'search' => 'Cerca per note...',
+        'search' => 'Cerca per progetto o note...',
         'amount' => 'es., 29.99',
         'notes' => 'Note aggiuntive...',
     ],

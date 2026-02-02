@@ -65,18 +65,28 @@ export default function costModal(projectCosts = []) {
          */
         loadCost(costId) {
             const cost = projectCosts.find(c => c.id === costId);
-            
+
             if (cost) {
                 this.formData = {
                     amount: cost.amount || '',
                     currency: cost.currency || 'EUR',
                     type: cost.type || 'tool',
-                    recurring: cost.recurring || false,
+                    recurring: Boolean(cost.recurring),
                     recurring_period: cost.recurring_period || '',
-                    paid_at: cost.paid_at || '',
+                    paid_at: this.formatDateForInput(cost.paid_at),
                     notes: cost.notes || ''
                 };
             }
+        },
+
+        /**
+         * Format date string for date input (YYYY-MM-DD)
+         */
+        formatDateForInput(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return '';
+            return date.toISOString().split('T')[0];
         }
     };
 }

@@ -6,6 +6,6 @@
             <span>{{ __('costs.period_' . $cost->recurring_period) }}</span>
         </span>
     @else
-        <span class="text-gray-400">—</span>
+        <x-not-set-badge />
     @endif
 </td>

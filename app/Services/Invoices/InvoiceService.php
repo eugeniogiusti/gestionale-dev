@@ -47,7 +47,7 @@ class InvoiceService
             abort(404, __('invoices.not_found'));
         }
 
-        $filename = $this->filenameBuilder->build($payment);
+        $filename = $this->filenameBuilder->build($payment, $payment->invoice_path);
 
         return $this->storageManager->download($payment->invoice_path, $filename);
     }
@@ -61,7 +61,7 @@ class InvoiceService
             abort(404, __('invoices.not_found'));
         }
 
-        $filename = $this->filenameBuilder->build($payment);
+        $filename = $this->filenameBuilder->build($payment, $payment->invoice_path);
 
         return $this->storageManager->preview($payment->invoice_path, $filename);
     }

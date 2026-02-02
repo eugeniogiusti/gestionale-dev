@@ -23,6 +23,7 @@ return [
     'recurring_cost' => 'This is a recurring cost',
     'recurring_period' => 'Recurring Period',
     'paid_at' => 'Paid At',
+    'receipt' => 'Receipt',
     'notes' => 'Notes',
 
     'all_types' => 'All Types',
@@ -37,6 +38,8 @@ return [
     'type_tool' => 'Tool',
     'type_license' => 'License',
     'type_ads' => 'Advertising',
+    'type_service' => 'Service',
+    'type_travel' => 'Travel',
 
     'period_monthly' => 'Monthly',
     'period_yearly' => 'Yearly',
@@ -56,7 +59,7 @@ return [
     ],
 
     'placeholder' => [
-        'search' => 'Search by notes...',
+        'search' => 'Search by project or notes...',
         'amount' => 'e.g., 29.99',
         'notes' => 'Additional notes...',
     ],

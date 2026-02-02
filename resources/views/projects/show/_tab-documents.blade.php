@@ -14,7 +14,7 @@
 
     {{-- Tabella --}}
     @if($showData['documentsCount'] > 0)
-        @include('documents.partials._table', ['documents' => $showData['documents'], 'project' => $project])
+        @include('documents.partials._document-table', ['documents' => $showData['documents']])
 
         {{-- Link Vedi tutti --}}
         @if($showData['documentsCount'] > 10)

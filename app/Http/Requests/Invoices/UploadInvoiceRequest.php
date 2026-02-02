@@ -14,7 +14,7 @@ class UploadInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'invoice' => ['required', 'file', 'mimes:pdf', 'max:10240'], // 10MB max
+            'invoice' => ['required', 'file', 'mimes:pdf,jpg,jpeg,png', 'max:10240'], // 10MB max
         ];
     }
 
@@ -23,7 +23,7 @@ class UploadInvoiceRequest extends FormRequest
         return [
             'invoice.required' => __('invoices.file_required'),
             'invoice.file' => __('invoices.must_be_file'),
-            'invoice.mimes' => __('invoices.must_be_pdf'),
+            'invoice.mimes' => __('invoices.must_be_valid_format'),
             'invoice.max' => __('invoices.max_size'),
         ];
     }

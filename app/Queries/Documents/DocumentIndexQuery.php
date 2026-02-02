@@ -12,18 +12,9 @@ class DocumentIndexQuery
         $query = Document::with(['project', 'labels'])
             ->recent();
 
-        // Filter by project
-        if ($projectId = request('project_id')) {
-            $query->forProject($projectId);
-        }
-
-        // Filter by labels (multiple)
-        if ($labelIds = request('label_ids')) {
-            $labelIds = is_array($labelIds) ? $labelIds : [$labelIds];
-            
-            $query->whereHas('labels', function($q) use ($labelIds) {
-                $q->whereIn('labels.id', $labelIds);
-            });
+        // Filter by label
+        if ($labelId = request('label_id')) {
+            $query->whereHas('labels', fn($q) => $q->where('labels.id', $labelId));
         }
 
         // Search by name

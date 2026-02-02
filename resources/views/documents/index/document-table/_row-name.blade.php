@@ -1,5 +1,5 @@
 {{-- Name Cell --}}
-<td class="px-6 py-4">
+<td class="px-4 py-4">
     <div class="font-medium text-gray-900 dark:text-white">
         {{ $document->name }}
     </div>

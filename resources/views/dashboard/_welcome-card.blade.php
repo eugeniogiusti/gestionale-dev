@@ -1,5 +1,5 @@
 {{-- Welcome Card --}}
-<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 h-full flex flex-col">
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 h-full flex flex-col transition-transform duration-200 hover:scale-[1.02]">
     {{-- Logo & Title --}}
     <div class="flex items-center gap-4 mb-4">
         <img src="{{ asset('images/logo.svg') }}" alt="IndieDesk" class="w-25 h-25 object-contain">

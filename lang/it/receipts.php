@@ -13,6 +13,13 @@ return [
     'confirm_delete' => 'Sei sicuro di voler eliminare questa ricevuta?',
     'uploaded_successfully' => 'Ricevuta caricata con successo',
     'deleted_successfully' => 'Ricevuta eliminata con successo',
-    'receipt' => 'Ricevuta',            
-    'no_receipt' => 'Nessuna ricevuta',    
+    'receipt' => 'Ricevuta',
+    'no_receipt' => 'Nessuna ricevuta',
+    'filename_prefix' => 'ricevuta',
+
+    // Validation
+    'file_required' => 'Seleziona un file da caricare.',
+    'must_be_file' => 'Il caricamento deve essere un file valido.',
+    'must_be_valid_format' => 'Il file deve essere un PDF, JPG o PNG.',
+    'max_size' => 'Il file non deve superare i 5MB.',
 ];

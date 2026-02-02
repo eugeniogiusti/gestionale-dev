@@ -18,7 +18,8 @@ class CostIndexQuery
             ->when(request('date_to'), fn($q, $date) => $q->where('paid_at', '<=', $date))
             ->when(request('search'), function($q, $search) {
                 $q->where(function($query) use ($search) {
-                    $query->where('notes', 'like', "%{$search}%");
+                    $query->where('notes', 'like', "%{$search}%")
+                          ->orWhereHas('project', fn($q) => $q->where('name', 'like', "%{$search}%"));
                 });
             })
             ->orderBy('paid_at', 'desc')
