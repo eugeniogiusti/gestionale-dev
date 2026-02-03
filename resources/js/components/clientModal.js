@@ -52,7 +52,7 @@ export default function clientModal() {
             this.isEdit = true;
             this.clientId = clientData.id;
             this.backTo = clientData._back || '';
-            this.formData = { ...clientData };
+            this.formData = { ...this.getEmptyForm(), ...clientData };
             this.open = true;
         },
 

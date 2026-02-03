@@ -21,7 +21,7 @@ class StorePaymentRequest extends FormRequest
             'currency' => ['required', 'string', 'size:3', 'in:EUR,USD,GBP,CHF,JPY'],
             'paid_at' => ['nullable', 'date'],
             'due_date' => ['required_without:paid_at', 'nullable', 'date'],
-            'method' => ['nullable', 'required_with:paid_at', 'in:cash,bank,stripe,paypal'], // ← MODIFICA
+            'method' => ['nullable', 'required_with:paid_at', 'in:cash,bank,stripe,paypal'],
             'reference' => ['nullable', 'string', 'max:255'],
             'notes' => ['nullable', 'string'],
         ];

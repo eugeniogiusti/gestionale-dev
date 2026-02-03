@@ -28,7 +28,7 @@ class ClientStatsQuery
             ->whereMonth('created_at', now()->month)
             ->count();
 
-        // Converted clients this month (lead → active)
+        // Converted clients this month (lead to active)
         $convertedThisMonth = Client::where('status', 'active')
             ->whereYear('updated_at', now()->year)
             ->whereMonth('updated_at', now()->month)

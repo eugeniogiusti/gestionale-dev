@@ -36,6 +36,7 @@ return [
     'updated_successfully' => 'Documento aggiornato con successo',
     'deleted_successfully' => 'Documento eliminato con successo',
     'confirm_delete' => 'Sei sicuro di voler eliminare questo documento?',
+    'not_found' => 'Documento non trovato',
     'no_documents' => 'Nessun documento',
     'no_documents_description' => 'Carica il tuo primo documento per iniziare.',
     
@@ -47,7 +48,7 @@ return [
     ],
     
     // Hints
-    'file_requirements' => 'Tutti i tipi di file accettati. Dimensione massima: 10MB.',
+    'file_requirements' => 'Formati accettati: PDF, JPG, JPEG, PNG. Dimensione massima: 10MB.',
     'labels_hint' => 'Seleziona una o più etichette per organizzare questo documento.',
     
     // Stats

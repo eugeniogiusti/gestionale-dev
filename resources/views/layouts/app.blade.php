@@ -12,62 +12,12 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Critical CSS (no flash) - MUST be before any scripts -->
-    <style>
-        /* Hide Alpine elements until ready */
-        [x-cloak] { display: none !important; }
-
-        /* Sidebar critical styles - prevents FOUC */
-        .sidebar-element {
-            width: 16rem; /* w-64 default */
-            transition: none !important;
-        }
-        .sidebar-collapsed .sidebar-element {
-            width: 4rem; /* w-16 collapsed */
-        }
-        .sidebar-ready .sidebar-element {
-            transition: width 300ms ease-in-out !important;
-        }
-
-        /* Hide sidebar text labels when collapsed - pure CSS, no Alpine flash */
-        .sidebar-collapsed .sidebar-label {
-            display: none !important;
-        }
-
-        /* Icon margin - default has margin, collapsed has none */
-        .sidebar-icon {
-            margin-right: 0.75rem; /* mr-3 */
-            flex-shrink: 0;
-        }
-        .sidebar-collapsed .sidebar-icon {
-            margin-right: 0 !important;
-        }
-
-        /* Hide elements that should only show when expanded */
-        .sidebar-collapsed .sidebar-expanded-only {
-            display: none !important;
-        }
-
-        /* Center nav links when collapsed */
-        .sidebar-collapsed .sidebar-nav-link {
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/critical.css') }}">
 
     <!-- Theme (no flash) -->
     <meta name="color-scheme" content="dark light">
-    <script>
-      const useDark = localStorage.theme === 'dark'
-        || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      if (useDark) document.documentElement.classList.add('dark');
-    </script>
 
-    <!-- Sidebar state (no flash) -->
-    <script>
-    if (localStorage.getItem('sidebar-collapsed') === 'true') {
-        document.documentElement.classList.add('sidebar-collapsed');
-    }
-    </script>
+    <script src="{{ asset('js/boot.js') }}"></script>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

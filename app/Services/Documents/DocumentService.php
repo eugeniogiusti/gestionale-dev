@@ -72,7 +72,7 @@ class DocumentService
     public function download(Document $document): StreamedResponse
     {
         if (!$this->exists($document)) {
-            abort(404, 'Document not found');
+            abort(404, __('documents.not_found'));
         }
 
         $filename = $document->name . '.' . $document->file_extension;
@@ -86,10 +86,19 @@ class DocumentService
     public function preview(Document $document): BinaryFileResponse
     {
         if (!$this->exists($document)) {
-            abort(404, 'Document not found');
+            abort(404, __('documents.not_found'));
         }
 
-        return response()->file(Storage::path($document->file_path));
+        $path = Storage::path($document->file_path);
+        $mimeType = mime_content_type($path);
+        $filename = $document->name . '.' . $document->file_extension;
+
+        return response()->file($path, [
+            'Content-Type' => $mimeType,
+            'Content-Disposition' => 'inline; filename="' . $filename . '"',
+            'X-Content-Type-Options' => 'nosniff',
+            'Cache-Control' => 'private, no-store',
+        ]);
     }
 
     /**

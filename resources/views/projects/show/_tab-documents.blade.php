@@ -12,11 +12,11 @@
         </button>
     </div>
 
-    {{-- Tabella --}}
+    {{-- Table --}}
     @if($showData['documentsCount'] > 0)
         @include('documents.partials._document-table', ['documents' => $showData['documents']])
 
-        {{-- Link Vedi tutti --}}
+        {{-- Link  --}}
         @if($showData['documentsCount'] > 10)
             <div class="text-center">
                 <a href="{{ route('documents.index', ['project_id' => $project->id]) }}"

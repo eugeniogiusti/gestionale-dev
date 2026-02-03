@@ -510,7 +510,7 @@ test('stats show correct count for this month', function () {
 test('document can be created with various file types', function () {
     Storage::fake('local');
 
-    $fileTypes = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'png', 'jpg'];
+    $fileTypes = ['pdf', 'jpg', 'jpeg', 'png'];
 
     foreach ($fileTypes as $type) {
         $file = UploadedFile::fake()->create("document.{$type}", 512);
@@ -525,7 +525,7 @@ test('document can be created with various file types', function () {
         $response->assertSessionHasNoErrors();
     }
 
-    expect(Document::where('project_id', $this->project->id)->count())->toBe(7);
+    expect(Document::where('project_id', $this->project->id)->count())->toBe(4);
 });
 
 test('document can be created without optional fields', function () {

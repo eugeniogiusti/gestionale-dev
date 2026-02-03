@@ -12,11 +12,11 @@
         </button>
     </div>
 
-    {{-- Tabella (riutilizza partial) --}}
+    {{-- Tabella ( partial) --}}
     @if($showData['meetingsCount'] > 0)
         @include('meetings.partials._meeting-table', ['meetings' => $showData['meetings'], 'project' => $project])
 
-        {{-- Link Vedi tutti --}}
+        {{-- Link  --}}
         @if($showData['meetingsCount'] > 10)
             <div class="text-center">
                 <a href="{{ route('meetings.index', ['project_id' => $project->id]) }}"

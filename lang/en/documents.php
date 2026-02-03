@@ -36,6 +36,7 @@ return [
     'updated_successfully' => 'Document updated successfully',
     'deleted_successfully' => 'Document deleted successfully',
     'confirm_delete' => 'Are you sure you want to delete this document?',
+    'not_found' => 'Document not found',
     'no_documents' => 'No documents',
     'no_documents_description' => 'Upload your first document to get started.',
     
@@ -47,7 +48,7 @@ return [
     ],
     
     // Hints
-    'file_requirements' => 'All file types accepted. Maximum size: 10MB.',
+    'file_requirements' => 'Accepted formats: PDF, JPG, JPEG, PNG. Maximum size: 10MB.',
     'labels_hint' => 'Select one or more labels to organize this document.',
     
     // Stats

@@ -15,6 +15,7 @@ return [
     'deleted_successfully' => 'Ricevuta eliminata con successo',
     'receipt' => 'Ricevuta',
     'no_receipt' => 'Nessuna ricevuta',
+    'not_found' => 'Ricevuta non trovata',
     'filename_prefix' => 'ricevuta',
 
     // Validation

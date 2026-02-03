@@ -15,6 +15,7 @@ return [
     'deleted_successfully' => 'Receipt deleted successfully',
     'receipt' => 'Receipt',
     'no_receipt' => 'No receipt',
+    'not_found' => 'Receipt not found',
     'filename_prefix' => 'receipt',
 
     // Validation

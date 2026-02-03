@@ -29,7 +29,7 @@ Alpine.data('labelModal', labelModal);
 Alpine.data('annualTrendChart', annualTrendChart);
 Alpine.data('taskToggle', taskToggle);
 
-// Modal components
+// Modal components (Alpine-based)
 window.clientModal = clientModal;
 window.projectModal = projectModal;
 window.taskModal = taskModal;
@@ -41,3 +41,38 @@ window.receiptUploadModal = receiptUploadModal;
 window.documentModal = documentModal;
 
 Alpine.start()
+
+// =============================================================================
+// Global Listeners for data-attributes
+// =============================================================================
+
+// Listener for [data-action] -> dispatch custom events
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+
+    const action = btn.dataset.action;
+    const payload = btn.dataset.payload;
+
+    let detail = {};
+    if (payload) {
+        try {
+            detail = JSON.parse(payload);
+        } catch (err) {
+            console.error(`Invalid JSON in data-payload for action "${action}":`, err);
+        }
+    }
+
+    window.dispatchEvent(new CustomEvent(action, { detail }));
+});
+
+// Listener for [data-confirm] -> confirm dialog on form submit
+document.addEventListener('submit', (e) => {
+    const form = e.target;
+    const confirmMessage = form.dataset.confirm;
+
+    if (confirmMessage && !confirm(confirmMessage)) {
+        e.preventDefault();
+    }
+});
+

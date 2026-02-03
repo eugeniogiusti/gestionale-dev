@@ -1,5 +1,6 @@
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700" 
-     x-data="{ activeTab: '{{ request()->query('tab', 'overview') }}' }">
+     x-data="{ activeTab: '{{ request()->query('tab', 'overview') }}' }"
+     x-cloak>
     
     {{-- Tabs Navigation --}}
     <div class="border-b border-gray-200 dark:border-gray-700">
@@ -10,7 +11,12 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                📝 {{ __('projects.overview') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 3.5h10.5L20.5 9v11.5H4z"/>
+                    <path d="M14.5 3.5V9H20.5"/>
+                    <path d="M7 13h10M7 16h7"/>
+                </svg>
+                {{ __('projects.overview') }}
             </button>
 
                 {{-- TAB TASKS --}}
@@ -20,7 +26,13 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                📋 {{ __('tasks.title') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 6h11M9 12h11M9 18h11"/>
+                    <path d="M4 6l1.5 1.5L8 5"/>
+                    <path d="M4 12l1.5 1.5L8 11"/>
+                    <path d="M4 18l1.5 1.5L8 17"/>
+                </svg>
+                {{ __('tasks.title') }}
             </button>
 
             {{-- TAB MEETINGS --}}
@@ -30,7 +42,12 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                📅 {{ __('meetings.title') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 4v3M17 4v3M4 9h16"/>
+                    <rect x="4" y="6" width="16" height="14" rx="2"/>
+                    <path d="M8 13h3M13 13h3M8 16h3"/>
+                </svg>
+                {{ __('meetings.title') }}
             </button>
 
             {{-- TAB PAYMENTS --}}
@@ -40,7 +57,13 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                💰 {{ __('payments.title') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16v10H4z"/>
+                    <path d="M16 7V5H8v2"/>
+                    <circle cx="12" cy="12" r="2.5"/>
+                    <path d="M6 10h2M16 14h2"/>
+                </svg>
+                {{ __('payments.title') }}
             </button>
 
             {{-- TAB COSTS --}}
@@ -50,7 +73,13 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                💸 {{ __('costs.title') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16v10H4z"/>
+                    <path d="M16 7V5H8v2"/>
+                    <path d="M9 12h6"/>
+                    <path d="M14 10l2 2-2 2"/>
+                </svg>
+                {{ __('costs.title') }}
             </button>
 
             {{-- TAB PROFIT --}}
@@ -60,7 +89,11 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                📊 {{ __('profit.title') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19h16"/>
+                    <path d="M7 16V9M12 16V5M17 16v-7"/>
+                </svg>
+                {{ __('profit.title') }}
             </button>
 
             {{-- TAB DOCUMENTS --}}
@@ -70,7 +103,12 @@
                     ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
                 class="px-6 py-4 border-b-2 font-medium text-sm transition">
-                📄 {{ __('documents.title') }}
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 3.5h7.5L19.5 8v12.5H7z"/>
+                    <path d="M14.5 3.5V8H19.5"/>
+                    <path d="M9 13h8M9 16h6"/>
+                </svg>
+                {{ __('documents.title') }}
             </button>
 
         </nav>

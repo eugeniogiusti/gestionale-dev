@@ -4,7 +4,7 @@
         @forelse($document->labels as $label)
             <x-documents.label-badge :label="$label" />
         @empty
-            <span class="text-xs text-gray-400">—</span>
+            <x-not-set-badge />
         @endforelse
     </div>
 </td>

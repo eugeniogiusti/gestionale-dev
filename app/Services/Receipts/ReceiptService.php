@@ -67,7 +67,7 @@ class ReceiptService
     private function ensureReceiptExists(Cost $cost): void
     {
         if (!$this->storageManager->exists($cost->receipt_path)) {
-            abort(404, 'Receipt not found');
+            abort(404, __('receipts.not_found'));
         }
     }
 

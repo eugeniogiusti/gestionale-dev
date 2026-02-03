@@ -1,7 +1,7 @@
 @props([
     'title',
     'value',
-    'icon',
+    'icon' => null,
     'gradient' => 'emerald',
     'subtitle' => null,
     'valueColor' => null
@@ -23,9 +23,13 @@
     ];
 @endphp
 
-<div class="bg-gradient-to-br {{ $gradients[$gradient] }} rounded-lg p-6 border">
+<div class="bg-gradient-to-br {{ $gradients[$gradient] }} rounded-lg p-6 border hover:shadow-lg hover:scale-105 transition-all duration-200">
     <div class="flex items-center justify-between mb-3">
-        <span class="text-3xl">{{ $icon }}</span>
+        <span class="text-3xl">
+            @if(isset($icon) && trim((string) $icon) !== '')
+                {!! $icon !!}
+            @endif
+        </span>
         <div class="text-right">
             <p class="text-xs font-medium {{ $titleColors[$gradient] }} uppercase tracking-wide">
                 {{ $title }}
