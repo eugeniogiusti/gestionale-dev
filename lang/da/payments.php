@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Betalinger',
+    'subtitle' => 'Spor betalinger modtaget fra kunder',
+    'payment_list' => 'Betalingsliste',
+    'create_payment' => 'Opret betaling',
+    'edit_payment' => 'Redigér betaling',
+    'add_payment' => 'Tilføj betaling',
+    'view_all' => 'Se alle betalinger',
+    'recent_payments' => 'Seneste betalinger',
+    'view_project' => 'Se projekt',
+    'add_to_calendar' => 'Tilføj til kalender',
+    'no_payments' => 'Ingen betalinger',
+    'no_payments_description' => 'Registrer din første betaling for dette projekt',
+    'confirm_delete' => 'Er du sikker på, at du vil slette denne betaling?',
+    'recent' => 'Seneste',
+    
+    'project' => 'Projekt',
+    'amount' => 'Beløb',
+    'currency' => 'Valuta',
+    'paid_at' => 'Betalt den',
+    'due_date' => 'Forfald',
+    'due' => 'Forfald',
+    'method' => 'Betalingsmetode',
+    'reference' => 'Reference',
+    'notes' => 'Noter',
+    'invoice' => 'Faktura',
+
+    'all_methods' => 'Alle metoder',
+    'all_currencies' => 'Alle valutaer',
+    
+    'method_cash' => 'Kontant',
+    'method_bank' => 'Bankoverførsel',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Betaling oprettet',
+    'updated_successfully' => 'Betaling opdateret',
+    'deleted_successfully' => 'Betaling slettet',
+
+    'stats' => [
+        'total_all_time' => 'Samlet historik',
+        'all_projects' => 'Alle projekter',
+        'this_month' => 'Denne måned',
+        'this_year' => 'Dette år',
+        'currencies' => 'Valutaer',
+    ],
+
+    'placeholder' => [
+        'search' => 'Søg efter projekt, reference eller noter...',
+        'amount' => 'fx 1500.00',
+        'reference' => 'fx Faktura #2024-001, Stripe ch_xxx',
+        'notes' => 'Ekstra noter...',
+        'due_date' => 'fx 2025-02-15',
+    ],
+
+    'amount_required' => 'Beløb er påkrævet',
+    'amount_min' => 'Beløbet skal være mindst 0.01',
+    'paid_at_required' => 'Betalingsdato er påkrævet',
+    'due_date_invalid' => 'Forfaldsdatoen skal være lig med eller efter betalingsdatoen',
+    'method_required' => 'Betalingsmetode er påkrævet',
+    'currency_invalid' => 'Ugyldig valuta',
+    'due_date_help' => 'Valgfrit: Forfaldsdato for betaling til fakturaen',
+    'notes_help' => 'Denne beskrivelse bruges i fakturaen',
+    'due_date_required_when_unpaid' => 'Forfaldsdato er påkrævet for ubetalte betalinger',
+    'payment_received' => 'Betaling modtaget',
+    'payment_received_help' => 'Vælg om betalingen allerede er modtaget',
+    'due_date_help_unpaid' => 'Forfaldsdato for betaling',
+    'pending' => 'Til indkrævning',
+    'overdue' => 'Forsinket',
+    'select_method' => 'Vælg betalingsmetode',
+    'method_not_set' => 'Til indkrævning',
+
+    'filters' => [
+        'date_from' => 'Fra',
+        'date_to' => 'Til',
+    ],
+];

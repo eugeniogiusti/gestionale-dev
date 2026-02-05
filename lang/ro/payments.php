@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Plăți',
+    'subtitle' => 'Urmărește plățile primite de la clienți',
+    'payment_list' => 'Lista plăților',
+    'create_payment' => 'Creează plată',
+    'edit_payment' => 'Editează plata',
+    'add_payment' => 'Adaugă plată',
+    'view_all' => 'Vezi toate plățile',
+    'recent_payments' => 'Plăți recente',
+    'view_project' => 'Vezi proiectul',
+    'add_to_calendar' => 'Adaugă în calendar',
+    'no_payments' => 'Nicio plată',
+    'no_payments_description' => 'Înregistrează prima ta plată pentru acest proiect',
+    'confirm_delete' => 'Ești sigur că vrei să ștergi această plată?',
+    'recent' => 'Recent',
+
+    'project' => 'Proiect',
+    'amount' => 'Sumă',
+    'currency' => 'Monedă',
+    'paid_at' => 'Plătit la',
+    'due_date' => 'Scadență',
+    'due' => 'Scadență',
+    'method' => 'Metodă de plată',
+    'reference' => 'Referință',
+    'notes' => 'Note',
+    'invoice' => 'Factură',
+
+    'all_methods' => 'Toate metodele',
+    'all_currencies' => 'Toate monedele',
+
+    'method_cash' => 'Numerar',
+    'method_bank' => 'Transfer bancar',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Plată creată cu succes',
+    'updated_successfully' => 'Plată actualizată cu succes',
+    'deleted_successfully' => 'Plată ștearsă cu succes',
+
+    'stats' => [
+        'total_all_time' => 'Total istoric',
+        'all_projects' => 'Toate proiectele',
+        'this_month' => 'Luna aceasta',
+        'this_year' => 'Anul acesta',
+        'currencies' => 'Monede',
+    ],
+
+    'placeholder' => [
+        'search' => 'Caută după proiect, referință sau note...',
+        'amount' => 'ex., 1500.00',
+        'reference' => 'ex., Factura #2024-001, Stripe ch_xxx',
+        'notes' => 'Note suplimentare...',
+        'due_date' => 'ex., 2025-02-15',
+    ],
+
+    'amount_required' => 'Suma este obligatorie',
+    'amount_min' => 'Suma trebuie să fie cel puțin 0.01',
+    'paid_at_required' => 'Data plății este obligatorie',
+    'due_date_invalid' => 'Scadența trebuie să fie egală sau ulterioară datei plății',
+    'method_required' => 'Metoda de plată este obligatorie',
+    'currency_invalid' => 'Monedă invalidă',
+    'due_date_help' => 'Opțional: data scadentă a plății pentru factură',
+    'notes_help' => 'Această descriere va fi folosită în factură',
+    'due_date_required_when_unpaid' => 'Scadența este obligatorie pentru plățile neîncasate',
+    'payment_received' => 'Plată încasată',
+    'payment_received_help' => 'Selectează dacă plata a fost deja primită',
+    'due_date_help_unpaid' => 'Scadența pentru plată',
+    'pending' => 'De încasat',
+    'overdue' => 'Întârziat',
+    'select_method' => 'Selectează metoda de plată',
+    'method_not_set' => 'De încasat',
+
+    'filters' => [
+        'date_from' => 'De la',
+        'date_to' => 'Până la',
+    ],
+];

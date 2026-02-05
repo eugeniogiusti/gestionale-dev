@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Pagamentos',
+    'subtitle' => 'Acompanha os pagamentos recebidos dos clientes',
+    'payment_list' => 'Lista de Pagamentos',
+    'create_payment' => 'Criar Pagamento',
+    'edit_payment' => 'Editar Pagamento',
+    'add_payment' => 'Adicionar Pagamento',
+    'view_all' => 'Ver Todos os Pagamentos',
+    'recent_payments' => 'Pagamentos Recentes',
+    'view_project' => 'Ver Projeto',
+    'add_to_calendar' => 'Adicionar ao Calendário',
+    'no_payments' => 'Sem pagamentos',
+    'no_payments_description' => 'Regista o teu primeiro pagamento para este projeto',
+    'confirm_delete' => 'Tens a certeza de que queres eliminar este pagamento?',
+    'recent' => 'Recente',
+    
+    'project' => 'Projeto',
+    'amount' => 'Montante',
+    'currency' => 'Moeda',
+    'paid_at' => 'Pago em',
+    'due_date' => 'Vencimento',
+    'due' => 'Vencimento',
+    'method' => 'Método de Pagamento',
+    'reference' => 'Referência',
+    'notes' => 'Notas',
+    'invoice' => 'Fatura',
+
+    'all_methods' => 'Todos os Métodos',
+    'all_currencies' => 'Todas as Moedas',
+    
+    'method_cash' => 'Dinheiro',
+    'method_bank' => 'Transferência Bancária',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Pagamento criado com sucesso',
+    'updated_successfully' => 'Pagamento atualizado com sucesso',
+    'deleted_successfully' => 'Pagamento eliminado com sucesso',
+
+    'stats' => [
+        'total_all_time' => 'Total Histórico',
+        'all_projects' => 'Todos os projetos',
+        'this_month' => 'Este Mês',
+        'this_year' => 'Este Ano',
+        'currencies' => 'Moedas',
+    ],
+
+    'placeholder' => [
+        'search' => 'Pesquisar por projeto, referência ou notas...',
+        'amount' => 'ex., 1500.00',
+        'reference' => 'ex., Fatura #2024-001, Stripe ch_xxx',
+        'notes' => 'Notas adicionais...',
+        'due_date' => 'ex., 2025-02-15',
+    ],
+
+    'amount_required' => 'O montante é obrigatório',
+    'amount_min' => 'O montante deve ser pelo menos 0.01',
+    'paid_at_required' => 'A data de pagamento é obrigatória',
+    'due_date_invalid' => 'O vencimento deve ser igual ou posterior à data de pagamento',
+    'method_required' => 'O método de pagamento é obrigatório',
+    'currency_invalid' => 'Moeda inválida',
+    'due_date_help' => 'Opcional: data de vencimento do pagamento para a fatura',
+    'notes_help' => 'Esta descrição será usada na fatura',
+    'due_date_required_when_unpaid' => 'O vencimento é obrigatório para pagamentos não recebidos',
+    'payment_received' => 'Pagamento recebido',
+    'payment_received_help' => 'Seleciona se o pagamento já foi recebido',
+    'due_date_help_unpaid' => 'Vencimento do pagamento',
+    'pending' => 'Por receber',
+    'overdue' => 'Em atraso',
+    'select_method' => 'Selecionar método de pagamento',
+    'method_not_set' => 'Por receber',
+
+    'filters' => [
+        'date_from' => 'De',
+        'date_to' => 'Até',
+    ],
+];

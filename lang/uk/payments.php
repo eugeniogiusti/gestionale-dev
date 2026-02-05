@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Платежі',
+    'subtitle' => 'Відстежуйте платежі, отримані від клієнтів',
+    'payment_list' => 'Список платежів',
+    'create_payment' => 'Створити платіж',
+    'edit_payment' => 'Редагувати платіж',
+    'add_payment' => 'Додати платіж',
+    'view_all' => 'Переглянути всі платежі',
+    'recent_payments' => 'Останні платежі',
+    'view_project' => 'Переглянути проєкт',
+    'add_to_calendar' => 'Додати до календаря',
+    'no_payments' => 'Немає платежів',
+    'no_payments_description' => 'Зареєструйте перший платіж для цього проєкту',
+    'confirm_delete' => 'Ви впевнені, що хочете видалити цей платіж?',
+    'recent' => 'Останні',
+
+    'project' => 'Проєкт',
+    'amount' => 'Сума',
+    'currency' => 'Валюта',
+    'paid_at' => 'Сплачено',
+    'due_date' => 'Термін',
+    'due' => 'Термін',
+    'method' => 'Спосіб оплати',
+    'reference' => 'Посилання',
+    'notes' => 'Нотатки',
+    'invoice' => 'Рахунок',
+
+    'all_methods' => 'Усі способи',
+    'all_currencies' => 'Усі валюти',
+
+    'method_cash' => 'Готівка',
+    'method_bank' => 'Банківський переказ',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Платіж успішно створено',
+    'updated_successfully' => 'Платіж успішно оновлено',
+    'deleted_successfully' => 'Платіж успішно видалено',
+
+    'stats' => [
+        'total_all_time' => 'Загалом за весь час',
+        'all_projects' => 'Усі проєкти',
+        'this_month' => 'Цього місяця',
+        'this_year' => 'Цього року',
+        'currencies' => 'Валюти',
+    ],
+
+    'placeholder' => [
+        'search' => 'Пошук за проєктом, посиланням або нотатками...',
+        'amount' => 'напр., 1500.00',
+        'reference' => 'напр., Рахунок #2024-001, Stripe ch_xxx',
+        'notes' => 'Додаткові нотатки...',
+        'due_date' => 'напр., 2025-02-15',
+    ],
+
+    'amount_required' => 'Сума є обовʼязковою',
+    'amount_min' => 'Сума має бути щонайменше 0.01',
+    'paid_at_required' => 'Дата оплати є обовʼязковою',
+    'due_date_invalid' => 'Термін має бути не раніше дати оплати',
+    'method_required' => 'Спосіб оплати є обовʼязковим',
+    'currency_invalid' => 'Невірна валюта',
+    'due_date_help' => 'Необовʼязково: дата платежу для рахунку',
+    'notes_help' => 'Цей опис буде використано в рахунку',
+    'due_date_required_when_unpaid' => 'Термін є обовʼязковим для неоплачених платежів',
+    'payment_received' => 'Платіж отримано',
+    'payment_received_help' => 'Позначте, якщо платіж уже отримано',
+    'due_date_help_unpaid' => 'Термін оплати',
+    'pending' => 'До отримання',
+    'overdue' => 'Прострочено',
+    'select_method' => 'Оберіть спосіб оплати',
+    'method_not_set' => 'До отримання',
+
+    'filters' => [
+        'date_from' => 'Від',
+        'date_to' => 'До',
+    ],
+];

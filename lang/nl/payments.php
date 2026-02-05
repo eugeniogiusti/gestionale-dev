@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Betalingen',
+    'subtitle' => 'Volg ontvangen betalingen van klanten',
+    'payment_list' => 'Betaallijst',
+    'create_payment' => 'Betaling aanmaken',
+    'edit_payment' => 'Betaling bewerken',
+    'add_payment' => 'Betaling toevoegen',
+    'view_all' => 'Alle betalingen bekijken',
+    'recent_payments' => 'Recente betalingen',
+    'view_project' => 'Project bekijken',
+    'add_to_calendar' => 'Aan kalender toevoegen',
+    'no_payments' => 'Geen betalingen',
+    'no_payments_description' => 'Registreer je eerste betaling voor dit project',
+    'confirm_delete' => 'Weet je zeker dat je deze betaling wilt verwijderen?',
+    'recent' => 'Recent',
+    
+    'project' => 'Project',
+    'amount' => 'Bedrag',
+    'currency' => 'Valuta',
+    'paid_at' => 'Betaald op',
+    'due_date' => 'Vervaldatum',
+    'due' => 'Vervaldatum',
+    'method' => 'Betaalmethode',
+    'reference' => 'Referentie',
+    'notes' => 'Notities',
+    'invoice' => 'Factuur',
+
+    'all_methods' => 'Alle methoden',
+    'all_currencies' => 'Alle valuta',
+    
+    'method_cash' => 'Contant',
+    'method_bank' => 'Bankoverschrijving',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Betaling succesvol aangemaakt',
+    'updated_successfully' => 'Betaling succesvol bijgewerkt',
+    'deleted_successfully' => 'Betaling succesvol verwijderd',
+
+    'stats' => [
+        'total_all_time' => 'Totaal historisch',
+        'all_projects' => 'Alle projecten',
+        'this_month' => 'Deze maand',
+        'this_year' => 'Dit jaar',
+        'currencies' => 'Valuta',
+    ],
+
+    'placeholder' => [
+        'search' => 'Zoek op project, referentie of notities...',
+        'amount' => 'bv., 1500.00',
+        'reference' => 'bv., Factuur #2024-001, Stripe ch_xxx',
+        'notes' => 'Extra notities...',
+        'due_date' => 'bv., 2025-02-15',
+    ],
+
+    'amount_required' => 'Het bedrag is verplicht',
+    'amount_min' => 'Het bedrag moet minstens 0,01 zijn',
+    'paid_at_required' => 'De betaaldatum is verplicht',
+    'due_date_invalid' => 'De vervaldatum moet gelijk zijn aan of later dan de betaaldatum',
+    'method_required' => 'De betaalmethode is verplicht',
+    'currency_invalid' => 'Ongeldige valuta',
+    'due_date_help' => 'Optioneel: vervaldatum van de betaling voor de factuur',
+    'notes_help' => 'Deze beschrijving wordt gebruikt in de factuur',
+    'due_date_required_when_unpaid' => 'De vervaldatum is verplicht voor niet ontvangen betalingen',
+    'payment_received' => 'Betaling ontvangen',
+    'payment_received_help' => 'Selecteer of de betaling al is ontvangen',
+    'due_date_help_unpaid' => 'Vervaldatum voor de betaling',
+    'pending' => 'Te ontvangen',
+    'overdue' => 'Achterstallig',
+    'select_method' => 'Betaalmethode selecteren',
+    'method_not_set' => 'Te ontvangen',
+
+    'filters' => [
+        'date_from' => 'Van',
+        'date_to' => 'Tot',
+    ],
+];

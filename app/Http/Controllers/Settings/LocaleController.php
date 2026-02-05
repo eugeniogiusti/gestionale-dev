@@ -13,9 +13,9 @@ class LocaleController extends Controller
     public function switch(string $locale): RedirectResponse
     {
         // Allow only supported languages
-        $allowed = ['it', 'en'];
+        $allowed = ['da', 'de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ro', 'uk'];
         if (!in_array($locale, $allowed, true)) {
-            $locale = config('app.locale', 'it');
+            $locale = config('app.locale', 'en');
         }
         
         // Save in session

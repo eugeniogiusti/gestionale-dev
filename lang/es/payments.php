@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Pagos',
+    'subtitle' => 'Controla los pagos recibidos de los clientes',
+    'payment_list' => 'Lista de pagos',
+    'create_payment' => 'Crear pago',
+    'edit_payment' => 'Editar pago',
+    'add_payment' => 'Añadir pago',
+    'view_all' => 'Ver todos los pagos',
+    'recent_payments' => 'Pagos recientes',
+    'view_project' => 'Ver proyecto',
+    'add_to_calendar' => 'Añadir al calendario',
+    'no_payments' => 'Sin pagos',
+    'no_payments_description' => 'Registra tu primer pago para este proyecto',
+    'confirm_delete' => '¿Seguro que quieres eliminar este pago?',
+    'recent' => 'Reciente',
+    
+    'project' => 'Proyecto',
+    'amount' => 'Importe',
+    'currency' => 'Moneda',
+    'paid_at' => 'Pagado el',
+    'due_date' => 'Vencimiento',
+    'due' => 'Vencimiento',
+    'method' => 'Método de pago',
+    'reference' => 'Referencia',
+    'notes' => 'Notas',
+    'invoice' => 'Factura',
+
+    'all_methods' => 'Todos los métodos',
+    'all_currencies' => 'Todas las monedas',
+    
+    'method_cash' => 'Efectivo',
+    'method_bank' => 'Transferencia bancaria',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Pago creado correctamente',
+    'updated_successfully' => 'Pago actualizado correctamente',
+    'deleted_successfully' => 'Pago eliminado correctamente',
+
+    'stats' => [
+        'total_all_time' => 'Total histórico',
+        'all_projects' => 'Todos los proyectos',
+        'this_month' => 'Este mes',
+        'this_year' => 'Este año',
+        'currencies' => 'Monedas',
+    ],
+
+    'placeholder' => [
+        'search' => 'Buscar por proyecto, referencia o notas...',
+        'amount' => 'ej., 1500.00',
+        'reference' => 'ej., Factura #2024-001, Stripe ch_xxx',
+        'notes' => 'Notas adicionales...',
+        'due_date' => 'ej., 2025-02-15',
+    ],
+
+    'amount_required' => 'El importe es obligatorio',
+    'amount_min' => 'El importe debe ser al menos 0.01',
+    'paid_at_required' => 'La fecha de pago es obligatoria',
+    'due_date_invalid' => 'El vencimiento debe ser igual o posterior a la fecha de pago',
+    'method_required' => 'El método de pago es obligatorio',
+    'currency_invalid' => 'Moneda no válida',
+    'due_date_help' => 'Opcional: fecha de vencimiento del pago para la factura',
+    'notes_help' => 'Esta descripción se usará en la factura',
+    'due_date_required_when_unpaid' => 'El vencimiento es obligatorio para pagos no cobrados',
+    'payment_received' => 'Pago cobrado',
+    'payment_received_help' => 'Selecciona si el pago ya se ha recibido',
+    'due_date_help_unpaid' => 'Vencimiento para el pago',
+    'pending' => 'Por cobrar',
+    'overdue' => 'Vencido',
+    'select_method' => 'Selecciona método de pago',
+    'method_not_set' => 'Por cobrar',
+
+    'filters' => [
+        'date_from' => 'Desde',
+        'date_to' => 'Hasta',
+    ],
+];

@@ -12,11 +12,11 @@
         </button>
     </div>
 
-    {{-- Tabella (riutilizza partial) --}}
+    {{-- Table ( partial) --}}
     @if($showData['paymentsCount'] > 0)
         @include('payments.partials._payment-table', ['payments' => $showData['payments'], 'project' => $project])
 
-        {{-- Link Vedi tutti --}}
+        {{-- Link  --}}
         @if($showData['paymentsCount'] > 10)
             <div class="text-center">
                 <a href="{{ route('payments.index', ['project_id' => $project->id]) }}"

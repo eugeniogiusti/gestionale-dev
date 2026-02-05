@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Zahlungen',
+    'subtitle' => 'Verfolge eingegangene Kundenzahlungen',
+    'payment_list' => 'Zahlungsliste',
+    'create_payment' => 'Zahlung erstellen',
+    'edit_payment' => 'Zahlung bearbeiten',
+    'add_payment' => 'Zahlung hinzufügen',
+    'view_all' => 'Alle Zahlungen anzeigen',
+    'recent_payments' => 'Letzte Zahlungen',
+    'view_project' => 'Projekt anzeigen',
+    'add_to_calendar' => 'Zum Kalender hinzufügen',
+    'no_payments' => 'Keine Zahlungen',
+    'no_payments_description' => 'Erfasse deine erste Zahlung für dieses Projekt',
+    'confirm_delete' => 'Möchtest du diese Zahlung wirklich löschen?',
+    'recent' => 'Neu',
+    
+    'project' => 'Projekt',
+    'amount' => 'Betrag',
+    'currency' => 'Währung',
+    'paid_at' => 'Bezahlt am',
+    'due_date' => 'Fällig am',
+    'due' => 'Fällig',
+    'method' => 'Zahlungsmethode',
+    'reference' => 'Referenz',
+    'notes' => 'Notizen',
+    'invoice' => 'Rechnung',
+
+    'all_methods' => 'Alle Methoden',
+    'all_currencies' => 'Alle Währungen',
+    
+    'method_cash' => 'Bargeld',
+    'method_bank' => 'Banküberweisung',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Zahlung erfolgreich erstellt',
+    'updated_successfully' => 'Zahlung erfolgreich aktualisiert',
+    'deleted_successfully' => 'Zahlung erfolgreich gelöscht',
+
+    'stats' => [
+        'total_all_time' => 'Gesamthistorie',
+        'all_projects' => 'Alle Projekte',
+        'this_month' => 'Diesen Monat',
+        'this_year' => 'Dieses Jahr',
+        'currencies' => 'Währungen',
+    ],
+
+    'placeholder' => [
+        'search' => 'Suche nach Projekt, Referenz oder Notizen...',
+        'amount' => 'z. B. 1500.00',
+        'reference' => 'z. B. Rechnung #2024-001, Stripe ch_xxx',
+        'notes' => 'Zusätzliche Notizen...',
+        'due_date' => 'z. B. 2025-02-15',
+    ],
+
+    'amount_required' => 'Der Betrag ist erforderlich',
+    'amount_min' => 'Der Betrag muss mindestens 0,01 sein',
+    'paid_at_required' => 'Das Zahlungsdatum ist erforderlich',
+    'due_date_invalid' => 'Das Fälligkeitsdatum muss gleich oder nach dem Zahlungsdatum liegen',
+    'method_required' => 'Die Zahlungsmethode ist erforderlich',
+    'currency_invalid' => 'Ungültige Währung',
+    'due_date_help' => 'Optional: Fälligkeitsdatum für die Rechnung',
+    'notes_help' => 'Diese Beschreibung wird in der Rechnung verwendet',
+    'due_date_required_when_unpaid' => 'Das Fälligkeitsdatum ist bei unbezahlten Zahlungen erforderlich',
+    'payment_received' => 'Zahlung erhalten',
+    'payment_received_help' => 'Wähle aus, ob die Zahlung bereits eingegangen ist',
+    'due_date_help_unpaid' => 'Fälligkeitsdatum für die Zahlung',
+    'pending' => 'Ausstehend',
+    'overdue' => 'Überfällig',
+    'select_method' => 'Zahlungsmethode auswählen',
+    'method_not_set' => 'Ausstehend',
+
+    'filters' => [
+        'date_from' => 'Von',
+        'date_to' => 'Bis',
+    ],
+];

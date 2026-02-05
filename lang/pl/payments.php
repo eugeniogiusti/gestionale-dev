@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Płatności',
+    'subtitle' => 'Śledź płatności otrzymane od klientów',
+    'payment_list' => 'Lista płatności',
+    'create_payment' => 'Utwórz płatność',
+    'edit_payment' => 'Edytuj płatność',
+    'add_payment' => 'Dodaj płatność',
+    'view_all' => 'Zobacz wszystkie płatności',
+    'recent_payments' => 'Ostatnie płatności',
+    'view_project' => 'Zobacz projekt',
+    'add_to_calendar' => 'Dodaj do kalendarza',
+    'no_payments' => 'Brak płatności',
+    'no_payments_description' => 'Zarejestruj pierwszą płatność dla tego projektu',
+    'confirm_delete' => 'Czy na pewno chcesz usunąć tę płatność?',
+    'recent' => 'Ostatnie',
+
+    'project' => 'Projekt',
+    'amount' => 'Kwota',
+    'currency' => 'Waluta',
+    'paid_at' => 'Opłacono',
+    'due_date' => 'Termin',
+    'due' => 'Termin',
+    'method' => 'Metoda płatności',
+    'reference' => 'Referencja',
+    'notes' => 'Notatki',
+    'invoice' => 'Faktura',
+
+    'all_methods' => 'Wszystkie metody',
+    'all_currencies' => 'Wszystkie waluty',
+
+    'method_cash' => 'Gotówka',
+    'method_bank' => 'Przelew bankowy',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Płatność utworzona pomyślnie',
+    'updated_successfully' => 'Płatność zaktualizowana pomyślnie',
+    'deleted_successfully' => 'Płatność usunięta pomyślnie',
+
+    'stats' => [
+        'total_all_time' => 'Łącznie historycznie',
+        'all_projects' => 'Wszystkie projekty',
+        'this_month' => 'W tym miesiącu',
+        'this_year' => 'W tym roku',
+        'currencies' => 'Waluty',
+    ],
+
+    'placeholder' => [
+        'search' => 'Szukaj po projekcie, referencji lub notatkach...',
+        'amount' => 'np. 1500.00',
+        'reference' => 'np. Faktura #2024-001, Stripe ch_xxx',
+        'notes' => 'Dodatkowe notatki...',
+        'due_date' => 'np. 2025-02-15',
+    ],
+
+    'amount_required' => 'Kwota jest wymagana',
+    'amount_min' => 'Kwota musi wynosić co najmniej 0.01',
+    'paid_at_required' => 'Data płatności jest wymagana',
+    'due_date_invalid' => 'Termin musi być równy lub późniejszy niż data płatności',
+    'method_required' => 'Metoda płatności jest wymagana',
+    'currency_invalid' => 'Nieprawidłowa waluta',
+    'due_date_help' => 'Opcjonalnie: termin płatności faktury',
+    'notes_help' => 'Ten opis będzie użyty na fakturze',
+    'due_date_required_when_unpaid' => 'Termin jest wymagany dla płatności nieotrzymanych',
+    'payment_received' => 'Płatność otrzymana',
+    'payment_received_help' => 'Zaznacz, jeśli płatność została już otrzymana',
+    'due_date_help_unpaid' => 'Termin płatności',
+    'pending' => 'Do otrzymania',
+    'overdue' => 'Po terminie',
+    'select_method' => 'Wybierz metodę płatności',
+    'method_not_set' => 'Do otrzymania',
+
+    'filters' => [
+        'date_from' => 'Od',
+        'date_to' => 'Do',
+    ],
+];

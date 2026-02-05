@@ -12,7 +12,7 @@
         </button>
     </div>
 
-    {{-- Tabella (riutilizza partial) --}}
+    {{-- Tabella (partial) --}}
     @if($showData['tasksCount'] > 0)
         @include('tasks.partials._task-table', ['tasks' => $showData['tasks'], 'project' => $project])
 

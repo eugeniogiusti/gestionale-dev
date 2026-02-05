@@ -1,0 +1,73 @@
+<?php
+
+return [
+    'title' => 'Kosten',
+    'subtitle' => 'Volg uitgaven en projectkosten',
+    'cost_list' => 'Kostenlijst',
+    'create_cost' => 'Kosten aanmaken',
+    'edit_cost' => 'Kosten bewerken',
+    'add_cost' => 'Kosten toevoegen',
+    'view_all' => 'Alle kosten bekijken',
+    'recent_costs' => 'Recente kosten',
+    'view_project' => 'Project bekijken',
+    'no_costs' => 'Geen kosten',
+    'no_costs_description' => 'Registreer je eerste kosten voor dit project',
+    'confirm_delete' => 'Weet je zeker dat je deze kosten wilt verwijderen?',
+    'recent' => 'Recent',
+    
+    'project' => 'Project',
+    'amount' => 'Bedrag',
+    'currency' => 'Valuta',
+    'type' => 'Type',
+    'recurring' => 'Terugkerend',
+    'recurring_cost' => 'Dit is een terugkerende kost',
+    'recurring_period' => 'Herhalingsperiode',
+    'paid_at' => 'Betaald op',
+    'receipt' => 'Bon',
+    'notes' => 'Notities',
+
+    'all_types' => 'Alle types',
+    'all_currencies' => 'Alle valuta',
+    'all_recurring' => 'Alle',
+    'recurring_yes' => 'Alleen terugkerend',
+    'recurring_no' => 'Alleen eenmalig',
+    'select_period' => 'Selecteer periode',
+    
+    'type_hosting' => 'Hosting',
+    'type_api' => 'API',
+    'type_tool' => 'Tool',
+    'type_license' => 'Licentie',
+    'type_ads' => 'Reclame',
+    'type_service' => 'Dienst',
+    'type_travel' => 'Reis',
+
+    'period_monthly' => 'Maandelijks',
+    'period_yearly' => 'Jaarlijks',
+    'period_quarterly' => 'Driemaandelijks',
+
+    'created_successfully' => 'Kosten succesvol aangemaakt',
+    'updated_successfully' => 'Kosten succesvol bijgewerkt',
+    'deleted_successfully' => 'Kosten succesvol verwijderd',
+
+    'stats' => [
+        'total_all_time' => 'Totaal historisch',
+        'all_projects' => 'Alle projecten',
+        'this_month' => 'Deze maand',
+        'this_year' => 'Dit jaar',
+        'recurring_monthly' => 'Maandelijks terugkerend',
+        'per_month' => 'Per maand',
+    ],
+
+    'placeholder' => [
+        'search' => 'Zoek op project of notities...',
+        'amount' => 'bv., 29.99',
+        'notes' => 'Extra notities...',
+    ],
+
+    'amount_required' => 'Het bedrag is verplicht',
+    'amount_min' => 'Het bedrag moet minstens 0,01 zijn',
+    'type_required' => 'Het kostentype is verplicht',
+    'paid_at_required' => 'De betaaldatum is verplicht',
+    'currency_invalid' => 'Ongeldige valuta',
+    'recurring_period_required' => 'De herhalingsperiode is verplicht voor terugkerende kosten',
+];

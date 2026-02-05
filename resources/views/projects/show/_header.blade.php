@@ -24,7 +24,7 @@
                 {{-- META ROW (one line, spaced, wrap only if needed) --}}
                 <div class="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
 
-                    {{-- Tipo progetto --}}
+                    {{-- Project type --}}
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {{ __('projects.type') }}:

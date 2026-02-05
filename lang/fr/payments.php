@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Paiements',
+    'subtitle' => 'Suivi des paiements reçus des clients',
+    'payment_list' => 'Liste des paiements',
+    'create_payment' => 'Créer un paiement',
+    'edit_payment' => 'Modifier le paiement',
+    'add_payment' => 'Ajouter un paiement',
+    'view_all' => 'Voir tous les paiements',
+    'recent_payments' => 'Paiements récents',
+    'view_project' => 'Voir le projet',
+    'add_to_calendar' => 'Ajouter au calendrier',
+    'no_payments' => 'Aucun paiement',
+    'no_payments_description' => 'Enregistre ton premier paiement pour ce projet',
+    'confirm_delete' => 'Es-tu sûr de vouloir supprimer ce paiement ?',
+    'recent' => 'Récent',
+    
+    'project' => 'Projet',
+    'amount' => 'Montant',
+    'currency' => 'Devise',
+    'paid_at' => 'Payé le',
+    'due_date' => 'Échéance',
+    'due' => 'Échéance',
+    'method' => 'Méthode de paiement',
+    'reference' => 'Référence',
+    'notes' => 'Notes',
+    'invoice' => 'Facture',
+
+    'all_methods' => 'Toutes les méthodes',
+    'all_currencies' => 'Toutes les devises',
+    
+    'method_cash' => 'Espèces',
+    'method_bank' => 'Virement bancaire',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Paiement créé avec succès',
+    'updated_successfully' => 'Paiement mis à jour avec succès',
+    'deleted_successfully' => 'Paiement supprimé avec succès',
+
+    'stats' => [
+        'total_all_time' => 'Total historique',
+        'all_projects' => 'Tous les projets',
+        'this_month' => 'Ce mois-ci',
+        'this_year' => 'Cette année',
+        'currencies' => 'Devises',
+    ],
+
+    'placeholder' => [
+        'search' => 'Rechercher par projet, référence ou notes...',
+        'amount' => 'ex., 1500.00',
+        'reference' => 'ex., Facture #2024-001, Stripe ch_xxx',
+        'notes' => 'Notes supplémentaires...',
+        'due_date' => 'ex., 2025-02-15',
+    ],
+
+    'amount_required' => 'Le montant est obligatoire',
+    'amount_min' => 'Le montant doit être au moins 0,01',
+    'paid_at_required' => 'La date de paiement est obligatoire',
+    'due_date_invalid' => 'L’échéance doit être égale ou postérieure à la date de paiement',
+    'method_required' => 'La méthode de paiement est obligatoire',
+    'currency_invalid' => 'Devise non valide',
+    'due_date_help' => 'Optionnel : date d’échéance du paiement pour la facture',
+    'notes_help' => 'Cette description sera utilisée dans la facture',
+    'due_date_required_when_unpaid' => 'L’échéance est obligatoire pour les paiements non encaissés',
+    'payment_received' => 'Paiement encaissé',
+    'payment_received_help' => 'Sélectionne si le paiement a déjà été reçu',
+    'due_date_help_unpaid' => 'Échéance du paiement',
+    'pending' => 'À encaisser',
+    'overdue' => 'En retard',
+    'select_method' => 'Sélectionner la méthode de paiement',
+    'method_not_set' => 'À encaisser',
+
+    'filters' => [
+        'date_from' => 'De',
+        'date_to' => 'À',
+    ],
+];

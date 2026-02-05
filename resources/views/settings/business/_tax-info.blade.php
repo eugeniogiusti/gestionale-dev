@@ -2,7 +2,7 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        {{-- Tax ID (Codice Fiscale) --}}
+        {{-- Tax ID --}}
         <x-form-input
             name="tax_id"
             :label="__('business_settings.tax_id')"
@@ -10,7 +10,7 @@
             :value="$settings->tax_id"
         />
 
-        {{-- VAT Number (P.IVA) --}}
+        {{-- VAT Number  --}}
         <x-form-input
             name="vat_number"
             :label="__('business_settings.vat_number')"

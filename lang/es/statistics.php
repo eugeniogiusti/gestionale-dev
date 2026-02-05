@@ -1,0 +1,41 @@
+<?php
+
+return [
+    'title' => 'Estadísticas',
+    'subtitle' => 'Análisis e informes para tu actividad',
+
+    // Filters
+    'year' => 'Año',
+    'month' => 'Mes',
+    'full_year' => 'Todo el año',
+    'show_full_year' => 'Mostrar año completo',
+
+    // Summary cards - Financial
+    'profit' => 'Beneficio',
+    'payments' => 'Ingresos',
+    'costs' => 'Costes',
+    'pending' => 'Por cobrar',
+
+    // Summary cards - Operational
+    'projects_started' => 'Proyectos iniciados',
+    'projects_completed' => 'Proyectos completados',
+    'tasks_completed' => 'Tareas completadas',
+    'meetings_held' => 'Reuniones realizadas',
+    'new_clients' => 'Nuevos clientes',
+
+    // Table
+    'monthly_breakdown' => 'Detalle mensual',
+    'projects' => 'Proyectos',
+    'tasks' => 'Tareas',
+    'clients' => 'Clientes',
+    'total' => 'Total',
+
+    // Chart
+    'chart_title' => 'Tendencia anual',
+    'chart_title_monthly' => 'Tendencia mensual',
+
+    // PDF
+    'download_pdf' => 'Descargar PDF',
+    'generated_on' => 'Generado el',
+    'financial_summary' => 'Resumen financiero',
+];

@@ -12,12 +12,25 @@ class DashboardListsQuery
 {
     public function handle(): array
     {
+        $tasksDueSoon = $this->getTasksDueSoon();
+        $upcomingMeetings = $this->getUpcomingMeetings();
+        $overduePayments = $this->getOverduePayments();
+        $recentPayments = $this->getRecentPayments();
+        $projectsDueSoon = $this->getProjectsDueSoon();
+
+        $this->hydrateProjects([
+            $tasksDueSoon,
+            $upcomingMeetings,
+            $overduePayments,
+            $recentPayments,
+        ]);
+
         return [
-            'tasks_due_soon' => $this->getTasksDueSoon(),
-            'upcoming_meetings' => $this->getUpcomingMeetings(),
-            'overdue_payments' => $this->getOverduePayments(),
-            'recent_payments' => $this->getRecentPayments(),
-            'projects_due_soon' => $this->getProjectsDueSoon(),
+            'tasks_due_soon' => $tasksDueSoon,
+            'upcoming_meetings' => $upcomingMeetings,
+            'overdue_payments' => $overduePayments,
+            'recent_payments' => $recentPayments,
+            'projects_due_soon' => $projectsDueSoon,
         ];
     }
 
@@ -26,7 +39,7 @@ class DashboardListsQuery
      */
     private function getTasksDueSoon(): Collection
     {
-        return Task::with('project:id,name')
+        return Task::query()
             ->open()
             ->whereNotNull('due_date')
             ->whereBetween('due_date', [now(), now()->addDays(7)])
@@ -40,7 +53,7 @@ class DashboardListsQuery
      */
     private function getUpcomingMeetings(): Collection
     {
-        return Meeting::with('project:id,name')
+        return Meeting::query()
             ->upcoming()
             ->take(5)
             ->get();
@@ -51,7 +64,7 @@ class DashboardListsQuery
      */
     private function getOverduePayments(): Collection
     {
-        return Payment::with('project:id,name,client_id', 'project.client:id,name')
+        return Payment::query()
             ->overdue()
             ->orderBy('due_date')
             ->take(5)
@@ -63,11 +76,41 @@ class DashboardListsQuery
      */
     private function getRecentPayments(): Collection
     {
-        return Payment::with('project:id,name')
+        return Payment::query()
             ->paid()
             ->latest('paid_at')
             ->take(5)
             ->get();
+    }
+
+    private function hydrateProjects(array $lists): void
+    {
+        $projectIds = collect($lists)
+            ->flatMap(fn (Collection $items) => $items->pluck('project_id'))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($projectIds->isEmpty()) {
+            return;
+        }
+
+        $projects = Project::with('client:id,name')
+            ->select('id', 'name', 'client_id')
+            ->whereIn('id', $projectIds)
+            ->get()
+            ->keyBy('id');
+
+        foreach ($lists as $items) {
+            foreach ($items as $item) {
+                if (!$item->project_id) {
+                    continue;
+                }
+                if (isset($projects[$item->project_id])) {
+                    $item->setRelation('project', $projects[$item->project_id]);
+                }
+            }
+        }
     }
 
     /**
