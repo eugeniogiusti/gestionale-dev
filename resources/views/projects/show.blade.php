@@ -27,4 +27,9 @@
 
         
     </div>
+
+    @php($aiSettings = \App\Models\AiSettings::current())
+    @if($aiSettings->ai_enabled && $aiSettings->ai_api_key)
+        @include('ai._panel', ['project' => $project])
+    @endif
 </x-app-layout>

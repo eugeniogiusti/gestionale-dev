@@ -6,8 +6,10 @@ use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\TwoFactor\TwoFactorSetupController;
 use App\Http\Controllers\TwoFactor\TrustedDeviceController;
 use App\Http\Controllers\Settings\LocaleController;
+use App\Http\Controllers\Settings\AiSettingsController;
 use App\Http\Controllers\Clients\ClientController;
 use App\Http\Controllers\Projects\ProjectController;
+use App\Http\Controllers\Projects\ProjectChatController;
 use App\Http\Controllers\Api\Clients\ClientSearchController;
 use App\Http\Controllers\Api\Projects\ProjectSearchController;
 use App\Http\Controllers\Settings\BusinessSettingsController;
@@ -121,6 +123,9 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Restore and force delete
     Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
+    // Project chat routes
+    Route::post('/projects/{project}/chat', [ProjectChatController::class, 'chat'])->name('projects.chat');
+    Route::get('/projects/{project}/chat/history', [ProjectChatController::class, 'history'])->name('projects.chat.history');
 
     // ==========================================
     // API ROUTES
@@ -138,11 +143,14 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // BUSINESS SETTINGS MODULE
     // ==========================================
 
-    // Business Settings Routes
+    // Business settings routes
     Route::prefix('settings')->group(function () {
         Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
         Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
         Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
+        // AI Settings Routes
+        Route::get('/ai', [AiSettingsController::class, 'edit'])->name('settings.ai.edit');
+        Route::patch('/ai', [AiSettingsController::class, 'update'])->name('settings.ai.update');
     });
     
     // ==========================================

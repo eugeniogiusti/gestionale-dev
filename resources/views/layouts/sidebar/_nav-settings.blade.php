@@ -12,6 +12,24 @@
     <span class="sidebar-label">{{ __('business_settings.sidebar_title') }}</span>
 </a>
 
+{{-- AI Settings --}}
+<a href="{{ route('settings.ai.edit') }}"
+   class="sidebar-nav-link flex items-center px-3 py-2 rounded-md text-sm font-medium
+          text-gray-700 dark:text-gray-300
+          hover:bg-gray-100 dark:hover:bg-gray-700
+          {{ request()->routeIs('settings.ai.*') ? 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white' : '' }}"
+   :title="collapsed ? '{{ __('ai_settings.title') }}' : ''"
+>
+    <svg class="sidebar-icon w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <rect x="5" y="7" width="14" height="10" rx="3" stroke-width="2" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7V5a3 3 0 0 1 6 0v2" />
+        <circle cx="10" cy="12" r="1" stroke-width="2" />
+        <circle cx="14" cy="12" r="1" stroke-width="2" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 15h6" />
+    </svg>
+    <span class="sidebar-label">{{ __('ai_settings.title') }}</span>
+</a>
+
 {{-- Labels --}}
 <a href="{{ route('labels.index') }}"
    class="sidebar-nav-link flex items-center px-3 py-2 rounded-md text-sm font-medium

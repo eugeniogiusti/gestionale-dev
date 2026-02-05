@@ -1,6 +1,19 @@
 /* Hide Alpine elements until ready */
 [x-cloak] { display: none !important; }
 
+/* AI chat toggle critical styles to prevent flash */
+.ai-chat-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #059669; /* emerald-600 */
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
 /* Tables critical background to avoid flash on first paint */
 table {
     background-color: #ffffff;

@@ -16,6 +16,7 @@ import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
 import annualTrendChart from './components/annualTrendChart';
 import taskToggle from './components/taskToggle';
+import aiChat from './components/aiChat';
 
 window.Alpine = Alpine
 
@@ -28,6 +29,7 @@ Alpine.data('clientSearch', clientSearch);
 Alpine.data('labelModal', labelModal);
 Alpine.data('annualTrendChart', annualTrendChart);
 Alpine.data('taskToggle', taskToggle);
+Alpine.data('aiChat', aiChat);
 
 // Modal components (Alpine-based)
 window.clientModal = clientModal;
