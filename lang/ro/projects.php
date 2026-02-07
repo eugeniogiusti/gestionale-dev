@@ -163,6 +163,10 @@ return [
     // Actions
     'open' => 'Deschide',
     'add_to_calendar' => 'Adaugă în calendar',
+    'restore' => 'Restaurează',
+    'force_delete' => 'Șterge permanent',
+    'confirm_restore' => 'Doriți să restaurați acest proiect?',
+    'confirm_force_delete' => 'Sunteți sigur că doriți să ștergeți permanent acest proiect? Această acțiune nu poate fi anulată și datele asociate pot fi pierdute.',
 
     // Calendar
     'project' => 'Proiect',

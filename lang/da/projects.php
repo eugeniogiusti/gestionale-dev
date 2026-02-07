@@ -163,6 +163,10 @@ return [
     // Actions
     'open' => 'Åbn',
     'add_to_calendar' => 'Tilføj til kalender',
+    'restore' => 'Gendan',
+    'force_delete' => 'Slet permanent',
+    'confirm_restore' => 'Vil du gendanne dette projekt?',
+    'confirm_force_delete' => 'Er du sikker på at du vil slette dette projekt permanent? Denne handling kan ikke fortrydes og relaterede data kan gå tabt.',
 
     // Calendar
     'project' => 'Projekt',

@@ -92,10 +92,10 @@ class ProjectController extends Controller
         $project = Project::withTrashed()->findOrFail($id);
         $project->restore();
 
-        return redirect()->route('projects.index')
+        return redirect()->route('trash.index')
             ->with('success', __('projects.restored_successfully'));
     }
-    
+
     /**
      * Permanently delete a project.
      */
@@ -104,7 +104,7 @@ class ProjectController extends Controller
         $project = Project::withTrashed()->findOrFail($id);
         $project->forceDelete();
 
-        return redirect()->route('projects.index')
+        return redirect()->route('trash.index')
             ->with('success', __('projects.permanently_deleted'));
     }
 }

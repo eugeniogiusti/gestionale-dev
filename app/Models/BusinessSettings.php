@@ -21,6 +21,7 @@ class BusinessSettings extends Model
         'BRL' => 'R$',
         'RON' => 'lei',
         'UAH' => '₴',
+        'PEN' => 'S/',
     ];
 
     protected $fillable = [
@@ -46,11 +47,16 @@ class BusinessSettings extends Model
     ];
 
     /**
+     * Cached singleton instance (one query per request)
+     */
+    protected static ?self $cachedInstance = null;
+
+    /**
      * Get the singleton instance
      */
     public static function current(): self
     {
-        return static::firstOrCreate(['id' => 1]);
+        return static::$cachedInstance ??= static::firstOrCreate(['id' => 1]);
     }
 
     /**

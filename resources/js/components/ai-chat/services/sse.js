@@ -1,3 +1,6 @@
+/**
+ * Reads an SSE response stream and emits parsed payload objects.
+ */
 export async function consumeSse(responseBody, onPayload) {
     const reader = responseBody.getReader();
     const decoder = new TextDecoder();
@@ -23,6 +26,9 @@ export async function consumeSse(responseBody, onPayload) {
     }
 }
 
+/**
+ * Parses one SSE block and returns JSON payload from "data: ...".
+ */
 function parseSseChunk(chunk) {
     const dataLine = chunk
         .split('\n')

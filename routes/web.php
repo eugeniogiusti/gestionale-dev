@@ -22,6 +22,7 @@ use App\Http\Controllers\Receipts\ReceiptController;
 use App\Http\Controllers\Documents\DocumentController;
 use App\Http\Controllers\Labels\LabelController;
 use App\Http\Controllers\Statistics\StatisticsController;
+use App\Http\Controllers\Trash\TrashController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -299,6 +300,15 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
     Route::get('/statistics', [StatisticsController::class, 'index'])->name('statistics.index');
     Route::get('/statistics/export-pdf', [StatisticsController::class, 'exportPdf'])->name('statistics.export-pdf');
+
+    // ==========================================
+    // TRASH MODULE (Soft-deleted items)
+    // ==========================================
+
+    Route::prefix('trash')->name('trash.')->group(function () {
+        Route::get('/', [TrashController::class, 'index'])->name('index');
+        Route::delete('/empty', [TrashController::class, 'emptyAll'])->name('empty');
+    });
 
 }); 
 

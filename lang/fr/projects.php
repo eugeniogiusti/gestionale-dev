@@ -163,6 +163,10 @@ return [
     // Actions
     'open' => 'Ouvrir',
     'add_to_calendar' => 'Ajouter au calendrier',
+    'restore' => 'Restaurer',
+    'force_delete' => 'Supprimer définitivement',
+    'confirm_restore' => 'Voulez-vous restaurer ce projet?',
+    'confirm_force_delete' => 'Êtes-vous sûr de vouloir supprimer définitivement ce projet? Cette action est irréversible et les données associées pourraient être perdues.',
 
     // Calendar
     'project' => 'Projet',

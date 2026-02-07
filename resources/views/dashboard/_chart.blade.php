@@ -5,6 +5,7 @@
         'payments' => $chart['payments'],
         'costs' => $chart['costs'],
         'profit' => $chart['profit'],
+        'currencySymbol' => $currencySymbol,
         'translations' => [
             'payments' => __('dashboard.chart_payments'),
             'costs' => __('dashboard.chart_costs'),

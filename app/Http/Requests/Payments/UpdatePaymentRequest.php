@@ -7,8 +7,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePaymentRequest extends FormRequest
 {
-
-        protected function prepareForValidation()
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
     {
         // if paid_at is not provided, set method to null
         if (!$this->paid_at) {
@@ -20,6 +22,11 @@ class UpdatePaymentRequest extends FormRequest
         ]);
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
     public function rules(): array
     {
         return [
@@ -33,6 +40,11 @@ class UpdatePaymentRequest extends FormRequest
         ];
     }
 
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array<string, string>
+     */
     public function messages(): array
     {
         return [

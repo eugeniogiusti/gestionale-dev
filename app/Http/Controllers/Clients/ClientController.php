@@ -83,7 +83,7 @@ class ClientController extends Controller
         $client = Client::withTrashed()->findOrFail($id);
         $client->restore();
 
-        return redirect()->route('clients.index')
+        return redirect()->route('trash.index')
             ->with('success', __('clients.restored_successfully'));
     }
 
@@ -95,7 +95,7 @@ class ClientController extends Controller
         $client = Client::withTrashed()->findOrFail($id);
         $client->forceDelete();
 
-        return redirect()->route('clients.index')
+        return redirect()->route('trash.index')
             ->with('success', __('clients.permanently_deleted'));
     }
 }

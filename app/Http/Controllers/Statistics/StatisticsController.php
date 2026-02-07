@@ -12,7 +12,9 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $year = (int) $request->get('year', now()->year);
-        $month = $request->get('month') ? (int) $request->get('month') : null;
+        $month = $request->has('month')
+            ? ($request->get('month') ? (int) $request->get('month') : null)
+            : now()->month;
 
         $availableYears = $this->getAvailableYears();
         $stats = (new StatisticsQuery($year, $month))->handle();

@@ -1,3 +1,7 @@
+/**
+ * Factory for Alpine component state.
+ * Keep this as the single source of default state values.
+ */
 export function createInitialState(projectName) {
     return {
         open: false,
@@ -13,6 +17,9 @@ export function createInitialState(projectName) {
     };
 }
 
+/**
+ * Prepares state for a new request and returns assistant message index.
+ */
 export function beginMessageRequest(vm, content, addUserMessage) {
     if (addUserMessage) {
         vm.messages.push({ role: 'user', content });
@@ -31,16 +38,25 @@ export function beginMessageRequest(vm, content, addUserMessage) {
     return assistantIndex;
 }
 
+/**
+ * Appends sanitized stream delta into the current assistant message.
+ */
 export function appendAssistantDelta(vm, assistantIndex, delta) {
     const current = vm.messages[assistantIndex]?.content || '';
     vm.messages[assistantIndex].content = current + sanitizeAssistantText(delta);
 }
 
+/**
+ * Unified error setter so UI reacts consistently.
+ */
 export function setRequestError(vm, errorText, errorCode = 'error') {
     vm.error = errorText;
     vm.errorCode = errorCode;
 }
 
+/**
+ * Finalizes request state and removes empty assistant bubble when request failed.
+ */
 export function finishMessageRequest(vm, assistantIndex) {
     const assistant = vm.messages[assistantIndex];
     if (assistant && assistant.role === 'assistant' && !assistant.content.trim() && vm.error) {
@@ -51,6 +67,9 @@ export function finishMessageRequest(vm, assistantIndex) {
     vm.streaming = false;
 }
 
+/**
+ * Clears current conversation UI state after reset.
+ */
 export function resetConversationState(vm) {
     vm.messages = [];
     vm.error = null;
@@ -58,6 +77,7 @@ export function resetConversationState(vm) {
     vm.lastUserMessage = null;
 }
 
+// Keep assistant text plain and avoid markdown artifacts in UI.
 function sanitizeAssistantText(content) {
     return String(content ?? '').replace(/\*\*/g, '');
 }

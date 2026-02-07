@@ -14,6 +14,9 @@ import {
     setRequestError,
 } from './state.js';
 
+/**
+ * Use-case: load persisted history for current project conversation.
+ */
 export async function loadHistory(vm, { historyEndpoint }) {
     if (!historyEndpoint) return;
     vm.loadingHistory = true;
@@ -34,6 +37,9 @@ export async function loadHistory(vm, { historyEndpoint }) {
     }
 }
 
+/**
+ * Use-case: reset server/session conversation and clear local chat state.
+ */
 export async function resetConversation(vm, { resetEndpoint }) {
     if (!resetEndpoint || vm.loading) return;
 
@@ -47,6 +53,9 @@ export async function resetConversation(vm, { resetEndpoint }) {
     }
 }
 
+/**
+ * Use-case: send one message using stream-first strategy, with classic fallback.
+ */
 export async function sendMessage(vm, deps, content, addUserMessage) {
     const assistantIndex = beginMessageRequest(vm, content, addUserMessage);
     vm.$nextTick(() => vm.scrollToBottom());
@@ -64,6 +73,9 @@ export async function sendMessage(vm, deps, content, addUserMessage) {
     }
 }
 
+/**
+ * Stream strategy (SSE). Returns false only when stream path is unavailable.
+ */
 async function sendStream(vm, { streamEndpoint, errorText }, content, assistantIndex) {
     if (!streamEndpoint || !window.ReadableStream) {
         return false;
@@ -90,6 +102,9 @@ async function sendStream(vm, { streamEndpoint, errorText }, content, assistantI
     return true;
 }
 
+/**
+ * Handles incremental stream events from backend.
+ */
 function handleStreamPayload(vm, payload, assistantIndex, errorText) {
     if (payload.type === 'delta' && payload.delta) {
         appendAssistantDelta(vm, assistantIndex, payload.delta);
@@ -102,6 +117,9 @@ function handleStreamPayload(vm, payload, assistantIndex, errorText) {
     }
 }
 
+/**
+ * Non-stream fallback strategy (single JSON response).
+ */
 async function sendClassic(vm, { chatEndpoint, errorText }, content, assistantIndex) {
     const response = await requestChat(chatEndpoint, vm.csrfToken(), content);
     const data = await readJson(response);

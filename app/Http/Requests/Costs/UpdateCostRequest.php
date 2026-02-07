@@ -9,18 +9,29 @@ use Illuminate\Validation\Rule;
 
 class UpdateCostRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     */
     public function authorize(): bool
     {
         return true;
     }
 
-    protected function prepareForValidation()
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
     {
         $this->merge([
             'currency' => BusinessSettings::current()->default_currency ?? 'EUR',
         ]);
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
     public function rules(): array
     {
         return [
@@ -35,6 +46,11 @@ class UpdateCostRequest extends FormRequest
         ];
     }
 
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array<string, string>
+     */
     public function messages(): array
     {
         return [

@@ -90,7 +90,7 @@ export default function annualTrendChart(chartData) {
                             padding: 12,
                             callbacks: {
                                 label: function(context) {
-                                    return context.dataset.label + ': €' + context.raw.toLocaleString('it-IT', {minimumFractionDigits: 2});
+                                    return context.dataset.label + ': ' + chartData.currencySymbol + context.raw.toLocaleString('it-IT', {minimumFractionDigits: 2});
                                 }
                             }
                         }
@@ -112,7 +112,7 @@ export default function annualTrendChart(chartData) {
                             ticks: {
                                 color: textColor,
                                 callback: function(value) {
-                                    return '€' + value.toLocaleString('it-IT');
+                                    return chartData.currencySymbol + value.toLocaleString('it-IT');
                                 }
                             }
                         }

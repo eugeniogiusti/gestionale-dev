@@ -161,6 +161,10 @@ return [
     // Actions
     'open' => 'Open',
     'add_to_calendar' => 'Add to Calendar',
+    'restore' => 'Restore',
+    'force_delete' => 'Delete Permanently',
+    'confirm_restore' => 'Do you want to restore this project?',
+    'confirm_force_delete' => 'Are you sure you want to permanently delete this project? This action cannot be undone and related data may be lost.',
 
     // Calendar
     'project' => 'Project',

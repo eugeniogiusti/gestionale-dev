@@ -13,6 +13,7 @@
         'costs' => $stats['chart']['costs'],
         'profit' => $stats['chart']['profit'],
         'type' => $chartType,
+        'currencySymbol' => $currencySymbol,
         'translations' => [
             'payments' => __('statistics.payments'),
             'costs' => __('statistics.costs'),

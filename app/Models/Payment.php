@@ -9,10 +9,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Storage;
 
 class Payment extends Model implements CalendarEventable
 {
     use HasFactory;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function (Payment $payment) {
+            if ($payment->invoice_path) {
+                Storage::disk('local')->delete($payment->invoice_path);
+            }
+        });
+    }
 
     protected $fillable = [
         'project_id',

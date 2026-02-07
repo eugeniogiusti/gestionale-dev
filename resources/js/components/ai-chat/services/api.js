@@ -1,7 +1,13 @@
+/**
+ * Safe JSON decode helper for non-critical endpoints.
+ */
 export async function readJson(response) {
     return response.json().catch(() => ({}));
 }
 
+/**
+ * GET conversation history for current project/session.
+ */
 export async function requestHistory(historyEndpoint) {
     return fetch(historyEndpoint, {
         headers: {
@@ -10,6 +16,9 @@ export async function requestHistory(historyEndpoint) {
     });
 }
 
+/**
+ * DELETE current project conversation session.
+ */
 export async function requestReset(resetEndpoint, csrfToken) {
     return fetch(resetEndpoint, {
         method: 'DELETE',
@@ -20,6 +29,9 @@ export async function requestReset(resetEndpoint, csrfToken) {
     });
 }
 
+/**
+ * Classic JSON chat request (single final message).
+ */
 export async function requestChat(chatEndpoint, csrfToken, message) {
     return fetch(chatEndpoint, {
         method: 'POST',
@@ -31,6 +43,9 @@ export async function requestChat(chatEndpoint, csrfToken, message) {
     });
 }
 
+/**
+ * Stream chat request (SSE text deltas).
+ */
 export async function requestChatStream(streamEndpoint, csrfToken, message) {
     return fetch(streamEndpoint, {
         method: 'POST',
