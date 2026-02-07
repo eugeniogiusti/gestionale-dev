@@ -14,4 +14,6 @@ return [
     'error_invalid_key' => 'Nieprawidłowy klucz API. Sprawdź klucz w ustawieniach.',
     'error_quota' => 'Limit API wyczerpany lub wymagane płatności. Sprawdź konto OpenAI.',
     'retry' => 'Ponów',
+    'reset' => 'Resetuj',
+    'reset_done' => 'Chat zresetowany.',
 ];

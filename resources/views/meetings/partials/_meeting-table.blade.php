@@ -102,10 +102,11 @@
                             @endif
 
                             {{-- Edit --}}
-                            <button
-                                @click="$dispatch('edit-meeting', {{ $meeting->id }})"
-                                class="text-blue-600 hover:text-blue-800 dark:text-blue-400"
-                                title="{{ __('ui.edit') }}">
+                            <button type="button"
+                                    data-action="edit-meeting"
+                                    data-payload="{{ json_encode($meeting->toFormPayload(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) }}"
+                                    class="text-blue-600 hover:text-blue-800 dark:text-blue-400"
+                                    title="{{ __('ui.edit') }}">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
@@ -113,7 +114,7 @@
 
                             {{-- Delete --}}
                             <form method="POST" action="{{ route('meetings.destroy', [$project, $meeting]) }}"
-                                  onsubmit="return confirm('{{ __('meetings.confirm_delete') }}')">
+                                  data-confirm="{{ __('meetings.confirm_delete') }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"

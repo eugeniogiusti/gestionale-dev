@@ -1,5 +1,5 @@
 {{-- Payment Modal (Create/Edit) --}}
-<div x-data="paymentModal(@js($project->payments))"
+<div x-data="paymentModal()"
      @open-payment-modal.window="openCreate()"
      @edit-payment.window="openEdit($event.detail)"
      @keydown.escape.window="closeModal()"

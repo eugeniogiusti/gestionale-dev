@@ -12,6 +12,9 @@ use App\Queries\Clients\ClientStatsQuery;
 
 class ClientController extends Controller
 {
+    /**
+     * List clients with filters and aggregated stats for index cards.
+     */
     public function index()
     {
         $clients = (new ClientIndexQuery())->handle();
@@ -20,6 +23,9 @@ class ClientController extends Controller
         return view('clients.index', compact('clients', 'stats'));
     }
 
+    /**
+     * Store a newly created client.
+     */
     public function store(StoreClientRequest $request)
     {
         Client::create($request->validated());
@@ -28,6 +34,9 @@ class ClientController extends Controller
             ->with('success', __('clients.created_successfully'));
     }
 
+    /**
+     * Display the specified client with related data.
+     */
     public function show(Client $client)
     {
         $data = (new ClientShowQuery($client))->handle();
@@ -38,6 +47,9 @@ class ClientController extends Controller
         ]);
     }
 
+    /**
+     * Update the specified client.
+     */
     public function update(UpdateClientRequest $request, Client $client)
     {
         $client->update($request->validated());
@@ -52,6 +64,9 @@ class ClientController extends Controller
             ->with('success', __('clients.updated_successfully'));
     }
 
+    /**
+     * Soft delete the specified client.
+     */
     public function destroy(Client $client)
     {
         $client->delete();
@@ -60,6 +75,9 @@ class ClientController extends Controller
             ->with('success', __('clients.deleted_successfully'));
     }
 
+    /**
+     * Restore a soft deleted client.
+     */
     public function restore($id)
     {
         $client = Client::withTrashed()->findOrFail($id);
@@ -69,6 +87,9 @@ class ClientController extends Controller
             ->with('success', __('clients.restored_successfully'));
     }
 
+    /**
+     * Permanently delete a client.
+     */
     public function forceDelete($id)
     {
         $client = Client::withTrashed()->findOrFail($id);

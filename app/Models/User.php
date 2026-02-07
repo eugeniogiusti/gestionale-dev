@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
 
-    // Relazione with TrustedDevice
+    // Relation with TrustedDevice
     public function trustedDevices()
     {
         return $this->hasMany(TrustedDevice::class);

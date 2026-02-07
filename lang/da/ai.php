@@ -14,4 +14,6 @@ return [
     'error_invalid_key' => 'Ugyldig API‑nøgle. Tjek nøglen i indstillingerne.',
     'error_quota' => 'API‑kvote opbrugt eller betaling kræves. Tjek din OpenAI‑konto.',
     'retry' => 'Prøv igen',
+    'reset' => 'Nulstil',
+    'reset_done' => 'Chat nulstillet.',
 ];

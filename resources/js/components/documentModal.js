@@ -2,7 +2,7 @@
  * Document Modal Component
  * Handles upload/edit modal for documents in project context
  */
-export default function documentModal(projectDocuments = [], labels = []) {
+export default function documentModal() {
     return {
         open: false,
         isEdit: false,
@@ -43,10 +43,14 @@ export default function documentModal(projectDocuments = [], labels = []) {
         /**
          * Open modal for editing existing document
          */
-        openEdit(documentId) {
+        openEdit(documentData) {
             this.isEdit = true;
-            this.documentId = documentId;
-            this.loadDocument(documentId);
+            this.documentId = documentData.id;
+            this.formData = {
+                name: documentData.name || '',
+                label_ids: documentData.label_ids || [],
+                notes: documentData.notes || ''
+            };
             this.open = true;
         },
 
@@ -59,28 +63,13 @@ export default function documentModal(projectDocuments = [], labels = []) {
         },
 
         /**
-         * Load document data for editing
-         */
-        loadDocument(documentId) {
-            const document = projectDocuments.find(d => d.id === documentId);
-            
-            if (document) {
-                this.formData = {
-                    name: document.name || '',
-                    label_ids: document.labels ? document.labels.map(l => l.id) : [],
-                    notes: document.notes || ''
-                };
-            }
-        },
-
-        /**
          * Handle file selection
          */
         handleFileSelect(event) {
             const file = event.target.files[0];
             if (file) {
                 this.fileName = file.name;
-                
+
                 // Auto-fill name if empty
                 if (!this.formData.name) {
                     // Remove extension from filename

@@ -15,6 +15,9 @@ use Throwable;
 
 class ProjectChatController extends Controller
 {
+    /**
+     * Handle chat prompt for a project and return the AI response.
+     */
     public function chat(
         Project $project,
         ProjectChatRequest $request,
@@ -59,12 +62,28 @@ class ProjectChatController extends Controller
         return response()->json($payload);
     }
 
+    /**
+     * Return persisted chat history for the current project session.
+     */
     public function history(Project $project, \Illuminate\Http\Request $request, ProjectChatService $service): JsonResponse
     {
         $aiSettings = AiSettings::current();
 
         return response()->json([
             ...$service->history($project, $request, $aiSettings),
+        ]);
+    }
+
+    /**
+     * Reset the current project chat session (new conversation).
+     */
+    public function reset(Project $project, \Illuminate\Http\Request $request): JsonResponse
+    {
+        $sessionKey = "project_chat.{$project->id}";
+        $request->session()->forget($sessionKey);
+
+        return response()->json([
+            'message' => __('ai.reset_done'),
         ]);
     }
 

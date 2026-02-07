@@ -14,4 +14,6 @@ return [
     'error_invalid_key' => 'Ungültiger API‑Schlüssel. Bitte in den Einstellungen prüfen.',
     'error_quota' => 'API‑Kontingent aufgebraucht oder Zahlung erforderlich. Prüfe dein OpenAI‑Konto.',
     'retry' => 'Erneut versuchen',
+    'reset' => 'Zurücksetzen',
+    'reset_done' => 'Chat zurückgesetzt.',
 ];

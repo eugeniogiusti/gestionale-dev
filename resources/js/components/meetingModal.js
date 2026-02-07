@@ -2,7 +2,7 @@
  * Meeting Modal Component
  * Handles create/edit modal for meetings in project context
  */
-export default function meetingModal(projectMeetings = []) {
+export default function meetingModal() {
     return {
         open: false,
         isEdit: false,
@@ -46,10 +46,19 @@ export default function meetingModal(projectMeetings = []) {
         /**
          * Open modal for editing existing meeting
          */
-        openEdit(meetingId) {
+        openEdit(meetingData) {
             this.isEdit = true;
-            this.meetingId = meetingId;
-            this.loadMeeting(meetingId);
+            this.meetingId = meetingData.id;
+            this.formData = {
+                title: meetingData.title || '',
+                description: meetingData.description || '',
+                scheduled_at: meetingData.scheduled_at ? this.formatDateTimeForInput(meetingData.scheduled_at) : '',
+                duration_minutes: meetingData.duration_minutes || 60,
+                location: meetingData.location || '',
+                meeting_url: meetingData.meeting_url || '',
+                status: meetingData.status || 'scheduled',
+                notes: meetingData.notes || ''
+            };
             this.open = true;
         },
 
@@ -59,26 +68,6 @@ export default function meetingModal(projectMeetings = []) {
         closeModal() {
             this.open = false;
             setTimeout(() => this.resetForm(), 300);
-        },
-
-        /**
-         * Load meeting data for editing
-         */
-        loadMeeting(meetingId) {
-            const meeting = projectMeetings.find(m => m.id === meetingId);
-            
-            if (meeting) {
-                this.formData = {
-                    title: meeting.title || '',
-                    description: meeting.description || '',
-                    scheduled_at: meeting.scheduled_at ? this.formatDateTimeForInput(meeting.scheduled_at) : '',
-                    duration_minutes: meeting.duration_minutes || 60,
-                    location: meeting.location || '',
-                    meeting_url: meeting.meeting_url || '',
-                    status: meeting.status || 'scheduled',
-                    notes: meeting.notes || ''
-                };
-            }
         },
 
         /**
@@ -92,7 +81,7 @@ export default function meetingModal(projectMeetings = []) {
             const day = String(date.getDate()).padStart(2, '0');
             const hours = String(date.getHours()).padStart(2, '0');
             const minutes = String(date.getMinutes()).padStart(2, '0');
-            
+
             return `${year}-${month}-${day}T${hours}:${minutes}`;
         }
     };

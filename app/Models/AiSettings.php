@@ -18,6 +18,9 @@ class AiSettings extends Model
         'ai_api_key' => 'encrypted',
     ];
 
+    /**
+     * Get the singleton settings row (create if missing).
+     */
     public static function current(): self
     {
         return static::query()->firstOrCreate([]);

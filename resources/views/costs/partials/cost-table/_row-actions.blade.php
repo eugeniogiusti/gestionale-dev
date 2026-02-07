@@ -2,7 +2,9 @@
     <div class="flex justify-end gap-2">
 
         {{-- Edit Cost --}}
-        <button @click="$dispatch('edit-cost', {{ $cost->id }})"
+        <button type="button"
+                data-action="edit-cost"
+                data-payload="{{ json_encode($cost->toFormPayload(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) }}"
                 class="text-blue-600 hover:text-blue-800 dark:text-blue-400"
                 title="{{ __('ui.edit') }}">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -12,7 +14,7 @@
 
         {{-- Delete Cost --}}
         <form method="POST" action="{{ route('costs.destroy', [$project, $cost]) }}"
-            onsubmit="return confirm('{{ __('costs.confirm_delete') }}')">
+              data-confirm="{{ __('costs.confirm_delete') }}">
             @csrf
             @method('DELETE')
             <button type="submit"

@@ -189,4 +189,15 @@ class Cost extends Model
         
         return route('receipts.destroy', [$this->project, $this]);
     }
+
+    /**
+     * Get payload for edit form (only editable fields + id).
+     */
+    public function toFormPayload(array $extra = []): array
+    {
+        return array_merge(
+            $this->only(array_merge(['id'], $this->fillable)),
+            $extra
+        );
+    }
 }

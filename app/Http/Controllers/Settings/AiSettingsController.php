@@ -10,6 +10,9 @@ use Illuminate\View\View;
 
 class AiSettingsController extends Controller
 {
+    /**
+     * Show the AI settings page (global settings).
+     */
     public function edit(): View
     {
         $settings = AiSettings::current();
@@ -17,6 +20,9 @@ class AiSettingsController extends Controller
         return view('settings.ai', compact('settings'));
     }
 
+    /**
+     * Update global AI settings (enable flag + API key).
+     */
     public function update(UpdateAiSettingsRequest $request): RedirectResponse
     {
         $data = $request->validated();

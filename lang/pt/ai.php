@@ -14,4 +14,6 @@ return [
     'error_invalid_key' => 'API key inválida. Verifique a chave nas definições.',
     'error_quota' => 'Cota da API esgotada ou pagamento necessário. Verifique a sua conta OpenAI.',
     'retry' => 'Tentar novamente',
+    'reset' => 'Repor',
+    'reset_done' => 'Chat reposto.',
 ];

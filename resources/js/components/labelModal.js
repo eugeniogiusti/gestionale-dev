@@ -1,4 +1,4 @@
-export default function labelModal(labels = []) {
+export default function labelModal() {
     return {
         open: false,
         isEdit: false,
@@ -21,10 +21,13 @@ export default function labelModal(labels = []) {
             this.open = true;
         },
 
-        openEdit(labelId) {
+        openEdit(labelData) {
             this.isEdit = true;
-            this.labelId = labelId;
-            this.loadLabel(labelId);
+            this.labelId = labelData.id;
+            this.formData = {
+                name: labelData.name || '',
+                color: labelData.color || 'blue'
+            };
             this.open = true;
         },
 
@@ -37,16 +40,6 @@ export default function labelModal(labels = []) {
             this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.labelId = null;
-        },
-
-        loadLabel(labelId) {
-            const label = labels.find(l => l.id === labelId);
-            if (label) {
-                this.formData = {
-                    name: label.name,
-                    color: label.color
-                };
-            }
         }
     };
 }

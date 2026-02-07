@@ -26,7 +26,7 @@
             <form method="POST"
                   action="{{ $cost->getReceiptDeleteUrl() }}"
                   class="inline"
-                  onsubmit="return confirm('{{ __('receipts.confirm_delete') }}')">
+                  data-confirm="{{ __('receipts.confirm_delete') }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit"
@@ -42,7 +42,9 @@
         @endif
 
         {{-- Upload sempre disponibile --}}
-        <button @click="$dispatch('upload-receipt', {{ $cost->id }})"
+        <button type="button"
+                data-action="upload-receipt"
+                data-payload="{{ $cost->id }}"
                 class="text-gray-600 hover:text-gray-800 dark:text-gray-400"
                 title="{{ __('receipts.upload') }}">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

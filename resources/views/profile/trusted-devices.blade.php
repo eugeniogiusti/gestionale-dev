@@ -65,8 +65,8 @@
 
                         {{-- Revoke all devices --}}
                         <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                            <form method="POST" action="{{ route('profile.trusted-devices.revoke-all') }}" 
-                                  onsubmit="return confirm('{{ __('twofactor.trusted_devices.revoke_all_confirm') }}')">
+                            <form method="POST" action="{{ route('profile.trusted-devices.revoke-all') }}"
+                                  data-confirm="{{ __('twofactor.trusted_devices.revoke_all_confirm') }}">
                                 @csrf
                                 @method('DELETE')
                                 

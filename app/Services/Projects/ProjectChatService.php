@@ -16,6 +16,9 @@ class ProjectChatService
         private ProjectProfitStatsQuery $profitStats
     ) {}
 
+    /**
+     * Build context and prompt the AI agent for a project chat response.
+     */
     public function chat(Project $project, Request $request, string $message, AiSettings $aiSettings): array
     {
         config(['ai.providers.openai.key' => $aiSettings->ai_api_key]);
@@ -55,6 +58,9 @@ class ProjectChatService
         ];
     }
 
+    /**
+     * Load persisted conversation messages for the active project session.
+     */
     public function history(Project $project, Request $request, AiSettings $aiSettings): array
     {
         if (!$aiSettings->ai_enabled || !$aiSettings->ai_api_key) {
@@ -88,10 +94,17 @@ class ProjectChatService
         ];
     }
 
+    /**
+     * Build a compact, human-readable context string for the agent.
+     */
     private function buildContext(Project $project, array $showData, array $profit): string
     {
         $tasks = $showData['tasks']
-            ->map(fn ($t) => "{$t->title} ({$t->status})")
+            ->map(function ($t) {
+                $desc = trim((string) $t->description);
+                $suffix = $desc !== '' ? " — {$desc}" : '';
+                return "{$t->title} ({$t->status}){$suffix}";
+            })
             ->implode('; ');
 
         $meetings = $showData['meetings']

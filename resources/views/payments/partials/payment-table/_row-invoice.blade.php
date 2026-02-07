@@ -21,10 +21,10 @@
                 </svg>
             </a>
 
-            <form method="POST" 
-                  action="{{ route('invoices.destroy', $payment) }}" 
+            <form method="POST"
+                  action="{{ route('invoices.destroy', $payment) }}"
                   class="inline"
-                  onsubmit="return confirm('{{ __('invoices.confirm_delete') }}')">
+                  data-confirm="{{ __('invoices.confirm_delete') }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" 
@@ -54,7 +54,9 @@
         @endif
 
         {{-- Upload sempre disponibile --}}
-        <button @click="$dispatch('open-upload-modal', {{ $payment->id }})"
+        <button type="button"
+                data-action="open-upload-modal"
+                data-payload="{{ $payment->id }}"
                 class="text-gray-600 hover:text-gray-800 dark:text-gray-400"
                 title="{{ __('invoices.upload') }}">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

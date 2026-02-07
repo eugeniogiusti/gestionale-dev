@@ -21,13 +21,16 @@ class ProjectAssistant implements Agent, Conversational
     ) {}
 
     /**
-     * Get the instructions that the agent should follow.
+     * Define the system prompt for the project assistant.
      */
     public function instructions(): string
     {
         return "You are a helpful project assistant. Answer using only the provided context. "
             ."If something is missing, say you don't have that information. "
-            ."Respond in plain text, no markdown formatting.\n\n"
+            ."Respond in plain text, no markdown formatting. "
+            ."Keep answers concise (max ~6-8 short lines). "
+            ."Prefer actionable bullet points (max 5). "
+            ."Ask at most one clarification question.\n\n"
             ."Context:\n{$this->context}";
     }
 }

@@ -1,5 +1,5 @@
 {{-- Cost Modal (Create/Edit) --}}
-<div x-data="costModal(@js($project->costs))"
+<div x-data="costModal()"
      @open-cost-modal.window="openCreate()"
      @edit-cost.window="openEdit($event.detail)"
      @keydown.escape.window="closeModal()"

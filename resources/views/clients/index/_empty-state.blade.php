@@ -10,11 +10,7 @@
             {{ __('clients.no_clients_description') }}
         </p>
         <div class="mt-6">
-            <a href="{{ route('clients.create') }}">
-                <x-button variant="primary">
-                    {{ __('clients.add_client') }}
-                </x-button>
-            </a>
+            
         </div>
     </div>
 </div>

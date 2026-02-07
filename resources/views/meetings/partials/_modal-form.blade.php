@@ -1,5 +1,5 @@
 {{-- Meeting Modal (Create/Edit) --}}
-<div x-data="meetingModal(@js($project->meetings))"
+<div x-data="meetingModal()"
      @open-meeting-modal.window="openCreate()"
      @edit-meeting.window="openEdit($event.detail)"
      @keydown.escape.window="closeModal()"

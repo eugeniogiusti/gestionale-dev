@@ -2,7 +2,7 @@
  * Cost Modal Component
  * Handles create/edit modal for costs in project context
  */
-export default function costModal(projectCosts = []) {
+export default function costModal() {
     return {
         open: false,
         isEdit: false,
@@ -45,10 +45,18 @@ export default function costModal(projectCosts = []) {
         /**
          * Open modal for editing existing cost
          */
-        openEdit(costId) {
+        openEdit(costData) {
             this.isEdit = true;
-            this.costId = costId;
-            this.loadCost(costId);
+            this.costId = costData.id;
+            this.formData = {
+                amount: costData.amount || '',
+                currency: costData.currency || 'EUR',
+                type: costData.type || 'tool',
+                recurring: Boolean(costData.recurring),
+                recurring_period: costData.recurring_period || '',
+                paid_at: this.formatDateForInput(costData.paid_at),
+                notes: costData.notes || ''
+            };
             this.open = true;
         },
 
@@ -58,25 +66,6 @@ export default function costModal(projectCosts = []) {
         closeModal() {
             this.open = false;
             setTimeout(() => this.resetForm(), 300);
-        },
-
-        /**
-         * Load cost data for editing
-         */
-        loadCost(costId) {
-            const cost = projectCosts.find(c => c.id === costId);
-
-            if (cost) {
-                this.formData = {
-                    amount: cost.amount || '',
-                    currency: cost.currency || 'EUR',
-                    type: cost.type || 'tool',
-                    recurring: Boolean(cost.recurring),
-                    recurring_period: cost.recurring_period || '',
-                    paid_at: this.formatDateForInput(cost.paid_at),
-                    notes: cost.notes || ''
-                };
-            }
         },
 
         /**

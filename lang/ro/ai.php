@@ -14,4 +14,6 @@ return [
     'error_invalid_key' => 'API key invalidă. Verifică cheia în setări.',
     'error_quota' => 'Cota API epuizată sau plată necesară. Verifică contul OpenAI.',
     'retry' => 'Reîncearcă',
+    'reset' => 'Resetează',
+    'reset_done' => 'Chat resetat.',
 ];

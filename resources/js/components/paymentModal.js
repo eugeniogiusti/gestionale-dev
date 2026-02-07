@@ -2,7 +2,7 @@
  * Payment Modal Component
  * Handles create/edit modal for payments in project context
  */
-export default function paymentModal(projectPayments = []) {
+export default function paymentModal() {
     return {
         open: false,
         isEdit: false,
@@ -60,10 +60,21 @@ export default function paymentModal(projectPayments = []) {
         /**
          * Open modal for editing existing payment
          */
-        openEdit(paymentId) {
+        openEdit(paymentData) {
             this.isEdit = true;
-            this.paymentId = paymentId;
-            this.loadPayment(paymentId);
+            this.paymentId = paymentData.id;
+            // Determina se è incassato in base a paid_at
+            const isPaid = paymentData.paid_at !== null;
+            this.formData = {
+                is_paid: isPaid,
+                amount: paymentData.amount || '',
+                currency: paymentData.currency || 'EUR',
+                paid_at: this.parseDate(paymentData.paid_at),
+                due_date: this.parseDate(paymentData.due_date),
+                method: paymentData.method || 'bank',
+                reference: paymentData.reference || '',
+                notes: paymentData.notes || ''
+            };
             this.open = true;
         },
 
@@ -73,29 +84,6 @@ export default function paymentModal(projectPayments = []) {
         closeModal() {
             this.open = false;
             setTimeout(() => this.resetForm(), 300);
-        },
-
-        /**
-         * Load payment data for editing
-         */
-        loadPayment(paymentId) {
-            const payment = projectPayments.find(p => p.id === paymentId);
-
-            if (payment) {
-                // Determina se è incassato in base a paid_at
-                const isPaid = payment.paid_at !== null;
-
-                this.formData = {
-                    is_paid: isPaid,
-                    amount: payment.amount || '',
-                    currency: payment.currency || 'EUR',
-                    paid_at: this.parseDate(payment.paid_at),
-                    due_date: this.parseDate(payment.due_date),
-                    method: payment.method || 'bank',
-                    reference: payment.reference || '',
-                    notes: payment.notes || ''
-                };
-            }
         },
 
         /**

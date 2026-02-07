@@ -14,4 +14,6 @@ return [
     'error_invalid_key' => 'Ongeldige API‑sleutel. Controleer de sleutel in de instellingen.',
     'error_quota' => 'API‑quota op of betaling vereist. Controleer je OpenAI‑account.',
     'retry' => 'Opnieuw proberen',
+    'reset' => 'Resetten',
+    'reset_done' => 'Chat gereset.',
 ];

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="space-y-6" x-data="labelModal(@js($labels))">
+    <div class="space-y-6" x-data="labelModal()">
         
         {{-- Header --}}
         @include('labels.partials._header')

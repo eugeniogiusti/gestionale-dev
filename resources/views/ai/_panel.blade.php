@@ -2,6 +2,7 @@
     class="fixed right-4 bottom-4 z-40"
     data-ai-endpoint="{{ route('projects.chat', $project) }}"
     data-ai-history-endpoint="{{ route('projects.chat.history', $project) }}"
+    data-ai-reset-endpoint="{{ route('projects.chat.reset', $project) }}"
     data-project-name="{{ $project->name }}"
     data-project-id="{{ $project->id }}"
     data-error-text="{{ __('ai.error_generic') }}"
@@ -32,9 +33,9 @@
             <button
                 type="button"
                 class="rounded-md px-2 py-1 text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                @click="toggle"
+                @click="reset"
             >
-                {{ __('ai.close') }}
+                {{ __('ai.reset') }}
             </button>
         </div>
 

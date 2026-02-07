@@ -1,6 +1,7 @@
 export default function aiChat(el) {
     const endpoint = el?.dataset?.aiEndpoint || '';
     const historyEndpoint = el?.dataset?.aiHistoryEndpoint || '';
+    const resetEndpoint = el?.dataset?.aiResetEndpoint || '';
     const projectName = el?.dataset?.projectName || 'Project';
     const projectId = el?.dataset?.projectId || 'global';
     const errorText = el?.dataset?.errorText || 'Errore';
@@ -54,6 +55,28 @@ export default function aiChat(el) {
                 // ignore history errors
             } finally {
                 this.loadingHistory = false;
+                this.$nextTick(() => this.scrollToBottom());
+            }
+        },
+
+        async reset() {
+            if (!resetEndpoint || this.loading) return;
+
+            try {
+                await fetch(resetEndpoint, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': this.csrfToken(),
+                        'Accept': 'application/json',
+                    },
+                });
+            } catch (err) {
+                // ignore reset errors
+            } finally {
+                this.messages = [];
+                this.error = null;
+                this.errorCode = null;
+                this.lastUserMessage = null;
                 this.$nextTick(() => this.scrollToBottom());
             }
         },

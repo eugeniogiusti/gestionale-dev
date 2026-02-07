@@ -1,5 +1,5 @@
 {{-- Document Modal (Upload/Edit) --}}
-<div x-data="documentModal(@js($project->documents), @js($labels))"
+<div x-data="documentModal()"
      @open-document-modal.window="openCreate()"
      @edit-document.window="openEdit($event.detail)"
      @keydown.escape.window="closeModal()"

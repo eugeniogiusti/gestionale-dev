@@ -28,8 +28,8 @@
         </a>
         
         {{-- Delete --}}
-        <form method="POST" action="{{ route('invoices.destroy', $payment) }}" 
-              onsubmit="return confirm('{{ __('invoices.confirm_delete') }}')"
+        <form method="POST" action="{{ route('invoices.destroy', $payment) }}"
+              data-confirm="{{ __('invoices.confirm_delete') }}"
               class="inline">
             @csrf
             @method('DELETE')

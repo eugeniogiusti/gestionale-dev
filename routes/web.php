@@ -126,6 +126,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Project chat routes
     Route::post('/projects/{project}/chat', [ProjectChatController::class, 'chat'])->name('projects.chat');
     Route::get('/projects/{project}/chat/history', [ProjectChatController::class, 'history'])->name('projects.chat.history');
+    Route::delete('/projects/{project}/chat/reset', [ProjectChatController::class, 'reset'])->name('projects.chat.reset');
 
     // ==========================================
     // API ROUTES

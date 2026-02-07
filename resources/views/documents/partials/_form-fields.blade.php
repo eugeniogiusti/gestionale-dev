@@ -31,7 +31,7 @@
                 <label class="inline-flex items-center">
                     <input type="checkbox"
                            name="label_ids[]"
-                           value="{{ $label->id }}"
+                           :value="{{ $label->id }}"
                            x-model="formData.label_ids"
                            class="rounded border-gray-300 dark:border-gray-600 text-emerald-600 shadow-sm focus:ring-emerald-500">
                     <span class="ml-1.5">

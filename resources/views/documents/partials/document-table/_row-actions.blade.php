@@ -17,14 +17,20 @@
         </x-action-button>
 
         {{-- Edit --}}
-        <x-action-button variant="info" @click="$dispatch('edit-document', {{ $document->id }})" title="{{ __('ui.edit') }}">
+        <x-action-button
+            type="button"
+            variant="info"
+            title="{{ __('ui.edit') }}"
+            data-action="edit-document"
+            data-payload="{{ json_encode($document->toFormPayload(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) }}"
+        >
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
             </svg>
         </x-action-button>
 
         {{-- Delete --}}
-        <form method="POST" action="{{ $document->getDeleteUrl() }}" onsubmit="return confirm('{{ __('documents.confirm_delete') }}')">
+        <form method="POST" action="{{ $document->getDeleteUrl() }}" data-confirm="{{ __('documents.confirm_delete') }}">
             @csrf
             @method('DELETE')
             <x-action-button variant="danger" type="submit" title="{{ __('ui.delete') }}">

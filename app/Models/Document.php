@@ -102,12 +102,12 @@ class Document extends Model
     }
 
     /**
- * Get download URL
- */
-public function getDownloadUrl(): string
-{
-    return route('documents.download', [$this->project, $this]);
-}
+     * Get download URL
+     */
+    public function getDownloadUrl(): string
+    {
+        return route('documents.download', [$this->project, $this]);
+    }
 
     /**
      * Get preview URL
@@ -132,5 +132,16 @@ public function getDownloadUrl(): string
     {
         return route('documents.update', [$this->project, $this]);
     }
-    
+
+    /**
+     * Get payload for edit form (only editable fields + id).
+     */
+    public function toFormPayload(array $extra = []): array
+    {
+        return array_merge(
+            $this->only(array_merge(['id'], $this->fillable)),
+            ['label_ids' => $this->labels->pluck('id')->toArray()],
+            $extra
+        );
+    }
 }

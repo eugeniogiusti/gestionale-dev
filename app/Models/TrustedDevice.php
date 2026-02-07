@@ -26,19 +26,19 @@ class TrustedDevice extends Model
 
     const UPDATED_AT = null;
 
-    // Relazione con User
+    // Relation with User
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Check se device è ancora valido
+    // Check if device is still valid
     public function isValid()
     {
         return $this->expires_at === null || $this->expires_at->isFuture();
     }
 
-    // Genera hash unico per device (user agent + IP)
+    // Generate device hash based on user agent and IP
     public static function generateDeviceHash($request)
     {
         $userAgent = $request->userAgent();
