@@ -123,8 +123,9 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Restore and force delete
     Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
-    // Project chat routes
+    // Project chat routes (handled by ProjectChatController) - AI interactions
     Route::post('/projects/{project}/chat', [ProjectChatController::class, 'chat'])->name('projects.chat');
+    Route::post('/projects/{project}/chat/stream', [ProjectChatController::class, 'stream'])->name('projects.chat.stream');
     Route::get('/projects/{project}/chat/history', [ProjectChatController::class, 'history'])->name('projects.chat.history');
     Route::delete('/projects/{project}/chat/reset', [ProjectChatController::class, 'reset'])->name('projects.chat.reset');
 
@@ -149,7 +150,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
         Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
         Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
-        // AI Settings Routes
+        // AI Settings Routes - API key management
         Route::get('/ai', [AiSettingsController::class, 'edit'])->name('settings.ai.edit');
         Route::patch('/ai', [AiSettingsController::class, 'update'])->name('settings.ai.update');
     });
@@ -160,7 +161,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
     // Task routes
     Route::prefix('tasks')->name('tasks.')->group(function () {
-        // Global task index with filters (accessible from sidebar/main menu)
+        // Global task index with filters and stats
         Route::get('/', [TaskController::class, 'index'])->name('index');
     });
 
@@ -174,7 +175,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         // Toggle task done status (AJAX)
         Route::post('/{task}/toggle-done', [TaskController::class, 'toggleDone'])->name('toggleDone');
 
-        // Delete task (soft delete if implemented, otherwise hard delete)
+        // Delete task
         Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
     });
 

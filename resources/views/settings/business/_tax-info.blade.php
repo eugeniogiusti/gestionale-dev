@@ -20,4 +20,20 @@
 
     </div>
 
+    {{-- Default Currency --}}
+    <div>
+        <label for="default_currency" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ __('business_settings.default_currency') }}
+        </label>
+        <select name="default_currency"
+                id="default_currency"
+                class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition">
+            @foreach(\App\Models\BusinessSettings::CURRENCIES as $code => $symbol)
+                <option value="{{ $code }}" {{ ($settings->default_currency ?? 'EUR') === $code ? 'selected' : '' }}>
+                    {{ $code }} ({{ $symbol }})
+                </option>
+            @endforeach
+        </select>
+    </div>
+
 </div>

@@ -7,7 +7,7 @@
                 {{ __('costs.stats.total_all_time') }}
             </p>
             <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                € {{ number_format($stats['total_all_time'], 2, ',', '.') }}
+                {{ $currencySymbol }} {{ number_format($stats['total_all_time'], 2, ',', '.') }}
             </p>
         </div>
     </div>

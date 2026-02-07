@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Código Fiscal',
     'vat_number' => 'NIF',
     'iban' => 'IBAN',
+    'default_currency' => 'Moeda Padrão',
     
     // Contacts
     'email' => 'Email',

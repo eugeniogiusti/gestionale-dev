@@ -6,21 +6,21 @@
         <div class="summary-row">
             <div class="summary-cell">
                 <div class="summary-label">{{ __('statistics.payments') }}</div>
-                <div class="summary-value">{{ number_format($stats['summary']['payments'], 2, ',', '.') }} &euro;</div>
+                <div class="summary-value">{{ number_format($stats['summary']['payments'], 2, ',', '.') }} {{ $currencySymbol }}</div>
             </div>
             <div class="summary-cell">
                 <div class="summary-label">{{ __('statistics.costs') }}</div>
-                <div class="summary-value">{{ number_format($stats['summary']['costs'], 2, ',', '.') }} &euro;</div>
+                <div class="summary-value">{{ number_format($stats['summary']['costs'], 2, ',', '.') }} {{ $currencySymbol }}</div>
             </div>
             <div class="summary-cell">
                 <div class="summary-label">{{ __('statistics.profit') }}</div>
                 <div class="summary-value {{ $stats['summary']['profit'] >= 0 ? 'positive' : 'negative' }}">
-                    {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} &euro;
+                    {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} {{ $currencySymbol }}
                 </div>
             </div>
             <div class="summary-cell">
                 <div class="summary-label">{{ __('statistics.pending') }}</div>
-                <div class="summary-value">{{ number_format($stats['summary']['pending'], 2, ',', '.') }} &euro;</div>
+                <div class="summary-value">{{ number_format($stats['summary']['pending'], 2, ',', '.') }} {{ $currencySymbol }}</div>
             </div>
         </div>
     </div>

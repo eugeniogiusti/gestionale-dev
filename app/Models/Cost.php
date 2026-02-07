@@ -47,13 +47,7 @@ class Cost extends Model
         'travel',
     ];
 
-    public const CURRENCIES = [
-        'EUR' => '€',
-        'USD' => '$',
-        'GBP' => '£',
-        'CHF' => 'CHF',
-        'JPY' => '¥',
-    ];
+    public const CURRENCIES = BusinessSettings::CURRENCIES;
 
     public const RECURRING_PERIODS = [
         'monthly',

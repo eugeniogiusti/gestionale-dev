@@ -7,7 +7,7 @@
                 {{ __('costs.stats.this_month') }}
             </p>
             <p class="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                € {{ number_format($stats['total_this_month'], 2, ',', '.') }}
+                {{ $currencySymbol }} {{ number_format($stats['total_this_month'], 2, ',', '.') }}
             </p>
         </div>
     </div>

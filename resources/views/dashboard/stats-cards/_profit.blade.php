@@ -6,7 +6,7 @@
                 {{ __('dashboard.profit_this_month') }}
             </p>
             <p class="mt-2 text-3xl font-bold {{ $stats['profit_this_month']['amount'] >= 0 ? 'text-emerald-600' : 'text-red-600' }}">
-                {{ number_format($stats['profit_this_month']['amount'], 2) }} €
+                {{ number_format($stats['profit_this_month']['amount'], 2) }} {{ $currencySymbol }}
             </p>
             <div class="mt-2 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
                 <span class="text-emerald-600">+{{ number_format($stats['profit_this_month']['payments'], 2) }}</span>

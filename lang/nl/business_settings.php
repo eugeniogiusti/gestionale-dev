@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Fiscaal nummer',
     'vat_number' => 'BTW-nummer',
     'iban' => 'IBAN',
+    'default_currency' => 'Standaardvaluta',
     
     // Contacts
     'email' => 'Email',

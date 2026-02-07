@@ -15,40 +15,22 @@
         </p>
     </div>
 
-    {{-- Amount + Currency --}}
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {{ __('payments.amount') }} <span class="text-red-500">*</span>
-            </label>
-            <input type="number"
-                   name="amount"
-                   x-model="formData.amount"
-                   required
-                   step="0.01"
-                   min="0.01"
-                   placeholder="{{ __('payments.placeholder.amount') }}"
-                   class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition">
-            @error('amount')
-                <p class="mt-0.5 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
-            @enderror
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {{ __('payments.currency') }} <span class="text-red-500">*</span>
-            </label>
-            <select name="currency"
-                    x-model="formData.currency"
-                    required
-                    class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition">
-                @foreach(\App\Models\Payment::CURRENCIES as $code => $symbol)
-                    <option value="{{ $code }}">{{ $code }} ({{ $symbol }})</option>
-                @endforeach
-            </select>
-            @error('currency')
-                <p class="mt-0.5 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
-            @enderror
-        </div>
+    {{-- Amount --}}
+    <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ __('payments.amount') }} ({{ $currencySymbol }}) <span class="text-red-500">*</span>
+        </label>
+        <input type="number"
+               name="amount"
+               x-model="formData.amount"
+               required
+               step="0.01"
+               min="0.01"
+               placeholder="{{ __('payments.placeholder.amount') }}"
+               class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition">
+        @error('amount')
+            <p class="mt-0.5 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
+        @enderror
     </div>
 
     {{-- CAMPI CONDIZIONALI INCASSATO --}}

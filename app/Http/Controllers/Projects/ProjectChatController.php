@@ -11,6 +11,8 @@ use App\Services\Projects\ProjectChatService;
 use Laravel\Ai\Exceptions\AiException;
 use Laravel\Ai\Exceptions\ProviderOverloadedException;
 use Laravel\Ai\Exceptions\RateLimitedException;
+use Laravel\Ai\Streaming\Events\TextDelta;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Throwable;
 
 class ProjectChatController extends Controller
@@ -63,6 +65,72 @@ class ProjectChatController extends Controller
     }
 
     /**
+     * Stream chat response for progressive rendering in the frontend.
+     */
+    public function stream(
+        Project $project,
+        ProjectChatRequest $request,
+        ProjectChatService $service
+    ): StreamedResponse|JsonResponse {
+        $aiSettings = AiSettings::current();
+
+        if (!$aiSettings->ai_enabled || !$aiSettings->ai_api_key) {
+            return response()->json([
+                'message' => __('ai.error_generic'),
+                'code' => 'disabled',
+            ], 403);
+        }
+
+        $stream = $service->stream($project, $request, $request->validated()['message'], $aiSettings);
+
+        return response()->stream(function () use ($stream): void {
+            try {
+                foreach ($stream as $event) {
+                    if ($event instanceof TextDelta) {
+                        $this->emitSse([
+                            'type' => 'delta',
+                            'delta' => $event->delta,
+                        ]);
+                    }
+                }
+
+                $this->emitSse(['type' => 'done']);
+            } catch (RateLimitedException $e) {
+                $this->emitSse([
+                    'type' => 'error',
+                    'message' => __('ai.error_rate_limited'),
+                    'code' => 'rate_limited',
+                ]);
+            } catch (ProviderOverloadedException $e) {
+                $this->emitSse([
+                    'type' => 'error',
+                    'message' => __('ai.error_provider_overloaded'),
+                    'code' => 'provider_overloaded',
+                ]);
+            } catch (AiException $e) {
+                $mapped = $this->mapAiErrorMessage($e->getMessage());
+
+                $this->emitSse([
+                    'type' => 'error',
+                    'message' => $mapped['text'],
+                    'code' => $mapped['code'],
+                ]);
+            } catch (Throwable $e) {
+                $this->emitSse([
+                    'type' => 'error',
+                    'message' => __('ai.error_generic'),
+                    'code' => 'error',
+                ]);
+            }
+        }, 200, [
+            'Content-Type' => 'text/event-stream',
+            'Cache-Control' => 'no-cache, no-transform',
+            'Connection' => 'keep-alive',
+            'X-Accel-Buffering' => 'no',
+        ]);
+    }
+
+    /**
      * Return persisted chat history for the current project session.
      */
     public function history(Project $project, \Illuminate\Http\Request $request, ProjectChatService $service): JsonResponse
@@ -106,5 +174,19 @@ class ProjectChatController extends Controller
         }
 
         return ['text' => __('ai.error_generic'), 'status' => 500, 'code' => 'error'];
+    }
+
+    /**
+     * Emit one SSE data event.
+     */
+    private function emitSse(array $payload): void
+    {
+        echo 'data: '.json_encode($payload, JSON_UNESCAPED_UNICODE)."\n\n";
+
+        if (function_exists('ob_flush')) {
+            @ob_flush();
+        }
+
+        flush();
     }
 }

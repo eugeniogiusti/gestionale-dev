@@ -35,6 +35,7 @@ return [
     'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'No client associated',
     'not_found' => 'Invoice not found',
+    'business_not_configured' => 'Business data not configured',
 
     // Validation
     'file_required' => 'Please select a file to upload.',

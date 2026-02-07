@@ -7,7 +7,7 @@
             {{ $payment->notes ?: __('invoices.payment') }}
         </div>
         <div class="description-amount">
-            {{ __('invoices.default_currency') }} {{ number_format($payment->amount, 2, ',', '.') }}
+            {{ $payment->getFormattedAmount() }}
         </div>
     </div>
     

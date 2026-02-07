@@ -35,6 +35,7 @@ return [
     'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'Geen klant gekoppeld',
     'not_found' => 'Factuur niet gevonden',
+    'business_not_configured' => 'Bedrijfsgegevens niet geconfigureerd',
 
     // Validation
     'file_required' => 'Selecteer een bestand om te uploaden.',

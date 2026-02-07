@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Costs;
 
+use App\Models\BusinessSettings;
 use App\Models\Cost;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -13,11 +14,18 @@ class UpdateCostRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'currency' => BusinessSettings::current()->default_currency ?? 'EUR',
+        ]);
+    }
+
     public function rules(): array
     {
         return [
             'amount' => ['required', 'numeric', 'min:0.01', 'max:999999.99'],
-            'currency' => ['required', 'string', 'size:3', Rule::in(array_keys(Cost::CURRENCIES))],
+            'currency' => ['required', 'string', 'size:3'],
             'type' => ['required', Rule::in(Cost::TYPES)],
             'recurring' => ['nullable', 'boolean'],
             'recurring_period' => ['nullable', 'required_if:recurring,1', Rule::in(Cost::RECURRING_PERIODS)],

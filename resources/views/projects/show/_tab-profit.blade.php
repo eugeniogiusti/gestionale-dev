@@ -6,7 +6,7 @@
         {{-- Total Profit --}}
         <x-profit.stat-card
             :title="__('profit.total_profit')"
-            :value="'€ ' . number_format($profitData['total_profit'], 2, ',', '.')"
+            :value="$currencySymbol . ' ' . number_format($profitData['total_profit'], 2, ',', '.')"
             gradient="emerald"
             :valueColor="$profitData['total_profit'] >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'"
             :subtitle="__('profit.margin') . ': ' . number_format($profitData['profit_margin'], 1) . '%'"
@@ -24,7 +24,7 @@
         {{-- Total Payments --}}
         <x-profit.stat-card
             :title="__('profit.total_payments')"
-            :value="'€ ' . number_format($profitData['total_payments'], 2, ',', '.')"
+            :value="$currencySymbol . ' ' . number_format($profitData['total_payments'], 2, ',', '.')"
             gradient="blue"
             :subtitle="$project->payments->count() . ' ' . __('profit.payments_count')"
         >
@@ -40,7 +40,7 @@
         {{-- Total Costs --}}
         <x-profit.stat-card
             :title="__('profit.total_costs')"
-            :value="'€ ' . number_format($profitData['total_costs'], 2, ',', '.')"
+            :value="$currencySymbol . ' ' . number_format($profitData['total_costs'], 2, ',', '.')"
             gradient="red"
             :subtitle="$project->costs->count() . ' ' . __('profit.costs_count')"
         >

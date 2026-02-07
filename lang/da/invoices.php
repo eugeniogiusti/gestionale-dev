@@ -35,6 +35,7 @@ return [
     'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'Ingen tilknyttet kunde',
     'not_found' => 'Faktura ikke fundet',
+    'business_not_configured' => 'Virksomhedsdata ikke konfigureret',
 
     // Validation
     'file_required' => 'Vælg en fil at uploade.',

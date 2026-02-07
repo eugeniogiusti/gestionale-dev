@@ -6,7 +6,7 @@
                 {{ __('dashboard.pending_payments') }}
             </p>
             <p class="mt-2 text-3xl font-bold text-amber-600">
-                {{ number_format($stats['pending_payments']['total'], 2) }} €
+                {{ number_format($stats['pending_payments']['total'], 2) }} {{ $currencySymbol }}
             </p>
             <div class="mt-2 flex items-center gap-2 text-xs">
                 <span class="text-gray-500 dark:text-gray-400">{{ $stats['pending_payments']['count'] }} {{ __('dashboard.to_collect') }}</span>

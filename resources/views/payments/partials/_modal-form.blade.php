@@ -65,8 +65,8 @@
                             {{ __('ui.cancel') }}
                         </button>
                         <button type="submit"
-                                :disabled="!formData.amount || !formData.currency || (formData.is_paid ? (!formData.paid_at || !formData.method) : !formData.due_date)"
-                                :class="(!formData.amount || !formData.currency || (formData.is_paid ? (!formData.paid_at || !formData.method) : !formData.due_date)) ? 'bg-gray-300 dark:bg-gray-600 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700'"
+                                :disabled="!formData.amount || (formData.is_paid ? (!formData.paid_at || !formData.method) : !formData.due_date)"
+                                :class="(!formData.amount || (formData.is_paid ? (!formData.paid_at || !formData.method) : !formData.due_date)) ? 'bg-gray-300 dark:bg-gray-600 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700'"
                                 class="px-3 py-1.5 text-sm text-white rounded-lg transition">
                             <span x-show="!isEdit">{{ __('ui.create') }}</span>
                             <span x-show="isEdit">{{ __('ui.save') }}</span>

@@ -27,9 +27,8 @@ export default function paymentModal() {
 
         getEmptyForm() {
             return {
-                is_paid: true, // Default: pagamento incassato
+                is_paid: true, // Default: payed
                 amount: '',
-                currency: 'EUR',
                 paid_at: '',
                 due_date: '',
                 method: 'bank',
@@ -68,7 +67,6 @@ export default function paymentModal() {
             this.formData = {
                 is_paid: isPaid,
                 amount: paymentData.amount || '',
-                currency: paymentData.currency || 'EUR',
                 paid_at: this.parseDate(paymentData.paid_at),
                 due_date: this.parseDate(paymentData.due_date),
                 method: paymentData.method || 'bank',

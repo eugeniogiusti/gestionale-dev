@@ -16,7 +16,6 @@ export default function costModal() {
         getEmptyForm() {
             return {
                 amount: '',
-                currency: 'EUR',
                 type: 'tool',
                 recurring: false,
                 recurring_period: '',
@@ -50,7 +49,6 @@ export default function costModal() {
             this.costId = costData.id;
             this.formData = {
                 amount: costData.amount || '',
-                currency: costData.currency || 'EUR',
                 type: costData.type || 'tool',
                 recurring: Boolean(costData.recurring),
                 recurring_period: costData.recurring_period || '',

@@ -8,7 +8,21 @@ use Illuminate\Support\Facades\Storage;
 class BusinessSettings extends Model
 {
     protected $table = 'business_settings';
-    
+
+    public const CURRENCIES = [
+        'EUR' => '€',
+        'USD' => '$',
+        'GBP' => '£',
+        'CHF' => 'CHF',
+        'JPY' => '¥',
+        'AUD' => 'A$',
+        'DKK' => 'kr',
+        'PLN' => 'zł',
+        'BRL' => 'R$',
+        'RON' => 'lei',
+        'UAH' => '₴',
+    ];
+
     protected $fillable = [
         'owner_first_name',
         'owner_last_name',
@@ -20,6 +34,7 @@ class BusinessSettings extends Model
         'tax_id',
         'vat_number',
         'iban',
+        'default_currency',
         'email',
         'certified_email',
         'phone_prefix',

@@ -14,7 +14,7 @@
             {{-- MAIN CONTENT (3/4) --}}
             <div class="lg:col-span-3 space-y-6">
 
-                {{-- Progetti --}}
+                {{-- Projects --}}
                 @include('clients.show._projects')
 
                 {{-- Grid 2 colonne per le altre sezioni --}}

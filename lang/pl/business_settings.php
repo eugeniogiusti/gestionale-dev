@@ -29,6 +29,7 @@ return [
     'tax_id' => 'NIP',
     'vat_number' => 'VAT',
     'iban' => 'IBAN',
+    'default_currency' => 'Domyślna Waluta',
 
     // Contacts
     'email' => 'Email',

@@ -21,7 +21,7 @@
             </div>
         </template>
 
-        <template x-if="loading">
+        <template x-if="loading && !streaming">
             <div class="flex justify-start">
                 <div class="max-w-[80%] rounded-lg bg-gray-100 px-3 py-2 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
                     <span class="inline-flex items-center gap-1">

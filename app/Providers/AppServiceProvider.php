@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\BusinessSettings;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +24,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         App::setLocale(Session::get('locale', config('app.locale', 'en')));
+
+        View::composer('*', function ($view) {
+            if (!$view->offsetExists('currencySymbol')) {
+                $code = BusinessSettings::current()->default_currency ?? 'EUR';
+                $view->with('currencyCode', $code);
+                $view->with('currencySymbol', BusinessSettings::CURRENCIES[$code] ?? $code);
+            }
+        });
     }
 }

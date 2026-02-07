@@ -35,6 +35,7 @@ return [
     'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'Niciun client asociat',
     'not_found' => 'Factura nu a fost găsită',
+    'business_not_configured' => 'Datele companiei nu sunt configurate',
 
     // Validation
     'file_required' => 'Selectează un fișier de încărcat.',

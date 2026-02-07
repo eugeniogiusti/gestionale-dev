@@ -35,6 +35,7 @@ return [
     'upload_help' => 'PDF, JPG, PNG - Макс 10MB',
     'no_client' => 'Немає повʼязаного клієнта',
     'not_found' => 'Рахунок не знайдено',
+    'business_not_configured' => 'Дані компанії не налаштовані',
 
     // Validation
     'file_required' => 'Виберіть файл для завантаження.',

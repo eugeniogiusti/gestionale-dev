@@ -39,13 +39,7 @@ class Payment extends Model implements CalendarEventable
         'paypal',
     ];
 
-    public const CURRENCIES = [
-        'EUR' => '€',
-        'USD' => '$',
-        'GBP' => '£',
-        'CHF' => 'CHF',
-        'JPY' => '¥',
-    ];
+    public const CURRENCIES = BusinessSettings::CURRENCIES;
 
     /* -----------------------------------------------------------------
      |  RELATIONSHIPS

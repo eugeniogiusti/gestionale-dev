@@ -16,7 +16,7 @@ import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
 import annualTrendChart from './components/annualTrendChart';
 import taskToggle from './components/taskToggle';
-import aiChat from './components/aiChat';
+import aiChat from './components/ai-chat/index';
 
 window.Alpine = Alpine
 

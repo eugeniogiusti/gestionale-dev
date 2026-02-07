@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Skattenummer',
     'vat_number' => 'Momsnummer',
     'iban' => 'IBAN',
+    'default_currency' => 'Standardvaluta',
     
     // Contacts
     'email' => 'Email',

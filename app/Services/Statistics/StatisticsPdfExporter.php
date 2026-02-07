@@ -2,6 +2,7 @@
 
 namespace App\Services\Statistics;
 
+use App\Models\BusinessSettings;
 use App\Queries\Statistics\StatisticsQuery;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Response;
@@ -23,12 +24,17 @@ class StatisticsPdfExporter
 
     private function getData(): array
     {
+        $business = BusinessSettings::current();
+        $currencyCode = $business->default_currency ?? 'EUR';
+        $currencySymbol = BusinessSettings::CURRENCIES[$currencyCode] ?? $currencyCode;
+
         return [
             'year' => $this->year,
             'month' => $this->month,
             'stats' => (new StatisticsQuery($this->year, $this->month))->handle(),
             'periodLabel' => $this->getPeriodLabel(),
             'generatedAt' => now(),
+            'currencySymbol' => $currencySymbol,
         ];
     }
 
@@ -43,10 +49,12 @@ class StatisticsPdfExporter
 
     private function getFilename(): string
     {
+        $title = __('statistics.title');
+
         if ($this->month) {
-            return sprintf('statistiche-%d-%02d.pdf', $this->year, $this->month);
+            return sprintf('%s-%d-%02d.pdf', $title, $this->year, $this->month);
         }
 
-        return sprintf('statistiche-%d.pdf', $this->year);
+        return sprintf('%s-%d.pdf', $title, $this->year);
     }
 }

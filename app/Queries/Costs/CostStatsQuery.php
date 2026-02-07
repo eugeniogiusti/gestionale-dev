@@ -18,27 +18,24 @@ class CostStatsQuery
 
     private function getTotalAllTime(): float
     {
-        return Cost::where('currency', 'EUR')->sum('amount');
+        return Cost::sum('amount');
     }
 
     private function getTotalThisMonth(): float
     {
-        return Cost::where('currency', 'EUR')
-            ->thisMonth()
+        return Cost::thisMonth()
             ->sum('amount');
     }
 
     private function getTotalThisYear(): float
     {
-        return Cost::where('currency', 'EUR')
-            ->thisYear()
+        return Cost::thisYear()
             ->sum('amount');
     }
 
     private function getRecurringMonthly(): float
     {
-        return Cost::where('currency', 'EUR')
-            ->recurring(true)
+        return Cost::recurring(true)
             ->where('recurring_period', 'monthly')
             ->sum('amount');
     }

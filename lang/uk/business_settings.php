@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Податковий код',
     'vat_number' => 'ПДВ',
     'iban' => 'IBAN',
+    'default_currency' => 'Валюта за замовчуванням',
 
     // Contacts
     'email' => 'Email',

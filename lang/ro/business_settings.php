@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Cod fiscal',
     'vat_number' => 'Cod TVA',
     'iban' => 'IBAN',
+    'default_currency' => 'Moneda Implicită',
 
     // Contacts
     'email' => 'Email',

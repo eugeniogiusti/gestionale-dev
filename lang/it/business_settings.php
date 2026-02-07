@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Codice Fiscale',
     'vat_number' => 'Partita IVA',
     'iban' => 'IBAN',
+    'default_currency' => 'Valuta Predefinita',
     
     // Contacts
     'email' => 'Email',

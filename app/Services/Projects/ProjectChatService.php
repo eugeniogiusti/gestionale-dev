@@ -9,6 +9,8 @@ use App\Queries\Projects\ProjectProfitStatsQuery;
 use App\Queries\Projects\ProjectShowQuery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Laravel\Ai\Responses\StreamableAgentResponse;
+use Laravel\Ai\Responses\StreamedAgentResponse;
 
 class ProjectChatService
 {
@@ -22,16 +24,7 @@ class ProjectChatService
     public function chat(Project $project, Request $request, string $message, AiSettings $aiSettings): array
     {
         config(['ai.providers.openai.key' => $aiSettings->ai_api_key]);
-
-        $showData = (new ProjectShowQuery($project, 10))->handle();
-        $profit = $this->profitStats->handle($project);
-        $context = $this->buildContext($project, $showData, $profit);
-
-        $agent = ProjectAssistant::make(
-            project: $project,
-            user: $request->user(),
-            context: $context
-        );
+        $agent = $this->buildAgent($project, $request);
 
         $sessionKey = "project_chat.{$project->id}";
         $conversationId = $request->session()->get($sessionKey);
@@ -45,17 +38,52 @@ class ProjectChatService
                 ->forUser($request->user())
                 ->prompt($message);
             $conversationId = $response->conversationId;
-            $request->session()->put($sessionKey, $conversationId);
-
-            DB::table('agent_conversations')
-                ->where('id', $conversationId)
-                ->update(['title' => $project->name]);
+            $this->rememberConversation($project, $request, $conversationId);
         }
 
         return [
             'message' => (string) $response,
             'conversation_id' => $conversationId,
         ];
+    }
+
+    /**
+     * Build a streamable response for project chat.
+     */
+    public function stream(Project $project, Request $request, string $message, AiSettings $aiSettings): StreamableAgentResponse
+    {
+        config(['ai.providers.openai.key' => $aiSettings->ai_api_key]);
+        $agent = $this->buildAgent($project, $request);
+
+        $sessionKey = "project_chat.{$project->id}";
+        $conversationId = $request->session()->get($sessionKey);
+        $isNewConversation = !$conversationId;
+
+        $stream = $conversationId
+            ? $agent->continue($conversationId, as: $request->user())->stream($message)
+            : $agent->forUser($request->user())->stream($message);
+
+        $stream->then(function (StreamedAgentResponse $response) use (
+            $project,
+            $request,
+            $conversationId,
+            $isNewConversation
+        ): void {
+            $resolvedConversationId = $response->conversationId ?: $conversationId;
+
+            if (!$resolvedConversationId) {
+                return;
+            }
+
+            if ($isNewConversation) {
+                $this->rememberConversation($project, $request, $resolvedConversationId);
+                return;
+            }
+
+            $request->session()->put("project_chat.{$project->id}", $resolvedConversationId);
+        });
+
+        return $stream;
     }
 
     /**
@@ -140,5 +168,33 @@ class ProjectChatService
             "COSTS (latest {$showData['costs']->count()}):\n".
             ($costs ?: 'none')
         );
+    }
+
+    /**
+     * Create an agent instance with fresh project context.
+     */
+    private function buildAgent(Project $project, Request $request): ProjectAssistant
+    {
+        $showData = (new ProjectShowQuery($project, 10))->handle();
+        $profit = $this->profitStats->handle($project);
+        $context = $this->buildContext($project, $showData, $profit);
+
+        return ProjectAssistant::make(
+            project: $project,
+            user: $request->user(),
+            context: $context
+        );
+    }
+
+    /**
+     * Persist conversation id in session and set a readable title.
+     */
+    private function rememberConversation(Project $project, Request $request, string $conversationId): void
+    {
+        $request->session()->put("project_chat.{$project->id}", $conversationId);
+
+        DB::table('agent_conversations')
+            ->where('id', $conversationId)
+            ->update(['title' => $project->name]);
     }
 }

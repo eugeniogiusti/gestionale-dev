@@ -1,6 +1,7 @@
 <div
     class="fixed right-4 bottom-4 z-40"
     data-ai-endpoint="{{ route('projects.chat', $project) }}"
+    data-ai-stream-endpoint="{{ route('projects.chat.stream', $project) }}"
     data-ai-history-endpoint="{{ route('projects.chat.history', $project) }}"
     data-ai-reset-endpoint="{{ route('projects.chat.reset', $project) }}"
     data-project-name="{{ $project->name }}"

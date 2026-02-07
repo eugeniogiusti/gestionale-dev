@@ -29,7 +29,8 @@ class UpdateBusinessSettingsRequest extends FormRequest
             'tax_id' => ['nullable', 'string', 'max:50'],
             'vat_number' => ['nullable', 'string', 'max:50'],
             'iban' => ['nullable', 'string', 'regex:/^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$/'],
-            
+            'default_currency' => ['nullable', 'string', 'size:3'],
+
             // Contacts
             'email' => ['nullable', 'email', 'max:255'],
             'certified_email' => ['nullable', 'email', 'max:255'],

@@ -47,13 +47,13 @@
                             </a>
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap text-right text-sm text-gray-900 dark:text-white">
-                            {{ number_format($row['payments'], 2, ',', '.') }} €
+                            {{ number_format($row['payments'], 2, ',', '.') }} {{ $currencySymbol }}
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap text-right text-sm text-gray-900 dark:text-white">
-                            {{ number_format($row['costs'], 2, ',', '.') }} €
+                            {{ number_format($row['costs'], 2, ',', '.') }} {{ $currencySymbol }}
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium {{ $row['profit'] >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400' }}">
-                            {{ $row['profit'] >= 0 ? '+' : '' }}{{ number_format($row['profit'], 2, ',', '.') }} €
+                            {{ $row['profit'] >= 0 ? '+' : '' }}{{ number_format($row['profit'], 2, ',', '.') }} {{ $currencySymbol }}
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
                             {{ $row['projects'] }}
@@ -73,13 +73,13 @@
                         {{ __('statistics.total') }}
                     </td>
                     <td class="px-4 py-3 text-right text-sm text-gray-900 dark:text-white">
-                        {{ number_format($stats['summary']['payments'], 2, ',', '.') }} €
+                        {{ number_format($stats['summary']['payments'], 2, ',', '.') }} {{ $currencySymbol }}
                     </td>
                     <td class="px-4 py-3 text-right text-sm text-gray-900 dark:text-white">
-                        {{ number_format($stats['summary']['costs'], 2, ',', '.') }} €
+                        {{ number_format($stats['summary']['costs'], 2, ',', '.') }} {{ $currencySymbol }}
                     </td>
                     <td class="px-4 py-3 text-right text-sm {{ $stats['summary']['profit'] >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400' }}">
-                        {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} €
+                        {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} {{ $currencySymbol }}
                     </td>
                     <td class="px-4 py-3 text-center text-sm text-gray-900 dark:text-white">
                         {{ $stats['summary']['projects_started'] }}

@@ -28,7 +28,8 @@ return [
     // Tax Info
     'tax_id' => 'Tax Code',
     'vat_number' => 'VAT Number',
-    'iban' => 'IBAN', 
+    'iban' => 'IBAN',
+    'default_currency' => 'Default Currency', 
     
     // Contacts
     'email' => 'Email',

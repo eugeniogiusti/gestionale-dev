@@ -35,6 +35,7 @@ return [
     'upload_help' => 'PDF, JPG, PNG - Max 10MB',
     'no_client' => 'Nessun cliente associato',
     'not_found' => 'Fattura non trovata',
+    'business_not_configured' => 'Dati aziendali non configurati',
 
     // Validation
     'file_required' => 'Seleziona un file da caricare.',

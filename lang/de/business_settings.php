@@ -29,6 +29,7 @@ return [
     'tax_id' => 'Steuernummer',
     'vat_number' => 'USt-IdNr.',
     'iban' => 'IBAN',
+    'default_currency' => 'Standardwährung',
     
     // Contacts
     'email' => 'E-Mail',

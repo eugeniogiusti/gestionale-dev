@@ -13,7 +13,7 @@
                 <div class="min-w-0">
                     <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.profit') }}</p>
                     <p class="text-xl font-bold {{ $stats['summary']['profit'] >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400' }}">
-                        {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} €
+                        {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} {{ $currencySymbol }}
                     </p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="min-w-0">
                     <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.payments') }}</p>
                     <p class="text-xl font-bold text-gray-900 dark:text-white">
-                        {{ number_format($stats['summary']['payments'], 2, ',', '.') }} €
+                        {{ number_format($stats['summary']['payments'], 2, ',', '.') }} {{ $currencySymbol }}
                     </p>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <div class="min-w-0">
                     <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.costs') }}</p>
                     <p class="text-xl font-bold text-gray-900 dark:text-white">
-                        {{ number_format($stats['summary']['costs'], 2, ',', '.') }} €
+                        {{ number_format($stats['summary']['costs'], 2, ',', '.') }} {{ $currencySymbol }}
                     </p>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <div class="min-w-0">
                     <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('statistics.pending') }}</p>
                     <p class="text-xl font-bold text-gray-900 dark:text-white">
-                        {{ number_format($stats['summary']['pending'], 2, ',', '.') }} €
+                        {{ number_format($stats['summary']['pending'], 2, ',', '.') }} {{ $currencySymbol }}
                     </p>
                 </div>
             </div>

@@ -245,13 +245,7 @@ test('cost has correct types constant', function () {
 });
 
 test('cost has correct currencies constant', function () {
-    expect(Cost::CURRENCIES)->toBe([
-        'EUR' => '€',
-        'USD' => '$',
-        'GBP' => '£',
-        'CHF' => 'CHF',
-        'JPY' => '¥',
-    ]);
+    expect(Cost::CURRENCIES)->toBe(\App\Models\BusinessSettings::CURRENCIES);
 });
 
 test('cost has correct recurring periods constant', function () {

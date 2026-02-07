@@ -17,10 +17,10 @@
                 @foreach($stats['monthly'] as $row)
                     <tr>
                         <td>{{ $row['label'] }}</td>
-                        <td class="text-right">{{ number_format($row['payments'], 2, ',', '.') }} &euro;</td>
-                        <td class="text-right">{{ number_format($row['costs'], 2, ',', '.') }} &euro;</td>
+                        <td class="text-right">{{ number_format($row['payments'], 2, ',', '.') }} {{ $currencySymbol }}</td>
+                        <td class="text-right">{{ number_format($row['costs'], 2, ',', '.') }} {{ $currencySymbol }}</td>
                         <td class="text-right {{ $row['profit'] >= 0 ? 'positive' : 'negative' }}">
-                            {{ $row['profit'] >= 0 ? '+' : '' }}{{ number_format($row['profit'], 2, ',', '.') }} &euro;
+                            {{ $row['profit'] >= 0 ? '+' : '' }}{{ number_format($row['profit'], 2, ',', '.') }} {{ $currencySymbol }}
                         </td>
                         <td class="text-center">{{ $row['projects'] }}</td>
                         <td class="text-center">{{ $row['tasks'] }}</td>
@@ -31,10 +31,10 @@
             <tfoot>
                 <tr>
                     <td>{{ __('statistics.total') }}</td>
-                    <td class="text-right">{{ number_format($stats['summary']['payments'], 2, ',', '.') }} &euro;</td>
-                    <td class="text-right">{{ number_format($stats['summary']['costs'], 2, ',', '.') }} &euro;</td>
+                    <td class="text-right">{{ number_format($stats['summary']['payments'], 2, ',', '.') }} {{ $currencySymbol }}</td>
+                    <td class="text-right">{{ number_format($stats['summary']['costs'], 2, ',', '.') }} {{ $currencySymbol }}</td>
                     <td class="text-right {{ $stats['summary']['profit'] >= 0 ? 'positive' : 'negative' }}">
-                        {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} &euro;
+                        {{ $stats['summary']['profit'] >= 0 ? '+' : '' }}{{ number_format($stats['summary']['profit'], 2, ',', '.') }} {{ $currencySymbol }}
                     </td>
                     <td class="text-center">{{ $stats['summary']['projects_started'] }}</td>
                     <td class="text-center">{{ $stats['summary']['tasks_completed'] }}</td>

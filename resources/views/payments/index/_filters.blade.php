@@ -3,7 +3,6 @@
         <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
             @include('payments.index.filters._search')
             @include('payments.index.filters._method')
-            @include('payments.index.filters._currency')
             @include('payments.index.filters._date-range')
             @include('payments.index.filters._actions')
         </div>
