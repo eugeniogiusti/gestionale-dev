@@ -2,12 +2,23 @@
 
 namespace App\Queries\Costs;
 
+use App\Models\BusinessSettings;
 use App\Models\Cost;
 
+/**
+ * Cost statistics for the index stat cards.
+ *
+ * Returns: total_all_time, total_this_month, total_this_year, recurring_monthly.
+ * All amounts filtered by the default currency from BusinessSettings.
+ */
 class CostStatsQuery
 {
+    private string $currency;
+
     public function handle(): array
     {
+        $this->currency = BusinessSettings::current()->default_currency;
+
         return [
             'total_all_time' => $this->getTotalAllTime(),
             'total_this_month' => $this->getTotalThisMonth(),
@@ -18,24 +29,27 @@ class CostStatsQuery
 
     private function getTotalAllTime(): float
     {
-        return Cost::sum('amount');
+        return Cost::where('currency', $this->currency)->sum('amount');
     }
 
     private function getTotalThisMonth(): float
     {
-        return Cost::thisMonth()
+        return Cost::where('currency', $this->currency)
+            ->thisMonth()
             ->sum('amount');
     }
 
     private function getTotalThisYear(): float
     {
-        return Cost::thisYear()
+        return Cost::where('currency', $this->currency)
+            ->thisYear()
             ->sum('amount');
     }
 
     private function getRecurringMonthly(): float
     {
-        return Cost::recurring(true)
+        return Cost::where('currency', $this->currency)
+            ->recurring(true)
             ->where('recurring_period', 'monthly')
             ->sum('amount');
     }

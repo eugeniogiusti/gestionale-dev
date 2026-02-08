@@ -2,20 +2,23 @@
 
 namespace App\Queries\Payments;
 
+use App\Models\BusinessSettings;
 use App\Models\Payment;
 
+/**
+ * Payment statistics for the index stat cards.
+ *
+ * Returns: total_all_time, total_this_month, total_this_year.
+ * All amounts filtered by the default currency from BusinessSettings.
+ */
 class PaymentStatsQuery
 {
-    /**
-     * Calculate payment statistics
-     *
-     * Only counts payments that have been received (paid_at IS NOT NULL)
-     * to provide accurate statistics based on actual received payments.
-     *
-     * @return array
-     */
+    private string $currency;
+
     public function handle(): array
     {
+        $this->currency = BusinessSettings::current()->default_currency;
+
         return [
             'total_all_time' => $this->getTotalAllTime(),
             'total_this_month' => $this->getTotalThisMonth(),
@@ -23,32 +26,24 @@ class PaymentStatsQuery
         ];
     }
 
-    /**
-     * Total received payments (all time)
-     */
     private function getTotalAllTime(): float
     {
         return Payment::whereNotNull('paid_at')
+            ->where('currency', $this->currency)
             ->sum('amount');
     }
 
-    /**
-     * Total received payments this month
-     * Note: thisMonth() scope already filters by paid_at date range
-     */
     private function getTotalThisMonth(): float
     {
-        return Payment::thisMonth()
+        return Payment::where('currency', $this->currency)
+            ->thisMonth()
             ->sum('amount');
     }
 
-    /**
-     * Total received payments this year
-     * Note: thisYear() scope already filters by paid_at date range
-     */
     private function getTotalThisYear(): float
     {
-        return Payment::thisYear()
+        return Payment::where('currency', $this->currency)
+            ->thisYear()
             ->sum('amount');
     }
 }

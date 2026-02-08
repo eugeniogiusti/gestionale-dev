@@ -2,13 +2,23 @@
 
 namespace App\Queries\Statistics\SubQueries;
 
+use App\Models\BusinessSettings;
 use App\Models\Cost;
 use App\Models\Payment;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
+/**
+ * Chart data for the statistics page (sub-query of StatisticsQuery).
+ *
+ * Two modes: monthly (12 data points for a full year) or daily (N days for a single month).
+ * Returns: labels, payments, costs, profit arrays.
+ * All amounts filtered by the default currency from BusinessSettings.
+ */
 class ChartDataQuery
 {
+    private string $currency;
+
     public function __construct(
         private int $year,
         private ?int $month = null
@@ -16,6 +26,8 @@ class ChartDataQuery
 
     public function handle(): array
     {
+        $this->currency = BusinessSettings::current()->default_currency;
+
         return $this->month
             ? $this->getDailyData()
             : $this->getMonthlyData();
@@ -70,7 +82,7 @@ class ChartDataQuery
     private function getMonthlyPayments(): Collection
     {
         return Payment::paid()
-            ->where('currency', 'EUR')
+            ->where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->selectRaw("strftime('%Y-%m', paid_at) as period, SUM(amount) as total")
             ->groupBy('period')
@@ -79,7 +91,7 @@ class ChartDataQuery
 
     private function getMonthlyCosts(): Collection
     {
-        return Cost::where('currency', 'EUR')
+        return Cost::where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->selectRaw("strftime('%Y-%m', paid_at) as period, SUM(amount) as total")
             ->groupBy('period')
@@ -89,7 +101,7 @@ class ChartDataQuery
     private function getDailyPayments(): Collection
     {
         return Payment::paid()
-            ->where('currency', 'EUR')
+            ->where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->whereMonth('paid_at', $this->month)
             ->selectRaw("strftime('%Y-%m-%d', paid_at) as period, SUM(amount) as total")
@@ -99,7 +111,7 @@ class ChartDataQuery
 
     private function getDailyCosts(): Collection
     {
-        return Cost::where('currency', 'EUR')
+        return Cost::where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->whereMonth('paid_at', $this->month)
             ->selectRaw("strftime('%Y-%m-%d', paid_at) as period, SUM(amount) as total")

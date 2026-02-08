@@ -5,6 +5,13 @@ namespace App\Queries\Projects;
 use App\Models\Project;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
+/**
+ * Paginated query for the projects index page.
+ *
+ * Filters: status, priority, search (name/client name/client vat_number).
+ * Sorting: whitelisted columns via sort_by/sort_direction params.
+ * Eager loads: client. Pagination: 15 per page.
+ */
 class ProjectIndexQuery
 {
     private const ALLOWED_SORT_COLUMNS = ['name', 'status', 'priority', 'type', 'created_at', 'updated_at', 'start_date', 'due_date'];

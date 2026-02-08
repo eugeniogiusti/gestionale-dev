@@ -4,6 +4,13 @@ namespace App\Queries\Costs;
 
 use App\Models\Cost;
 
+/**
+ * Paginated query for the costs index page.
+ *
+ * Filters: project_id, type, currency, recurring, date_from/date_to, search (notes/project name).
+ * Eager loads: project.client.
+ * Sorting: paid_at desc. Pagination: 15 per page.
+ */
 class CostIndexQuery
 {
     public function handle()

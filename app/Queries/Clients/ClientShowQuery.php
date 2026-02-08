@@ -10,6 +10,13 @@ use App\Models\Payment;
 use App\Models\Task;
 use Illuminate\Support\Collection;
 
+/**
+ * Query for the client show page.
+ *
+ * Fetches the latest N entities linked to the client via their projects:
+ * projects, tasks, meetings, payments, costs, documents.
+ * Uses eager loading (project:id,name) to prevent N+1 queries.
+ */
 class ClientShowQuery
 {
     private Collection $projectIds;

@@ -5,6 +5,13 @@ namespace App\Queries\Projects;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Project statistics for the index stat cards.
+ *
+ * Returns: total count, counts by status (draft/in_progress/completed/archived),
+ * new this month, completed this week, in_progress/archived percentages.
+ * Accepts optional $total to avoid duplicate count query from the paginator.
+ */
 class ProjectStatsQuery
 {
     /**

@@ -4,6 +4,11 @@ namespace App\Queries\Tasks;
 
 use App\Models\Task;
 
+/**
+ * Task statistics for the index stat cards.
+ *
+ * Returns: todo count, in_progress count, blocked count, bugs_open count.
+ */
 class TaskStatsQuery
 {
     /**

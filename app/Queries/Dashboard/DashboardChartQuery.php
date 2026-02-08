@@ -2,14 +2,26 @@
 
 namespace App\Queries\Dashboard;
 
+use App\Models\BusinessSettings;
 use App\Models\Cost;
 use App\Models\Payment;
 use Illuminate\Support\Collection;
 
+/**
+ * Annual trend chart data for the dashboard.
+ *
+ * Returns 12-month arrays: labels (translated month abbreviations),
+ * payments, costs, and profit (payments - costs) per month.
+ * All amounts filtered by the default currency from BusinessSettings.
+ */
 class DashboardChartQuery
 {
+    private string $currency;
+
     public function handle(): array
     {
+        $this->currency = BusinessSettings::current()->default_currency;
+
         $months = $this->getCurrentYearMonths();
 
         $payments = $this->getMonthlyPayments($months);
@@ -41,7 +53,7 @@ class DashboardChartQuery
     private function getMonthlyPayments(Collection $months): array
     {
         $payments = Payment::paid()
-            ->where('currency', 'EUR')
+            ->where('currency', $this->currency)
             ->thisYear()
             ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
             ->groupBy('month')
@@ -52,7 +64,7 @@ class DashboardChartQuery
 
     private function getMonthlyCosts(Collection $months): array
     {
-        $costs = Cost::where('currency', 'EUR')
+        $costs = Cost::where('currency', $this->currency)
             ->thisYear()
             ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
             ->groupBy('month')

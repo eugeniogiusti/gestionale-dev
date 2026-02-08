@@ -5,6 +5,13 @@ namespace App\Queries\Documents;
 use App\Models\Document;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
+/**
+ * Paginated query for the documents index page.
+ *
+ * Filters: label_id, search (document name via scope).
+ * Eager loads: project, labels.
+ * Sorting: recent (scope). Pagination: 20 per page.
+ */
 class DocumentIndexQuery
 {
     public function handle(): LengthAwarePaginator

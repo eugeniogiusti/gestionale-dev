@@ -8,6 +8,13 @@ use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Support\Collection;
 
+/**
+ * Quick-reference lists for the dashboard page.
+ *
+ * Returns 5 lists (max 5 items each): tasks_due_soon (next 7 days),
+ * upcoming_meetings, overdue_payments, recent_payments, projects_due_soon.
+ * Uses batch project hydration to prevent N+1 queries across all lists.
+ */
 class DashboardListsQuery
 {
     public function handle(): array

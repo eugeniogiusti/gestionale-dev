@@ -2,26 +2,29 @@
 
 namespace App\Queries\Projects;
 
+use App\Models\BusinessSettings;
 use App\Models\Project;
 
+/**
+ * Profit statistics for a single project.
+ *
+ * Calculates: total_payments, total_costs, total_profit, profit_margin (%).
+ * All amounts filtered by the default currency from BusinessSettings.
+ * Used in the project show page profit card.
+ */
 class ProjectProfitStatsQuery
 {
-    /**
-     * Calculate profit statistics for a project
-     */
     public function handle(Project $project): array
     {
-        // Total payments received for the project
-        // Filter: paid_at IS NOT NULL to count only received payments
+        $currency = BusinessSettings::current()->default_currency;
+
         $totalPayments = $project->payments()
             ->whereNotNull('paid_at')
-            ->where('currency', 'EUR')
+            ->where('currency', $currency)
             ->sum('amount');
-        
-        // Total costs paid
-        // Note: costs.paid_at is NOT NULL, so all costs are always included
+
         $totalCosts = $project->costs()
-            ->where('currency', 'EUR')
+            ->where('currency', $currency)
             ->sum('amount');
         
         // Calculate profit and margin

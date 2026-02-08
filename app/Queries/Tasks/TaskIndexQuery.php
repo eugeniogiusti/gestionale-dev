@@ -5,6 +5,13 @@ namespace App\Queries\Tasks;
 use App\Models\Task;
 use Illuminate\Pagination\LengthAwarePaginator;
 
+/**
+ * Paginated query for the tasks index page.
+ *
+ * Filters: project_id, status, type, priority, search (title/description/project name).
+ * Eager loads: project.
+ * Sorting: order asc, then created_at desc. Pagination: 20 per page.
+ */
 class TaskIndexQuery
 {
     public function handle(): LengthAwarePaginator

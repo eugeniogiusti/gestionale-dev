@@ -2,16 +2,27 @@
 
 namespace App\Queries\Dashboard;
 
+use App\Models\BusinessSettings;
 use App\Models\Cost;
 use App\Models\Meeting;
 use App\Models\Payment;
 use App\Models\Project;
 use App\Models\Task;
 
+/**
+ * KPI statistics for the dashboard stat cards.
+ *
+ * Returns: profit_this_month (payments - costs), pending_payments (count/total/overdue),
+ * active_projects count, open_tasks (breakdown by status), meetings_this_week count.
+ * Financial amounts filtered by the default currency from BusinessSettings.
+ */
 class DashboardStatsQuery
 {
+    private string $currency;
     public function handle(): array
     {
+        $this->currency = BusinessSettings::current()->default_currency;
+
         return [
             'profit_this_month' => $this->getProfitThisMonth(),
             'pending_payments' => $this->getPendingPayments(),
@@ -21,16 +32,13 @@ class DashboardStatsQuery
         ];
     }
 
-    /**
-     * Profit = payments received - costs (this month, EUR only)
-     */
     private function getProfitThisMonth(): array
     {
-        $payments = Payment::currency('EUR')
+        $payments = Payment::currency($this->currency)
             ->thisMonth()
             ->sum('amount');
 
-        $costs = Cost::where('currency', 'EUR')
+        $costs = Cost::where('currency', $this->currency)
             ->whereBetween('paid_at', [now()->startOfMonth(), now()->endOfMonth()])
             ->sum('amount');
 
@@ -46,7 +54,7 @@ class DashboardStatsQuery
      */
     private function getPendingPayments(): array
     {
-        $query = Payment::pending()->where('currency', 'EUR');
+        $query = Payment::pending()->where('currency', $this->currency);
 
         return [
             'count' => (clone $query)->count(),

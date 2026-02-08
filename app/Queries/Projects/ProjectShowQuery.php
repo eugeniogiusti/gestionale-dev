@@ -5,6 +5,13 @@ namespace App\Queries\Projects;
 use App\Models\Project;
 use Illuminate\Support\Collection;
 
+/**
+ * Query for the project show page.
+ *
+ * Fetches the latest N items for each tab: tasks, meetings, payments, costs, documents.
+ * Also returns total counts for each relation (used for "view all" links).
+ * Sets the project relation on each item to prevent N+1 queries.
+ */
 class ProjectShowQuery
 {
     public function __construct(

@@ -48,8 +48,14 @@
                 <option value="ro" {{ app()->getLocale() == 'ro' ? 'selected' : '' }}>
                     🇷🇴 Română
                 </option>
+                <option value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>
+                    🇷🇺 Русский
+                </option>
                 <option value="uk" {{ app()->getLocale() == 'uk' ? 'selected' : '' }}>
                     🇺🇦 Українська
+                </option>
+                <option value="zh" {{ app()->getLocale() == 'zh' ? 'selected' : '' }}>
+                    🇨🇳 中文
                 </option>
             </select>
         </div>

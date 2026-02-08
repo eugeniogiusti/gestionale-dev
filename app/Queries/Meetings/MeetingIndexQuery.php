@@ -4,6 +4,13 @@ namespace App\Queries\Meetings;
 
 use App\Models\Meeting;
 
+/**
+ * Paginated query for the meetings index page.
+ *
+ * Filters: status, project_id, date_from/date_to, search (title/description/project name).
+ * Eager loads: project.client.
+ * Sorting: scheduled_at desc. Pagination: 15 per page.
+ */
 class MeetingIndexQuery
 {
     public function handle()

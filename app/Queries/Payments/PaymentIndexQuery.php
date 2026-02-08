@@ -4,6 +4,13 @@ namespace App\Queries\Payments;
 
 use App\Models\Payment;
 
+/**
+ * Paginated query for the payments index page.
+ *
+ * Filters: project_id, method, currency, date_from/date_to, search (reference/notes/project name).
+ * Eager loads: project.client.
+ * Sorting: paid_at desc. Pagination: 15 per page.
+ */
 class PaymentIndexQuery
 {
     public function handle()

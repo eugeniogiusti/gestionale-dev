@@ -8,6 +8,12 @@ use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Support\Carbon;
 
+/**
+ * Operational statistics for a date range (sub-query of StatisticsQuery).
+ *
+ * Returns: projects_started, projects_completed, tasks_completed,
+ * meetings_held, new_clients — all within the given date range.
+ */
 class OperationalStatsQuery
 {
     public function __construct(

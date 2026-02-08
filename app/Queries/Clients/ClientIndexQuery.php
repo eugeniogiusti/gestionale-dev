@@ -5,6 +5,13 @@ namespace App\Queries\Clients;
 use App\Models\Client;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
+/**
+ * Paginated query for the clients index page.
+ *
+ * Filters: status, search (name/email/vat_number).
+ * Sorting: whitelisted columns via sort_by/sort_direction params.
+ * Pagination: 15 per page.
+ */
 class ClientIndexQuery
 {
     private const ALLOWED_SORT_COLUMNS = ['name', 'email', 'status', 'created_at', 'updated_at'];

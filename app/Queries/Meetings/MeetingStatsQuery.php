@@ -4,6 +4,11 @@ namespace App\Queries\Meetings;
 
 use App\Models\Meeting;
 
+/**
+ * Meeting statistics for the index stat cards.
+ *
+ * Returns: upcoming count, today count, this_week count, completed_last_week count.
+ */
 class MeetingStatsQuery
 {
     public function handle(): array

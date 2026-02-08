@@ -5,6 +5,12 @@ namespace App\Queries\TwoFactor;
 use App\Models\TrustedDevice;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
+/**
+ * Query for the 2FA trusted devices management page.
+ *
+ * Provides: paginated list of trusted devices for a user (10 per page),
+ * and lookup of the current device by its hash.
+ */
 class TrustedDeviceQuery
 {
     public function __construct(

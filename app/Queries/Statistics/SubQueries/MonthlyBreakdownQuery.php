@@ -2,6 +2,7 @@
 
 namespace App\Queries\Statistics\SubQueries;
 
+use App\Models\BusinessSettings;
 use App\Models\Client;
 use App\Models\Cost;
 use App\Models\Payment;
@@ -10,14 +11,24 @@ use App\Models\Task;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
+/**
+ * Monthly breakdown table for the statistics page (sub-query of StatisticsQuery).
+ *
+ * Returns a collection of 12 months, each with: payments, costs, profit,
+ * projects created, tasks completed, new clients.
+ * Financial amounts filtered by the default currency from BusinessSettings.
+ */
 class MonthlyBreakdownQuery
 {
+    private string $currency;
+
     public function __construct(
         private int $year
     ) {}
 
     public function handle(): Collection
     {
+        $this->currency = BusinessSettings::current()->default_currency;
         $months = $this->getMonthsStructure();
 
         $payments = $this->getPaymentsData();
@@ -55,7 +66,7 @@ class MonthlyBreakdownQuery
     private function getPaymentsData(): Collection
     {
         return Payment::paid()
-            ->where('currency', 'EUR')
+            ->where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
             ->groupBy('month')
@@ -64,7 +75,7 @@ class MonthlyBreakdownQuery
 
     private function getCostsData(): Collection
     {
-        return Cost::where('currency', 'EUR')
+        return Cost::where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
             ->groupBy('month')

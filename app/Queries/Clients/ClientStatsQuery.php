@@ -5,6 +5,13 @@ namespace App\Queries\Clients;
 use App\Models\Client;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Client statistics for the index stat cards.
+ *
+ * Returns: total count, counts by status (lead/active/archived),
+ * new this month, converted this month, lead/archived percentages.
+ * Accepts optional $total to avoid duplicate count query from the paginator.
+ */
 class ClientStatsQuery
 {
     /**

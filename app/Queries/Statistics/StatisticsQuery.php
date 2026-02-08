@@ -8,6 +8,14 @@ use App\Queries\Statistics\SubQueries\MonthlyBreakdownQuery;
 use App\Queries\Statistics\SubQueries\OperationalStatsQuery;
 use Illuminate\Support\Carbon;
 
+/**
+ * Main orchestrator for the statistics page.
+ *
+ * Accepts year and optional month. Delegates to sub-queries:
+ * - FinancialStatsQuery + OperationalStatsQuery -> summary
+ * - MonthlyBreakdownQuery -> monthly table (full year only)
+ * - ChartDataQuery -> chart (monthly or daily granularity)
+ */
 class StatisticsQuery
 {
     private Carbon $startDate;

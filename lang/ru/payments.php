@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => 'Платежи',
+    'subtitle' => 'Отслеживайте платежи от клиентов',
+    'payment_list' => 'Список платежей',
+    'create_payment' => 'Создать платеж',
+    'edit_payment' => 'Изменить платеж',
+    'add_payment' => 'Добавить платеж',
+    'view_all' => 'Посмотреть все платежи',
+    'recent_payments' => 'Последние платежи',
+    'view_project' => 'Открыть проект',
+    'add_to_calendar' => 'Добавить в календарь',
+    'no_payments' => 'Нет платежей',
+    'no_payments_description' => 'Добавьте первый платеж для этого проекта',
+    'confirm_delete' => 'Вы уверены, что хотите удалить этот платеж?',
+    'recent' => 'Недавний',
+
+    'project' => 'Проект',
+    'amount' => 'Сумма',
+    'currency' => 'Валюта',
+    'paid_at' => 'Оплачено',
+    'due_date' => 'Срок оплаты',
+    'due' => 'Срок оплаты',
+    'method' => 'Способ оплаты',
+    'reference' => 'Референс',
+    'notes' => 'Заметки',
+    'invoice' => 'Счет',
+
+    'all_methods' => 'Все способы',
+    'all_currencies' => 'Все валюты',
+
+    'method_cash' => 'Наличные',
+    'method_bank' => 'Банковский перевод',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => 'Платеж успешно создан',
+    'updated_successfully' => 'Платеж успешно обновлен',
+    'deleted_successfully' => 'Платеж успешно удален',
+
+    'stats' => [
+        'total_all_time' => 'Итого за все время',
+        'all_projects' => 'Все проекты',
+        'this_month' => 'Этот месяц',
+        'this_year' => 'Этот год',
+        'currencies' => 'Валюты',
+    ],
+
+    'placeholder' => [
+        'search' => 'Поиск по проекту, референсу или заметкам...',
+        'amount' => 'например, 1500.00',
+        'reference' => 'например, Invoice #2024-001, Stripe ch_xxx',
+        'notes' => 'Дополнительные заметки...',
+        'due_date' => 'например, 2025-02-15',
+    ],
+
+    'amount_required' => 'Сумма обязательна',
+    'amount_min' => 'Сумма должна быть не меньше 0.01',
+    'paid_at_required' => 'Дата оплаты обязательна',
+    'due_date_invalid' => 'Срок оплаты должен быть не раньше даты платежа',
+    'method_required' => 'Способ оплаты обязателен',
+    'currency_invalid' => 'Недопустимая валюта',
+    'due_date_help' => 'Необязательно: срок оплаты по счету',
+    'notes_help' => 'Это описание будет использовано в счете',
+    'due_date_required_when_unpaid' => 'Срок оплаты обязателен для не полученных платежей',
+    'payment_received' => 'Платеж получен',
+    'payment_received_help' => 'Отметьте, если платеж уже получен',
+    'due_date_help_unpaid' => 'Срок получения платежа',
+    'pending' => 'К получению',
+    'overdue' => 'Просрочено',
+    'select_method' => 'Выберите способ оплаты',
+    'method_not_set' => 'К получению',
+
+    'filters' => [
+        'date_from' => 'С',
+        'date_to' => 'По',
+    ],
+];

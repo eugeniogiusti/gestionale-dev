@@ -10,7 +10,7 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         $availableLocales = [
-            'da', 'de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ro', 'uk',
+            'da', 'de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ro', 'ru', 'uk', 'zh',
         ];
 
         $locale = null;

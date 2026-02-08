@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'title' => '收款',
+    'subtitle' => '跟踪客户付款',
+    'payment_list' => '收款列表',
+    'create_payment' => '创建收款',
+    'edit_payment' => '编辑收款',
+    'add_payment' => '添加收款',
+    'view_all' => '查看全部收款',
+    'recent_payments' => '最近收款',
+    'view_project' => '查看项目',
+    'add_to_calendar' => '添加到日历',
+    'no_payments' => '暂无收款',
+    'no_payments_description' => '为该项目记录第一笔收款',
+    'confirm_delete' => '确定要删除该收款吗？',
+    'recent' => '最近',
+
+    'project' => '项目',
+    'amount' => '金额',
+    'currency' => '货币',
+    'paid_at' => '支付日期',
+    'due_date' => '到期日',
+    'due' => '到期',
+    'method' => '支付方式',
+    'reference' => '参考号',
+    'notes' => '备注',
+    'invoice' => '发票',
+
+    'all_methods' => '全部方式',
+    'all_currencies' => '全部货币',
+
+    'method_cash' => '现金',
+    'method_bank' => '银行转账',
+    'method_stripe' => 'Stripe',
+    'method_paypal' => 'PayPal',
+
+    'created_successfully' => '收款创建成功',
+    'updated_successfully' => '收款更新成功',
+    'deleted_successfully' => '收款删除成功',
+
+    'stats' => [
+        'total_all_time' => '历史总计',
+        'all_projects' => '所有项目',
+        'this_month' => '本月',
+        'this_year' => '今年',
+        'currencies' => '货币种类',
+    ],
+
+    'placeholder' => [
+        'search' => '按项目、参考号或备注搜索...',
+        'amount' => '例如 1500.00',
+        'reference' => '例如：Invoice #2024-001, Stripe ch_xxx',
+        'notes' => '附加备注...',
+        'due_date' => '例如：2025-02-15',
+    ],
+
+    'amount_required' => '金额为必填项',
+    'amount_min' => '金额必须至少为 0.01',
+    'paid_at_required' => '支付日期为必填项',
+    'due_date_invalid' => '到期日必须大于或等于支付日期',
+    'method_required' => '支付方式为必填项',
+    'currency_invalid' => '货币无效',
+    'due_date_help' => '可选：该发票的到期日',
+    'notes_help' => '该描述将用于发票',
+    'due_date_required_when_unpaid' => '未收款时必须填写到期日',
+    'payment_received' => '已收款',
+    'payment_received_help' => '勾选表示已收到付款',
+    'due_date_help_unpaid' => '付款截止日期',
+    'pending' => '待收',
+    'overdue' => '逾期',
+    'select_method' => '选择支付方式',
+    'method_not_set' => '待收款',
+
+    'filters' => [
+        'date_from' => '从',
+        'date_to' => '到',
+    ],
+];

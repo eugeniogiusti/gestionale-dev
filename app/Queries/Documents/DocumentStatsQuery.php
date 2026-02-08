@@ -5,6 +5,11 @@ namespace App\Queries\Documents;
 use App\Models\Document;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Document statistics for the index stat cards.
+ *
+ * Returns: this_month (upload count), by_label (top 5 labels with document counts).
+ */
 class DocumentStatsQuery
 {
     public function handle(): array
