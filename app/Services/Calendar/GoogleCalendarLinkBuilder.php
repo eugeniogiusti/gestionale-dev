@@ -4,6 +4,18 @@ namespace App\Services\Calendar;
 
 use App\Contracts\CalendarEventable;
 
+/**
+ * Builds a "Add to Google Calendar" URL from a CalendarEvent DTO.
+ *
+ * Supports both all-day and timed events. Can be instantiated directly
+ * from a CalendarEvent or from any Eloquent model implementing CalendarEventable.
+ *
+ * Usage:
+ *   $url = GoogleCalendarLinkBuilder::fromModel($meeting)->build();
+ *   $url = GoogleCalendarLinkBuilder::fromEvent($event)->build();
+ *
+ * @see \App\Services\Calendar\CalendarEvent
+ */
 class GoogleCalendarLinkBuilder
 {
     private const BASE_URL = 'https://calendar.google.com/calendar/render';

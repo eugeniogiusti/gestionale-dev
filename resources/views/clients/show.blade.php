@@ -17,7 +17,7 @@
                 {{-- Projects --}}
                 @include('clients.show._projects')
 
-                {{-- Grid 2 colonne per le altre sezioni --}}
+                {{-- Partials --}}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @include('clients.show._tasks')
                     @include('clients.show._meetings')

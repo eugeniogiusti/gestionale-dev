@@ -7,6 +7,16 @@ use App\Models\BusinessSettings;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Renders invoice PDFs on-the-fly using DomPDF.
+ *
+ * Loads payment, project, client, and business settings data,
+ * renders the `invoices.pdf` Blade template on A4 paper, and
+ * returns a streamed download response. The invoice number is
+ * generated via InvoiceNumberGenerator.
+ *
+ * @see \App\Services\Invoices\Generators\InvoiceNumberGenerator
+ */
 class InvoicePdfGenerator
 {
     public function __construct(

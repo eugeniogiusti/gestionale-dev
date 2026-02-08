@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Low-level file storage operations for receipt attachments.
+ *
+ * Handles saving, downloading, inline previewing, deleting, and
+ * existence-checking of receipt files in `storage/app/receipts/`.
+ * Supports PDF, JPEG, and PNG files. Mirrors the same pattern
+ * used by InvoiceStorageManager.
+ *
+ * @see \App\Services\Invoices\Storage\InvoiceStorageManager
+ */
 class ReceiptStorageManager
 {
     /**

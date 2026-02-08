@@ -9,6 +9,18 @@ use App\Services\Invoices\Storage\InvoiceStorageManager;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Illuminate\Http\UploadedFile;
 
+/**
+ * Main entry point for all invoice operations.
+ *
+ * Orchestrates PDF generation, file upload/download/preview, and deletion
+ * for invoices linked to a Payment. Supports two flows:
+ *
+ * 1. Auto-generated invoices — rendered as PDF from a Blade template via InvoicePdfGenerator.
+ * 2. Manually uploaded invoices — stored and served via InvoiceStorageManager.
+ *
+ * @see \App\Services\Invoices\Generators\InvoicePdfGenerator
+ * @see \App\Services\Invoices\Storage\InvoiceStorageManager
+ */
 class InvoiceService
 {
     public function __construct(

@@ -1,18 +1,20 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\TwoFactor\TwoFactorChallengeController;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\TwoFactor\TwoFactorSetupController;
 use App\Http\Controllers\TwoFactor\TrustedDeviceController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Settings\LocaleController;
 use App\Http\Controllers\Settings\AiSettingsController;
+use App\Http\Controllers\Settings\BusinessSettingsController;
 use App\Http\Controllers\Clients\ClientController;
 use App\Http\Controllers\Projects\ProjectController;
-use App\Http\Controllers\Projects\ProjectChatController;
 use App\Http\Controllers\Api\Clients\ClientSearchController;
 use App\Http\Controllers\Api\Projects\ProjectSearchController;
-use App\Http\Controllers\Settings\BusinessSettingsController;
+use App\Http\Controllers\Projects\ProjectChatController;
 use App\Http\Controllers\Tasks\TaskController;
 use App\Http\Controllers\Meetings\MeetingController;
 use App\Http\Controllers\Payments\PaymentController;
@@ -24,79 +26,60 @@ use App\Http\Controllers\Labels\LabelController;
 use App\Http\Controllers\Statistics\StatisticsController;
 use App\Http\Controllers\Trash\TrashController;
 
-use Illuminate\Support\Facades\Route;
-
-
 // Redirect root to login
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+Route::get('/', fn () => redirect()->route('login'));
 
-// ==========================================
-// TWO-FACTOR CHALLENGE (Login Flow)
-// Only 'auth', NO middleware '2fa' (avoid loop)
-// ==========================================
-Route::middleware('auth')->group(function () {
+// ===================================================
+// CHALLENGE 2FA — SOLO AUTH 
+// ===================================================
+Route::middleware(['auth'])->group(function () {
+
     Route::get('/two-factor/challenge', [TwoFactorChallengeController::class, 'show'])
         ->name('2fa.show');
-    
+
     Route::post('/two-factor/challenge', [TwoFactorChallengeController::class, 'verify'])
         ->name('2fa.verify');
 });
 
-// ==========================================
-// ROUTES PROTECTED BY 2FA
-// ==========================================
-Route::middleware(['auth', 'verified', '2fa'])->group(function () {
-    // ==========================================
-    // DASHBOARD
-    // ==========================================
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// ===================================================
+// SETUP 2FA + TRUSTED DEVICES — AUTH + VERIFIED
+// ===================================================
+Route::middleware(['auth', 'verified'])->group(function () {
 
-    // ==========================================
-    // CALENDAR - EMBEDDED GOOGLE CALENDAR VIEW
-    // ==========================================
-    Route::get('/calendar', function () {
-        return view('calendar.index');
-    })->name('calendar.index');
-
-    // ==========================================
-    // PROFILE MANAGEMENT
-    // ==========================================
-
-    // Profile routes
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // ==========================================
-    // TWO-FACTOR SETUP (Profile Settings)
-    // ==========================================
-
-    // Manage 2FA setup
+    // 2FA setup/management
     Route::prefix('two-factor')->name('two-factor.')->group(function () {
         Route::post('/enable', [TwoFactorSetupController::class, 'enable'])->name('enable');
         Route::post('/confirm', [TwoFactorSetupController::class, 'confirm'])->name('confirm');
-        Route::post('/cancel', [TwoFactorSetupController::class, 'cancel'])->name('cancel'); 
+        Route::post('/cancel', [TwoFactorSetupController::class, 'cancel'])->name('cancel');
         Route::delete('/disable', [TwoFactorSetupController::class, 'disable'])->name('disable');
     });
 
-    // ==========================================
-    // TRUSTED DEVICES MANAGEMENT (2FA)
-    // ==========================================
-
-    // Manage trusted devices for 2FA
+    // Trusted devices
     Route::prefix('profile/trusted-devices')->name('profile.trusted-devices.')->group(function () {
         Route::get('/', [TrustedDeviceController::class, 'index'])->name('index');
         Route::delete('/{deviceId}', [TrustedDeviceController::class, 'revoke'])->name('revoke');
         Route::delete('/', [TrustedDeviceController::class, 'revokeAll'])->name('revoke-all');
     });
+});
 
-    // ==========================================
+// ===================================================
+// APP AREA (2FA REQUIRED)
+// ===================================================
+Route::middleware(['auth', 'verified', '2fa'])->group(function () {
+
+    // DASHBOARD
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // CALENDAR
+    Route::get('/calendar', fn () => view('calendar.index'))->name('calendar.index');
+
+    // PROFILE
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     // LOCALE SWITCHING
-    // ==========================================
-    Route::get('/locale/{locale}', [LocaleController::class, 'switch'])
-        ->name('locale.switch');
+    Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
 
     // ==========================================
     // CLIENTS MODULE
@@ -135,12 +118,10 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // ==========================================
 
     // Search clients (for project form)
-    Route::get('/api/clients/search', \App\Http\Controllers\Api\Clients\ClientSearchController::class)
-        ->name('api.clients.search');
+    Route::get('/api/clients/search', ClientSearchController::class)->name('api.clients.search');
 
     // Search projects (navbar global search)
-    Route::get('/api/search/projects', \App\Http\Controllers\Api\Projects\ProjectSearchController::class)
-        ->name('api.search.projects');
+    Route::get('/api/search/projects', ProjectSearchController::class)->name('api.search.projects');
 
     // ==========================================
     // BUSINESS SETTINGS MODULE
@@ -302,7 +283,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::get('/statistics/export-pdf', [StatisticsController::class, 'exportPdf'])->name('statistics.export-pdf');
 
     // ==========================================
-    // TRASH MODULE (Soft-deleted items)
+    // TRASH MODULE 
     // ==========================================
 
     Route::prefix('trash')->name('trash.')->group(function () {

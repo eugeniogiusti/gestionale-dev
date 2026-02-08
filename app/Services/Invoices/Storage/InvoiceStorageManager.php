@@ -7,6 +7,17 @@ use Illuminate\Http\UploadedFile;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
+/**
+ * Low-level file storage operations for manually uploaded invoices.
+ *
+ * Handles saving, downloading, inline previewing, deleting, and
+ * existence-checking of invoice files in `storage/app/invoices/`.
+ * Supports PDF, JPEG, and PNG files.
+ *
+ * This class is the storage counterpart to InvoicePdfGenerator:
+ * - InvoicePdfGenerator = auto-generated invoices (rendered on the fly).
+ * - InvoiceStorageManager = user-uploaded invoices (persisted on disk).
+ */
 class InvoiceStorageManager
 {
     /**

@@ -8,13 +8,33 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 
+/**
+ * Exports financial statistics as a downloadable PDF report.
+ *
+ * Can generate either a yearly or monthly report. Gathers data
+ * via StatisticsQuery, renders the `statistics.pdf.report` Blade
+ * template using DomPDF, and returns a download response.
+ *
+ * Usage:
+ *   return (new StatisticsPdfExporter(2025))->download();       // yearly
+ *   return (new StatisticsPdfExporter(2025, 3))->download();    // March 2025
+ *
+ * @see \App\Queries\Statistics\StatisticsQuery
+ */
 class StatisticsPdfExporter
 {
+    /**
+     * @param int      $year  The report year.
+     * @param int|null $month Optional month (1-12) to scope the report. Null = full year.
+     */
     public function __construct(
         private int $year,
         private ?int $month = null
     ) {}
 
+    /**
+     * Generate and return the PDF as a download response.
+     */
     public function download(): Response
     {
         $pdf = Pdf::loadView('statistics.pdf.report', $this->getData());

@@ -12,6 +12,20 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Ai\Responses\StreamableAgentResponse;
 use Laravel\Ai\Responses\StreamedAgentResponse;
 
+/**
+ * AI-powered chat assistant for individual projects.
+ *
+ * Integrates with Laravel AI (OpenAI provider) through the ProjectAssistant agent.
+ * Supports both synchronous (chat) and streaming (stream) responses.
+ *
+ * How it works:
+ * 1. Gathers project context (tasks, meetings, payments, costs, profit stats).
+ * 2. Feeds it to the ProjectAssistant AI agent as system context.
+ * 3. Maintains conversation continuity via session-stored conversation IDs.
+ * 4. Conversation messages are persisted in the `agent_conversation_messages` table.
+ *
+ * @see \App\Ai\Agents\ProjectAssistant
+ */
 class ProjectChatService
 {
     public function __construct(

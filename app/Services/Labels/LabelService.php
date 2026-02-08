@@ -4,6 +4,13 @@ namespace App\Services\Labels;
 
 use App\Models\Label;
 
+/**
+ * CRUD operations for document labels (tags).
+ *
+ * Labels are color-coded tags that can be attached to documents
+ * via a many-to-many relationship. When a label is deleted, it is
+ * automatically detached from all associated documents first.
+ */
 class LabelService
 {
     /**

@@ -6,6 +6,16 @@ use App\Models\BusinessSettings;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Manages the global business/company settings (singleton record).
+ *
+ * Handles updating business information (name, address, VAT, currency, etc.)
+ * and logo management. The logo is stored in private local storage
+ * (`storage/app/business/`) so it can be embedded in generated PDFs
+ * (invoices, statistics reports) without being publicly accessible.
+ *
+ * @see \App\Models\BusinessSettings
+ */
 class BusinessSettingsService
 {
     /**

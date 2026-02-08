@@ -6,6 +6,19 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use PragmaRX\Google2FA\Google2FA;
 
+/**
+ * Core two-factor authentication logic using TOTP (Google Authenticator).
+ *
+ * Handles the full 2FA lifecycle:
+ * - Secret key generation (for QR code setup).
+ * - TOTP code verification via the Google2FA library.
+ * - Recovery code generation and one-time consumption.
+ * - Enabling/disabling 2FA on a user account.
+ *
+ * When 2FA is disabled, all trusted devices for that user are also removed.
+ *
+ * @see \App\Services\TwoFactor\TrustedDeviceService
+ */
 class TwoFactorService
 {
     public function __construct(

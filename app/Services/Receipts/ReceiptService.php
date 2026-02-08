@@ -8,6 +8,18 @@ use Illuminate\Http\UploadedFile;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Manages receipt file attachments for project costs.
+ *
+ * Each Cost record can have one receipt file (PDF, image, etc.).
+ * Uploading a new receipt automatically replaces the previous one.
+ * Filenames are generated with the cost type and payment date
+ * for easy identification on disk.
+ *
+ * Delegates all storage I/O to ReceiptStorageManager.
+ *
+ * @see \App\Services\Receipts\Storage\ReceiptStorageManager
+ */
 class ReceiptService
 {
     public function __construct(

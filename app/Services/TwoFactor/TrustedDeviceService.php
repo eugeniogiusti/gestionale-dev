@@ -6,6 +6,17 @@ use App\Models\User;
 use App\Models\TrustedDevice;
 use Illuminate\Http\Request;
 
+/**
+ * Manages "trusted device" registrations for two-factor authentication.
+ *
+ * When a user successfully completes 2FA and opts to "trust this device",
+ * a fingerprint hash (based on User-Agent and IP) is stored so the user
+ * can skip the 2FA challenge on subsequent logins from the same browser.
+ * Duplicate devices are detected by hash to avoid redundant records.
+ *
+ * @see \App\Services\TwoFactor\TwoFactorService
+ * @see \App\Models\TrustedDevice
+ */
 class TrustedDeviceService
 {
     /**

@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Handles all document operations for projects.
+ *
+ * Manages the full lifecycle of project documents: uploading files to local
+ * storage, updating metadata and labels, downloading, inline previewing,
+ * and deleting both the file and database record.
+ *
+ * Files are stored in `storage/app/documents/` with unique timestamped names
+ * to avoid collisions.
+ */
 class DocumentService
 {
     /**
