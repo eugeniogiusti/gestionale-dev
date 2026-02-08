@@ -27,6 +27,11 @@ return [
     'notes' => 'Notatki',
     'invoice' => 'Faktura',
 
+    'all_statuses' => 'Wszystkie statusy',
+    'status_paid' => 'Opłacony',
+    'status_pending' => 'Do otrzymania',
+    'status_overdue' => 'Po terminie',
+
     'all_methods' => 'Wszystkie metody',
     'all_currencies' => 'Wszystkie waluty',
 

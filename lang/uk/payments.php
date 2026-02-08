@@ -27,6 +27,11 @@ return [
     'notes' => 'Нотатки',
     'invoice' => 'Рахунок',
 
+    'all_statuses' => 'Усі статуси',
+    'status_paid' => 'Сплачено',
+    'status_pending' => 'До отримання',
+    'status_overdue' => 'Прострочено',
+
     'all_methods' => 'Усі способи',
     'all_currencies' => 'Усі валюти',
 

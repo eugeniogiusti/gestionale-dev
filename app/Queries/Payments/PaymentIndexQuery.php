@@ -18,6 +18,14 @@ class PaymentIndexQuery
         return Payment::query()
             ->with(['project.client'])
             ->when(request('project_id'), fn($q, $projectId) => $q->forProject($projectId))
+            ->when(request('status'), function($q, $status) {
+                match($status) {
+                    'paid'    => $q->paid(),
+                    'pending' => $q->pending(),
+                    'overdue' => $q->overdue(),
+                    default   => null,
+                };
+            })
             ->when(request('method'), fn($q, $method) => $q->method($method))
             ->when(request('currency'), fn($q, $currency) => $q->currency($currency))
             ->when(request('date_from'), fn($q, $date) => $q->where('paid_at', '>=', $date))

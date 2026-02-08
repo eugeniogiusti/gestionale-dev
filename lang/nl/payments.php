@@ -27,6 +27,11 @@ return [
     'notes' => 'Notities',
     'invoice' => 'Factuur',
 
+    'all_statuses' => 'Alle statussen',
+    'status_paid' => 'Betaald',
+    'status_pending' => 'Te ontvangen',
+    'status_overdue' => 'Achterstallig',
+
     'all_methods' => 'Alle methoden',
     'all_currencies' => 'Alle valuta',
     

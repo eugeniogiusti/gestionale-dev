@@ -27,6 +27,11 @@ return [
     'notes' => 'Notes',
     'invoice' => 'Facture',
 
+    'all_statuses' => 'Tous les statuts',
+    'status_paid' => 'Payé',
+    'status_pending' => 'À encaisser',
+    'status_overdue' => 'En retard',
+
     'all_methods' => 'Toutes les méthodes',
     'all_currencies' => 'Toutes les devises',
     

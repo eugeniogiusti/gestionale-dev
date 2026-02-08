@@ -27,6 +27,11 @@ return [
     'notes' => 'Notes',
     'invoice' => 'Invoice',
 
+    'all_statuses' => 'All Statuses',
+    'status_paid' => 'Paid',
+    'status_pending' => 'Pending',
+    'status_overdue' => 'Overdue',
+
     'all_methods' => 'All Methods',
     'all_currencies' => 'All Currencies',
     

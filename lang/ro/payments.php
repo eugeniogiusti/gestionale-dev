@@ -27,6 +27,11 @@ return [
     'notes' => 'Note',
     'invoice' => 'Factură',
 
+    'all_statuses' => 'Toate stările',
+    'status_paid' => 'Plătit',
+    'status_pending' => 'De încasat',
+    'status_overdue' => 'Întârziat',
+
     'all_methods' => 'Toate metodele',
     'all_currencies' => 'Toate monedele',
 

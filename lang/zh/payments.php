@@ -27,6 +27,11 @@ return [
     'notes' => '备注',
     'invoice' => '发票',
 
+    'all_statuses' => '全部状态',
+    'status_paid' => '已支付',
+    'status_pending' => '待收款',
+    'status_overdue' => '逾期',
+
     'all_methods' => '全部方式',
     'all_currencies' => '全部货币',
 

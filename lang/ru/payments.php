@@ -27,6 +27,11 @@ return [
     'notes' => 'Заметки',
     'invoice' => 'Счет',
 
+    'all_statuses' => 'Все статусы',
+    'status_paid' => 'Оплачено',
+    'status_pending' => 'К получению',
+    'status_overdue' => 'Просрочено',
+
     'all_methods' => 'Все способы',
     'all_currencies' => 'Все валюты',
 

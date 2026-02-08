@@ -27,6 +27,11 @@ return [
     'notes' => 'Noter',
     'invoice' => 'Faktura',
 
+    'all_statuses' => 'Alle statusser',
+    'status_paid' => 'Betalt',
+    'status_pending' => 'Til indkrævning',
+    'status_overdue' => 'Forsinket',
+
     'all_methods' => 'Alle metoder',
     'all_currencies' => 'Alle valutaer',
     
