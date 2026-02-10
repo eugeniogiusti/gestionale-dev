@@ -16,6 +16,14 @@ export default function annualTrendChart(chartData) {
                 attributes: true,
                 attributeFilter: ['class']
             });
+
+            // Watch for container resize (e.g. sidebar collapse/expand)
+            const resizeObserver = new ResizeObserver(() => {
+                if (this.chart) {
+                    this.chart.resize();
+                }
+            });
+            resizeObserver.observe(this.$refs.canvas.parentElement);
         },
 
         renderChart() {
