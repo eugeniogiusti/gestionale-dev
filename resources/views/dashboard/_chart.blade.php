@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="h-72 overflow-hidden">
+    <div class="relative h-72">
         <canvas x-ref="canvas"></canvas>
     </div>
 </div>

@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => '已逾期',
+    'due_today' => '今日到期',
 
     // Chart
     'annual_trend' => '年度趋势',

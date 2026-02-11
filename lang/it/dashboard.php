@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'scaduto da',
+    'due_today' => 'in scadenza oggi',
 
     // Chart
     'annual_trend' => 'Andamento Annuale',

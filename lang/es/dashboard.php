@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'vencido desde',
+    'due_today' => 'vence hoy',
 
     // Chart
     'annual_trend' => 'Tendencia anual',

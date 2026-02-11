@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'întârziat de',
+    'due_today' => 'scadent astăzi',
 
     // Chart
     'annual_trend' => 'Evoluție anuală',

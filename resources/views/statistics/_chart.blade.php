@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div class="h-72">
+    <div class="relative h-72">
         <canvas x-ref="canvas"></canvas>
     </div>
 </div>

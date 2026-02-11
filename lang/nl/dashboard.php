@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'te laat sinds',
+    'due_today' => 'vervalt vandaag',
 
     // Chart
     'annual_trend' => 'Jaartrend',

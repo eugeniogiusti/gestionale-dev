@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'overdue by',
+    'due_today' => 'due today',
 
     // Chart
     'annual_trend' => 'Annual Trend',

@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'прострочено на',
+    'due_today' => 'термін сьогодні',
 
     // Chart
     'annual_trend' => 'Річна динаміка',

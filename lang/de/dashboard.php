@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'überfällig seit',
+    'due_today' => 'fällig heute',
 
     // Chart
     'annual_trend' => 'Jahrestrend',

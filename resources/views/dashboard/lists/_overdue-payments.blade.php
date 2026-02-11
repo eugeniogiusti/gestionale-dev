@@ -26,8 +26,12 @@
                             </p>
                         </div>
                         <div class="text-right shrink-0">
-                            <p class="text-xs text-red-500 font-medium">
-                                {{ __('dashboard.overdue_by') }} {{ $payment->due_date->diffInDays(now()) }}g
+                            <p class="text-xs font-medium {{ $payment->due_date->isToday() ? 'text-amber-500' : 'text-red-500' }}">
+                                @if($payment->due_date->isToday())
+                                    {{ __('dashboard.due_today') }}
+                                @else
+                                    {{ __('dashboard.overdue_by') }} {{ (int) $payment->due_date->diffInDays(now()) }}g
+                                @endif
                             </p>
                             <p class="text-xs text-gray-400">{{ $payment->due_date->format('d/m/Y') }}</p>
                         </div>

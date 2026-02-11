@@ -6,7 +6,10 @@ export default function annualTrendChart(chartData) {
         chart: null,
 
         init() {
-            this.renderChart();
+            // Wait for layout to stabilize before first render
+            setTimeout(() => {
+                this.renderChart();
+            }, 50);
 
             // Watch for dark mode changes
             const observer = new MutationObserver(() => {
@@ -17,20 +20,21 @@ export default function annualTrendChart(chartData) {
                 attributeFilter: ['class']
             });
 
-            // Watch for container resize (e.g. sidebar collapse/expand)
-            const resizeObserver = new ResizeObserver(() => {
-                if (this.chart) {
-                    this.chart.resize();
-                }
-            });
-            resizeObserver.observe(this.$refs.canvas.parentElement);
+            // Re-render after sidebar transition ends
+            const sidebar = document.querySelector('.sidebar-element');
+            if (sidebar) {
+                sidebar.addEventListener('transitionend', (e) => {
+                    if (e.propertyName === 'width' && this.chart) {
+                        this.chart.resize();
+                    }
+                });
+            }
         },
 
         renderChart() {
             const ctx = this.$refs.canvas;
             if (!ctx) return;
 
-            // Destroy existing chart
             if (this.chart) {
                 this.chart.destroy();
             }

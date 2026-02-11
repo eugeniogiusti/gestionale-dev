@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'forsinket med',
+    'due_today' => 'forfalder i dag',
 
     // Chart
     'annual_trend' => 'Årlig trend',

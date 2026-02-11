@@ -38,6 +38,7 @@ return [
 
     // Labels
     'overdue_by' => 'spóźnione o',
+    'due_today' => 'termin dziś',
 
     // Chart
     'annual_trend' => 'Trend roczny',
