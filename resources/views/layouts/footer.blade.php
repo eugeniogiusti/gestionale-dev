@@ -12,12 +12,12 @@
             
             {{-- Right: Links --}}
             <div class="flex items-center gap-4">
-                <a href="https://docs.indiedesk.com" 
+                <a href="https://docs.indiedesk.link" 
                    target="_blank"
                    class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                     📖 {{ __('footer.documentation') }}
                 </a>
-                <a href="https://docs.indiedesk.com/changelog" 
+                <a href="https://docs.indiedesk.link/docs/changelog" 
                    target="_blank"
                    class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                     📝 {{ __('footer.changelog') }}
