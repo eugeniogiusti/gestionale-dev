@@ -6,10 +6,8 @@ export default function annualTrendChart(chartData) {
         chart: null,
 
         init() {
-            // Wait for layout to stabilize before first render
-            setTimeout(() => {
-                this.renderChart();
-            }, 50);
+            // Wait until container has valid dimensions before rendering
+            this.waitForValidContainer();
 
             // Watch for dark mode changes
             const observer = new MutationObserver(() => {
@@ -25,15 +23,39 @@ export default function annualTrendChart(chartData) {
             if (sidebar) {
                 sidebar.addEventListener('transitionend', (e) => {
                     if (e.propertyName === 'width' && this.chart) {
-                        this.chart.resize();
+                        // Wait for layout to settle after transition
+                        requestAnimationFrame(() => {
+                            this.chart.resize();
+                        });
                     }
                 });
             }
         },
 
+        waitForValidContainer() {
+            const container = this.$refs.canvas?.parentElement;
+
+            // Check if container exists and has valid dimensions
+            if (!container || container.offsetWidth === 0 || container.offsetHeight === 0) {
+                // Container not ready yet, check again next frame
+                requestAnimationFrame(() => this.waitForValidContainer());
+                return;
+            }
+
+            // Container is ready, render the chart
+            this.renderChart();
+        },
+
         renderChart() {
             const ctx = this.$refs.canvas;
             if (!ctx) return;
+
+            // Verify container still has valid dimensions
+            const container = ctx.parentElement;
+            if (!container || container.offsetWidth === 0 || container.offsetHeight === 0) {
+                console.warn('Chart container has invalid dimensions, skipping render');
+                return;
+            }
 
             if (this.chart) {
                 this.chart.destroy();
