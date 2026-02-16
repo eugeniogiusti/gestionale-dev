@@ -1,7 +1,5 @@
 # IndieDesk
 
-![IndieDesk Dashboard](docs/screens/dashboard.png)
-
 IndieDesk is a project workspace template built for indie developers.
 
 This is not a SaaS and not a finished product.
@@ -24,12 +22,6 @@ IndieDesk is opinionated, but intentionally simple.
 
 ## What’s included
 
-## What’s included
-
-![Project overview](docs/screens/project-overview.png)
-![Invoice drafts](docs/screens/invoices.png)
-![Project stats](docs/screens/stats.png)
-
 - Projects
 - Tasks (with labels & status)
 - Documents per project
@@ -47,7 +39,7 @@ IndieDesk is opinionated, but intentionally simple.
 - Blade
 - Tailwind CSS
 - Alpine.js
-- MySQL / SQLite
+- SQLite
 
 
 ---
@@ -56,7 +48,11 @@ IndieDesk is opinionated, but intentionally simple.
 
 ### Requirements
 
-- PHP 8.3+
+- PHP 8.4
 - Composer
 - Node.js
-- MySQL or SQLite
+- SQLite
+
+Here the documentation:
+
+https://docs.indiedesk.link
