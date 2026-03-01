@@ -19,7 +19,8 @@ return [
     'description' => 'Description',
     'status' => 'Status',
     'priority' => 'Priority',
-    
+    'hourly_rate' => 'Hourly Rate',
+
     // Form labels - Tab 2: Dev Links
     'dev_links' => 'Dev Links',
     'repo_url' => 'Repository',

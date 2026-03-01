@@ -10,17 +10,11 @@ use Illuminate\Support\Facades\DB;
  *
  * Returns: total count, counts by status (draft/in_progress/completed/archived),
  * new this month, completed this week, in_progress/archived percentages.
- * Accepts optional $total to avoid duplicate count query from the paginator.
  */
 class ProjectStatsQuery
 {
-    /**
-     * Get all project statistics for index cards
-     */
-    public function handle(?int $total = null): array
+    public function handle(int $total): array
     {
-        // Total projects (use provided value to avoid duplicate query)
-        $total = $total ?? Project::count();
 
         // Projects by status
         $byStatus = Project::select('status', DB::raw('count(*) as count'))

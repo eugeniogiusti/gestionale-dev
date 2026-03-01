@@ -10,19 +10,11 @@ use Illuminate\Support\Facades\DB;
  *
  * Returns: total count, counts by status (lead/active/archived),
  * new this month, converted this month, lead/archived percentages.
- * Accepts optional $total to avoid duplicate count query from the paginator.
  */
 class ClientStatsQuery
 {
-    /**
-     * Get all client statistics for index cards
-     *
-     * @param int|null $total Optional total count from paginator to avoid duplicate query
-     */
-    public function handle(?int $total = null): array
+    public function handle(int $total): array
     {
-        // Total clients (use provided value or query)
-        $total = $total ?? Client::count();
 
         // Clients by status
         $byStatus = Client::select('status', DB::raw('count(*) as count'))

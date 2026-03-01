@@ -21,6 +21,7 @@ export default function projectModal() {
                 description: '',
                 status: 'draft',
                 priority: '',
+                hourly_rate: '',
                 start_date: '',
                 due_date: '',
                 // Links
@@ -51,7 +52,8 @@ export default function projectModal() {
             this.isEdit = true;
             this.projectId = projectData.id;
             this.backTo = projectData._back || '';
-            this.formData = { ...projectData };
+            this.activeTab = 'info';
+            this.formData = { ...this.getEmptyForm(), ...projectData };
 
             // Format dates for input[type="date"] (expects YYYY-MM-DD)
             if (this.formData.start_date) {

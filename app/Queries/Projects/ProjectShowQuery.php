@@ -3,6 +3,7 @@
 namespace App\Queries\Projects;
 
 use App\Models\Project;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 /**
@@ -21,18 +22,21 @@ class ProjectShowQuery
 
     public function handle(): array
     {
-        return [
-            'tasks' => $this->getTasks(),
-            'tasksCount' => $this->project->tasks()->count(),
-            'meetings' => $this->getMeetings(),
-            'meetingsCount' => $this->project->meetings()->count(),
-            'payments' => $this->getPayments(),
-            'paymentsCount' => $this->project->payments()->count(),
-            'costs' => $this->getCosts(),
-            'costsCount' => $this->project->costs()->count(),
-            'documents' => $this->getDocuments(),
+        $tsMonth = request()->integer('ts_month', now()->month);
+        $tsYear  = request()->integer('ts_year', now()->year);
+
+        return array_merge([
+            'tasks'          => $this->getTasks(),
+            'tasksCount'     => $this->project->tasks()->count(),
+            'meetings'       => $this->getMeetings(),
+            'meetingsCount'  => $this->project->meetings()->count(),
+            'payments'       => $this->getPayments(),
+            'paymentsCount'  => $this->project->payments()->count(),
+            'costs'          => $this->getCosts(),
+            'costsCount'     => $this->project->costs()->count(),
+            'documents'      => $this->getDocuments(),
             'documentsCount' => $this->project->documents()->count(),
-        ];
+        ], $this->getTimesheetData($tsMonth, $tsYear));
     }
 
     private function getTasks(): Collection
@@ -80,5 +84,58 @@ class ProjectShowQuery
             ->take($this->limit)
             ->get()
             ->each->setRelation('project', $this->project);
+    }
+
+    private function getTimesheetData(int $tsMonth, int $tsYear): array
+    {
+        $currentTs     = $this->project->timesheets()
+            ->where('month', $tsMonth)
+            ->where('year', $tsYear)
+            ->first();
+
+        $existingHours = $currentTs ? ($currentTs->daily_hours ?? []) : [];
+        $hourlyRate    = $currentTs?->hourly_rate ?? $this->project->hourly_rate ?? 0;
+        $totalHours    = $currentTs ? $currentTs->totalHours() : 0;
+
+        return [
+            'currentTimesheet' => $currentTs,
+            'timesheetMonths'  => $this->project->timesheets()->get(['id', 'year', 'month']),
+            'tsMonth'          => $tsMonth,
+            'tsYear'           => $tsYear,
+            'existingHours'    => $existingHours,
+            'weeks'            => $this->buildWeekGrid($tsMonth, $tsYear),
+            'hourlyRate'       => $hourlyRate,
+            'totalHours'       => $totalHours,
+            'totalEarnings'    => $totalHours * (float) $hourlyRate,
+            'monthNames'       => [
+                1  => __('timesheets.months.january'),  2  => __('timesheets.months.february'),
+                3  => __('timesheets.months.march'),    4  => __('timesheets.months.april'),
+                5  => __('timesheets.months.may'),      6  => __('timesheets.months.june'),
+                7  => __('timesheets.months.july'),     8  => __('timesheets.months.august'),
+                9  => __('timesheets.months.september'),10 => __('timesheets.months.october'),
+                11 => __('timesheets.months.november'), 12 => __('timesheets.months.december'),
+            ],
+        ];
+    }
+
+    private function buildWeekGrid(int $month, int $year): array
+    {
+        $firstDay    = Carbon::create($year, $month, 1);
+        $daysInMonth = $firstDay->daysInMonth;
+
+        $weeks = [];
+        $week  = array_fill(1, 7, null);
+
+        for ($day = 1; $day <= $daysInMonth; $day++) {
+            $dow        = Carbon::create($year, $month, $day)->dayOfWeekIso;
+            $week[$dow] = $day;
+
+            if ($dow === 7 || $day === $daysInMonth) {
+                $weeks[] = $week;
+                $week    = array_fill(1, 7, null);
+            }
+        }
+
+        return $weeks;
     }
 }

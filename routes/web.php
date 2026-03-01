@@ -25,6 +25,7 @@ use App\Http\Controllers\Documents\DocumentController;
 use App\Http\Controllers\Labels\LabelController;
 use App\Http\Controllers\Statistics\StatisticsController;
 use App\Http\Controllers\Trash\TrashController;
+use App\Http\Controllers\Timesheets\TimesheetController;
 
 // Redirect root to login
 Route::get('/', fn () => redirect()->route('login'));
@@ -107,6 +108,20 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Restore and force delete
     Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
+    // ==========================================
+    // TIMESHEETS MODULE
+    // ==========================================
+
+    // Global timesheets index
+    Route::prefix('timesheets')->name('timesheets.')->group(function () {
+        Route::get('/', [TimesheetController::class, 'index'])->name('index');
+    });
+
+    Route::prefix('projects/{project}/timesheets')->name('timesheets.')->group(function () {
+        Route::post('/', [TimesheetController::class, 'store'])->name('store');
+        Route::delete('/{timesheet}', [TimesheetController::class, 'destroy'])->name('destroy');
+    });
+
     // Project chat routes (handled by ProjectChatController) - AI interactions
     Route::post('/projects/{project}/chat', [ProjectChatController::class, 'chat'])->name('projects.chat');
     Route::post('/projects/{project}/chat/stream', [ProjectChatController::class, 'stream'])->name('projects.chat.stream');

@@ -111,6 +111,22 @@
                 {{ __('documents.title') }}
             </button>
 
+            {{-- TAB TIMESHEETS --}}
+            <button
+                @click="activeTab = 'timesheets'"
+                :class="activeTab === 'timesheets'
+                    ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
+                class="px-6 py-4 border-b-2 font-medium text-sm transition">
+                <svg aria-hidden="true" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                    <path d="M3 9h18"/>
+                    <path d="M8 4V2M16 4V2"/>
+                    <path d="M7 13h2v2H7z M11 13h2v2h-2z M15 13h2v2h-2z"/>
+                </svg>
+                {{ __('timesheets.title') }}
+            </button>
+
         </nav>
     </div>
 
@@ -150,6 +166,11 @@
         {{-- TAB: Documents --}}
         <div x-show="activeTab === 'documents'" x-cloak>
             @include('projects.show._tab-documents')
+        </div>
+
+        {{-- TAB: Timesheets --}}
+        <div x-show="activeTab === 'timesheets'" x-cloak>
+            @include('projects.show._tab-timesheets')
         </div>
 
     </div>

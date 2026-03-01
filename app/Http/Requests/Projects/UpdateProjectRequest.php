@@ -51,6 +51,9 @@ class UpdateProjectRequest extends FormRequest
             
             // Notes
             'notes' => 'nullable|string',
+
+            // Hourly rate (solo per progetti client_work)
+            'hourly_rate' => 'nullable|numeric|min:0|max:99999.99',
         ];
     }
 

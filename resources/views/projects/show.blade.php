@@ -22,7 +22,7 @@
 
         </div>
 
-                {{-- AGGIUNGI QUESTA RIGA --}}
+                {{-- Modal--}}
         @include('projects.modals._project-form')
 
         

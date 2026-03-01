@@ -35,6 +35,7 @@ class Project extends Model implements CalendarEventable
         'notes',
         'start_date',
         'due_date',
+        'hourly_rate',
     ];
 
     /**
@@ -43,11 +44,12 @@ class Project extends Model implements CalendarEventable
      * @var array<string, string>
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
-        'start_date' => 'date',
-        'due_date' => 'date',
+        'created_at'  => 'datetime',
+        'updated_at'  => 'datetime',
+        'deleted_at'  => 'datetime',
+        'start_date'  => 'date',
+        'due_date'    => 'date',
+        'hourly_rate' => 'decimal:2',
     ];
 
         /**
@@ -134,6 +136,14 @@ class Project extends Model implements CalendarEventable
     public function documents()
     {
         return $this->hasMany(Document::class);
+    }
+
+    /**
+     * Relationship: Project has many Timesheets
+     */
+    public function timesheets()
+    {
+        return $this->hasMany(Timesheet::class)->orderBy('year', 'desc')->orderBy('month', 'desc');
     }
 
     // ==========================================

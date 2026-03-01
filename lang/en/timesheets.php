@@ -1,0 +1,59 @@
+<?php
+
+return [
+    'title'               => 'Worked Hours',
+    'saved_successfully'  => 'Timesheet saved successfully.',
+    'deleted_successfully' => 'Timesheet deleted successfully.',
+    'no_rate_warning'     => 'No hourly rate set for this project. Update it via the Edit button.',
+    'total_hours'         => 'Total hours',
+    'rate'                => 'Rate',
+    'total_earnings'      => 'Estimated amount',
+    'notes'               => 'Notes',
+    'notes_placeholder'   => 'Add notes for this month...',
+    'history'             => 'Saved months',
+    'delete_confirm'      => 'Delete this timesheet?',
+
+    'index_subtitle'      => 'Monthly summary of worked hours per project',
+    'no_timesheets'       => 'No timesheets found',
+    'no_timesheets_desc'  => 'Start tracking worked hours from the project page.',
+    'project'             => 'Project',
+    'client'              => 'Client',
+    'period'              => 'Period',
+    'hours'               => 'Hours',
+    'to_collect'          => 'To collect',
+    'all_months'          => 'All months',
+    'all_years'           => 'All years',
+    'search_placeholder'  => 'Search project...',
+
+    'stats' => [
+        'hours_this_month'    => 'Hours this month',
+        'earnings_this_month' => 'To collect this month',
+        'hours_this_year'     => 'Hours this year',
+        'earnings_this_year'  => 'To collect this year',
+    ],
+
+    'days' => [
+        'mon' => 'Mon',
+        'tue' => 'Tue',
+        'wed' => 'Wed',
+        'thu' => 'Thu',
+        'fri' => 'Fri',
+        'sat' => 'Sat',
+        'sun' => 'Sun',
+    ],
+
+    'months' => [
+        'january'   => 'January',
+        'february'  => 'February',
+        'march'     => 'March',
+        'april'     => 'April',
+        'may'       => 'May',
+        'june'      => 'June',
+        'july'      => 'July',
+        'august'    => 'August',
+        'september' => 'September',
+        'october'   => 'October',
+        'november'  => 'November',
+        'december'  => 'December',
+    ],
+];

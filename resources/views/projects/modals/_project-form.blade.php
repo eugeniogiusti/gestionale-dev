@@ -215,6 +215,19 @@
         </div>
     </div>
 
+    {{-- Hourly Rate: sempre visibile in edit, solo per client_work in create --}}
+    <div x-show="isEdit || formData.type === 'client_work'">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ __('projects.hourly_rate') }}
+        </label>
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400 text-sm pointer-events-none">€</span>
+            <input type="number" name="hourly_rate" x-model="formData.hourly_rate"
+                   step="0.01" min="0" max="99999.99" placeholder="0.00"
+                   class="w-full pl-7 pr-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500">
+        </div>
+    </div>
+
     {{-- Dates --}}
     <div class="grid grid-cols-2 gap-3">
         <div>

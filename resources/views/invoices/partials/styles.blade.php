@@ -5,12 +5,6 @@
         font-weight: normal;
         src: url('{{ storage_path('fonts/NotoSansCJKsc-Regular.ttf') }}') format('truetype');
     }
-    @font-face {
-        font-family: 'Noto Sans CJK';
-        font-style: normal;
-        font-weight: bold;
-        src: url('{{ storage_path('fonts/NotoSansCJKsc-Regular.ttf') }}') format('truetype');
-    }
 
     * {
         margin: 0;
@@ -19,7 +13,7 @@
     }
 
     body {
-        font-family: 'Noto Sans CJK', 'DejaVu Sans', Arial, sans-serif;
+        font-family: 'DejaVu Sans', 'Noto Sans CJK', sans-serif;
         font-size: 11pt;
         color: #333;
         line-height: 1.6;

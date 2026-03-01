@@ -96,6 +96,20 @@
     <span class="sidebar-label">{{ __('costs.title') }}</span>
 </a>
 
+{{-- Timesheets --}}
+<a href="{{ route('timesheets.index') }}"
+   class="sidebar-nav-link flex items-center px-3 py-2 rounded-md text-sm font-medium
+          text-gray-700 dark:text-gray-300
+          hover:bg-gray-100 dark:hover:bg-gray-700
+          {{ request()->routeIs('timesheets.*') ? 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white' : '' }}"
+   :title="collapsed ? '{{ __('timesheets.title') }}' : ''"
+>
+    <svg class="sidebar-icon w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span class="sidebar-label">{{ __('timesheets.title') }}</span>
+</a>
+
 {{-- Documents --}}
 <a href="{{ route('documents.index') }}"
    class="sidebar-nav-link flex items-center px-3 py-2 rounded-md text-sm font-medium

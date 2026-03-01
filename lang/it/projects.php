@@ -19,7 +19,8 @@ return [
     'description' => 'Descrizione',
     'status' => 'Stato',
     'priority' => 'Priorità',
-    
+    'hourly_rate' => 'Tariffa Oraria',
+
     // Form labels - Tab 2: Dev Links
     'dev_links' => 'Link Sviluppo',
     'repo_url' => 'Repository',
