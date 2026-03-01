@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'Descarcă PDF',
+    'report_title'  => 'Raport ore lucrate',
+    'report_from'  => 'De la',
+    'report_project'  => 'Proiect',
+    'report_vat'  => 'CUI',
+    'report_worked_days'  => 'Zile lucrate',
+    'report_day'  => 'Zi',
+    'report_weekday'  => 'Zi a săptămânii',
+    'report_generated'  => 'Generat la',
+    'report_total'  => 'Total',
+
 
     'days' => [
         'mon' => 'Mon',

@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'PDF downloaden',
+    'report_title'  => 'Rapport gewerkte uren',
+    'report_from'  => 'Van',
+    'report_project'  => 'Project',
+    'report_vat'  => 'BTW-nummer',
+    'report_worked_days'  => 'Gewerkte dagen',
+    'report_day'  => 'Dag',
+    'report_weekday'  => 'Weekdag',
+    'report_generated'  => 'Gegenereerd op',
+    'report_total'  => 'Totaal',
+
 
     'days' => [
         'mon' => 'Mon',

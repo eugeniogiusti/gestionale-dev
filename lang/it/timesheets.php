@@ -13,6 +13,17 @@ return [
     'history'            => 'Mesi salvati',
     'delete_confirm'     => 'Eliminare questo timesheet?',
 
+    'report_download'    => 'Scarica PDF',
+    'report_title'       => 'Report Ore Lavorate',
+    'report_from'        => 'Da',
+    'report_project'     => 'Progetto',
+    'report_vat'         => 'P.IVA',
+    'report_worked_days' => 'Giorni lavorati',
+    'report_day'         => 'Giorno',
+    'report_weekday'     => 'Giorno settimana',
+    'report_generated'   => 'Generato il',
+    'report_total'       => 'Totale',
+
     'index_subtitle'      => 'Riepilogo mensile delle ore lavorate per progetto',
     'no_timesheets'       => 'Nessun timesheet trovato',
     'no_timesheets_desc'  => 'Inizia a registrare le ore lavorate dalla pagina del progetto.',

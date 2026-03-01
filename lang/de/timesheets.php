@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'PDF herunterladen',
+    'report_title'  => 'Arbeitsstundenbericht',
+    'report_from'  => 'Von',
+    'report_project'  => 'Projekt',
+    'report_vat'  => 'USt-IdNr.',
+    'report_worked_days'  => 'Arbeitstage',
+    'report_day'  => 'Tag',
+    'report_weekday'  => 'Wochentag',
+    'report_generated'  => 'Erstellt am',
+    'report_total'  => 'Gesamt',
+
 
     'days' => [
         'mon' => 'Mon',

@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'Завантажити PDF',
+    'report_title'  => 'Звіт відпрацьованих годин',
+    'report_from'  => 'Від',
+    'report_project'  => 'Проєкт',
+    'report_vat'  => 'ІПН',
+    'report_worked_days'  => 'Робочі дні',
+    'report_day'  => 'День',
+    'report_weekday'  => 'День тижня',
+    'report_generated'  => 'Створено',
+    'report_total'  => 'Разом',
+
 
     'days' => [
         'mon' => 'Mon',

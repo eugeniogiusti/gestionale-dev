@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => '下载PDF',
+    'report_title'  => '工时报告',
+    'report_from'  => '来自',
+    'report_project'  => '项目',
+    'report_vat'  => '增值税号',
+    'report_worked_days'  => '工作日',
+    'report_day'  => '日',
+    'report_weekday'  => '星期',
+    'report_generated'  => '生成于',
+    'report_total'  => '合计',
+
 
     'days' => [
         'mon' => 'Mon',

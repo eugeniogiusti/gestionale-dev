@@ -13,6 +13,17 @@ return [
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
 
+    'report_download'     => 'Download PDF',
+    'report_title'        => 'Worked Hours Report',
+    'report_from'         => 'From',
+    'report_project'      => 'Project',
+    'report_vat'          => 'VAT',
+    'report_worked_days'  => 'Worked days',
+    'report_day'          => 'Day',
+    'report_weekday'      => 'Weekday',
+    'report_generated'    => 'Generated on',
+    'report_total'        => 'Total',
+
     'index_subtitle'      => 'Monthly summary of worked hours per project',
     'no_timesheets'       => 'No timesheets found',
     'no_timesheets_desc'  => 'Start tracking worked hours from the project page.',

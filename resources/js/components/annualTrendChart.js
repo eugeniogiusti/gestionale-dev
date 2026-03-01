@@ -6,8 +6,23 @@ export default function annualTrendChart(chartData) {
         chart: null,
 
         init() {
-            // Wait until container has valid dimensions before rendering
-            this.waitForValidContainer();
+            const container = this.$refs.canvas?.parentElement;
+
+            if (container && container.offsetWidth > 0 && container.offsetHeight > 0) {
+                this.renderChart();
+            } else if (container) {
+                // Use ResizeObserver to detect when container gets real dimensions
+                const ro = new ResizeObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+                            ro.disconnect();
+                            this.renderChart();
+                            break;
+                        }
+                    }
+                });
+                ro.observe(container);
+            }
 
             // Watch for dark mode changes
             const observer = new MutationObserver(() => {
@@ -23,27 +38,12 @@ export default function annualTrendChart(chartData) {
             if (sidebar) {
                 sidebar.addEventListener('transitionend', (e) => {
                     if (e.propertyName === 'width' && this.chart) {
-                        // Wait for layout to settle after transition
                         requestAnimationFrame(() => {
                             this.chart.resize();
                         });
                     }
                 });
             }
-        },
-
-        waitForValidContainer() {
-            const container = this.$refs.canvas?.parentElement;
-
-            // Check if container exists and has valid dimensions
-            if (!container || container.offsetWidth === 0 || container.offsetHeight === 0) {
-                // Container not ready yet, check again next frame
-                requestAnimationFrame(() => this.waitForValidContainer());
-                return;
-            }
-
-            // Container is ready, render the chart
-            this.renderChart();
         },
 
         renderChart() {

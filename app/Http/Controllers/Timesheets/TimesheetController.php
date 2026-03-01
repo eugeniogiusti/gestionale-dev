@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Timesheet;
 use App\Queries\Timesheets\TimesheetIndexQuery;
 use App\Queries\Timesheets\TimesheetStatsQuery;
+use App\Services\Timesheets\TimesheetReportGenerator;
 
 class TimesheetController extends Controller
 {
@@ -24,7 +25,15 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Crea o aggiorna il timesheet mensile di un progetto.
+     * Download monthly timesheet report as PDF.
+     */
+    public function report(Project $project, Timesheet $timesheet, TimesheetReportGenerator $generator)
+    {
+        return $generator->download($project, $timesheet);
+    }
+
+    /**
+     * Create or update the monthly timesheet for a project.
      */
     public function store(StoreTimesheetRequest $request, Project $project)
     {
@@ -49,7 +58,7 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Elimina un timesheet mensile.
+     * Delete a monthly timesheet.
      */
     public function destroy(Project $project, Timesheet $timesheet)
     {

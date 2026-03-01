@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'Скачать PDF',
+    'report_title'  => 'Отчёт об отработанных часах',
+    'report_from'  => 'От',
+    'report_project'  => 'Проект',
+    'report_vat'  => 'ИНН',
+    'report_worked_days'  => 'Рабочие дни',
+    'report_day'  => 'День',
+    'report_weekday'  => 'День недели',
+    'report_generated'  => 'Создано',
+    'report_total'  => 'Итого',
+
 
     'days' => [
         'mon' => 'Mon',

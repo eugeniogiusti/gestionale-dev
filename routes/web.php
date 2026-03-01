@@ -31,7 +31,7 @@ use App\Http\Controllers\Timesheets\TimesheetController;
 Route::get('/', fn () => redirect()->route('login'));
 
 // ===================================================
-// CHALLENGE 2FA — SOLO AUTH 
+// CHALLENGE 2FA — ONLY AUTH 
 // ===================================================
 Route::middleware(['auth'])->group(function () {
 
@@ -119,6 +119,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
     Route::prefix('projects/{project}/timesheets')->name('timesheets.')->group(function () {
         Route::post('/', [TimesheetController::class, 'store'])->name('store');
+        Route::get('/{timesheet}/report', [TimesheetController::class, 'report'])->name('report');
         Route::delete('/{timesheet}', [TimesheetController::class, 'destroy'])->name('destroy');
     });
 

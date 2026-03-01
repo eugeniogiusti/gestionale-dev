@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'Download PDF',
+    'report_title'  => 'Rapport over arbejdstimer',
+    'report_from'  => 'Fra',
+    'report_project'  => 'Projekt',
+    'report_vat'  => 'CVR',
+    'report_worked_days'  => 'Arbejdsdage',
+    'report_day'  => 'Dag',
+    'report_weekday'  => 'Ugedag',
+    'report_generated'  => 'Genereret den',
+    'report_total'  => 'Total',
+
 
     'days' => [
         'mon' => 'Mon',

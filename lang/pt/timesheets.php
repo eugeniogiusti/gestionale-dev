@@ -12,6 +12,17 @@ return [
     'notes_placeholder'   => 'Add notes for this month...',
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
+    'report_download'  => 'Baixar PDF',
+    'report_title'  => 'Relatório de horas trabalhadas',
+    'report_from'  => 'De',
+    'report_project'  => 'Projeto',
+    'report_vat'  => 'NIF',
+    'report_worked_days'  => 'Dias trabalhados',
+    'report_day'  => 'Dia',
+    'report_weekday'  => 'Dia da semana',
+    'report_generated'  => 'Gerado em',
+    'report_total'  => 'Total',
+
 
     'days' => [
         'mon' => 'Mon',
