@@ -4,61 +4,54 @@ Chart.register(...registerables);
 export default function annualTrendChart(chartData) {
     return {
         chart: null,
+        _resizeObserver: null,
 
         init() {
             const container = this.$refs.canvas?.parentElement;
+            if (!container) return;
 
-            if (container && container.offsetWidth > 0 && container.offsetHeight > 0) {
-                this.renderChart();
-            } else if (container) {
-                // Use ResizeObserver to detect when container gets real dimensions
-                const ro = new ResizeObserver((entries) => {
-                    for (const entry of entries) {
-                        if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
-                            ro.disconnect();
-                            this.renderChart();
-                            break;
-                        }
-                    }
-                });
-                ro.observe(container);
-            }
-
-            // Watch for dark mode changes
-            const observer = new MutationObserver(() => {
-                this.renderChart();
+            // Re-render only when dark mode actually changes (not on sidebar-collapsed or other class changes)
+            let isDark = document.documentElement.classList.contains('dark');
+            const mutationObserver = new MutationObserver(() => {
+                const nowDark = document.documentElement.classList.contains('dark');
+                if (nowDark !== isDark) {
+                    isDark = nowDark;
+                    this.renderChart();
+                }
             });
-            observer.observe(document.documentElement, {
+            mutationObserver.observe(document.documentElement, {
                 attributes: true,
                 attributeFilter: ['class']
             });
 
-            // Re-render after sidebar transition ends
-            const sidebar = document.querySelector('.sidebar-element');
-            if (sidebar) {
-                sidebar.addEventListener('transitionend', (e) => {
-                    if (e.propertyName === 'width' && this.chart) {
-                        requestAnimationFrame(() => {
-                            this.chart.resize();
-                        });
+            // Single ResizeObserver handles:
+            // 1. Initial render (when container first gets dimensions)
+            // 2. Sidebar collapse/expand transitions (fires on every frame)
+            // 3. Window resize
+            // responsive: false in Chart.js prevents its internal ResizeObserver
+            // from setting canvas to 0x0 during CSS transitions.
+            this._resizeObserver = new ResizeObserver((entries) => {
+                for (const entry of entries) {
+                    const { width, height } = entry.contentRect;
+                    if (width > 0 && height > 0) {
+                        if (!this.chart) {
+                            this.renderChart();
+                        } else {
+                            this.chart.resize(width, height);
+                        }
                     }
-                });
-            }
+                }
+            });
+            this._resizeObserver.observe(container);
         },
 
         renderChart() {
             const ctx = this.$refs.canvas;
             if (!ctx) return;
 
-            // Verify container still has valid dimensions
-            const container = ctx.parentElement;
-            if (!container || container.offsetWidth === 0 || container.offsetHeight === 0) {
-                console.warn('Chart container has invalid dimensions, skipping render');
-                return;
-            }
-
             if (this.chart) {
                 this.chart.destroy();
+                this.chart = null;
             }
 
             const isDark = document.documentElement.classList.contains('dark');
@@ -105,7 +98,7 @@ export default function annualTrendChart(chartData) {
                     ]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     maintainAspectRatio: false,
                     interaction: {
                         mode: 'index',
@@ -153,9 +146,18 @@ export default function annualTrendChart(chartData) {
                     }
                 }
             });
+
+            // Set canvas to current container size immediately
+            const container = ctx.parentElement;
+            if (container) {
+                this.chart.resize(container.offsetWidth, container.offsetHeight);
+            }
         },
 
         destroy() {
+            if (this._resizeObserver) {
+                this._resizeObserver.disconnect();
+            }
             if (this.chart) {
                 this.chart.destroy();
             }
