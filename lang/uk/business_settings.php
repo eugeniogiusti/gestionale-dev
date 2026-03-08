@@ -83,4 +83,12 @@ return [
     'logo_max_size' => 'Логотип не може перевищувати 2MB.',
     'logo_allowed_formats' => 'Дозволені формати: JPEG, JPG, PNG, SVG.',
     'iban_invalid_format' => 'Невірний формат IBAN',
+
+    // Integrations
+    'integrations' => 'Інтеграції',
+    'github_pat' => 'Особистий токен доступу GitHub',
+    'github_pat_hint' => 'Створіть токен на',
+    'github_required_scopes' => 'Необхідні дозволи',
+    'github_scope_repo' => 'доступ до публічних і приватних репозиторіїв',
+    'github_scope_read_user' => 'читання профілю користувача',
 ];

@@ -1,3 +1,7 @@
+/**
+ * Client Modal Component
+ * Handles create/edit modal for clients with tabbed form (basic, billing, web)
+ */
 export default function clientModal() {
     return {
         open: false,
@@ -43,11 +47,13 @@ export default function clientModal() {
             this.backTo = '';
         },
 
+        /** Open modal for creating new client */
         openCreate() {
             this.resetForm();
             this.open = true;
         },
 
+        /** Open modal for editing existing client */
         openEdit(clientData) {
             this.isEdit = true;
             this.clientId = clientData.id;
@@ -56,6 +62,7 @@ export default function clientModal() {
             this.open = true;
         },
 
+        /** Close modal and reset form */
         closeModal() {
             this.open = false;
             this.resetForm();

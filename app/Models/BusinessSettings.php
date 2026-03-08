@@ -48,6 +48,7 @@ class BusinessSettings extends Model
         'business_description',
         'website',
         'logo_path',
+        'github_pat',
     ];
 
     /**

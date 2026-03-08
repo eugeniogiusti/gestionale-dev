@@ -83,4 +83,12 @@ return [
     'logo_max_size' => 'Logoet må ikke overstige 2MB.',
     'logo_allowed_formats' => 'Tilladte formater: JPEG, JPG, PNG, SVG.',
     'iban_invalid_format' => 'Ugyldigt IBAN-format', 
+
+    // Integrations
+    'integrations' => 'Integrationer',
+    'github_pat' => 'GitHub Personlig Adgangstoken',
+    'github_pat_hint' => 'Generer et token på',
+    'github_required_scopes' => 'Påkrævede tilladelser',
+    'github_scope_repo' => 'adgang til offentlige og private repositories',
+    'github_scope_read_user' => 'læse brugerprofil',
 ];

@@ -82,4 +82,12 @@ return [
     'logo_max_size' => 'Logo 不能超过 2MB。',
     'logo_allowed_formats' => '允许格式：JPEG、JPG、PNG、SVG。',
     'iban_invalid_format' => 'IBAN 格式无效',
+
+    // Integrations
+    'integrations' => '集成',
+    'github_pat' => 'GitHub 个人访问令牌',
+    'github_pat_hint' => '在此生成令牌',
+    'github_required_scopes' => '所需权限',
+    'github_scope_repo' => '访问公共和私有仓库',
+    'github_scope_read_user' => '读取用户资料',
 ];

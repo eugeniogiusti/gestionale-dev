@@ -182,4 +182,13 @@ return [
         'of_total' => 'du total',
     ],
     
+
+    // Repository (GitHub)
+    'repository' => 'Dépôt',
+    'commit_activity' => 'Activité des commits',
+    'recent_commits' => 'Commits récents',
+    'less' => 'Moins',
+    'more' => 'Plus',
+    'no_repository_data' => 'Aucune donnée disponible pour ce dépôt.',
+    'repository_fetch_error' => 'Erreur lors du chargement des données GitHub.',
 ];

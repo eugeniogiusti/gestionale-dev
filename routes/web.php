@@ -15,6 +15,7 @@ use App\Http\Controllers\Projects\ProjectController;
 use App\Http\Controllers\Api\Clients\ClientSearchController;
 use App\Http\Controllers\Api\Projects\ProjectSearchController;
 use App\Http\Controllers\Projects\ProjectChatController;
+use App\Http\Controllers\Projects\ProjectRepositoryController;
 use App\Http\Controllers\Tasks\TaskController;
 use App\Http\Controllers\Meetings\MeetingController;
 use App\Http\Controllers\Payments\PaymentController;
@@ -123,11 +124,24 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::delete('/{timesheet}', [TimesheetController::class, 'destroy'])->name('destroy');
     });
 
-    // Project chat routes (handled by ProjectChatController) - AI interactions
-    Route::post('/projects/{project}/chat', [ProjectChatController::class, 'chat'])->name('projects.chat');
-    Route::post('/projects/{project}/chat/stream', [ProjectChatController::class, 'stream'])->name('projects.chat.stream');
-    Route::get('/projects/{project}/chat/history', [ProjectChatController::class, 'history'])->name('projects.chat.history');
-    Route::delete('/projects/{project}/chat/reset', [ProjectChatController::class, 'reset'])->name('projects.chat.reset');
+    // ==========================================
+    // GITHUB MODULE
+    // ==========================================
+
+    Route::prefix('projects/{project}')->group(function () {
+        Route::get('/repository', ProjectRepositoryController::class)->name('projects.repository');
+    });
+
+    // ==========================================
+    // AI MODULE
+    // ==========================================
+
+    Route::prefix('projects/{project}')->name('projects.')->group(function () {
+        Route::post('/chat', [ProjectChatController::class, 'chat'])->name('chat');
+        Route::post('/chat/stream', [ProjectChatController::class, 'stream'])->name('chat.stream');
+        Route::get('/chat/history', [ProjectChatController::class, 'history'])->name('chat.history');
+        Route::delete('/chat/reset', [ProjectChatController::class, 'reset'])->name('chat.reset');
+    });
 
     // ==========================================
     // API ROUTES

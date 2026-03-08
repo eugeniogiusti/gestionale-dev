@@ -1,3 +1,7 @@
+/**
+ * Task Modal Component
+ * Handles create/edit modal for tasks in project context
+ */
 export default function taskModal() {
     return {
         open: false,
@@ -25,12 +29,14 @@ export default function taskModal() {
             this.isEdit = false;
             this.taskId = null;
         },
-        
+
+        /** Open modal for creating new task */
         openCreate() {
             this.resetForm();
             this.open = true;
         },
-        
+
+        /** Open modal for editing existing task */
         openEdit(taskData) {
             this.isEdit = true;
             this.taskId = taskData.id;
@@ -44,7 +50,8 @@ export default function taskModal() {
             };
             this.open = true;
         },
-        
+
+        /** Close modal and reset form */
         closeModal() {
             this.open = false;
             this.resetForm();

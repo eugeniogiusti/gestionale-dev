@@ -83,4 +83,12 @@ return [
     'logo_max_size' => 'El logo no puede superar 2MB.',
     'logo_allowed_formats' => 'Formatos permitidos: JPEG, JPG, PNG, SVG.',
     'iban_invalid_format' => 'Formato IBAN no válido', 
+
+    // Integrations
+    'integrations' => 'Integraciones',
+    'github_pat' => 'Token de Acceso Personal de GitHub',
+    'github_pat_hint' => 'Genera un token en',
+    'github_required_scopes' => 'Permisos requeridos',
+    'github_scope_repo' => 'acceso a repositorios públicos y privados',
+    'github_scope_read_user' => 'leer perfil de usuario',
 ];

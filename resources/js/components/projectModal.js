@@ -1,3 +1,7 @@
+/**
+ * Project Modal Component
+ * Handles create/edit modal for projects with tabbed form (info, links, notes)
+ */
 export default function projectModal() {
     return {
         open: false,
@@ -43,11 +47,13 @@ export default function projectModal() {
             this.backTo = '';
         },
 
+        /** Open modal for creating new project */
         openCreate() {
             this.resetForm();
             this.open = true;
         },
 
+        /** Open modal for editing existing project */
         openEdit(projectData) {
             this.isEdit = true;
             this.projectId = projectData.id;
@@ -66,12 +72,14 @@ export default function projectModal() {
             this.open = true;
         },
 
+        /** Format date string for input[type="date"] */
         formatDateForInput(dateString) {
             if (!dateString) return '';
             const date = new Date(dateString);
             return date.toISOString().split('T')[0];
         },
 
+        /** Close modal and reset form */
         closeModal() {
             this.open = false;
             this.resetForm();

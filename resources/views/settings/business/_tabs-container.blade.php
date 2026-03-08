@@ -33,6 +33,11 @@
         <div x-show="activeTab === 'business'" x-cloak>
             @include('settings.business._business-info')
         </div>
+
+        {{-- TAB: Integrations --}}
+        <div x-show="activeTab === 'integrations'" x-cloak>
+            @include('settings.business._integrations')
+        </div>
     </div>
 
     {{-- Actions --}}

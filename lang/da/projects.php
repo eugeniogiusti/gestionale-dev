@@ -182,4 +182,13 @@ return [
         'of_total' => 'af totalen',
     ],
     
+
+    // Repository (GitHub)
+    'repository' => 'Repository',
+    'commit_activity' => 'Attività commit',
+    'recent_commits' => 'Commit recenti',
+    'less' => 'Meno',
+    'more' => 'Di più',
+    'no_repository_data' => 'Nessun dato disponibile per questo repository.',
+    'repository_fetch_error' => 'Errore nel caricamento dei dati GitHub.',
 ];

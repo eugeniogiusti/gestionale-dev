@@ -52,6 +52,9 @@ class UpdateBusinessSettingsRequest extends FormRequest
 
             // Logo (max 2MB, only images)
             'logo' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,jpg,png,svg'],
+
+            // Integrations
+            'github_pat' => ['nullable', 'string', 'max:255'],
         ];
     }
 

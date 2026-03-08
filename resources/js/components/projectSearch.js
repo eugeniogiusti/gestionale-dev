@@ -1,3 +1,7 @@
+/**
+ * Project Search Component
+ * Global navbar search — queries projects by name and navigates on selection
+ */
 export default () => ({
     // State
     query: '',
@@ -28,7 +32,7 @@ export default () => ({
         try {
             const response = await fetch(`/api/search/projects?q=${encodeURIComponent(this.query)}`);
             const data = await response.json();
-            
+
             this.results = data;
             this.showDropdown = this.hasResults;
         } catch (error) {

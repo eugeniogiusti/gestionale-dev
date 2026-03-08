@@ -15,6 +15,7 @@ import receiptUploadModal from './components/receiptUploadModal';
 import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
 import annualTrendChart from './components/annualTrendChart';
+import repositoryTab from './components/repositoryTab';
 import taskToggle from './components/taskToggle';
 import aiChat from './components/ai-chat/index';
 
@@ -28,6 +29,7 @@ Alpine.data('projectSearch', projectSearch);
 Alpine.data('clientSearch', clientSearch);
 Alpine.data('labelModal', labelModal);
 Alpine.data('annualTrendChart', annualTrendChart);
+Alpine.data('repositoryTab', repositoryTab);
 Alpine.data('taskToggle', taskToggle);
 Alpine.data('aiChat', aiChat);
 

@@ -1,3 +1,7 @@
+/**
+ * Client Search Component
+ * Typeahead search used inside the project modal to select or clear a client
+ */
 export default (initialClientId = null, initialClientName = null) => ({
     // State
     isInternal: !initialClientId,

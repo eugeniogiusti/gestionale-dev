@@ -180,4 +180,13 @@ return [
         'this_week' => 'this week',
         'of_total' => 'of total',
     ],
+
+    // Repository (GitHub)
+    'repository' => 'Repository',
+    'commit_activity' => 'Commit Activity',
+    'recent_commits' => 'Recent Commits',
+    'less' => 'Less',
+    'more' => 'More',
+    'no_repository_data' => 'No data available for this repository.',
+    'repository_fetch_error' => 'Error loading GitHub data.',
 ];

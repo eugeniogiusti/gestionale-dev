@@ -83,4 +83,12 @@ return [
     'logo_max_size' => 'Logo-ul nu poate depăși 2MB.',
     'logo_allowed_formats' => 'Formate permise: JPEG, JPG, PNG, SVG.',
     'iban_invalid_format' => 'Format IBAN invalid',
+
+    // Integrations
+    'integrations' => 'Integrări',
+    'github_pat' => 'Token de Acces Personal GitHub',
+    'github_pat_hint' => 'Generați un token pe',
+    'github_required_scopes' => 'Permisiuni necesare',
+    'github_scope_repo' => 'acces la depozite publice și private',
+    'github_scope_read_user' => 'citirea profilului utilizatorului',
 ];

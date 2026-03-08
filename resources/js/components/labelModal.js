@@ -1,3 +1,7 @@
+/**
+ * Label Modal Component
+ * Handles create/edit modal for labels (global)
+ */
 export default function labelModal() {
     return {
         open: false,
@@ -16,11 +20,13 @@ export default function labelModal() {
             };
         },
 
+        /** Open modal for creating new label */
         openCreate() {
             this.resetForm();
             this.open = true;
         },
 
+        /** Open modal for editing existing label */
         openEdit(labelData) {
             this.isEdit = true;
             this.labelId = labelData.id;
@@ -31,6 +37,7 @@ export default function labelModal() {
             this.open = true;
         },
 
+        /** Close modal and reset form after animation */
         close() {
             this.open = false;
             setTimeout(() => this.resetForm(), 300);

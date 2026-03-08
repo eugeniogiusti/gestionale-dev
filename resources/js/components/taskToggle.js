@@ -1,5 +1,11 @@
+/**
+ * Task Toggle Component
+ * Handles optimistic done/todo toggle for tasks with AJAX + sound feedback
+ */
+
 let taskToggleAudioContext = null;
 
+/** Play a short chime using Web Audio API — best-effort, fails silently */
 async function playToggleSound() {
     try {
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
