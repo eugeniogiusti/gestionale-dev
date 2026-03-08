@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Ședințe viitoare',
     'overdue_payments' => 'Plăți întârziate',
     'recent_payments' => 'Încasări recente',
+    'recent_costs' => 'Costuri recente',
     'projects_due_soon' => 'Proiecte care expiră curând',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Nicio ședință programată',
     'no_overdue_payments' => 'Nicio plată întârziată',
     'no_recent_payments' => 'Nicio plată recentă',
+    'no_recent_costs' => 'Niciun cost înregistrat recent',
 
     // Labels
     'overdue_by' => 'întârziat de',

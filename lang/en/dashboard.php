@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Upcoming Meetings',
     'overdue_payments' => 'Overdue Payments',
     'recent_payments' => 'Recent Payments',
+    'recent_costs' => 'Recent Costs',
     'projects_due_soon' => 'Projects Due Soon',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'No upcoming meetings',
     'no_overdue_payments' => 'No overdue payments',
     'no_recent_payments' => 'No recent payments',
+    'no_recent_costs' => 'No costs recorded recently',
 
     // Labels
     'overdue_by' => 'overdue by',

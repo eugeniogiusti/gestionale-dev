@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Aankomende meetings',
     'overdue_payments' => 'Achterstallige betalingen',
     'recent_payments' => 'Laatste ontvangsten',
+    'recent_costs' => 'Laatste uitgaven',
     'projects_due_soon' => 'Projecten met deadline',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Geen geplande meetings',
     'no_overdue_payments' => 'Geen achterstallige betalingen',
     'no_recent_payments' => 'Geen recente betalingen',
+    'no_recent_costs' => 'Geen uitgaven recent geregistreerd',
 
     // Labels
     'overdue_by' => 'te laat sinds',

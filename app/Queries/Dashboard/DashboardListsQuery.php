@@ -2,6 +2,7 @@
 
 namespace App\Queries\Dashboard;
 
+use App\Models\Cost;
 use App\Models\Meeting;
 use App\Models\Payment;
 use App\Models\Project;
@@ -11,8 +12,8 @@ use Illuminate\Support\Collection;
 /**
  * Quick-reference lists for the dashboard page.
  *
- * Returns 5 lists (max 5 items each): tasks_due_soon (next 7 days),
- * upcoming_meetings, overdue_payments, recent_payments, projects_due_soon.
+ * Returns 6 lists (max 5 items each): tasks_due_soon (next 7 days),
+ * upcoming_meetings, overdue_payments, recent_payments, recent_costs, projects_due_soon.
  * Uses batch project hydration to prevent N+1 queries across all lists.
  */
 class DashboardListsQuery
@@ -23,6 +24,7 @@ class DashboardListsQuery
         $upcomingMeetings = $this->getUpcomingMeetings();
         $overduePayments = $this->getOverduePayments();
         $recentPayments = $this->getRecentPayments();
+        $recentCosts = $this->getRecentCosts();
         $projectsDueSoon = $this->getProjectsDueSoon();
 
         $this->hydrateProjects([
@@ -30,6 +32,7 @@ class DashboardListsQuery
             $upcomingMeetings,
             $overduePayments,
             $recentPayments,
+            $recentCosts,
         ]);
 
         return [
@@ -37,6 +40,7 @@ class DashboardListsQuery
             'upcoming_meetings' => $upcomingMeetings,
             'overdue_payments' => $overduePayments,
             'recent_payments' => $recentPayments,
+            'recent_costs' => $recentCosts,
             'projects_due_soon' => $projectsDueSoon,
         ];
     }
@@ -85,6 +89,18 @@ class DashboardListsQuery
     {
         return Payment::query()
             ->paid()
+            ->latest('paid_at')
+            ->take(5)
+            ->get();
+    }
+
+    /**
+     * Last 5 registered costs
+     */
+    private function getRecentCosts(): Collection
+    {
+        return Cost::query()
+            ->whereNotNull('paid_at')
             ->latest('paid_at')
             ->take(5)
             ->get();

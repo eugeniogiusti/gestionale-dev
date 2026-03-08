@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Prossimi Meeting',
     'overdue_payments' => 'Pagamenti Scaduti',
     'recent_payments' => 'Ultimi Incassi',
+    'recent_costs' => 'Ultimi Costi',
     'projects_due_soon' => 'Progetti in Scadenza',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Nessun meeting programmato',
     'no_overdue_payments' => 'Nessun pagamento scaduto',
     'no_recent_payments' => 'Nessun pagamento recente',
+    'no_recent_costs' => 'Nessun costo registrato di recente',
 
     // Labels
     'overdue_by' => 'scaduto da',

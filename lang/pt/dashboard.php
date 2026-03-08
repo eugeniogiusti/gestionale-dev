@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Próximas Reuniões',
     'overdue_payments' => 'Pagamentos em Atraso',
     'recent_payments' => 'Últimos Recebimentos',
+    'recent_costs' => 'Últimos Custos',
     'projects_due_soon' => 'Projetos a Vencer',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Sem reuniões agendadas',
     'no_overdue_payments' => 'Sem pagamentos em atraso',
     'no_recent_payments' => 'Sem pagamentos recentes',
+    'no_recent_costs' => 'Sem custos registados recentemente',
 
     // Labels
     'overdue_by' => 'em atraso há',

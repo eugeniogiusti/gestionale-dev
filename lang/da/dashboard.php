@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Kommende møder',
     'overdue_payments' => 'Forsinkede betalinger',
     'recent_payments' => 'Seneste indbetalinger',
+    'recent_costs' => 'Seneste udgifter',
     'projects_due_soon' => 'Projekter med snarlig deadline',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Ingen planlagte møder',
     'no_overdue_payments' => 'Ingen forsinkede betalinger',
     'no_recent_payments' => 'Ingen nylige betalinger',
+    'no_recent_costs' => 'Ingen udgifter registreret for nylig',
 
     // Labels
     'overdue_by' => 'forsinket med',

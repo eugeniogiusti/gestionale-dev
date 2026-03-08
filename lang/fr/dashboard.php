@@ -2,11 +2,11 @@
 
 return [
     'title' => 'Tableau de bord',
-    'welcome_message' => 'Vue d’ensemble de ton business',
+    'welcome_message' => 'Vue d'ensemble de ton business',
 
     // Welcome Card
     'welcome_title' => 'Bienvenue sur IndieDesk',
-    'welcome_subtitle' => 'Ton espace de travail d’Indie Developer',
+    'welcome_subtitle' => 'Ton espace de travail d'Indie Developer',
     'welcome_description' => 'Gère clients, projets, tâches et paiements dans un seul tableau de bord. Tout organisé et toujours sous contrôle.',
     'welcome_feature_clients' => 'Gère tes clients',
     'welcome_feature_projects' => 'Suis projets et échéances',
@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Réunions à venir',
     'overdue_payments' => 'Paiements en retard',
     'recent_payments' => 'Derniers encaissements',
+    'recent_costs' => 'Dernières dépenses',
     'projects_due_soon' => 'Projets à échéance',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Aucune réunion planifiée',
     'no_overdue_payments' => 'Aucun paiement en retard',
     'no_recent_payments' => 'Aucun paiement récent',
+    'no_recent_costs' => 'Aucune dépense enregistrée récemment',
 
     // Labels
     'overdue_by' => 'en retard de',

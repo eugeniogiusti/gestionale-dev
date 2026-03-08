@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => 'Ближайшие встречи',
     'overdue_payments' => 'Просроченные платежи',
     'recent_payments' => 'Последние поступления',
+    'recent_costs' => 'Последние расходы',
     'projects_due_soon' => 'Проекты с близким сроком',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => 'Нет запланированных встреч',
     'no_overdue_payments' => 'Нет просроченных платежей',
     'no_recent_payments' => 'Нет недавних платежей',
+    'no_recent_costs' => 'Расходов в последнее время не зарегистрировано',
 
     // Labels
     'overdue_by' => 'просрочено на',

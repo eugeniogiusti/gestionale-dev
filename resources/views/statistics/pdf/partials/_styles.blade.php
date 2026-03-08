@@ -5,19 +5,18 @@
         font-weight: normal;
         src: url('{{ storage_path('fonts/NotoSansCJKsc-Regular.ttf') }}') format('truetype');
     }
-    @font-face {
-        font-family: 'Noto Sans CJK';
-        font-style: normal;
-        font-weight: bold;
-        src: url('{{ storage_path('fonts/NotoSansCJKsc-Regular.ttf') }}') format('truetype');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-        font-family: 'Noto Sans CJK', DejaVu Sans, sans-serif;
-        font-size: 11px;
+        font-family: 'DejaVu Sans', 'Noto Sans CJK', sans-serif;
+        font-size: 11pt;
         color: #333;
-        line-height: 1.4;
+        line-height: 1.6;
         padding: 40px;
     }
 
@@ -39,21 +38,21 @@
         text-align: right;
     }
     .company-name {
-        font-size: 16px;
+        font-size: 16pt;
         font-weight: bold;
         margin-bottom: 3px;
     }
     .report-title {
-        font-size: 20px;
+        font-size: 20pt;
         font-weight: bold;
         margin-bottom: 5px;
     }
     .report-period {
-        font-size: 14px;
+        font-size: 14pt;
         color: #666;
     }
     .report-date {
-        font-size: 10px;
+        font-size: 8pt;
         color: #999;
         margin-top: 5px;
     }
@@ -63,7 +62,7 @@
         margin-bottom: 30px;
     }
     .summary-title {
-        font-size: 12px;
+        font-size: 10pt;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -89,13 +88,13 @@
         border-right: none;
     }
     .summary-label {
-        font-size: 9px;
+        font-size: 8pt;
         text-transform: uppercase;
         color: #666;
         margin-bottom: 5px;
     }
     .summary-value {
-        font-size: 16px;
+        font-size: 14pt;
         font-weight: bold;
     }
     .positive { color: #16a34a; }
@@ -113,14 +112,14 @@
         border-bottom: 1px solid #ddd;
     }
     th {
-        font-size: 9px;
+        font-size: 8pt;
         text-transform: uppercase;
         font-weight: bold;
         color: #666;
         border-bottom: 2px solid #333;
     }
     td {
-        font-size: 11px;
+        font-size: 10pt;
     }
     .text-right { text-align: right; }
     .text-center { text-align: center; }
@@ -137,8 +136,8 @@
         left: 40px;
         right: 40px;
         text-align: center;
-        font-size: 9px;
-        color: #999;
+        font-size: 8pt;
+        color: #666;
         border-top: 1px solid #ddd;
         padding-top: 10px;
     }

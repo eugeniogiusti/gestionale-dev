@@ -28,6 +28,7 @@ return [
     'upcoming_meetings' => '即将到来的会议',
     'overdue_payments' => '逾期收款',
     'recent_payments' => '最近收款',
+    'recent_costs' => '最近支出',
     'projects_due_soon' => '即将到期项目',
 
     // Empty states
@@ -35,6 +36,7 @@ return [
     'no_upcoming_meetings' => '没有已安排的会议',
     'no_overdue_payments' => '没有逾期收款',
     'no_recent_payments' => '暂无最近收款',
+    'no_recent_costs' => '近期暂无支出记录',
 
     // Labels
     'overdue_by' => '已逾期',
