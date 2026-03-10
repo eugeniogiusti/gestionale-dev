@@ -103,18 +103,30 @@ class GitHubService
             return [];
         }
 
-        return Cache::remember("github.{$ownerRepo}.activity", self::CACHE_TTL, function () use ($ownerRepo) {
-            $response = $this->request("repos/{$ownerRepo}/stats/commit_activity", [], true);
-            if (!$response || !is_array($response)) {
-                return [];
-            }
+        // Do not use Cache::remember here — if GitHub returns 202 (still computing)
+        // we get an empty result and must NOT cache it, otherwise the heatmap stays
+        // empty for the entire TTL even after GitHub finishes computing.
+        $cacheKey = "github.{$ownerRepo}.activity";
 
-            return array_map(fn ($week) => [
-                'week' => $week['week'] ?? 0,   // Unix timestamp (Sunday)
-                'days' => $week['days'] ?? [],   // [sun, mon, tue, wed, thu, fri, sat]
-                'total' => $week['total'] ?? 0,
-            ], $response);
-        });
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey);
+        }
+
+        $response = $this->request("repos/{$ownerRepo}/stats/commit_activity", [], true);
+
+        if (!$response || !is_array($response)) {
+            return []; // 202 or error — don't cache, retry on next request
+        }
+
+        $data = array_map(fn ($week) => [
+            'week'  => $week['week'] ?? 0,
+            'days'  => $week['days'] ?? [],
+            'total' => $week['total'] ?? 0,
+        ], $response);
+
+        Cache::put($cacheKey, $data, self::CACHE_TTL);
+
+        return $data;
     }
 
     /**
