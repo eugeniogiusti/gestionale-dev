@@ -6,6 +6,7 @@ use App\Models\BusinessSettings;
 use App\Models\Cost;
 use App\Models\Payment;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Annual trend chart data for the dashboard.
@@ -50,12 +51,19 @@ class DashboardChartQuery
         });
     }
 
+    private function monthExpr(): string
+    {
+        return DB::connection()->getDriverName() === 'sqlite'
+            ? "strftime('%Y-%m', paid_at)"
+            : "DATE_FORMAT(paid_at, '%Y-%m')";
+    }
+
     private function getMonthlyPayments(Collection $months): array
     {
         $payments = Payment::paid()
             ->where('currency', $this->currency)
             ->thisYear()
-            ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
+            ->selectRaw("{$this->monthExpr()} as month, SUM(amount) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
 
@@ -66,7 +74,7 @@ class DashboardChartQuery
     {
         $costs = Cost::where('currency', $this->currency)
             ->thisYear()
-            ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
+            ->selectRaw("{$this->monthExpr()} as month, SUM(amount) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
 

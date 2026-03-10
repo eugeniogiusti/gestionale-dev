@@ -15,8 +15,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // 1. Drop existing indexes (SQLite keeps them globally)
+        // 1. Drop foreign keys first, then indexes (required by MySQL)
         Schema::table('costs', function (Blueprint $table) {
+            $table->dropForeign(['project_id']);
             $table->dropIndex(['project_id', 'paid_at']);
             $table->dropIndex(['type', 'recurring']);
             $table->dropIndex(['currency']);

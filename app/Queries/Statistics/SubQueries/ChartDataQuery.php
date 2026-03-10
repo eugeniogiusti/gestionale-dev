@@ -7,6 +7,7 @@ use App\Models\Cost;
 use App\Models\Payment;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Chart data for the statistics page (sub-query of StatisticsQuery).
@@ -79,12 +80,19 @@ class ChartDataQuery
         ];
     }
 
+    private function dateExpr(string $format): string
+    {
+        return DB::connection()->getDriverName() === 'sqlite'
+            ? "strftime('{$format}', paid_at)"
+            : "DATE_FORMAT(paid_at, '{$format}')";
+    }
+
     private function getMonthlyPayments(): Collection
     {
         return Payment::paid()
             ->where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', paid_at) as period, SUM(amount) as total")
+            ->selectRaw("{$this->dateExpr('%Y-%m')} as period, SUM(amount) as total")
             ->groupBy('period')
             ->pluck('total', 'period');
     }
@@ -93,7 +101,7 @@ class ChartDataQuery
     {
         return Cost::where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', paid_at) as period, SUM(amount) as total")
+            ->selectRaw("{$this->dateExpr('%Y-%m')} as period, SUM(amount) as total")
             ->groupBy('period')
             ->pluck('total', 'period');
     }
@@ -104,7 +112,7 @@ class ChartDataQuery
             ->where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->whereMonth('paid_at', $this->month)
-            ->selectRaw("strftime('%Y-%m-%d', paid_at) as period, SUM(amount) as total")
+            ->selectRaw("{$this->dateExpr('%Y-%m-%d')} as period, SUM(amount) as total")
             ->groupBy('period')
             ->pluck('total', 'period');
     }
@@ -114,7 +122,7 @@ class ChartDataQuery
         return Cost::where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
             ->whereMonth('paid_at', $this->month)
-            ->selectRaw("strftime('%Y-%m-%d', paid_at) as period, SUM(amount) as total")
+            ->selectRaw("{$this->dateExpr('%Y-%m-%d')} as period, SUM(amount) as total")
             ->groupBy('period')
             ->pluck('total', 'period');
     }
