@@ -39,7 +39,7 @@ IndieDesk is opinionated, but intentionally simple.
 - Blade
 - Tailwind CSS
 - Alpine.js
-- SQLite
+- SQLite/Mysql
 
 
 ---
@@ -51,7 +51,7 @@ IndieDesk is opinionated, but intentionally simple.
 - PHP 8.4
 - Composer
 - Node.js
-- SQLite
+- SQLite/Mysql
 
 Here the documentation:
 
