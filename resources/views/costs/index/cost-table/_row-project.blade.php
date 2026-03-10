@@ -8,11 +8,8 @@
         <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">
             {{ $cost->project->client->name }}
         </div>
-    @else
-        <div class="mt-1">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400">
-                {{ __('projects.internal_project') }}
-            </span>
-        </div>
     @endif
+    <div class="mt-1">
+        <x-projects.type-badge :type="$cost->project->type" />
+    </div>
 </td>

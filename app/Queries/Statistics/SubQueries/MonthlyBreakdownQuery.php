@@ -63,12 +63,20 @@ class MonthlyBreakdownQuery
         ]);
     }
 
+    private function dateExpr(string $column): string
+    {
+        return match(config('database.default')) {
+            'mysql' => "DATE_FORMAT({$column}, '%Y-%m')",
+            default => "strftime('%Y-%m', {$column})",
+        };
+    }
+
     private function getPaymentsData(): Collection
     {
         return Payment::paid()
             ->where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
+            ->selectRaw($this->dateExpr('paid_at') . " as month, SUM(amount) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
     }
@@ -77,7 +85,7 @@ class MonthlyBreakdownQuery
     {
         return Cost::where('currency', $this->currency)
             ->whereYear('paid_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', paid_at) as month, SUM(amount) as total")
+            ->selectRaw($this->dateExpr('paid_at') . " as month, SUM(amount) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
     }
@@ -85,7 +93,7 @@ class MonthlyBreakdownQuery
     private function getProjectsData(): Collection
     {
         return Project::whereYear('created_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', created_at) as month, COUNT(*) as total")
+            ->selectRaw($this->dateExpr('created_at') . " as month, COUNT(*) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
     }
@@ -94,7 +102,7 @@ class MonthlyBreakdownQuery
     {
         return Task::where('status', 'done')
             ->whereYear('updated_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', updated_at) as month, COUNT(*) as total")
+            ->selectRaw($this->dateExpr('updated_at') . " as month, COUNT(*) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
     }
@@ -102,7 +110,7 @@ class MonthlyBreakdownQuery
     private function getClientsData(): Collection
     {
         return Client::whereYear('created_at', $this->year)
-            ->selectRaw("strftime('%Y-%m', created_at) as month, COUNT(*) as total")
+            ->selectRaw($this->dateExpr('created_at') . " as month, COUNT(*) as total")
             ->groupBy('month')
             ->pluck('total', 'month');
     }

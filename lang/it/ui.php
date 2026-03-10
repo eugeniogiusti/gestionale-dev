@@ -16,5 +16,9 @@ return [
     'none'   => 'Nessuno',
     'search' => 'Cerca',
     'view_all' => 'Vedi Tutti',
-    'not_set' => 'N/D',
+    'not_set'     => 'N/D',
+    'choose_file' => 'Scegli file',
+    'or_drag'     => 'o trascina qui',
+    'download'    => 'Scarica',
+    'preview'     => 'Anteprima',
 ];

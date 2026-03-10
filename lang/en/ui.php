@@ -16,5 +16,9 @@ return [
     'none'   => 'None',
     'search' => 'Search',
     'view_all' => 'View All',
-    'not_set' => 'N/A',
+    'not_set'     => 'N/A',
+    'choose_file' => 'Choose file',
+    'or_drag'     => 'or drag and drop',
+    'download'    => 'Download',
+    'preview'     => 'Preview',
 ];

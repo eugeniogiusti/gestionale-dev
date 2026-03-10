@@ -12,6 +12,8 @@ import paymentModal from './components/paymentModal';
 import uploadInvoiceModal from './components/uploadInvoiceModal';
 import costModal from './components/costModal';
 import receiptUploadModal from './components/receiptUploadModal';
+import taxModal from './components/taxModal';
+import taxAttachmentModal from './components/taxAttachmentModal';
 import documentModal from './components/documentModal';
 import labelModal from './components/labelModal';
 import annualTrendChart from './components/annualTrendChart';
@@ -42,6 +44,8 @@ window.paymentModal = paymentModal;
 window.uploadInvoiceModal = uploadInvoiceModal;
 window.costModal = costModal;
 window.receiptUploadModal = receiptUploadModal;
+window.taxModal = taxModal;
+window.taxAttachmentModal = taxAttachmentModal;
 window.documentModal = documentModal;
 
 Alpine.start()

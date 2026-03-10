@@ -27,6 +27,8 @@ use App\Http\Controllers\Labels\LabelController;
 use App\Http\Controllers\Statistics\StatisticsController;
 use App\Http\Controllers\Trash\TrashController;
 use App\Http\Controllers\Timesheets\TimesheetController;
+use App\Http\Controllers\Taxes\TaxController;
+use App\Http\Controllers\Taxes\TaxAttachmentController;
 
 // Redirect root to login
 Route::get('/', fn () => redirect()->route('login'));
@@ -313,7 +315,25 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     Route::get('/statistics/export-pdf', [StatisticsController::class, 'exportPdf'])->name('statistics.export-pdf');
 
     // ==========================================
-    // TRASH MODULE 
+    // TAXES MODULE
+    // ==========================================
+
+    Route::prefix('taxes')->name('taxes.')->group(function () {
+        Route::get('/', [TaxController::class, 'index'])->name('index');
+        Route::post('/', [TaxController::class, 'store'])->name('store');
+        Route::put('/{tax}', [TaxController::class, 'update'])->name('update');
+        Route::delete('/{tax}', [TaxController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('taxes/{tax}/attachment')->name('taxes.attachment.')->group(function () {
+        Route::post('/', [TaxAttachmentController::class, 'upload'])->name('upload');
+        Route::get('/download', [TaxAttachmentController::class, 'download'])->name('download');
+        Route::get('/preview', [TaxAttachmentController::class, 'preview'])->name('preview');
+        Route::delete('/', [TaxAttachmentController::class, 'destroy'])->name('destroy');
+    });
+
+    // ==========================================
+    // TRASH MODULE
     // ==========================================
 
     Route::prefix('trash')->name('trash.')->group(function () {
