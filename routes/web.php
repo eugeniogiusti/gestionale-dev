@@ -15,6 +15,7 @@ use App\Http\Controllers\Projects\ProjectController;
 use App\Http\Controllers\Api\Clients\ClientSearchController;
 use App\Http\Controllers\Api\Projects\ProjectSearchController;
 use App\Http\Controllers\Projects\ProjectChatController;
+use App\Http\Controllers\Projects\ProjectEditorController;
 use App\Http\Controllers\Projects\ProjectRepositoryController;
 use App\Http\Controllers\Tasks\TaskController;
 use App\Http\Controllers\Meetings\MeetingController;
@@ -132,6 +133,16 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
     Route::prefix('projects/{project}')->group(function () {
         Route::get('/repository', ProjectRepositoryController::class)->name('projects.repository');
+    });
+
+    // ==========================================
+    // PROJECTS — EDITOR
+    // ==========================================
+
+    Route::prefix('projects/{project}/editor')->name('projects.editor.')->group(function () {
+        Route::put('/', [ProjectEditorController::class, 'update'])->name('update');
+        Route::post('/images', [ProjectEditorController::class, 'uploadImage'])->name('image.upload');
+        Route::get('/images/{filename}', [ProjectEditorController::class, 'serveImage'])->name('image');
     });
 
     // ==========================================

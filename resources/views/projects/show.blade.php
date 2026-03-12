@@ -9,7 +9,7 @@
                 {{-- SIDEBAR (1/4) --}}
                 <div class="lg:col-span-1 space-y-6">
                     @include('projects.show._client-info')
-                    @include('projects.show._project-stats')
+                    @include('projects.show._quick-info')
                     @include('projects.show._quick-links')
                 </div>
 

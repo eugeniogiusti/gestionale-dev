@@ -33,6 +33,7 @@ class Project extends Model implements CalendarEventable
         'figma_url',
         'docs_url',
         'notes',
+        'editor_notes',
         'start_date',
         'due_date',
         'hourly_rate',

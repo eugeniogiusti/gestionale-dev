@@ -1,3 +1,5 @@
+@import 'trix/dist/trix.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,4 +32,63 @@ input[type="datetime-local"] {
 .dark input[type="date"],
 .dark input[type="datetime-local"] {
     color-scheme: dark;
+}
+
+/*
+ * Trix editor — hide undo/redo group (not needed)
+ */
+trix-toolbar .trix-button-group--history-tools {
+    display: none !important;
+}
+
+/*
+ * Trix editor — hide raw file input rendered by the browser next to the paperclip
+ */
+trix-toolbar input[type=file] {
+    display: none !important;
+}
+
+/*
+ * Trix editor — dark mode overrides
+ */
+.dark trix-toolbar .trix-button-row {
+    background-color: rgb(31 41 55); /* gray-800 */
+    border-color: rgb(75 85 99);     /* gray-600 */
+}
+
+.dark trix-toolbar .trix-button {
+    color: rgb(209 213 219);         /* gray-300 */
+    border-color: rgb(75 85 99);
+}
+
+.dark trix-toolbar .trix-button:not(:disabled):hover {
+    background-color: rgb(55 65 81); /* gray-700 */
+    color: rgb(255 255 255);
+}
+
+.dark trix-toolbar .trix-button.trix-active {
+    background-color: rgb(55 65 81);
+    color: rgb(255 255 255);
+}
+
+.dark trix-toolbar .trix-button--icon::before {
+    filter: invert(1);
+}
+
+.dark trix-toolbar .trix-button-group {
+    border-color: rgb(75 85 99);
+}
+
+.dark trix-toolbar .trix-button-group-spacer {
+    display: none;
+}
+
+.dark trix-editor {
+    background-color: rgb(17 24 39);  /* gray-900 */
+    color: rgb(229 231 235);           /* gray-200 */
+    border-color: rgb(75 85 99);
+}
+
+.dark .trix-content a {
+    color: rgb(96 165 250);            /* blue-400 */
 }

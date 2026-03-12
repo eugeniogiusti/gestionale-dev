@@ -181,6 +181,12 @@ return [
         'of_total' => 'of total',
     ],
 
+    // Editor
+    'editor_tab' => 'Editor',
+    'editor_saved' => 'Notes saved successfully.',
+    'editor_image_invalid_type' => 'Unsupported format. Use PNG, JPG or GIF.',
+    'editor_image_upload_error' => 'Error uploading image.',
+
     // Repository (GitHub)
     'repository' => 'Repository',
     'commit_activity' => 'Commit Activity',

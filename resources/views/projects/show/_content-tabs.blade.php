@@ -3,8 +3,8 @@
      x-cloak>
     
     {{-- Tabs Navigation --}}
-    <div class="border-b border-gray-200 dark:border-gray-700">
-        <nav class="flex -mb-px">
+    <div class="border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
+        <nav class="flex -mb-px min-w-max">
             <button 
                 @click="activeTab = 'overview'"
                 :class="activeTab === 'overview' 
@@ -127,6 +127,20 @@
                 {{ __('timesheets.title') }}
             </button>
 
+            {{-- TAB EDITOR --}}
+            <button
+                @click="activeTab = 'editor'"
+                :class="activeTab === 'editor'
+                    ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
+                class="px-6 py-4 border-b-2 font-medium text-sm transition flex flex-col items-center gap-1">
+                <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+                {{ __('projects.editor_tab') }}
+            </button>
+
             {{-- TAB REPOSITORY (only if GitHub repo is configured) --}}
             @if($project->repo_url && str_contains($project->repo_url, 'github.com'))
             <button
@@ -187,6 +201,11 @@
         <div x-show="activeTab === 'timesheets'" x-cloak>
             @include('projects.show._tab-timesheets')
         </div>
+
+        {{-- TAB: Editor --}}
+        <template x-if="activeTab === 'editor'">
+            <div>@include('projects.show._tab-editor')</div>
+        </template>
 
         {{-- TAB: Repository --}}
         @if($project->repo_url && str_contains($project->repo_url, 'github.com'))

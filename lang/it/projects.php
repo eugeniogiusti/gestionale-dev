@@ -184,6 +184,12 @@ return [
     ],
     
 
+    // Editor
+    'editor_tab' => 'Editor',
+    'editor_saved' => 'Note salvate con successo.',
+    'editor_image_invalid_type' => 'Formato non supportato. Usa PNG, JPG o GIF.',
+    'editor_image_upload_error' => 'Errore durante il caricamento dell\'immagine.',
+
     // Repository (GitHub)
     'repository' => 'Repository',
     'commit_activity' => 'Attività commit',
