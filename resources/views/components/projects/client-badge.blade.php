@@ -2,9 +2,10 @@
 
 @if($client)
     <div class="space-y-1">
-        <div class="text-sm font-medium text-gray-900 dark:text-white">
+        <a href="{{ route('clients.show', $client) }}"
+           class="text-sm font-medium text-gray-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
             {{ $client->name }}
-        </div>
+        </a>
 
         @if(!empty($client->vat_number))
             <x-vat-display :vat="$client->vat_number" />

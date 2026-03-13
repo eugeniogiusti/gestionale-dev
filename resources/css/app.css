@@ -92,3 +92,39 @@ trix-toolbar input[type=file] {
 .dark .trix-content a {
     color: rgb(96 165 250);            /* blue-400 */
 }
+
+/*
+ * Trix editor — dark mode: link dialog
+ */
+.dark trix-toolbar .trix-dialog {
+    background-color: rgb(31 41 55);   /* gray-800 */
+    border-color: rgb(75 85 99);       /* gray-600 */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+.dark trix-toolbar .trix-dialog__link-fields {
+    border-color: rgb(75 85 99);
+}
+
+.dark trix-toolbar .trix-dialog input[type=text],
+.dark trix-toolbar .trix-dialog input[type=url] {
+    background-color: rgb(17 24 39);   /* gray-900 */
+    color: rgb(229 231 235);           /* gray-200 */
+    border-color: rgb(75 85 99);
+}
+
+.dark trix-toolbar .trix-dialog input[type=text]::placeholder,
+.dark trix-toolbar .trix-dialog input[type=url]::placeholder {
+    color: rgb(107 114 128);           /* gray-500 */
+}
+
+.dark trix-toolbar .trix-dialog .trix-button {
+    background-color: rgb(55 65 81);   /* gray-700 */
+    color: rgb(209 213 219);           /* gray-300 */
+    border-color: rgb(75 85 99);
+}
+
+.dark trix-toolbar .trix-dialog .trix-button:hover {
+    background-color: rgb(75 85 99);   /* gray-600 */
+    color: rgb(255 255 255);
+}

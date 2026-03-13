@@ -17,7 +17,7 @@
         @include('tasks.partials._task-table', ['tasks' => $showData['tasks'], 'project' => $project])
 
         {{-- Link Vedi tutti --}}
-        @if($showData['tasksCount'] > 10)
+        @if($showData['tasksCount'] > 50)
             <div class="text-center">
                 <a href="{{ route('tasks.index', ['project_id' => $project->id]) }}"
                    class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 font-medium">

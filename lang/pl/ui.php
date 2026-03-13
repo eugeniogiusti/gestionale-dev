@@ -17,4 +17,6 @@ return [
     'search' => 'Szukaj',
     'view_all' => 'Zobacz wszystkie',
     'not_set' => 'N/D',
+    'saved'        => 'Zapisano',
+    'error_saving' => 'Błąd zapisu',
 ];

@@ -17,4 +17,6 @@ return [
     'search' => '搜索',
     'view_all' => '查看全部',
     'not_set' => '未设置',
+    'saved'        => '已保存',
+    'error_saving' => '保存出错',
 ];

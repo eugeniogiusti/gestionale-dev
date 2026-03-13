@@ -17,4 +17,6 @@ return [
     'search' => 'Zoeken',
     'view_all' => 'Alles bekijken',
     'not_set' => 'n.v.t.',
+    'saved'        => 'Opgeslagen',
+    'error_saving' => 'Fout bij opslaan',
 ];

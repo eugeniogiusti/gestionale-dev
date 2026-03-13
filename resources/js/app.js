@@ -19,6 +19,7 @@ import labelModal from './components/labelModal';
 import annualTrendChart from './components/annualTrendChart';
 import repositoryTab from './components/repositoryTab';
 import taskToggle from './components/taskToggle';
+import inlineField from './components/inlineField';
 import aiChat from './components/ai-chat/index';
 import 'trix';
 
@@ -87,6 +88,7 @@ Alpine.data('labelModal', labelModal);
 Alpine.data('annualTrendChart', annualTrendChart);
 Alpine.data('repositoryTab', repositoryTab);
 Alpine.data('taskToggle', taskToggle);
+Alpine.data('inlineField', inlineField);
 Alpine.data('aiChat', aiChat);
 
 // Modal components (Alpine-based)

@@ -109,6 +109,9 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Resource routes for projects (index, create, store, show, edit, update, destroy)
     Route::resource('projects', ProjectController::class);
 
+    // Inline field patch (description, notes)
+    Route::patch('/projects/{project}/field', [ProjectController::class, 'patchField'])->name('projects.patch-field');
+
     // Restore and force delete
     Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');

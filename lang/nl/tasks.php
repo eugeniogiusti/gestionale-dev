@@ -19,11 +19,13 @@ return [
     
     // Types
     'type_feature' => 'Feature',
+    'type_improvement' => 'Verbetering',
     'type_bug' => 'Bug',
     'type_infra' => 'Infra',
     'type_refactor' => 'Refactor',
     'type_research' => 'Research',
     'type_administrative' => 'Administratief',
+    'type_marketing' => 'Marketing',
     
     // Statuses
     'status_todo' => 'Te doen',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => 'Achterstallig',
+    'due_today' => 'Vandaag',
     'due_soon' => 'Binnenkort vervalt',
     'no_due_date' => 'Geen vervaldatum',
     

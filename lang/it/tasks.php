@@ -19,11 +19,13 @@ return [
     
     // Types
     'type_feature' => 'Feature',
+    'type_improvement' => 'Miglioramento',
     'type_bug' => 'Bug',
     'type_infra' => 'Infra',
     'type_refactor' => 'Refactor',
     'type_research' => 'Research',
     'type_administrative' => 'Amministrativo',
+    'type_marketing' => 'Marketing',
     
     // Statuses
     'status_todo' => 'Da fare',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => 'Scaduto',
+    'due_today' => 'Da fare oggi',
     'due_soon' => 'In scadenza',
     'no_due_date' => 'Nessuna scadenza',
     

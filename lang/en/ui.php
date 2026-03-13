@@ -21,4 +21,6 @@ return [
     'or_drag'     => 'or drag and drop',
     'download'    => 'Download',
     'preview'     => 'Preview',
+    'saved'        => 'Saved',
+    'error_saving' => 'Error saving',
 ];

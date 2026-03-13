@@ -17,4 +17,6 @@ return [
     'search' => 'Caută',
     'view_all' => 'Vezi toate',
     'not_set' => 'N/S',
+    'saved'        => 'Salvat',
+    'error_saving' => 'Eroare la salvare',
 ];

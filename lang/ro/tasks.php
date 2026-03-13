@@ -19,11 +19,13 @@ return [
 
     // Types
     'type_feature' => 'Funcționalitate',
+    'type_improvement' => 'Îmbunătățire',
     'type_bug' => 'Bug',
     'type_infra' => 'Infrastructură',
     'type_refactor' => 'Refactorizare',
     'type_research' => 'Cercetare',
     'type_administrative' => 'Administrativ',
+    'type_marketing' => 'Marketing',
 
     // Statuses
     'status_todo' => 'De făcut',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => 'Întârziat',
+    'due_today' => 'Azi',
     'due_soon' => 'Scadent curând',
     'no_due_date' => 'Fără scadență',
 

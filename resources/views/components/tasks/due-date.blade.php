@@ -8,7 +8,11 @@
             {{ $date->format('d/m/Y') }}
         </span>
 
-        @if($date->isPast())
+        @if($date->isToday())
+            <span class="text-xs text-blue-500 dark:text-blue-400">
+                {{ __('tasks.due_today') }}
+            </span>
+        @elseif($date->isPast())
             <span class="text-xs text-red-500 dark:text-red-400">
                 {{ __('tasks.overdue') }}
             </span>

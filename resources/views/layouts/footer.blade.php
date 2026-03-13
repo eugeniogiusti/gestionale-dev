@@ -6,7 +6,7 @@
             <div class="flex items-center gap-3">
                 <span class="font-medium text-gray-900 dark:text-white">IndieDesk</span>
                 <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 px-2 py-0.5 rounded">
-                    v1.0.9
+                    v1.0.11
                 </span>
             </div>
             

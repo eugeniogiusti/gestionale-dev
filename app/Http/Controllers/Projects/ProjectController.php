@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Projects\StoreProjectRequest;
 use App\Http\Requests\Projects\UpdateProjectRequest;
+use App\Http\Requests\Projects\PatchProjectFieldRequest;
 use App\Queries\Projects\ProjectIndexQuery;
 use App\Queries\Projects\ProjectStatsQuery;
 use App\Queries\Projects\ProjectProfitStatsQuery;
@@ -70,6 +71,18 @@ class ProjectController extends Controller
         // Otherwise, return to index
         return redirect()->route('projects.index')
             ->with('success', __('projects.updated_successfully'));
+    }
+
+    /**
+     * Patch a single nullable text field inline (description, notes).
+     */
+    public function patchField(PatchProjectFieldRequest $request, Project $project)
+    {
+        $project->update([
+            $request->validated('field') => $request->validated('value'),
+        ]);
+
+        return response()->json(['ok' => true]);
     }
 
     /**

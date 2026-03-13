@@ -39,11 +39,13 @@ class Task extends Model implements CalendarEventable
 
     public const TYPES = [
         'feature',
+        'improvement',
         'bug',
         'infra',
         'refactor',
         'research',
         'administrative',
+        'marketing',
     ];
 
     public const STATUSES = [

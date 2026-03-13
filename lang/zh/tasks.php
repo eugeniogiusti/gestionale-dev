@@ -19,11 +19,13 @@ return [
 
     // Types
     'type_feature' => '功能',
+    'type_improvement' => '改进',
     'type_bug' => '缺陷',
     'type_infra' => '基础设施',
     'type_refactor' => '重构',
     'type_research' => '调研',
     'type_administrative' => '行政',
+    'type_marketing' => '市场营销',
 
     // Statuses
     'status_todo' => '待办',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => '已逾期',
+    'due_today' => '今天到期',
     'due_soon' => '即将到期',
     'no_due_date' => '无截止日期',
 

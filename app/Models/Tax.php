@@ -8,6 +8,7 @@ use App\Services\Calendar\GoogleCalendarLinkBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use App\Models\BusinessSettings;
 
 class Tax extends Model implements CalendarEventable
 {
@@ -149,7 +150,10 @@ class Tax extends Model implements CalendarEventable
         $lines[] = '💰 ' . mb_strtoupper(__('taxes.title'));
         $lines[] = '────────────────';
         $lines[] = __('taxes.description') . ': ' . $this->description;
-        $lines[] = __('taxes.amount') . ': ' . number_format($this->amount, 2, ',', '.') . ' €';
+        $settings        = BusinessSettings::current();
+        $currencyCode    = $settings->default_currency ?? 'EUR';
+        $currencySymbol  = BusinessSettings::CURRENCIES[$currencyCode] ?? $currencyCode;
+        $lines[] = __('taxes.amount') . ': ' . number_format($this->amount, 2, ',', '.') . ' ' . $currencySymbol;
         $lines[] = __('taxes.reference_year') . ': ' . $this->reference_year;
         $lines[] = __('taxes.due_date') . ': ' . $this->due_date->format('d/m/Y');
 

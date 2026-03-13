@@ -17,7 +17,7 @@
         @include('payments.partials._payment-table', ['payments' => $showData['payments'], 'project' => $project])
 
         {{-- Link  --}}
-        @if($showData['paymentsCount'] > 10)
+        @if($showData['paymentsCount'] > 50)
             <div class="text-center">
                 <a href="{{ route('payments.index', ['project_id' => $project->id]) }}"
                    class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 font-medium">

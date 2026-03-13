@@ -17,7 +17,7 @@ class ProjectShowQuery
 {
     public function __construct(
         private Project $project,
-        private int $limit = 10
+        private int $limit = 50
     ) {}
 
     public function handle(): array

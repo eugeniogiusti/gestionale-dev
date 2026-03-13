@@ -19,11 +19,13 @@ return [
     
     // Types
     'type_feature' => 'Feature',
+    'type_improvement' => 'Forbedring',
     'type_bug' => 'Bug',
     'type_infra' => 'Infra',
     'type_refactor' => 'Refactor',
     'type_research' => 'Research',
     'type_administrative' => 'Administrativ',
+    'type_marketing' => 'Marketing',
     
     // Statuses
     'status_todo' => 'At gøre',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => 'Forsinket',
+    'due_today' => 'I dag',
     'due_soon' => 'Snart forfald',
     'no_due_date' => 'Ingen forfaldsdate',
     

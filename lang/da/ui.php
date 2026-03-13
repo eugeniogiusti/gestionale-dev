@@ -17,4 +17,6 @@ return [
     'search' => 'Søg',
     'view_all' => 'Se alle',
     'not_set' => 'N/A',
+    'saved'        => 'Gemt',
+    'error_saving' => 'Fejl ved gemning',
 ];

@@ -1,8 +1,9 @@
 @props(['client'])
 
-<div class="text-sm font-medium text-gray-900 dark:text-gray-100">
+<a href="{{ route('clients.show', $client) }}"
+   class="text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
     {{ $client->name }}
-</div>
+</a>
 
 @if(!empty($client->vat_number))
     <div class="mt-1">

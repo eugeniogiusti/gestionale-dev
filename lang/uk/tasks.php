@@ -19,11 +19,13 @@ return [
 
     // Types
     'type_feature' => 'Функціонал',
+    'type_improvement' => 'Покращення',
     'type_bug' => 'Баг',
     'type_infra' => 'Інфраструктура',
     'type_refactor' => 'Рефакторинг',
     'type_research' => 'Дослідження',
     'type_administrative' => 'Адміністративні',
+    'type_marketing' => 'Маркетинг',
 
     // Statuses
     'status_todo' => 'До виконання',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => 'Прострочено',
+    'due_today' => 'Сьогодні',
     'due_soon' => 'Незабаром',
     'no_due_date' => 'Без терміну',
 

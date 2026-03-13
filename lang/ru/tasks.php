@@ -19,11 +19,13 @@ return [
 
     // Types
     'type_feature' => 'Feature',
+    'type_improvement' => 'Улучшение',
     'type_bug' => 'Bug',
     'type_infra' => 'Infra',
     'type_refactor' => 'Refactor',
     'type_research' => 'Research',
     'type_administrative' => 'Административная',
+    'type_marketing' => 'Маркетинг',
 
     // Statuses
     'status_todo' => 'К выполнению',
@@ -64,6 +66,7 @@ return [
 
     // Due date states
     'overdue' => 'Просрочена',
+    'due_today' => 'Сегодня',
     'due_soon' => 'Скоро срок',
     'no_due_date' => 'Без срока',
 

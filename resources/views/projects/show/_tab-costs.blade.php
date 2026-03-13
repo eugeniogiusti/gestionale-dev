@@ -17,7 +17,7 @@
         @include('costs.partials._cost-table', ['costs' => $showData['costs'], 'project' => $project])
 
         {{-- Link  --}}
-        @if($showData['costsCount'] > 10)
+        @if($showData['costsCount'] > 50)
             <div class="text-center">
                 <a href="{{ route('costs.index', ['project_id' => $project->id]) }}"
                    class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 font-medium">

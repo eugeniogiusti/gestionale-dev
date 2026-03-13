@@ -1,8 +1,8 @@
 {{-- Project Cell --}}
 <td class="px-6 py-4 whitespace-nowrap">
     <div class="text-sm font-medium text-gray-900 dark:text-white">
-        <a href="{{ route('projects.show', $task->project) }}"
-           class="hover:underline">
+        <a href="{{ route('projects.show', [$task->project, 'tab' => 'tasks']) }}"
+           class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
             {{ $task->project->name }}
         </a>
     </div>

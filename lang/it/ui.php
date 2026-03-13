@@ -21,4 +21,6 @@ return [
     'or_drag'     => 'o trascina qui',
     'download'    => 'Scarica',
     'preview'     => 'Anteprima',
+    'saved'        => 'Salvato',
+    'error_saving' => 'Errore durante il salvataggio',
 ];

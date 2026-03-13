@@ -17,7 +17,7 @@
         @include('documents.partials._document-table', ['documents' => $showData['documents']])
 
         {{-- Link  --}}
-        @if($showData['documentsCount'] > 10)
+        @if($showData['documentsCount'] > 50)
             <div class="text-center">
                 <a href="{{ route('documents.index', ['project_id' => $project->id]) }}"
                    class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 font-medium">
