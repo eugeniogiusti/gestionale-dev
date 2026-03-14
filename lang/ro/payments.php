@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Plăți',
-    'subtitle' => 'Urmărește plățile primite de la clienți',
+    'subtitle' => 'Gestionează plățile legate de proiectele tale',
     'payment_list' => 'Lista plăților',
     'create_payment' => 'Creează plată',
     'edit_payment' => 'Editează plata',

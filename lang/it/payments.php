@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Pagamenti',
-    'subtitle' => 'Traccia i pagamenti ricevuti dai clienti',
+    'subtitle' => 'Gestisci i pagamenti legati ai tuoi progetti',
     'payment_list' => 'Lista Pagamenti',
     'create_payment' => 'Crea Pagamento',
     'edit_payment' => 'Modifica Pagamento',

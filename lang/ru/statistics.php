@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Скачать PDF',
     'generated_on' => 'Сформировано',
     'financial_summary' => 'Финансовая сводка',
+
+    'detail_costs' => 'Расходы за Месяц',
+    'detail_payments' => 'Поступления за Месяц',
+    'detail_date' => 'Дата',
+    'detail_project' => 'Проект / Клиент',
+    'detail_type' => 'Тип',
+    'detail_amount' => 'Сумма',
+    'detail_internal' => 'Внутренний',
+    'detail_empty' => 'Нет данных за этот месяц',
 ];

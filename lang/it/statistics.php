@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Scarica PDF',
     'generated_on' => 'Generato il',
     'financial_summary' => 'Riepilogo Finanziario',
+
+    'detail_costs' => 'Costi del Mese',
+    'detail_payments' => 'Incassi del Mese',
+    'detail_date' => 'Data',
+    'detail_project' => 'Progetto / Cliente',
+    'detail_type' => 'Tipo',
+    'detail_amount' => 'Importo',
+    'detail_internal' => 'Interno',
+    'detail_empty' => 'Nessun dato per questo mese',
 ];

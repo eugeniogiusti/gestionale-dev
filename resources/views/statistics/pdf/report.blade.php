@@ -9,6 +9,7 @@
     @include('statistics.pdf.partials._header')
     @include('statistics.pdf.partials._summary')
     @include('statistics.pdf.partials._monthly-table')
+    @include('statistics.pdf.partials._monthly-detail')
     @include('statistics.pdf.partials._footer')
 </body>
 </html>

@@ -39,7 +39,7 @@ return [
     'type_license' => 'Лицензия',
     'type_ads' => 'Реклама',
     'type_service' => 'Сервис',
-    'type_travel' => 'Командировка',
+    'type_travel' => 'Транспорт/Поездки',
 
     'period_monthly' => 'Ежемесячно',
     'period_yearly' => 'Ежегодно',

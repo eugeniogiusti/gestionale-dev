@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Betalingen',
-    'subtitle' => 'Volg ontvangen betalingen van klanten',
+    'subtitle' => 'Beheer betalingen gekoppeld aan uw projecten',
     'payment_list' => 'Betaallijst',
     'create_payment' => 'Betaling aanmaken',
     'edit_payment' => 'Betaling bewerken',

@@ -36,5 +36,10 @@
             @include('statistics._monthly-table')
         @endif
 
+        {{-- Monthly Detail: costs & payments per row (solo vista mese) --}}
+        @if($stats['detail'])
+            @include('statistics._monthly-detail')
+        @endif
+
     </div>
 </x-app-layout>

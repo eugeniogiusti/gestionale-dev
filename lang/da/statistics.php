@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Download PDF',
     'generated_on' => 'Genereret den',
     'financial_summary' => 'Finansielt resumé',
+
+    'detail_costs' => 'Månedsomkostninger',
+    'detail_payments' => 'Månedlige Betalinger',
+    'detail_date' => 'Dato',
+    'detail_project' => 'Projekt / Kunde',
+    'detail_type' => 'Type',
+    'detail_amount' => 'Beløb',
+    'detail_internal' => 'Intern',
+    'detail_empty' => 'Ingen data for denne måned',
 ];

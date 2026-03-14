@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Descarcă PDF',
     'generated_on' => 'Generat la',
     'financial_summary' => 'Rezumat financiar',
+
+    'detail_costs' => 'Costuri Lunare',
+    'detail_payments' => 'Plăți Lunare',
+    'detail_date' => 'Dată',
+    'detail_project' => 'Proiect / Client',
+    'detail_type' => 'Tip',
+    'detail_amount' => 'Sumă',
+    'detail_internal' => 'Intern',
+    'detail_empty' => 'Nu există date pentru această lună',
 ];

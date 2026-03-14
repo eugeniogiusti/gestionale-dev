@@ -2,7 +2,7 @@
 
 return [
     'title' => '收款',
-    'subtitle' => '跟踪客户付款',
+    'subtitle' => '管理与项目相关的付款',
     'payment_list' => '收款列表',
     'create_payment' => '创建收款',
     'edit_payment' => '编辑收款',

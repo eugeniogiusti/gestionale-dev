@@ -39,7 +39,7 @@ return [
     'type_license' => 'Ліцензія',
     'type_ads' => 'Реклама',
     'type_service' => 'Сервіс',
-    'type_travel' => 'Відрядження',
+    'type_travel' => 'Транспорт/Подорожі',
 
     'period_monthly' => 'Щомісяця',
     'period_yearly' => 'Щороку',

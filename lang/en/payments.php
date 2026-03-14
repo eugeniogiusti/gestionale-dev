@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Payments',
-    'subtitle' => 'Track payments received from clients',
+    'subtitle' => 'Manage payments linked to your projects',
     'payment_list' => 'Payment List',
     'create_payment' => 'Create Payment',
     'edit_payment' => 'Edit Payment',

@@ -26,6 +26,8 @@ return [
     'type_research' => 'Research',
     'type_administrative' => 'Administratif',
     'type_marketing' => 'Marketing',
+    'type_hardware' => 'Matériel',
+    'type_documentation' => 'Documentation',
     
     // Statuses
     'status_todo' => 'À faire',
@@ -66,7 +68,7 @@ return [
 
     // Due date states
     'overdue' => 'En retard',
-    'due_today' => 'Aujourd'hui',
+    'due_today' => "Aujourd'hui",
     'due_soon' => 'À échéance',
     'no_due_date' => 'Aucune échéance',
     

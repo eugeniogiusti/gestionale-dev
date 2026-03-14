@@ -39,7 +39,7 @@ return [
     'type_license' => 'Licență',
     'type_ads' => 'Publicitate',
     'type_service' => 'Serviciu',
-    'type_travel' => 'Deplasare',
+    'type_travel' => 'Transport/Călătorii',
 
     'period_monthly' => 'Lunar',
     'period_yearly' => 'Anual',

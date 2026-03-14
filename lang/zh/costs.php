@@ -39,7 +39,7 @@ return [
     'type_license' => '许可证',
     'type_ads' => '广告',
     'type_service' => '服务',
-    'type_travel' => '差旅',
+    'type_travel' => '交通/出行',
 
     'period_monthly' => '每月',
     'period_yearly' => '每年',

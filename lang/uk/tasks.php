@@ -26,6 +26,8 @@ return [
     'type_research' => 'Дослідження',
     'type_administrative' => 'Адміністративні',
     'type_marketing' => 'Маркетинг',
+    'type_hardware' => 'Обладнання',
+    'type_documentation' => 'Документація',
 
     // Statuses
     'status_todo' => 'До виконання',

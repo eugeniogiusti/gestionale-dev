@@ -39,7 +39,7 @@ return [
     'type_license' => 'Licens',
     'type_ads' => 'Annoncering',
     'type_service' => 'Service',
-    'type_travel' => 'Rejse',
+    'type_travel' => 'Transport/Rejser',
 
     'period_monthly' => 'Månedlig',
     'period_yearly' => 'Årlig',

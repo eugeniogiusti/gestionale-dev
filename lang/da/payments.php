@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Betalinger',
-    'subtitle' => 'Spor betalinger modtaget fra kunder',
+    'subtitle' => 'Administrer betalinger knyttet til dine projekter',
     'payment_list' => 'Betalingsliste',
     'create_payment' => 'Opret betaling',
     'edit_payment' => 'Redigér betaling',

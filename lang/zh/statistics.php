@@ -38,4 +38,13 @@ return [
     'download_pdf' => '下载 PDF',
     'generated_on' => '生成于',
     'financial_summary' => '财务汇总',
+
+    'detail_costs' => '本月费用',
+    'detail_payments' => '本月收款',
+    'detail_date' => '日期',
+    'detail_project' => '项目 / 客户',
+    'detail_type' => '类型',
+    'detail_amount' => '金额',
+    'detail_internal' => '内部',
+    'detail_empty' => '本月无数据',
 ];

@@ -26,6 +26,8 @@ return [
     'type_research' => 'Cercetare',
     'type_administrative' => 'Administrativ',
     'type_marketing' => 'Marketing',
+    'type_hardware' => 'Hardware',
+    'type_documentation' => 'Documentație',
 
     // Statuses
     'status_todo' => 'De făcut',

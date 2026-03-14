@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'PDF downloaden',
     'generated_on' => 'Gegenereerd op',
     'financial_summary' => 'Financiële samenvatting',
+
+    'detail_costs' => 'Maandkosten',
+    'detail_payments' => 'Maandbetalingen',
+    'detail_date' => 'Datum',
+    'detail_project' => 'Project / Klant',
+    'detail_type' => 'Type',
+    'detail_amount' => 'Bedrag',
+    'detail_internal' => 'Intern',
+    'detail_empty' => 'Geen gegevens voor deze maand',
 ];

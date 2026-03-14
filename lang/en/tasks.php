@@ -26,6 +26,8 @@ return [
     'type_research' => 'Research',
     'type_administrative' => 'Administrative',
     'type_marketing' => 'Marketing',
+    'type_hardware' => 'Hardware',
+    'type_documentation' => 'Documentation',
     
     // Statuses
     'status_todo' => 'To Do',

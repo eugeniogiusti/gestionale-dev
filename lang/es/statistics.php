@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Descargar PDF',
     'generated_on' => 'Generado el',
     'financial_summary' => 'Resumen financiero',
+
+    'detail_costs' => 'Costes del Mes',
+    'detail_payments' => 'Cobros del Mes',
+    'detail_date' => 'Fecha',
+    'detail_project' => 'Proyecto / Cliente',
+    'detail_type' => 'Tipo',
+    'detail_amount' => 'Importe',
+    'detail_internal' => 'Interno',
+    'detail_empty' => 'Sin datos para este mes',
 ];

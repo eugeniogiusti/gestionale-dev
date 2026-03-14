@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Zahlungen',
-    'subtitle' => 'Verfolge eingegangene Kundenzahlungen',
+    'subtitle' => 'Zahlungen deiner Projekte verwalten',
     'payment_list' => 'Zahlungsliste',
     'create_payment' => 'Zahlung erstellen',
     'edit_payment' => 'Zahlung bearbeiten',

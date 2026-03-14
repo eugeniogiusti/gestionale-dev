@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Płatności',
-    'subtitle' => 'Śledź płatności otrzymane od klientów',
+    'subtitle' => 'Zarządzaj płatnościami powiązanymi z projektami',
     'payment_list' => 'Lista płatności',
     'create_payment' => 'Utwórz płatność',
     'edit_payment' => 'Edytuj płatność',

@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Download PDF',
     'generated_on' => 'Generated on',
     'financial_summary' => 'Financial Summary',
+
+    'detail_costs' => 'Month Costs',
+    'detail_payments' => 'Month Payments',
+    'detail_date' => 'Date',
+    'detail_project' => 'Project / Client',
+    'detail_type' => 'Type',
+    'detail_amount' => 'Amount',
+    'detail_internal' => 'Internal',
+    'detail_empty' => 'No data for this month',
 ];

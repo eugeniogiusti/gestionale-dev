@@ -38,4 +38,13 @@ return [
     'download_pdf' => 'Завантажити PDF',
     'generated_on' => 'Згенеровано',
     'financial_summary' => 'Фінансовий підсумок',
+
+    'detail_costs' => 'Витрати за Місяць',
+    'detail_payments' => 'Надходження за Місяць',
+    'detail_date' => 'Дата',
+    'detail_project' => 'Проєкт / Клієнт',
+    'detail_type' => 'Тип',
+    'detail_amount' => 'Сума',
+    'detail_internal' => 'Внутрішній',
+    'detail_empty' => 'Немає даних за цей місяць',
 ];

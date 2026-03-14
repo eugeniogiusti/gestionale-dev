@@ -5,6 +5,7 @@ namespace App\Queries\Statistics;
 use App\Queries\Statistics\SubQueries\ChartDataQuery;
 use App\Queries\Statistics\SubQueries\FinancialStatsQuery;
 use App\Queries\Statistics\SubQueries\MonthlyBreakdownQuery;
+use App\Queries\Statistics\SubQueries\MonthlyDetailQuery;
 use App\Queries\Statistics\SubQueries\OperationalStatsQuery;
 use Illuminate\Support\Carbon;
 
@@ -36,7 +37,8 @@ class StatisticsQuery
         return [
             'summary' => $this->getSummary(),
             'monthly' => $this->isFullYear ? $this->getMonthlyBreakdown() : null,
-            'chart' => $this->getChartData(),
+            'detail'  => !$this->isFullYear ? $this->getMonthlyDetail() : null,
+            'chart'   => $this->getChartData(),
         ];
     }
 
@@ -67,6 +69,11 @@ class StatisticsQuery
     private function getMonthlyBreakdown()
     {
         return (new MonthlyBreakdownQuery($this->year))->handle();
+    }
+
+    private function getMonthlyDetail(): array
+    {
+        return (new MonthlyDetailQuery($this->startDate, $this->endDate))->handle();
     }
 
     private function getChartData(): array

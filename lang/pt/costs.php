@@ -39,7 +39,7 @@ return [
     'type_license' => 'Licença',
     'type_ads' => 'Publicidade',
     'type_service' => 'Serviço',
-    'type_travel' => 'Deslocação',
+    'type_travel' => 'Transporte/Viagens',
 
     'period_monthly' => 'Mensal',
     'period_yearly' => 'Anual',
