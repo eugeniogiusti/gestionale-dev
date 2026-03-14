@@ -23,7 +23,7 @@ class StoreDocumentRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'file' => ['required', 'file', 'max:10240', 'mimes:pdf,jpg,jpeg,png'], // 10MB max
+            'file' => ['required', 'file', 'max:30720', 'mimes:pdf,jpg,jpeg,png,webp,zip,7z,rar'], // 30MB max
             'label_ids' => ['nullable', 'array'],
             'label_ids.*' => ['exists:labels,id'],
             'notes' => ['nullable', 'string', 'max:1000'],
