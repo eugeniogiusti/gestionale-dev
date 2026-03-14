@@ -55,6 +55,38 @@ class Client extends Model
     }
 
     /**
+     * Get the followups for the client, ordered by most recent first.
+     */
+    public function followups()
+    {
+        return $this->hasMany(ClientFollowup::class)->orderByDesc('contacted_at');
+    }
+
+    /**
+     * Check if the client is a lead (not yet converted).
+     */
+    public function isLead(): bool
+    {
+        return $this->status === 'lead';
+    }
+
+    /**
+     * Build the WhatsApp wa.me URL from phone prefix + phone.
+     * Returns null if no phone is set.
+     */
+    public function whatsappUrl(): ?string
+    {
+        if (!$this->phone) {
+            return null;
+        }
+
+        $number = preg_replace('/\D/', '', ($this->phone_prefix ?? '') . $this->phone);
+
+        return "https://wa.me/{$number}";
+    }
+
+
+    /**
      * Scope a query to only include active clients.
      */
     public function scopeActive($query)

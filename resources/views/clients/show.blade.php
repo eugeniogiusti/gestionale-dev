@@ -14,6 +14,11 @@
             {{-- MAIN CONTENT (3/4) --}}
             <div class="lg:col-span-3 space-y-6">
 
+                {{-- Follow-up section (leads only) --}}
+                @if($client->isLead())
+                    @include('clients.followups._section')
+                @endif
+
                 {{-- Projects --}}
                 @include('clients.show._projects')
 
@@ -32,6 +37,9 @@
 
     </div>
 
-    {{-- Modal --}}
+    {{-- Modals --}}
     @include('clients.modals._client-form')
+    @if($client->isLead())
+        @include('clients.modals._followup-form')
+    @endif
 </x-app-layout>

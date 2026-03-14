@@ -17,9 +17,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $total = Client::count();
         $clients = (new ClientIndexQuery())->handle();
-        $stats = (new ClientStatsQuery())->handle($total);
+        $stats = (new ClientStatsQuery())->handle();
 
         return view('clients.index', compact('clients', 'stats'));
     }

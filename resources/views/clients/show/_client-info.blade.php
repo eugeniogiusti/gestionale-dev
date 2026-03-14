@@ -20,7 +20,7 @@
 
             {{-- Phone / WhatsApp --}}
             @if($client->phone)
-                <x-whatsapp-link :phone="$client->phone" :prefix="$client->phone_prefix" />
+                <x-whatsapp-link :href="$client->whatsappUrl()">{{ $client->phone_prefix }} {{ $client->phone }}</x-whatsapp-link>
             @endif
 
             {{-- PEC --}}

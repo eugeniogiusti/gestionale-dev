@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\DB;
  */
 class ClientStatsQuery
 {
-    public function handle(int $total): array
+    public function handle(): array
     {
+        // Total = active + archived (leads excluded — not yet converted)
+        $total = Client::whereIn('status', ['active', 'archived'])->count();
 
         // Clients by status
         $byStatus = Client::select('status', DB::raw('count(*) as count'))

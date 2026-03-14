@@ -11,6 +11,7 @@ use App\Http\Controllers\Settings\LocaleController;
 use App\Http\Controllers\Settings\AiSettingsController;
 use App\Http\Controllers\Settings\BusinessSettingsController;
 use App\Http\Controllers\Clients\ClientController;
+use App\Http\Controllers\Clients\ClientFollowupController;
 use App\Http\Controllers\Projects\ProjectController;
 use App\Http\Controllers\Api\Clients\ClientSearchController;
 use App\Http\Controllers\Api\Projects\ProjectSearchController;
@@ -92,6 +93,11 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
     // Resource routes (index, create, store, show, edit, update, destroy)
     Route::resource('clients', ClientController::class);
+
+    // Followups (nested under client)
+    Route::post('/clients/{client}/followups', [ClientFollowupController::class, 'store'])->name('clients.followups.store');
+    Route::patch('/clients/{client}/followups/{followup}', [ClientFollowupController::class, 'update'])->name('clients.followups.update');
+    Route::delete('/clients/{client}/followups/{followup}', [ClientFollowupController::class, 'destroy'])->name('clients.followups.destroy');
 
     // Additional routes for soft delete management
     Route::post('/clients/{id}/restore', [ClientController::class, 'restore'])

@@ -15,7 +15,5 @@
     @endif
 
     {{-- WhatsApp --}}
-    @if(!empty($client->phone))
-        <x-whatsapp-link :phone="$client->phone" :prefix="$client->phone_prefix" />
-    @endif
+    <x-whatsapp-link :href="$client->whatsappUrl()">{{ $client->phone_prefix }} {{ $client->phone }}</x-whatsapp-link>
 </div>
