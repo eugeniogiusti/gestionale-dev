@@ -12,8 +12,8 @@
     @if($meetings->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($meetings as $meeting)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$meeting->project, 'tab' => 'meetings']) }}" class="flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <span class="w-2 h-2 rounded-full shrink-0
                             @if($meeting->status === 'completed') bg-green-500
                             @elseif($meeting->status === 'cancelled') bg-red-500
@@ -27,7 +27,7 @@
                         <span class="text-xs text-gray-500 dark:text-gray-400 shrink-0">
                             {{ $meeting->scheduled_at->format('d/m/Y H:i') }}
                         </span>
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

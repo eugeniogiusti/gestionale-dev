@@ -75,7 +75,7 @@ return [
     'pending' => 'Ausstehend',
     'overdue' => 'Überfällig',
     'select_method' => 'Zahlungsmethode auswählen',
-    'method_not_set' => 'Ausstehend',
+    'method_not_set' => 'Nicht angegeben',
 
     'filters' => [
         'date_from' => 'Von',

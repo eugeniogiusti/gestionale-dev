@@ -75,7 +75,7 @@ return [
     'pending' => 'Do otrzymania',
     'overdue' => 'Po terminie',
     'select_method' => 'Wybierz metodę płatności',
-    'method_not_set' => 'Do otrzymania',
+    'method_not_set' => 'Nie określono',
 
     'filters' => [
         'date_from' => 'Od',

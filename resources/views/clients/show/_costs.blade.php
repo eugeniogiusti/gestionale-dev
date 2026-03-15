@@ -12,8 +12,8 @@
     @if($costs->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($costs as $cost)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center justify-between gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$cost->project, 'tab' => 'costs']) }}" class="flex items-center justify-between gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <div class="min-w-0">
                             <p class="text-sm font-medium text-gray-900 dark:text-white">
                                 {{ number_format($cost->amount, 2) }} {{ $cost->currency }}
@@ -23,7 +23,7 @@
                         <span class="text-xs text-gray-500 dark:text-gray-400 shrink-0">
                             {{ __('costs.type_' . $cost->type) }}
                         </span>
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

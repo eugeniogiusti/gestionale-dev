@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Valor',
     'detail_internal' => 'Interno',
     'detail_empty' => 'Sem dados para este mês',
+    'top_projects_title' => 'Os 10 projetos mais lucrativos',
+    'top_projects_project' => 'Projeto',
+    'top_projects_client' => 'Cliente',
+    'top_projects_income' => 'Receitas',
+    'top_projects_costs' => 'Custos',
+    'top_projects_profit' => 'Lucro',
 ];

@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Montant',
     'detail_internal' => 'Interne',
     'detail_empty' => 'Aucune donnée pour ce mois',
+    'top_projects_title' => 'Les 10 projets les plus rentables',
+    'top_projects_project' => 'Projet',
+    'top_projects_client' => 'Client',
+    'top_projects_income' => 'Revenus',
+    'top_projects_costs' => 'Coûts',
+    'top_projects_profit' => 'Bénéfice',
 ];

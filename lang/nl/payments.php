@@ -75,7 +75,7 @@ return [
     'pending' => 'Te ontvangen',
     'overdue' => 'Achterstallig',
     'select_method' => 'Betaalmethode selecteren',
-    'method_not_set' => 'Te ontvangen',
+    'method_not_set' => 'Niet opgegeven',
 
     'filters' => [
         'date_from' => 'Van',

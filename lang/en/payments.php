@@ -75,7 +75,7 @@ return [
     'pending' => 'Pending',
     'overdue' => 'Overdue',
     'select_method' => 'Select payment method',
-    'method_not_set' => 'Pending payment',
+    'method_not_set' => 'Not specified',
 
     'filters' => [
         'date_from' => 'From',

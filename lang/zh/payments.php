@@ -75,7 +75,7 @@ return [
     'pending' => '待收',
     'overdue' => '逾期',
     'select_method' => '选择支付方式',
-    'method_not_set' => '待收款',
+    'method_not_set' => '未指定',
 
     'filters' => [
         'date_from' => '从',

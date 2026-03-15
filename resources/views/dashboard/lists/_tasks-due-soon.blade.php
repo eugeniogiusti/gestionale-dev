@@ -1,4 +1,4 @@
-{{-- Tasks in scadenza --}}
+{{-- Tasks  --}}
 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-transform duration-200 hover:scale-[1.02]">
     <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         <div class="flex items-center gap-2">
@@ -15,8 +15,8 @@
     @if($lists['tasks_due_soon']->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($lists['tasks_due_soon'] as $task)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$task->project, 'tab' => 'tasks']) }}" class="flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <span class="w-2 h-2 rounded-full shrink-0
                             @if($task->isOverdue()) bg-red-500
                             @elseif($task->status === 'in_progress') bg-blue-500
@@ -26,11 +26,12 @@
                         <div class="min-w-0 flex-1">
                             <p class="text-sm text-gray-900 dark:text-white truncate">{{ $task->title }}</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">{{ $task->project->name }}</p>
+                            <div class="mt-1"><x-tasks.type-badge :type="$task->type" /></div>
                         </div>
                         <span class="text-xs shrink-0 {{ $task->isOverdue() ? 'text-red-500 font-medium' : 'text-gray-500' }}">
                             {{ $task->due_date->format('d/m') }}
                         </span>
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

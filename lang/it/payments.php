@@ -75,7 +75,7 @@ return [
     'pending' => 'Da incassare',
     'overdue' => 'Scaduto',
     'select_method' => 'Seleziona metodo di pagamento',
-    'method_not_set' => 'Da incassare',
+    'method_not_set' => 'Non specificato',
 
     'filters' => [
         'date_from' => 'Da',

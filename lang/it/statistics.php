@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Importo',
     'detail_internal' => 'Interno',
     'detail_empty' => 'Nessun dato per questo mese',
+    'top_projects_title' => 'I 10 Progetti Più Profittevoli',
+    'top_projects_project' => 'Progetto',
+    'top_projects_client' => 'Cliente',
+    'top_projects_income' => 'Entrate',
+    'top_projects_costs' => 'Costi',
+    'top_projects_profit' => 'Profitto',
 ];

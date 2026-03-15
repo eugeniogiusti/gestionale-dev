@@ -75,7 +75,7 @@ return [
     'pending' => 'Por cobrar',
     'overdue' => 'Vencido',
     'select_method' => 'Selecciona método de pago',
-    'method_not_set' => 'Por cobrar',
+    'method_not_set' => 'No especificado',
 
     'filters' => [
         'date_from' => 'Desde',

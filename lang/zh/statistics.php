@@ -47,4 +47,10 @@ return [
     'detail_amount' => '金额',
     'detail_internal' => '内部',
     'detail_empty' => '本月无数据',
+    'top_projects_title' => '盈利最高的10个项目',
+    'top_projects_project' => '项目',
+    'top_projects_client' => '客户',
+    'top_projects_income' => '收入',
+    'top_projects_costs' => '成本',
+    'top_projects_profit' => '利润',
 ];

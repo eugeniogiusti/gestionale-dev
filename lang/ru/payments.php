@@ -75,7 +75,7 @@ return [
     'pending' => 'К получению',
     'overdue' => 'Просрочено',
     'select_method' => 'Выберите способ оплаты',
-    'method_not_set' => 'К получению',
+    'method_not_set' => 'Не указано',
 
     'filters' => [
         'date_from' => 'С',

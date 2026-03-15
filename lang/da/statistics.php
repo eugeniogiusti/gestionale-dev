@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Beløb',
     'detail_internal' => 'Intern',
     'detail_empty' => 'Ingen data for denne måned',
+    'top_projects_title' => 'De 10 mest profitable projekter',
+    'top_projects_project' => 'Projekt',
+    'top_projects_client' => 'Kunde',
+    'top_projects_income' => 'Indtægt',
+    'top_projects_costs' => 'Omkostninger',
+    'top_projects_profit' => 'Overskud',
 ];

@@ -1,4 +1,4 @@
-{{-- Ultimi pagamenti ricevuti --}}
+{{-- Ultimate payments received --}}
 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-transform duration-200 hover:scale-[1.02]">
     <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         <div class="flex items-center gap-2">
@@ -15,18 +15,19 @@
     @if($lists['recent_payments']->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($lists['recent_payments'] as $payment)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center justify-between gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$payment->project, 'tab' => 'payments']) }}" class="flex items-center justify-between gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <div class="min-w-0">
                             <p class="text-sm font-medium text-emerald-600">
                                 +{{ number_format($payment->amount, 2) }} {{ $payment->currency }}
                             </p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">{{ $payment->project->name }}</p>
+                            <div class="mt-1"><x-payments.method-badge :method="$payment->method" /></div>
                         </div>
                         <span class="text-xs text-gray-500 shrink-0">
                             {{ $payment->paid_at->format('d/m/Y') }}
                         </span>
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

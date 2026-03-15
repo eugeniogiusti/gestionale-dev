@@ -1,4 +1,4 @@
-{{-- Dettaglio mensile: costi e pagamenti riga per riga per il mese selezionato --}}
+{{-- Monthly Detail --}}
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
 
     {{-- Costi --}}

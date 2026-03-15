@@ -12,8 +12,8 @@
     @if($documents->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($documents as $document)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$document->project, 'tab' => 'documents']) }}" class="flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
@@ -24,7 +24,7 @@
                         <span class="text-xs text-gray-500 dark:text-gray-400 shrink-0">
                             {{ $document->uploaded_at->format('d/m/Y') }}
                         </span>
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

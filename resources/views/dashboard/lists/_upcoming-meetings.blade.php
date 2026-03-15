@@ -1,4 +1,4 @@
-{{-- Prossimi meeting --}}
+{{-- Next meetings --}}
 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-transform duration-200 hover:scale-[1.02]">
     <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         <div class="flex items-center gap-2">
@@ -15,8 +15,8 @@
     @if($lists['upcoming_meetings']->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($lists['upcoming_meetings'] as $meeting)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$meeting->project, 'tab' => 'meetings']) }}" class="flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <div class="text-center shrink-0 w-12">
                             <p class="text-lg font-bold text-gray-900 dark:text-white">{{ $meeting->scheduled_at->format('d') }}</p>
                             <p class="text-xs text-gray-500 uppercase">{{ $meeting->scheduled_at->format('M') }}</p>
@@ -24,11 +24,12 @@
                         <div class="min-w-0 flex-1">
                             <p class="text-sm text-gray-900 dark:text-white truncate">{{ $meeting->title }}</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">{{ $meeting->project->name }}</p>
+                            <div class="mt-1"><x-meetings.status-badge :status="$meeting->status" /></div>
                         </div>
                         <span class="text-xs text-gray-500 shrink-0">
                             {{ $meeting->scheduled_at->format('H:i') }}
                         </span>
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

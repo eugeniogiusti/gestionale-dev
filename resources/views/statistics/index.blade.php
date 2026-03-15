@@ -41,5 +41,10 @@
             @include('statistics._monthly-detail')
         @endif
 
+        {{-- Top 10 progetti per profitto (solo vista anno) --}}
+        @if($stats['top_projects'] && $stats['top_projects']->isNotEmpty())
+            @include('statistics._top-projects')
+        @endif
+
     </div>
 </x-app-layout>

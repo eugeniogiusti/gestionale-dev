@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Sumă',
     'detail_internal' => 'Intern',
     'detail_empty' => 'Nu există date pentru această lună',
+    'top_projects_title' => 'Cele mai profitabile 10 proiecte',
+    'top_projects_project' => 'Proiect',
+    'top_projects_client' => 'Client',
+    'top_projects_income' => 'Venituri',
+    'top_projects_costs' => 'Costuri',
+    'top_projects_profit' => 'Profit',
 ];

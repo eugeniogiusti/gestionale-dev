@@ -75,7 +75,7 @@ return [
     'pending' => 'De încasat',
     'overdue' => 'Întârziat',
     'select_method' => 'Selectează metoda de plată',
-    'method_not_set' => 'De încasat',
+    'method_not_set' => 'Nespecificat',
 
     'filters' => [
         'date_from' => 'De la',

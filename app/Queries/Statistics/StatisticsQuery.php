@@ -7,6 +7,7 @@ use App\Queries\Statistics\SubQueries\FinancialStatsQuery;
 use App\Queries\Statistics\SubQueries\MonthlyBreakdownQuery;
 use App\Queries\Statistics\SubQueries\MonthlyDetailQuery;
 use App\Queries\Statistics\SubQueries\OperationalStatsQuery;
+use App\Queries\Statistics\SubQueries\TopProjectsQuery;
 use Illuminate\Support\Carbon;
 
 /**
@@ -35,10 +36,11 @@ class StatisticsQuery
     public function handle(): array
     {
         return [
-            'summary' => $this->getSummary(),
-            'monthly' => $this->isFullYear ? $this->getMonthlyBreakdown() : null,
-            'detail'  => !$this->isFullYear ? $this->getMonthlyDetail() : null,
-            'chart'   => $this->getChartData(),
+            'summary'      => $this->getSummary(),
+            'monthly'      => $this->isFullYear ? $this->getMonthlyBreakdown() : null,
+            'detail'       => !$this->isFullYear ? $this->getMonthlyDetail() : null,
+            'top_projects' => $this->isFullYear ? $this->getTopProjects() : null,
+            'chart'        => $this->getChartData(),
         ];
     }
 
@@ -74,6 +76,11 @@ class StatisticsQuery
     private function getMonthlyDetail(): array
     {
         return (new MonthlyDetailQuery($this->startDate, $this->endDate))->handle();
+    }
+
+    private function getTopProjects()
+    {
+        return (new TopProjectsQuery($this->startDate, $this->endDate))->handle();
     }
 
     private function getChartData(): array

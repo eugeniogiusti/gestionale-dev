@@ -75,7 +75,7 @@ return [
     'pending' => 'Por receber',
     'overdue' => 'Em atraso',
     'select_method' => 'Selecionar método de pagamento',
-    'method_not_set' => 'Por receber',
+    'method_not_set' => 'Não especificado',
 
     'filters' => [
         'date_from' => 'De',

@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Bedrag',
     'detail_internal' => 'Intern',
     'detail_empty' => 'Geen gegevens voor deze maand',
+    'top_projects_title' => 'De 10 meest winstgevende projecten',
+    'top_projects_project' => 'Project',
+    'top_projects_client' => 'Klant',
+    'top_projects_income' => 'Inkomsten',
+    'top_projects_costs' => 'Kosten',
+    'top_projects_profit' => 'Winst',
 ];

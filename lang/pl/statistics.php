@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Kwota',
     'detail_internal' => 'Wewnętrzny',
     'detail_empty' => 'Brak danych za ten miesiąc',
+    'top_projects_title' => '10 najbardziej dochodowych projektów',
+    'top_projects_project' => 'Projekt',
+    'top_projects_client' => 'Klient',
+    'top_projects_income' => 'Przychody',
+    'top_projects_costs' => 'Koszty',
+    'top_projects_profit' => 'Zysk',
 ];

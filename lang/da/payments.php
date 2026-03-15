@@ -75,7 +75,7 @@ return [
     'pending' => 'Til indkrævning',
     'overdue' => 'Forsinket',
     'select_method' => 'Vælg betalingsmetode',
-    'method_not_set' => 'Til indkrævning',
+    'method_not_set' => 'Ikke angivet',
 
     'filters' => [
         'date_from' => 'Fra',

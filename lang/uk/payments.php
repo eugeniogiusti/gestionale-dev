@@ -75,7 +75,7 @@ return [
     'pending' => 'До отримання',
     'overdue' => 'Прострочено',
     'select_method' => 'Оберіть спосіб оплати',
-    'method_not_set' => 'До отримання',
+    'method_not_set' => 'Не вказано',
 
     'filters' => [
         'date_from' => 'Від',

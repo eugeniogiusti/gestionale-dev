@@ -47,4 +47,10 @@ return [
     'detail_amount' => 'Сумма',
     'detail_internal' => 'Внутренний',
     'detail_empty' => 'Нет данных за этот месяц',
+    'top_projects_title' => '10 самых прибыльных проектов',
+    'top_projects_project' => 'Проект',
+    'top_projects_client' => 'Клиент',
+    'top_projects_income' => 'Доходы',
+    'top_projects_costs' => 'Расходы',
+    'top_projects_profit' => 'Прибыль',
 ];

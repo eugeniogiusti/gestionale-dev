@@ -75,7 +75,7 @@ return [
     'pending' => 'À encaisser',
     'overdue' => 'En retard',
     'select_method' => 'Sélectionner la méthode de paiement',
-    'method_not_set' => 'À encaisser',
+    'method_not_set' => 'Non spécifié',
 
     'filters' => [
         'date_from' => 'De',

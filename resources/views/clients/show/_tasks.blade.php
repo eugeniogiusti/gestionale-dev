@@ -12,8 +12,8 @@
     @if($tasks->count() > 0)
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($tasks as $task)
-                <li class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <div class="flex items-center gap-3">
+                <li>
+                    <a href="{{ route('projects.show', [$task->project, 'tab' => 'tasks']) }}" class="flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                         <span class="w-2 h-2 rounded-full shrink-0
                             @if($task->status === 'done') bg-green-500
                             @elseif($task->status === 'in_progress') bg-blue-500
@@ -30,7 +30,7 @@
                         @if($task->priority)
                             <x-tasks.priority-badge :priority="$task->priority" />
                         @endif
-                    </div>
+                    </a>
                 </li>
             @endforeach
         </ul>
