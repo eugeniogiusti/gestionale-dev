@@ -51,7 +51,7 @@ class ClientShowQuery
     private function getTasks()
     {
         return Task::whereIn('project_id', $this->projectIds)
-            ->with('project:id,name')
+            ->with(['project:id,name', 'taskDocuments'])
             ->latest()
             ->take($this->limit)
             ->get();

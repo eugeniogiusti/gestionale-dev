@@ -1,6 +1,6 @@
 <x-app-layout>
     <iframe 
-        src="https://calendar.google.com/calendar/embed?src=aige9313%40gmail.com&ctz=Europe%2FRome" 
+        src="{{ env('GOOGLE_CALENDAR_EMBED_URL') }}" 
         style="width: 100%; height: calc(100vh - 130px); border: none;"
         frameborder="0" 
         scrolling="no"
