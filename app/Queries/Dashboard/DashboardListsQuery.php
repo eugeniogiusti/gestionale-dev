@@ -51,6 +51,7 @@ class DashboardListsQuery
     private function getTasksDueSoon(): Collection
     {
         return Task::query()
+            ->with('taskDocuments')
             ->open()
             ->whereNotNull('due_date')
             ->whereBetween('due_date', [now(), now()->addDays(7)])
