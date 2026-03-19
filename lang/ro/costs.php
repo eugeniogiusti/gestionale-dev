@@ -40,6 +40,8 @@ return [
     'type_ads' => 'Publicitate',
     'type_service' => 'Serviciu',
     'type_travel' => 'Transport/Călătorii',
+    'type_hardware' => 'Hardware',
+    'type_meal' => 'Masă de lucru',
 
     'period_monthly' => 'Lunar',
     'period_yearly' => 'Anual',

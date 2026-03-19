@@ -9,10 +9,15 @@ use App\Http\Requests\Tasks\StoreTaskRequest;
 use App\Http\Requests\Tasks\UpdateTaskRequest;
 use App\Queries\Tasks\TaskIndexQuery;
 use App\Queries\Tasks\TaskStatsQuery;
+use App\Services\Tasks\TaskDocumentService;
 
 class TaskController extends Controller
 {
-    
+    public function __construct(
+        private TaskDocumentService $taskDocumentService
+    ) {}
+
+
     /**
      * Retrieves paginated Task with applied filters and calculates
      * aggregated statistics for index page cards.
@@ -31,7 +36,15 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request, Project $project)
     {
-        $project->tasks()->create($request->validated());
+        $task = $project->tasks()->create(
+            $request->safe()->except(['file', 'document_name'])
+        );
+
+        // Upload document if provided
+        if ($request->hasFile('file')) {
+            $name = $request->input('document_name') ?: pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME);
+            $this->taskDocumentService->upload($task, $request->file('file'), ['name' => $name]);
+        }
 
         return redirect()
             ->route('projects.show', ['project' => $project, 'tab' => 'tasks'])
@@ -43,7 +56,13 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Project $project, Task $task)
     {
-        $task->update($request->validated());
+        $task->update($request->safe()->except(['file', 'document_name']));
+
+        // Upload new document if provided
+        if ($request->hasFile('file')) {
+            $name = $request->input('document_name') ?: pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME);
+            $this->taskDocumentService->upload($task, $request->file('file'), ['name' => $name]);
+        }
 
         return redirect()
             ->route('projects.show', ['project' => $project, 'tab' => 'tasks'])

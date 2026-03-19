@@ -57,6 +57,8 @@ class Cost extends Model
         'ads',
         'service',
         'travel',
+        'hardware',
+        'meal',
     ];
 
     public const CURRENCIES = BusinessSettings::CURRENCIES;

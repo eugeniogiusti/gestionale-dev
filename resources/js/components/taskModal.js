@@ -8,6 +8,8 @@ export default function taskModal() {
         isEdit: false,
         taskId: null,
         formData: {},
+        fileName: '',
+        documentName: '',
 
         init() {
             this.formData = this.getEmptyForm();
@@ -20,7 +22,8 @@ export default function taskModal() {
                 type: 'feature',
                 status: 'todo',
                 priority: '',
-                due_date: ''
+                due_date: '',
+                documents: [],
             };
         },
 
@@ -28,6 +31,8 @@ export default function taskModal() {
             this.formData = this.getEmptyForm();
             this.isEdit = false;
             this.taskId = null;
+            this.fileName = '';
+            this.documentName = '';
         },
 
         /** Open modal for creating new task */
@@ -46,9 +51,25 @@ export default function taskModal() {
                 type: taskData.type,
                 status: taskData.status,
                 priority: taskData.priority || '',
-                due_date: taskData.due_date || ''
+                due_date: taskData.due_date || '',
+                documents: taskData.documents || [],
             };
+            this.fileName = '';
+            this.documentName = '';
             this.open = true;
+        },
+
+        /** Handle file selection: auto-populates document name from filename */
+        handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                this.fileName = file.name;
+                // Auto-populate name without extension
+                this.documentName = file.name.replace(/\.[^/.]+$/, '');
+            } else {
+                this.fileName = '';
+                this.documentName = '';
+            }
         },
 
         /** Close modal and reset form */

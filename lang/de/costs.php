@@ -40,6 +40,8 @@ return [
     'type_ads' => 'Werbung',
     'type_service' => 'Dienstleistung',
     'type_travel' => 'Transport/Reisen',
+    'type_hardware' => 'Hardware',
+    'type_meal' => 'Geschäftsessen',
 
     'period_monthly' => 'Monatlich',
     'period_yearly' => 'Jährlich',

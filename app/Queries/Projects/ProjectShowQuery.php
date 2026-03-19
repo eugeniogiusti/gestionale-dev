@@ -42,11 +42,15 @@ class ProjectShowQuery
     private function getTasks(): Collection
     {
         return $this->project->tasks()
+            ->with('taskDocuments')
             ->orderBy('order')
             ->latest()
             ->take($this->limit)
             ->get()
-            ->each->setRelation('project', $this->project);
+            ->each(function ($task) {
+                $task->setRelation('project', $this->project);
+                $task->taskDocuments->each->setRelation('task', $task);
+            });
     }
 
     private function getMeetings(): Collection

@@ -40,6 +40,8 @@ return [
     'type_ads' => 'Реклама',
     'type_service' => 'Сервіс',
     'type_travel' => 'Транспорт/Подорожі',
+    'type_hardware' => 'Обладнання',
+    'type_meal' => 'Ділова їжа',
 
     'period_monthly' => 'Щомісяця',
     'period_yearly' => 'Щороку',

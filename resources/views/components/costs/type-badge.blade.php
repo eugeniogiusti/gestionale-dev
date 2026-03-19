@@ -30,6 +30,14 @@
             'bg' => 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
             'icon' => '✈️',
         ],
+        'hardware' => [
+            'bg' => 'bg-slate-100 text-slate-800 dark:bg-slate-900/30 dark:text-slate-300',
+            'icon' => '🖥️',
+        ],
+        'meal' => [
+            'bg' => 'bg-lime-100 text-lime-800 dark:bg-lime-900/30 dark:text-lime-300',
+            'icon' => '🍽️',
+        ],
         default => [
             'bg' => 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300',
             'icon' => '❓',

@@ -17,7 +17,7 @@ class TaskIndexQuery
     public function handle(): LengthAwarePaginator
     {
         return Task::query()
-            ->with('project')
+            ->with(['project', 'taskDocuments'])
             ->when(request('project_id'), function ($query, $projectId) {
                 $query->where('project_id', $projectId);
             })

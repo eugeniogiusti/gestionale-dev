@@ -25,6 +25,7 @@ use App\Http\Controllers\Costs\CostController;
 use App\Http\Controllers\Invoices\InvoiceController;
 use App\Http\Controllers\Receipts\ReceiptController;
 use App\Http\Controllers\Documents\DocumentController;
+use App\Http\Controllers\Tasks\TaskDocumentController;
 use App\Http\Controllers\Labels\LabelController;
 use App\Http\Controllers\Statistics\StatisticsController;
 use App\Http\Controllers\Trash\TrashController;
@@ -211,6 +212,17 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
 
         // Delete task
         Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
+    });
+
+    // ==========================================
+    // TASK DOCUMENTS MODULE
+    // ==========================================
+
+    Route::prefix('projects/{project}/tasks/{task}/documents')->name('task-documents.')->group(function () {
+        Route::post('/', [TaskDocumentController::class, 'store'])->name('store');
+        Route::delete('/{taskDocument}', [TaskDocumentController::class, 'destroy'])->name('destroy');
+        Route::get('/{taskDocument}/download', [TaskDocumentController::class, 'download'])->name('download');
+        Route::get('/{taskDocument}/preview', [TaskDocumentController::class, 'preview'])->name('preview');
     });
 
     // ==========================================

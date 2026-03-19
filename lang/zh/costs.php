@@ -40,6 +40,8 @@ return [
     'type_ads' => '广告',
     'type_service' => '服务',
     'type_travel' => '交通/出行',
+    'type_hardware' => '硬件',
+    'type_meal' => '工作餐',
 
     'period_monthly' => '每月',
     'period_yearly' => '每年',

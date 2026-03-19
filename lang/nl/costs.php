@@ -40,6 +40,8 @@ return [
     'type_ads' => 'Reclame',
     'type_service' => 'Dienst',
     'type_travel' => 'Transport/Reizen',
+    'type_hardware' => 'Hardware',
+    'type_meal' => 'Zakelijke maaltijd',
 
     'period_monthly' => 'Maandelijks',
     'period_yearly' => 'Jaarlijks',

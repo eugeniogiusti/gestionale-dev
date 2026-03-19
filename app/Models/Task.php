@@ -77,6 +77,11 @@ class Task extends Model implements CalendarEventable
         return $this->hasMany(Task::class)->orderBy('order');
     }
 
+    public function taskDocuments()
+    {
+        return $this->hasMany(TaskDocument::class)->latest('uploaded_at');
+    }
+
     /* -----------------------------------------------------------------
      |  SCOPES (filters for queries)
      |-----------------------------------------------------------------*/
@@ -230,10 +235,21 @@ class Task extends Model implements CalendarEventable
 
     public function toFormPayload(array $extra = []): array
     {
+        $documents = $this->relationLoaded('taskDocuments')
+            ? $this->taskDocuments->map(fn($doc) => [
+                'id'           => $doc->id,
+                'name'         => $doc->name,
+                'extension'    => $doc->file_extension,
+                'download_url' => $doc->getDownloadUrl(),
+                'delete_url'   => $doc->getDeleteUrl(),
+            ])->toArray()
+            : [];
+
         return array_merge(
             $this->only(array_merge(['id'], $this->fillable)),
             [
-                'due_date' => $this->due_date?->format('Y-m-d') ?? '',
+                'due_date'  => $this->due_date?->format('Y-m-d') ?? '',
+                'documents' => $documents,
             ],
             $extra
         );

@@ -48,6 +48,7 @@
 
                 {{-- Form --}}
                 <form method="POST"
+                      enctype="multipart/form-data"
                       :action="isEdit
                           ? '{{ route('tasks.update', [$project, '__TASK_ID__']) }}'.replace('__TASK_ID__', taskId)
                           : '{{ route('tasks.store', $project) }}'">
@@ -75,6 +76,50 @@
                     </div>
 
                 </form>
+
+                {{-- Attached documents list (edit mode only) --}}
+                <template x-if="isEdit && formData.documents && formData.documents.length > 0">
+                    <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase mb-2">
+                            {{ __('task_documents.document_list') }}
+                        </p>
+                        <div class="space-y-2">
+                            <template x-for="doc in formData.documents" :key="doc.id">
+                                <div class="flex items-center justify-between py-1.5 px-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                    <div class="flex items-center gap-2 min-w-0">
+                                        <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                                        </svg>
+                                        <span class="text-sm text-gray-700 dark:text-gray-300 truncate"
+                                              x-text="doc.name + '.' + doc.extension"></span>
+                                    </div>
+                                    <div class="flex items-center gap-2 flex-shrink-0 ml-2">
+                                        <a :href="doc.download_url"
+                                           target="_blank"
+                                           class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400"
+                                           title="{{ __('ui.download') }}">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                            </svg>
+                                        </a>
+                                        <form :action="doc.delete_url" method="POST"
+                                              @submit.prevent="if(confirm('{{ __('task_documents.confirm_delete') }}')) $el.submit()">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="text-red-500 hover:text-red-700 dark:text-red-400"
+                                                    title="{{ __('ui.delete') }}">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
 
             </div>
         </div>

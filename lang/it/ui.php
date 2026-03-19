@@ -23,4 +23,5 @@ return [
     'preview'     => 'Anteprima',
     'saved'        => 'Salvato',
     'error_saving' => 'Errore durante il salvataggio',
+    'optional'     => 'opzionale',
 ];

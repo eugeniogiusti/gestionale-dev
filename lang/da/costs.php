@@ -40,6 +40,8 @@ return [
     'type_ads' => 'Annoncering',
     'type_service' => 'Service',
     'type_travel' => 'Transport/Rejser',
+    'type_hardware' => 'Hardware',
+    'type_meal' => 'Erhvervsmåltid',
 
     'period_monthly' => 'Månedlig',
     'period_yearly' => 'Årlig',

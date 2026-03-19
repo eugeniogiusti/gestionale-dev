@@ -23,4 +23,5 @@ return [
     'preview'     => 'Preview',
     'saved'        => 'Saved',
     'error_saving' => 'Error saving',
+    'optional'     => 'optional',
 ];
