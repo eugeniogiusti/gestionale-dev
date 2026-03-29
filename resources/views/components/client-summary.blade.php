@@ -2,9 +2,9 @@
 
 <div class="space-y-3">
     {{-- Client name --}}
-    <p class="font-medium text-gray-900 dark:text-white">
+    <a href="{{ route('clients.show', $client) }}" class="font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">
         {{ $client->name }}
-    </p>
+    </a>
 
     {{-- VAT --}}
     <x-vat-display :vat="$client->vat_number" />

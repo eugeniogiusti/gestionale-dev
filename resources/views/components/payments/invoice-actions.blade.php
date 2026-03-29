@@ -1,7 +1,7 @@
 @props(['payment'])
 
 @if($payment->hasInvoice())
-    {{-- Invoice già generata --}}
+    {{-- Invoice already generated --}}
     <div class="flex items-center gap-2">
         <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
             📄 {{ $payment->invoice_number }}
@@ -43,7 +43,7 @@
         </form>
     </div>
 @else
-    {{-- Genera fattura --}}
+    {{-- Generate Invoice --}}
     <form method="POST" action="{{ route('invoices.generate', $payment) }}" class="inline">
         @csrf
         <button type="submit" 

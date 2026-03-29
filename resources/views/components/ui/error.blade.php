@@ -1,6 +1,6 @@
 @props([
-  'for' => null,       // nome campo
-  'messages' => [],    // array di messaggi
+  'for' => null,       // field name
+  'messages' => [],    // messagges array
 ])
 
 @php
