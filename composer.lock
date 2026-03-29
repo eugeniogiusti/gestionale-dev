@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b62b90767015914bc73ab3c9171681d",
+    "content-hash": "51bd95fc61920705e3ffe19526a6947c",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2425,16 +2425,16 @@
         },
         {
             "name": "livewire/blaze",
-            "version": "v1.0.11",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/blaze.git",
-                "reference": "e5984922e09ffb2b1da28e255715630ca67c81e2"
+                "reference": "4cafa5e52687e0040111f09048252c013a0cf5d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/blaze/zipball/e5984922e09ffb2b1da28e255715630ca67c81e2",
-                "reference": "e5984922e09ffb2b1da28e255715630ca67c81e2",
+                "url": "https://api.github.com/repos/livewire/blaze/zipball/4cafa5e52687e0040111f09048252c013a0cf5d5",
+                "reference": "4cafa5e52687e0040111f09048252c013a0cf5d5",
                 "shasum": ""
             },
             "require": {
@@ -2477,9 +2477,9 @@
             "description": "A tool for optimizing Blade component performance by folding them into parent templates",
             "support": {
                 "issues": "https://github.com/livewire/blaze/issues",
-                "source": "https://github.com/livewire/blaze/tree/v1.0.11"
+                "source": "https://github.com/livewire/blaze/tree/v1.0.10"
             },
-            "time": "2026-03-27T21:23:05+00:00"
+            "time": "2026-03-17T16:28:47+00:00"
         },
         {
             "name": "masterminds/html5",
