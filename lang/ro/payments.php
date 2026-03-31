@@ -55,8 +55,8 @@ return [
     'placeholder' => [
         'search' => 'Caută după proiect, referință sau note...',
         'amount' => 'ex., 1500.00',
-        'reference' => 'ex., Factura #2024-001, Stripe ch_xxx',
-        'notes' => 'Note suplimentare...',
+        'reference' => 'ex. Consultanță server, Dezvoltare funcționalități...',
+        'notes' => 'ex. Descrierea lucrărilor efectuate...',
         'due_date' => 'ex., 2025-02-15',
     ],
 

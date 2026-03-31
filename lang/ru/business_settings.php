@@ -40,6 +40,7 @@ return [
     'business_name' => 'Название компании',
     'business_description' => 'Описание услуг',
     'website' => 'Веб-сайт',
+        'billing_tool_url' => 'напр. https://billing.vashakompaniya.ru',
     'logo' => 'Логотип',
 
     // Actions
@@ -90,4 +91,7 @@ return [
     'github_required_scopes' => 'Необходимые разрешения',
     'github_scope_repo' => 'доступ к публичным и приватным репозиториям',
     'github_scope_read_user' => 'чтение профиля пользователя',
+    'billing_tool' => 'Инструмент выставления счетов',
+    'billing_tool_url' => 'URL инструмента выставления счетов',
+    'billing_tool_url_hint' => 'Введите ссылку на инструмент, который вы используете для выставления счетов.',
 ];

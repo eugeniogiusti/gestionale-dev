@@ -28,6 +28,7 @@ return [
     'type_marketing' => 'Маркетинг',
     'type_hardware' => 'Оборудование',
     'type_documentation' => 'Документация',
+    'type_maintenance' => 'Обслуживание',
 
     // Statuses
     'status_todo' => 'К выполнению',

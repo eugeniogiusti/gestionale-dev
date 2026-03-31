@@ -72,6 +72,7 @@ return [
         'business_name' => 'es. IT Software Solutions',
         'business_description' => 'es. Consulenza e sviluppo software personalizzato',
         'website' => 'es. https://tuaazienda.it',
+        'billing_tool_url' => 'es. https://fatture.tuaazienda.it',
     ],
     
     // Hints
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Permessi richiesti',
     'github_scope_repo' => 'accesso a repository pubblici e privati',
     'github_scope_read_user' => 'lettura profilo utente',
+    'billing_tool' => 'Tool di Fatturazione',
+    'billing_tool_url' => 'URL del Tool di Fatturazione',
+    'billing_tool_url_hint' => 'Inserisci il link del tool che usi per emettere fatture.',
 ];

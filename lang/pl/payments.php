@@ -55,8 +55,8 @@ return [
     'placeholder' => [
         'search' => 'Szukaj po projekcie, referencji lub notatkach...',
         'amount' => 'np. 1500.00',
-        'reference' => 'np. Faktura #2024-001, Stripe ch_xxx',
-        'notes' => 'Dodatkowe notatki...',
+        'reference' => 'np. Konsultacje serwerowe, Tworzenie funkcji...',
+        'notes' => 'np. Opis wykonanej pracy...',
         'due_date' => 'np. 2025-02-15',
     ],
 

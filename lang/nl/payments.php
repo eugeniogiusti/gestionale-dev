@@ -55,8 +55,8 @@ return [
     'placeholder' => [
         'search' => 'Zoek op project, referentie of notities...',
         'amount' => 'bv., 1500.00',
-        'reference' => 'bv., Factuur #2024-001, Stripe ch_xxx',
-        'notes' => 'Extra notities...',
+        'reference' => 'bijv. Serverconsultancy, Feature-ontwikkeling...',
+        'notes' => 'bijv. Beschrijving van het uitgevoerde werk...',
         'due_date' => 'bv., 2025-02-15',
     ],
 

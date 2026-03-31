@@ -28,6 +28,7 @@ return [
     'type_marketing' => 'Marketing',
     'type_hardware' => 'Sprzęt',
     'type_documentation' => 'Dokumentacja',
+    'type_maintenance' => 'Konserwacja',
 
     // Statuses
     'status_todo' => 'Do zrobienia',

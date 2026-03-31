@@ -55,8 +55,8 @@ return [
     'placeholder' => [
         'search' => 'Rechercher par projet, référence ou notes...',
         'amount' => 'ex., 1500.00',
-        'reference' => 'ex., Facture #2024-001, Stripe ch_xxx',
-        'notes' => 'Notes supplémentaires...',
+        'reference' => 'ex. Conseil serveur, Développement de fonctionnalités...',
+        'notes' => 'ex. Description du travail effectué...',
         'due_date' => 'ex., 2025-02-15',
     ],
 

@@ -28,6 +28,7 @@ return [
     'type_marketing' => 'Marketing',
     'type_hardware' => 'Hardware',
     'type_documentation' => 'Dokumentation',
+    'type_maintenance' => 'Vedligeholdelse',
     
     // Statuses
     'status_todo' => 'At gøre',

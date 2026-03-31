@@ -41,6 +41,7 @@ return [
     'business_name' => 'Назва діяльності',
     'business_description' => 'Опис послуг',
     'website' => 'Вебсайт',
+        'billing_tool_url' => 'напр. https://billing.vashakompaniya.ua',
     'logo' => 'Логотип',
 
     // Actions
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Необхідні дозволи',
     'github_scope_repo' => 'доступ до публічних і приватних репозиторіїв',
     'github_scope_read_user' => 'читання профілю користувача',
+    'billing_tool' => 'Інструмент виставлення рахунків',
+    'billing_tool_url' => 'URL інструменту виставлення рахунків',
+    'billing_tool_url_hint' => 'Введіть посилання на інструмент, який ви використовуєте для виставлення рахунків.',
 ];

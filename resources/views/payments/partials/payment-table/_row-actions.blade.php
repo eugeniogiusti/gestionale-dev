@@ -1,5 +1,5 @@
 <td class="px-4 py-4 text-right">
-    <div class="flex justify-end gap-2">
+    <div class="flex flex-col items-end gap-2">
         {{-- Google Calendar --}}
         @if($payment->googleCalendarUrl())
             <a href="{{ $payment->googleCalendarUrl() }}"
@@ -8,6 +8,19 @@
                class="text-gray-500 hover:text-gray-700 dark:text-gray-400">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+            </a>
+        @endif
+
+        {{-- Billing Tool --}}
+        @if($billingToolUrl)
+            <a href="{{ $billingToolUrl }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="{{ __('payments.open_billing_tool') }}"
+               class="text-gray-500 hover:text-gray-700 dark:text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
             </a>
         @endif

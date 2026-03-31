@@ -41,6 +41,7 @@ return [
     'business_name' => 'Nume activitate',
     'business_description' => 'Descriere servicii',
     'website' => 'Site web',
+        'billing_tool_url' => 'ex. https://facturare.companiadumneavoastra.ro',
     'logo' => 'Logo',
 
     // Actions
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Permisiuni necesare',
     'github_scope_repo' => 'acces la depozite publice și private',
     'github_scope_read_user' => 'citirea profilului utilizatorului',
+    'billing_tool' => 'Instrument de facturare',
+    'billing_tool_url' => 'URL-ul instrumentului de facturare',
+    'billing_tool_url_hint' => 'Introduceți linkul instrumentului pe care îl folosiți pentru a emite facturi.',
 ];

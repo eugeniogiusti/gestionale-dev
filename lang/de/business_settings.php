@@ -41,6 +41,7 @@ return [
     'business_name' => 'Unternehmensname',
     'business_description' => 'Dienstleistungsbeschreibung',
     'website' => 'Webseite',
+        'billing_tool_url' => 'z.B. https://billing.deinunternehmen.de',
     'logo' => 'Logo',
     
     // Actions
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Erforderliche Berechtigungen',
     'github_scope_repo' => 'Zugriff auf öffentliche und private Repositories',
     'github_scope_read_user' => 'Benutzerprofil lesen',
+    'billing_tool' => 'Abrechnungstool',
+    'billing_tool_url' => 'URL des Abrechnungstools',
+    'billing_tool_url_hint' => 'Gib den Link des Tools ein, mit dem du Rechnungen ausstellst.',
 ];

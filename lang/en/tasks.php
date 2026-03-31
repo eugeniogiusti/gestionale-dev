@@ -28,6 +28,7 @@ return [
     'type_marketing' => 'Marketing',
     'type_hardware' => 'Hardware',
     'type_documentation' => 'Documentation',
+    'type_maintenance' => 'Maintenance',
     
     // Statuses
     'status_todo' => 'To Do',

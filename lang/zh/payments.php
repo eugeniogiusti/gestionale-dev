@@ -55,8 +55,8 @@ return [
     'placeholder' => [
         'search' => '按项目、参考号或备注搜索...',
         'amount' => '例如 1500.00',
-        'reference' => '例如：Invoice #2024-001, Stripe ch_xxx',
-        'notes' => '附加备注...',
+        'reference' => '例如 服务器咨询、功能开发...',
+        'notes' => '例如 已完成工作的描述...',
         'due_date' => '例如：2025-02-15',
     ],
 

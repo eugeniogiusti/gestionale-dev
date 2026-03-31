@@ -49,6 +49,7 @@ class BusinessSettings extends Model
         'website',
         'logo_path',
         'github_pat',
+        'billing_tool_url',
     ];
 
     /**

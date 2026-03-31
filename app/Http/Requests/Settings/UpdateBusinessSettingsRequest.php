@@ -55,6 +55,7 @@ class UpdateBusinessSettingsRequest extends FormRequest
 
             // Integrations
             'github_pat' => ['nullable', 'string', 'max:255'],
+            'billing_tool_url' => ['nullable', 'url', 'max:255'],
         ];
     }
 

@@ -41,6 +41,7 @@ return [
     'business_name' => 'Bedrijfsnaam',
     'business_description' => 'Dienstomschrijving',
     'website' => 'Website',
+        'billing_tool_url' => 'bijv. https://facturatie.jouwbedrijf.nl',
     'logo' => 'Logo',
     
     // Actions
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Vereiste machtigingen',
     'github_scope_repo' => 'toegang tot openbare en privérepositories',
     'github_scope_read_user' => 'gebruikersprofiel lezen',
+    'billing_tool' => 'Facturatietool',
+    'billing_tool_url' => 'URL van de facturatietool',
+    'billing_tool_url_hint' => 'Vul de link in van de tool die je gebruikt om facturen uit te sturen.',
 ];

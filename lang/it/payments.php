@@ -24,7 +24,7 @@ return [
     'due' => 'Scadenza',
     'method' => 'Metodo di Pagamento',
     'reference' => 'Riferimento',
-    'notes' => 'Note',
+    'notes' => 'Note / Descrizione',
     'invoice' => 'Fattura',
 
     'all_statuses' => 'Tutti gli Stati',
@@ -55,8 +55,8 @@ return [
     'placeholder' => [
         'search' => 'Cerca per progetto, riferimento o note...',
         'amount' => 'es., 1500.00',
-        'reference' => 'es., Fattura #2024-001, Stripe ch_xxx',
-        'notes' => 'Note aggiuntive...',
+        'reference' => 'es. Consulenza server, Sviluppo features...',
+        'notes' => 'es. Descrizione del lavoro eseguito...',
         'due_date' => 'es., 2025-02-15',
     ],
 
@@ -81,4 +81,5 @@ return [
         'date_from' => 'Da',
         'date_to' => 'A',
     ],
+    'open_billing_tool' => 'Apri tool di fatturazione',
 ];

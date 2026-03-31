@@ -41,6 +41,7 @@ return [
     'business_name' => 'Virksomhedsnavn',
     'business_description' => 'Servicebeskrivelse',
     'website' => 'Hjemmeside',
+        'billing_tool_url' => 'f.eks. https://fakturering.ditfirma.dk',
     'logo' => 'Logo',
     
     // Actions
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Påkrævede tilladelser',
     'github_scope_repo' => 'adgang til offentlige og private repositories',
     'github_scope_read_user' => 'læse brugerprofil',
+    'billing_tool' => 'Faktureringsværktøj',
+    'billing_tool_url' => 'URL til faktureringsværktøj',
+    'billing_tool_url_hint' => 'Indtast linket til det værktøj, du bruger til at udstede fakturaer.',
 ];

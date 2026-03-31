@@ -40,6 +40,7 @@ return [
     'business_name' => '企业名称',
     'business_description' => '服务描述',
     'website' => '网站',
+        'billing_tool_url' => '例如 https://billing.yourcompany.com',
     'logo' => 'Logo',
 
     // Actions
@@ -90,4 +91,7 @@ return [
     'github_required_scopes' => '所需权限',
     'github_scope_repo' => '访问公共和私有仓库',
     'github_scope_read_user' => '读取用户资料',
+    'billing_tool' => '账单工具',
+    'billing_tool_url' => '账单工具网址',
+    'billing_tool_url_hint' => '输入您用于开具发票的工具的链接。',
 ];

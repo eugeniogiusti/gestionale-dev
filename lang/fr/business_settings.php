@@ -41,6 +41,7 @@ return [
     'business_name' => 'Nom de l’entreprise',
     'business_description' => 'Description des services',
     'website' => 'Site web',
+        'billing_tool_url' => 'ex. https://facturation.votreentreprise.fr',
     'logo' => 'Logo',
     
     // Actions
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Permissions requises',
     'github_scope_repo' => 'accès aux dépôts publics et privés',
     'github_scope_read_user' => 'lecture du profil utilisateur',
+    'billing_tool' => 'Outil de facturation',
+    'billing_tool_url' => 'URL de l\'outil de facturation',
+    'billing_tool_url_hint' => 'Saisissez le lien de l\'outil que vous utilisez pour émettre des factures.',
 ];

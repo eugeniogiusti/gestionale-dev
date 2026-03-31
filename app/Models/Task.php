@@ -48,6 +48,7 @@ class Task extends Model implements CalendarEventable
         'marketing',
         'hardware',
         'documentation',
+        'maintenance',
     ];
 
     public const STATUSES = [

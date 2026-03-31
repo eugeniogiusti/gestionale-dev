@@ -28,6 +28,7 @@ return [
     'type_marketing' => '市场营销',
     'type_hardware' => '硬件',
     'type_documentation' => '文档',
+    'type_maintenance' => '维护',
 
     // Statuses
     'status_todo' => '待办',

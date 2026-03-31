@@ -207,7 +207,7 @@ class Payment extends Model implements CalendarEventable
 
     public function hasCalendarDate(): bool
     {
-        return $this->paid_at !== null;
+        return $this->paid_at !== null || $this->due_date !== null;
     }
 
     public function toCalendarEvent(): CalendarEvent
@@ -215,7 +215,7 @@ class Payment extends Model implements CalendarEventable
         return new CalendarEvent(
             title: $this->buildCalendarTitle(),
             description: $this->buildCalendarDescription(),
-            startDate: $this->paid_at,
+            startDate: $this->paid_at ?? $this->due_date,
         );
     }
 
@@ -272,7 +272,9 @@ class Payment extends Model implements CalendarEventable
         $lines[] = '📝 ' . mb_strtoupper(__('projects.details'));
         $lines[] = '────────────────';
         $lines[] = __('payments.amount') . ': ' . $this->getFormattedAmount();
-        $lines[] = __('payments.paid_at') . ': ' . $this->paid_at->format('d/m/Y');
+        $date = $this->paid_at ?? $this->due_date;
+        $dateLabel = $this->paid_at ? __('payments.paid_at') : __('payments.due_date');
+        $lines[] = $dateLabel . ': ' . $date->format('d/m/Y');
 
         if ($this->reference) {
             $lines[] = __('payments.reference') . ': ' . $this->reference;

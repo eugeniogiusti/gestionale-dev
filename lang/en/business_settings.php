@@ -72,6 +72,7 @@ return [
         'business_name' => 'e.g. IT Software Solutions',
         'business_description' => 'e.g. Custom software development and consulting services',
         'website' => 'e.g. https://yourcompany.com',
+        'billing_tool_url' => 'e.g. https://billing.yourcompany.com',
     ],
     
     // Hints
@@ -91,4 +92,7 @@ return [
     'github_required_scopes' => 'Required permissions',
     'github_scope_repo' => 'access to public and private repositories',
     'github_scope_read_user' => 'read user profile',
+    'billing_tool' => 'Billing Tool',
+    'billing_tool_url' => 'Billing Tool URL',
+    'billing_tool_url_hint' => 'Enter the link of the tool you use to issue invoices.',
 ];

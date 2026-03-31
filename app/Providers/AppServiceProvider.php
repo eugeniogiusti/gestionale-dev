@@ -30,9 +30,11 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             if (!$view->offsetExists('currencySymbol')) {
-                $code = BusinessSettings::current()->default_currency ?? 'EUR';
+                $settings = BusinessSettings::current();
+                $code = $settings->default_currency ?? 'EUR';
                 $view->with('currencyCode', $code);
                 $view->with('currencySymbol', BusinessSettings::CURRENCIES[$code] ?? $code);
+                $view->with('billingToolUrl', $settings->billing_tool_url);
             }
         });
     }

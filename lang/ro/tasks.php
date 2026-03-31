@@ -28,6 +28,7 @@ return [
     'type_marketing' => 'Marketing',
     'type_hardware' => 'Hardware',
     'type_documentation' => 'Documentație',
+    'type_maintenance' => 'Mentenanță',
 
     // Statuses
     'status_todo' => 'De făcut',
