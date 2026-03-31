@@ -19,19 +19,12 @@ return [
     'amount' => 'Bedrag',
     'currency' => 'Valuta',
     'type' => 'Type',
-    'recurring' => 'Terugkerend',
-    'recurring_cost' => 'Dit is een terugkerende kost',
-    'recurring_period' => 'Herhalingsperiode',
     'paid_at' => 'Betaald op',
     'receipt' => 'Bon',
     'notes' => 'Notities',
 
     'all_types' => 'Alle types',
     'all_currencies' => 'Alle valuta',
-    'all_recurring' => 'Alle',
-    'recurring_yes' => 'Alleen terugkerend',
-    'recurring_no' => 'Alleen eenmalig',
-    'select_period' => 'Selecteer periode',
     
     'type_hosting' => 'Hosting',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Hardware',
     'type_meal' => 'Zakelijke maaltijd',
 
-    'period_monthly' => 'Maandelijks',
-    'period_yearly' => 'Jaarlijks',
-    'period_quarterly' => 'Driemaandelijks',
 
     'created_successfully' => 'Kosten succesvol aangemaakt',
     'updated_successfully' => 'Kosten succesvol bijgewerkt',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Alle projecten',
         'this_month' => 'Deze maand',
         'this_year' => 'Dit jaar',
-        'recurring_monthly' => 'Maandelijks terugkerend',
         'per_month' => 'Per maand',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Het kostentype is verplicht',
     'paid_at_required' => 'De betaaldatum is verplicht',
     'currency_invalid' => 'Ongeldige valuta',
-    'recurring_period_required' => 'De herhalingsperiode is verplicht voor terugkerende kosten',
 ];

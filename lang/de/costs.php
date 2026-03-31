@@ -19,19 +19,12 @@ return [
     'amount' => 'Betrag',
     'currency' => 'Währung',
     'type' => 'Typ',
-    'recurring' => 'Wiederkehrend',
-    'recurring_cost' => 'Dies ist ein wiederkehrender Kostenposten',
-    'recurring_period' => 'Wiederholungszeitraum',
     'paid_at' => 'Bezahlt am',
     'receipt' => 'Beleg',
     'notes' => 'Notizen',
 
     'all_types' => 'Alle Typen',
     'all_currencies' => 'Alle Währungen',
-    'all_recurring' => 'Alle',
-    'recurring_yes' => 'Nur wiederkehrend',
-    'recurring_no' => 'Nur einmalig',
-    'select_period' => 'Zeitraum auswählen',
     
     'type_hosting' => 'Hosting',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Hardware',
     'type_meal' => 'Geschäftsessen',
 
-    'period_monthly' => 'Monatlich',
-    'period_yearly' => 'Jährlich',
-    'period_quarterly' => 'Vierteljährlich',
 
     'created_successfully' => 'Kosten erfolgreich erstellt',
     'updated_successfully' => 'Kosten erfolgreich aktualisiert',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Alle Projekte',
         'this_month' => 'Diesen Monat',
         'this_year' => 'Dieses Jahr',
-        'recurring_monthly' => 'Monatlich wiederkehrend',
         'per_month' => 'Pro Monat',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Der Kostentyp ist erforderlich',
     'paid_at_required' => 'Das Zahlungsdatum ist erforderlich',
     'currency_invalid' => 'Ungültige Währung',
-    'recurring_period_required' => 'Der Wiederholungszeitraum ist für wiederkehrende Kosten erforderlich',
 ];

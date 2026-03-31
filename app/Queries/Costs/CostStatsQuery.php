@@ -23,7 +23,6 @@ class CostStatsQuery
             'total_all_time' => $this->getTotalAllTime(),
             'total_this_month' => $this->getTotalThisMonth(),
             'total_this_year' => $this->getTotalThisYear(),
-            'recurring_monthly' => $this->getRecurringMonthly(),
         ];
     }
 
@@ -46,11 +45,4 @@ class CostStatsQuery
             ->sum('amount');
     }
 
-    private function getRecurringMonthly(): float
-    {
-        return Cost::where('currency', $this->currency)
-            ->recurring(true)
-            ->where('recurring_period', 'monthly')
-            ->sum('amount');
-    }
 }

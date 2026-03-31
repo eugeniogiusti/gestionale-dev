@@ -33,49 +33,22 @@
         </div>
     </div>
 
-    {{-- Type + Recurring --}}
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {{ __('costs.type') }} <span class="text-red-500">*</span>
-            </label>
-            <select name="type"
-                    x-model="formData.type"
-                    required
-                    class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition">
-                @foreach(\App\Models\Cost::TYPES as $type)
-                    <option value="{{ $type }}">{{ __('costs.type_' . $type) }}</option>
-                @endforeach
-            </select>
-            @error('type')
-                <p class="mt-0.5 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
-            @enderror
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {{ __('costs.recurring_period') }}
-            </label>
-            <div class="flex items-center gap-2">
-                <input type="checkbox"
-                       name="recurring"
-                       value="1"
-                       x-model="formData.recurring"
-                       class="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500">
-                <select name="recurring_period"
-                        x-model="formData.recurring_period"
-                        :disabled="!formData.recurring"
-                        :required="formData.recurring"
-                        class="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition disabled:opacity-50">
-                    <option value="">{{ __('costs.select_period') }}</option>
-                    @foreach(\App\Models\Cost::RECURRING_PERIODS as $period)
-                        <option value="{{ $period }}">{{ __('costs.period_' . $period) }}</option>
-                    @endforeach
-                </select>
-            </div>
-            @error('recurring_period')
-                <p class="mt-0.5 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
-            @enderror
-        </div>
+    {{-- Type --}}
+    <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ __('costs.type') }} <span class="text-red-500">*</span>
+        </label>
+        <select name="type"
+                x-model="formData.type"
+                required
+                class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 transition">
+            @foreach(\App\Models\Cost::TYPES as $type)
+                <option value="{{ $type }}">{{ __('costs.type_' . $type) }}</option>
+            @endforeach
+        </select>
+        @error('type')
+            <p class="mt-0.5 text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
+        @enderror
     </div>
 
     {{-- Notes --}}

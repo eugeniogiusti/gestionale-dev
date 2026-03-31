@@ -19,19 +19,12 @@ return [
     'amount' => 'Importo',
     'currency' => 'Valuta',
     'type' => 'Tipo',
-    'recurring' => 'Ricorrente',
-    'recurring_cost' => 'Questo è un costo ricorrente',
-    'recurring_period' => 'Periodo Ricorrenza',
     'paid_at' => 'Pagato il',
     'receipt' => 'Ricevuta',
     'notes' => 'Note',
 
     'all_types' => 'Tutti i Tipi',
     'all_currencies' => 'Tutte le Valute',
-    'all_recurring' => 'Tutti',
-    'recurring_yes' => 'Solo Ricorrenti',
-    'recurring_no' => 'Solo Una Tantum',
-    'select_period' => 'Seleziona periodo',
     
     'type_hosting' => 'Hosting',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Hardware',
     'type_meal' => 'Pasto lavorativo',
 
-    'period_monthly' => 'Mensile',
-    'period_yearly' => 'Annuale',
-    'period_quarterly' => 'Trimestrale',
 
     'created_successfully' => 'Costo creato con successo',
     'updated_successfully' => 'Costo aggiornato con successo',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Tutti i progetti',
         'this_month' => 'Questo Mese',
         'this_year' => 'Quest\'Anno',
-        'recurring_monthly' => 'Ricorrenti Mensili',
         'per_month' => 'Al mese',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Il tipo di costo è obbligatorio',
     'paid_at_required' => 'La data di pagamento è obbligatoria',
     'currency_invalid' => 'Valuta non valida',
-    'recurring_period_required' => 'Il periodo di ricorrenza è obbligatorio per i costi ricorrenti',
 ];

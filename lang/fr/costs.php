@@ -19,19 +19,12 @@ return [
     'amount' => 'Montant',
     'currency' => 'Devise',
     'type' => 'Type',
-    'recurring' => 'Récurrent',
-    'recurring_cost' => 'Ceci est un coût récurrent',
-    'recurring_period' => 'Période de récurrence',
     'paid_at' => 'Payé le',
     'receipt' => 'Reçu',
     'notes' => 'Notes',
 
     'all_types' => 'Tous les types',
     'all_currencies' => 'Toutes les devises',
-    'all_recurring' => 'Tous',
-    'recurring_yes' => 'Seulement récurrents',
-    'recurring_no' => 'Seulement ponctuels',
-    'select_period' => 'Sélectionner la période',
     
     'type_hosting' => 'Hébergement',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Matériel',
     'type_meal' => 'Repas professionnel',
 
-    'period_monthly' => 'Mensuel',
-    'period_yearly' => 'Annuel',
-    'period_quarterly' => 'Trimestriel',
 
     'created_successfully' => 'Coût créé avec succès',
     'updated_successfully' => 'Coût mis à jour avec succès',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Tous les projets',
         'this_month' => 'Ce mois-ci',
         'this_year' => 'Cette année',
-        'recurring_monthly' => 'Récurrents mensuels',
         'per_month' => 'Par mois',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Le type de coût est obligatoire',
     'paid_at_required' => 'La date de paiement est obligatoire',
     'currency_invalid' => 'Devise non valide',
-    'recurring_period_required' => 'La période de récurrence est obligatoire pour les coûts récurrents',
 ];

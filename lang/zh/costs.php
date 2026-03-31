@@ -19,19 +19,12 @@ return [
     'amount' => '金额',
     'currency' => '货币',
     'type' => '类型',
-    'recurring' => '周期性',
-    'recurring_cost' => '这是周期性成本',
-    'recurring_period' => '周期',
     'paid_at' => '支付于',
     'receipt' => '收据',
     'notes' => '备注',
 
     'all_types' => '全部类型',
     'all_currencies' => '全部货币',
-    'all_recurring' => '全部',
-    'recurring_yes' => '仅周期性',
-    'recurring_no' => '仅一次性',
-    'select_period' => '选择周期',
 
     'type_hosting' => '主机',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => '硬件',
     'type_meal' => '工作餐',
 
-    'period_monthly' => '每月',
-    'period_yearly' => '每年',
-    'period_quarterly' => '每季度',
 
     'created_successfully' => '成本创建成功',
     'updated_successfully' => '成本更新成功',
@@ -56,7 +46,6 @@ return [
         'all_projects' => '所有项目',
         'this_month' => '本月',
         'this_year' => '今年',
-        'recurring_monthly' => '月度周期成本',
         'per_month' => '每月',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => '成本类型为必填项',
     'paid_at_required' => '支付日期为必填项',
     'currency_invalid' => '货币无效',
-    'recurring_period_required' => '周期性成本必须填写周期',
 ];

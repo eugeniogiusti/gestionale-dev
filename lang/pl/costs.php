@@ -19,19 +19,12 @@ return [
     'amount' => 'Kwota',
     'currency' => 'Waluta',
     'type' => 'Typ',
-    'recurring' => 'Cykliczny',
-    'recurring_cost' => 'To jest koszt cykliczny',
-    'recurring_period' => 'Okres cykliczności',
     'paid_at' => 'Opłacono',
     'receipt' => 'Paragon',
     'notes' => 'Notatki',
 
     'all_types' => 'Wszystkie typy',
     'all_currencies' => 'Wszystkie waluty',
-    'all_recurring' => 'Wszystkie',
-    'recurring_yes' => 'Tylko cykliczne',
-    'recurring_no' => 'Tylko jednorazowe',
-    'select_period' => 'Wybierz okres',
 
     'type_hosting' => 'Hosting',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Sprzęt',
     'type_meal' => 'Posiłek służbowy',
 
-    'period_monthly' => 'Miesięczny',
-    'period_yearly' => 'Roczny',
-    'period_quarterly' => 'Kwartalny',
 
     'created_successfully' => 'Koszt utworzony pomyślnie',
     'updated_successfully' => 'Koszt zaktualizowany pomyślnie',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Wszystkie projekty',
         'this_month' => 'W tym miesiącu',
         'this_year' => 'W tym roku',
-        'recurring_monthly' => 'Cykliczne miesięczne',
         'per_month' => 'Na miesiąc',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Typ kosztu jest wymagany',
     'paid_at_required' => 'Data płatności jest wymagana',
     'currency_invalid' => 'Nieprawidłowa waluta',
-    'recurring_period_required' => 'Okres cykliczności jest wymagany dla kosztów cyklicznych',
 ];

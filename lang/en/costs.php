@@ -19,19 +19,12 @@ return [
     'amount' => 'Amount',
     'currency' => 'Currency',
     'type' => 'Type',
-    'recurring' => 'Recurring',
-    'recurring_cost' => 'This is a recurring cost',
-    'recurring_period' => 'Recurring Period',
     'paid_at' => 'Paid At',
     'receipt' => 'Receipt',
     'notes' => 'Notes',
 
     'all_types' => 'All Types',
     'all_currencies' => 'All Currencies',
-    'all_recurring' => 'All',
-    'recurring_yes' => 'Recurring Only',
-    'recurring_no' => 'One-time Only',
-    'select_period' => 'Select period',
     
     'type_hosting' => 'Hosting',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Hardware',
     'type_meal' => 'Business Meal',
 
-    'period_monthly' => 'Monthly',
-    'period_yearly' => 'Yearly',
-    'period_quarterly' => 'Quarterly',
 
     'created_successfully' => 'Cost created successfully',
     'updated_successfully' => 'Cost updated successfully',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'All projects',
         'this_month' => 'This Month',
         'this_year' => 'This Year',
-        'recurring_monthly' => 'Recurring Monthly',
         'per_month' => 'Per month',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Cost type is required',
     'paid_at_required' => 'Payment date is required',
     'currency_invalid' => 'Invalid currency selected',
-    'recurring_period_required' => 'Recurring period is required for recurring costs',
 ];

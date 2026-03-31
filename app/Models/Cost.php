@@ -29,8 +29,6 @@ class Cost extends Model
         'amount',
         'currency',
         'type',
-        'recurring',
-        'recurring_period',
         'paid_at',
         'receipt_path',
         'notes',
@@ -42,7 +40,6 @@ class Cost extends Model
     protected $casts = [
         'paid_at' => 'date',
         'amount' => 'decimal:2',
-        'recurring' => 'boolean',
     ];
 
     /* -----------------------------------------------------------------
@@ -62,12 +59,6 @@ class Cost extends Model
     ];
 
     public const CURRENCIES = BusinessSettings::CURRENCIES;
-
-    public const RECURRING_PERIODS = [
-        'monthly',
-        'yearly',
-        'quarterly',
-    ];
 
     /* -----------------------------------------------------------------
      |  RELATIONSHIPS
@@ -90,11 +81,6 @@ class Cost extends Model
     public function scopeCurrency($query, string $currency)
     {
         return $query->where('currency', $currency);
-    }
-
-    public function scopeRecurring($query, bool $recurring = true)
-    {
-        return $query->where('recurring', $recurring);
     }
 
     public function scopeForProject($query, int $projectId)

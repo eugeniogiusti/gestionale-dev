@@ -20,7 +20,6 @@ class CostIndexQuery
             ->when(request('project_id'), fn($q, $projectId) => $q->forProject($projectId))
             ->when(request('type'), fn($q, $type) => $q->type($type))
             ->when(request('currency'), fn($q, $currency) => $q->currency($currency))
-            ->when(request('recurring') !== null, fn($q) => $q->recurring(request('recurring') === '1'))
             ->when(request('date_from'), fn($q, $date) => $q->where('paid_at', '>=', $date))
             ->when(request('date_to'), fn($q, $date) => $q->where('paid_at', '<=', $date))
             ->when(request('search'), function($q, $search) {

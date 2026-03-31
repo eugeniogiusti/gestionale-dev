@@ -7,9 +7,6 @@
             {{ __('costs.type') }}
         </th>
         <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">
-            {{ __('costs.recurring') }}
-        </th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">
             {{ __('costs.paid_at') }}
         </th>
         <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">

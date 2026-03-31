@@ -17,8 +17,6 @@ export default function costModal() {
             return {
                 amount: '',
                 type: 'tool',
-                recurring: false,
-                recurring_period: '',
                 paid_at: '',
                 notes: ''
             };
@@ -50,8 +48,6 @@ export default function costModal() {
             this.formData = {
                 amount: costData.amount || '',
                 type: costData.type || 'tool',
-                recurring: Boolean(costData.recurring),
-                recurring_period: costData.recurring_period || '',
                 paid_at: this.formatDateForInput(costData.paid_at),
                 notes: costData.notes || ''
             };

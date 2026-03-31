@@ -19,19 +19,12 @@ return [
     'amount' => 'Beløb',
     'currency' => 'Valuta',
     'type' => 'Type',
-    'recurring' => 'Tilbagevendende',
-    'recurring_cost' => 'Dette er en tilbagevendende omkostning',
-    'recurring_period' => 'Gentagelsesperiode',
     'paid_at' => 'Betalt den',
     'receipt' => 'Kvittering',
     'notes' => 'Noter',
 
     'all_types' => 'Alle typer',
     'all_currencies' => 'Alle valutaer',
-    'all_recurring' => 'Alle',
-    'recurring_yes' => 'Kun tilbagevendende',
-    'recurring_no' => 'Kun engangs',
-    'select_period' => 'Vælg periode',
     
     'type_hosting' => 'Hosting',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Hardware',
     'type_meal' => 'Erhvervsmåltid',
 
-    'period_monthly' => 'Månedlig',
-    'period_yearly' => 'Årlig',
-    'period_quarterly' => 'Kvartalsvis',
 
     'created_successfully' => 'Omkostning oprettet',
     'updated_successfully' => 'Omkostning opdateret',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Alle projekter',
         'this_month' => 'Denne måned',
         'this_year' => 'Dette år',
-        'recurring_monthly' => 'Månedligt tilbagevendende',
         'per_month' => 'Pr. måned',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Omkostningstype er påkrævet',
     'paid_at_required' => 'Betalingsdato er påkrævet',
     'currency_invalid' => 'Ugyldig valuta',
-    'recurring_period_required' => 'Gentagelsesperiode er påkrævet for tilbagevendende omkostninger',
 ];

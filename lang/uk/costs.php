@@ -19,19 +19,12 @@ return [
     'amount' => 'Сума',
     'currency' => 'Валюта',
     'type' => 'Тип',
-    'recurring' => 'Періодичні',
-    'recurring_cost' => 'Це періодична витрата',
-    'recurring_period' => 'Періодичність',
     'paid_at' => 'Сплачено',
     'receipt' => 'Квитанція',
     'notes' => 'Нотатки',
 
     'all_types' => 'Усі типи',
     'all_currencies' => 'Усі валюти',
-    'all_recurring' => 'Усі',
-    'recurring_yes' => 'Лише періодичні',
-    'recurring_no' => 'Лише разові',
-    'select_period' => 'Оберіть період',
 
     'type_hosting' => 'Хостинг',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Обладнання',
     'type_meal' => 'Ділова їжа',
 
-    'period_monthly' => 'Щомісяця',
-    'period_yearly' => 'Щороку',
-    'period_quarterly' => 'Щокварталу',
 
     'created_successfully' => 'Витрату успішно створено',
     'updated_successfully' => 'Витрату успішно оновлено',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Усі проєкти',
         'this_month' => 'Цього місяця',
         'this_year' => 'Цього року',
-        'recurring_monthly' => 'Щомісячні періодичні',
         'per_month' => 'На місяць',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Тип витрати є обовʼязковим',
     'paid_at_required' => 'Дата оплати є обовʼязковою',
     'currency_invalid' => 'Невірна валюта',
-    'recurring_period_required' => 'Періодичність є обовʼязковою для періодичних витрат',
 ];

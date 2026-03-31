@@ -19,19 +19,12 @@ return [
     'amount' => 'Сумма',
     'currency' => 'Валюта',
     'type' => 'Тип',
-    'recurring' => 'Повторяется',
-    'recurring_cost' => 'Это повторяющийся расход',
-    'recurring_period' => 'Период повторения',
     'paid_at' => 'Оплачено',
     'receipt' => 'Чек',
     'notes' => 'Заметки',
 
     'all_types' => 'Все типы',
     'all_currencies' => 'Все валюты',
-    'all_recurring' => 'Все',
-    'recurring_yes' => 'Только повторяющиеся',
-    'recurring_no' => 'Только разовые',
-    'select_period' => 'Выберите период',
 
     'type_hosting' => 'Хостинг',
     'type_api' => 'API',
@@ -43,9 +36,6 @@ return [
     'type_hardware' => 'Оборудование',
     'type_meal' => 'Деловой обед',
 
-    'period_monthly' => 'Ежемесячно',
-    'period_yearly' => 'Ежегодно',
-    'period_quarterly' => 'Ежеквартально',
 
     'created_successfully' => 'Расход успешно создан',
     'updated_successfully' => 'Расход успешно обновлен',
@@ -56,7 +46,6 @@ return [
         'all_projects' => 'Все проекты',
         'this_month' => 'Этот месяц',
         'this_year' => 'Этот год',
-        'recurring_monthly' => 'Ежемесячные расходы',
         'per_month' => 'в месяц',
     ],
 
@@ -71,5 +60,4 @@ return [
     'type_required' => 'Тип расхода обязателен',
     'paid_at_required' => 'Дата оплаты обязательна',
     'currency_invalid' => 'Недопустимая валюта',
-    'recurring_period_required' => 'Период повторения обязателен для повторяющихся расходов',
 ];
