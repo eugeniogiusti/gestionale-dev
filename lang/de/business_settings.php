@@ -8,7 +8,7 @@ return [
     
     // Tabs
     'personal_info' => 'Persönliche Daten',
-    'legal_address' => 'Rechtssitz',
+    'legal_address_tab' => 'Rechtssitz',
     'tax_info' => 'Steuerdaten',
     'contacts' => 'Kontakte',
     'business_info' => 'Geschäft',
@@ -30,6 +30,30 @@ return [
     'vat_number' => 'USt-IdNr.',
     'iban' => 'IBAN',
     'default_currency' => 'Standardwährung',
+
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Steuerregime',
+    'tax_regime' => 'Steuerregime',
+    'substitute_tax_rate' => 'Ersatzsteuer',
+    'profitability_coefficient' => 'Rentabilitätskoeffizient',
+    'annual_revenue_cap' => 'Maximaler Jahresumsatz',
+    'business_start_date' => 'Gründungsdatum',
+
+    // Pension
+    'pension_section' => 'Rentenversicherung',
+    'pension_fund' => 'Rentenkasse',
+    'pension_registration_number' => 'Mitgliedsnummer',
+    'pension_registration_date' => 'Einschreibedatum',
+
+    // ATECO
+    'ateco_section' => 'ATECO-Codes',
+    'ateco_code' => 'Code',
+    'ateco_description' => 'Beschreibung',
+    'ateco_primary' => 'Primär',
+    'ateco_add' => 'Hinzufügen',
+    'ateco_set_primary' => 'Als primär festlegen',
+    'ateco_no_codes' => 'Keine ATECO-Codes hinzugefügt',
+    'ateco_delete_confirm' => 'Diesen ATECO-Code löschen?',
     
     // Contacts
     'email' => 'E-Mail',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Dienstleistungsbeschreibung',
     'website' => 'Webseite',
         'billing_tool_url' => 'z.B. https://billing.deinunternehmen.de',
+        'tax_regime' => 'z.B. Pauschalregelung',
+        'substitute_tax_rate' => 'z.B. 15',
+        'profitability_coefficient' => 'z.B. 67',
+        'annual_revenue_cap' => 'z.B. 85000',
+        'pension_fund' => 'z.B. GS INPS',
+        'pension_registration_number' => 'z.B. 3300',
+        'ateco_code' => 'z.B. 62.01',
+        'ateco_description' => 'z.B. Softwareentwicklung',
     'logo' => 'Logo',
     
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'z. B. IT Software Solutions',
         'business_description' => 'z. B. Beratung und maßgeschneiderte Softwareentwicklung',
         'website' => 'z. B. https://deinunternehmen.it',
+        'invoice_note' => 'z.B. Umsatzsteuerbefreit gem. §19 UStG',
     ],
     
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'Benutzerprofil lesen',
     'billing_tool' => 'Abrechnungstool',
     'billing_tool_url' => 'URL des Abrechnungstools',
+        'tax_regime' => 'z.B. Pauschalregelung',
+        'substitute_tax_rate' => 'z.B. 15',
+        'profitability_coefficient' => 'z.B. 67',
+        'annual_revenue_cap' => 'z.B. 85000',
+        'pension_fund' => 'z.B. GS INPS',
+        'pension_registration_number' => 'z.B. 3300',
+        'ateco_code' => 'z.B. 62.01',
+        'ateco_description' => 'z.B. Softwareentwicklung',
     'billing_tool_url_hint' => 'Gib den Link des Tools ein, mit dem du Rechnungen ausstellst.',
+
+    // Documents tab
+    'documents_tab' => 'Dokumente',
+    'documents' => [
+        'title' => 'Persönliche Dokumente / Steuer-ID',
+        'description' => 'Dokumente hochladen: Gewerbeanmeldung, ATECO-Änderungen usw.',
+        'upload' => 'Dokument hochladen',
+        'name' => 'Dokumentname',
+        'notes' => 'Notizen',
+        'file' => 'Datei',
+        'uploaded_at' => 'Hochgeladen am',
+        'no_documents' => 'Keine Dokumente hochgeladen.',
+        'created' => 'Dokument hochgeladen.',
+        'updated' => 'Dokument aktualisiert.',
+        'deleted' => 'Dokument gelöscht.',
+        'delete_confirm' => 'Dieses Dokument löschen?',
+        'placeholder_name' => 'z.B. Gewerbeanmeldungszertifikat',
+        'placeholder_notes' => 'z.B. Offizielles Dokument vom Finanzamt',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Rechnungshinweis',
+    'invoice_note' => 'Rechtlicher / steuerlicher Hinweis',
+    'invoice_note_hint' => 'Text, der am Ende der Rechnung erscheint.',
 ];

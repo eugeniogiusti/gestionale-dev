@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Settings\UpdateBusinessSettingsRequest;
+use App\Models\AtecoCode;
+use App\Models\BusinessDocument;
 use App\Models\BusinessSettings;
 use App\Services\Settings\BusinessSettingsService;
 
@@ -18,9 +20,11 @@ class BusinessSettingsController extends Controller
      */
     public function edit()
     {
-        $settings = BusinessSettings::current();
-        
-        return view('settings.business', compact('settings'));
+        $settings       = BusinessSettings::current();
+        $atecoCodes     = AtecoCode::orderBy('is_primary', 'desc')->orderBy('code')->get();
+        $businessDocs   = BusinessDocument::latest('uploaded_at')->get();
+
+        return view('settings.business', compact('settings', 'atecoCodes', 'businessDocs'));
     }
 
     /**

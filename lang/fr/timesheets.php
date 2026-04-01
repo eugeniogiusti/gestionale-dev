@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title'               => 'Worked Hours',
+    'title' => 'Heures travaillées',
     'saved_successfully'  => 'Timesheet saved successfully.',
     'deleted_successfully' => 'Timesheet deleted successfully.',
     'no_rate_warning'     => 'No hourly rate set for this project. Update it via the Edit button.',
@@ -13,7 +13,7 @@ return [
     'history'             => 'Saved months',
     'delete_confirm'      => 'Delete this timesheet?',
     'report_download'  => 'Télécharger PDF',
-    'report_title'  => 'Rapport d'heures travaillées',
+    'report_title'  => "Rapport d'heures travaillées",
     'report_from'  => 'De',
     'report_project'  => 'Projet',
     'report_vat'  => 'N° TVA',

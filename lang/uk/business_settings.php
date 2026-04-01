@@ -8,7 +8,7 @@ return [
 
     // Tabs
     'personal_info' => 'Особисті дані',
-    'legal_address' => 'Юридична адреса',
+    'legal_address_tab' => 'Юридична адреса',
     'tax_info' => 'Податкові дані',
     'contacts' => 'Контакти',
     'business_info' => 'Діяльність',
@@ -31,6 +31,30 @@ return [
     'iban' => 'IBAN',
     'default_currency' => 'Валюта за замовчуванням',
 
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Податковий Режим',
+    'tax_regime' => 'Податковий Режим',
+    'substitute_tax_rate' => 'Замінний Податок',
+    'profitability_coefficient' => 'Коефіцієнт Рентабельності',
+    'annual_revenue_cap' => 'Макс. Річний Дохід',
+    'business_start_date' => 'Дата Початку Діяльності',
+
+    // Pension
+    'pension_section' => 'Пенсійне Забезпечення',
+    'pension_fund' => 'Пенсійний Фонд',
+    'pension_registration_number' => 'Реєстраційний Номер',
+    'pension_registration_date' => 'Дата Реєстрації',
+
+    // ATECO
+    'ateco_section' => 'Коди ATECO',
+    'ateco_code' => 'Код',
+    'ateco_description' => 'Опис',
+    'ateco_primary' => 'Основний',
+    'ateco_add' => 'Додати',
+    'ateco_set_primary' => 'Встановити як основний',
+    'ateco_no_codes' => 'Коди ATECO не додано',
+    'ateco_delete_confirm' => 'Видалити цей код ATECO?',
+
     // Contacts
     'email' => 'Email',
     'certified_email' => 'PEC',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Опис послуг',
     'website' => 'Вебсайт',
         'billing_tool_url' => 'напр. https://billing.vashakompaniya.ua',
+        'tax_regime' => 'напр. Спрощена система',
+        'substitute_tax_rate' => 'напр. 15',
+        'profitability_coefficient' => 'напр. 67',
+        'annual_revenue_cap' => 'напр. 85000',
+        'pension_fund' => 'напр. GS INPS',
+        'pension_registration_number' => 'напр. 3300',
+        'ateco_code' => 'напр. 62.01',
+        'ateco_description' => 'напр. Розробка програмного забезпечення',
     'logo' => 'Логотип',
 
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'напр. IT Software Solutions',
         'business_description' => 'напр. Консалтинг і розробка ПЗ на замовлення',
         'website' => 'напр. https://company.ua',
+        'invoice_note' => 'напр. Звільнено від ПДВ згідно ст. 197 ПКУ',
     ],
 
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'читання профілю користувача',
     'billing_tool' => 'Інструмент виставлення рахунків',
     'billing_tool_url' => 'URL інструменту виставлення рахунків',
+        'tax_regime' => 'напр. Спрощена система',
+        'substitute_tax_rate' => 'напр. 15',
+        'profitability_coefficient' => 'напр. 67',
+        'annual_revenue_cap' => 'напр. 85000',
+        'pension_fund' => 'напр. GS INPS',
+        'pension_registration_number' => 'напр. 3300',
+        'ateco_code' => 'напр. 62.01',
+        'ateco_description' => 'напр. Розробка програмного забезпечення',
     'billing_tool_url_hint' => 'Введіть посилання на інструмент, який ви використовуєте для виставлення рахунків.',
+
+    // Documents tab
+    'documents_tab' => 'Документи',
+    'documents' => [
+        'title' => 'Особисті документи / ІПН',
+        'description' => "Завантажте документи, пов'язані з діяльністю: реєстрація ПДВ, зміни ATECO тощо.",
+        'upload' => 'Завантажити документ',
+        'name' => 'Назва документа',
+        'notes' => 'Примітки',
+        'file' => 'Файл',
+        'uploaded_at' => 'Завантажено',
+        'no_documents' => 'Документи не завантажені.',
+        'created' => 'Документ завантажено.',
+        'updated' => 'Документ оновлено.',
+        'deleted' => 'Документ видалено.',
+        'delete_confirm' => 'Видалити цей документ?',
+        'placeholder_name' => 'напр. Свідоцтво про реєстрацію ПДВ',
+        'placeholder_notes' => 'напр. Офіційний документ податкової служби',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Примітка до рахунку',
+    'invoice_note' => 'Правова / податкова примітка',
+    'invoice_note_hint' => 'Текст, що відображається внизу рахунку.',
 ];

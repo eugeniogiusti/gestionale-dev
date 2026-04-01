@@ -1,5 +1,4 @@
-<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700" 
-     x-data="{ activeTab: '{{ request()->query('tab', 'personal') }}' }">
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
     
     {{-- Hidden input per passare il tab attivo al submit --}}
     <input type="hidden" name="_active_tab" :value="activeTab">

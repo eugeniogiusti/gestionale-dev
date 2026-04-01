@@ -8,7 +8,7 @@ return [
     
     // Tabs
     'personal_info' => 'Persoonlijke gegevens',
-    'legal_address' => 'Juridisch adres',
+    'legal_address_tab' => 'Juridisch adres',
     'tax_info' => 'Fiscale gegevens',
     'contacts' => 'Contacten',
     'business_info' => 'Activiteit',
@@ -30,6 +30,30 @@ return [
     'vat_number' => 'BTW-nummer',
     'iban' => 'IBAN',
     'default_currency' => 'Standaardvaluta',
+
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Belastingregime',
+    'tax_regime' => 'Belastingregime',
+    'substitute_tax_rate' => 'Vervangingsbelasting',
+    'profitability_coefficient' => 'Winstgevendheidscoëfficiënt',
+    'annual_revenue_cap' => 'Maximale Jaaromzet',
+    'business_start_date' => 'Startdatum Bedrijf',
+
+    // Pension
+    'pension_section' => 'Pensioen',
+    'pension_fund' => 'Pensioenfonds',
+    'pension_registration_number' => 'Registratienummer',
+    'pension_registration_date' => 'Inschrijfdatum',
+
+    // ATECO
+    'ateco_section' => 'ATECO-codes',
+    'ateco_code' => 'Code',
+    'ateco_description' => 'Beschrijving',
+    'ateco_primary' => 'Primair',
+    'ateco_add' => 'Toevoegen',
+    'ateco_set_primary' => 'Als primair instellen',
+    'ateco_no_codes' => 'Geen ATECO-codes toegevoegd',
+    'ateco_delete_confirm' => 'Deze ATECO-code verwijderen?',
     
     // Contacts
     'email' => 'Email',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Dienstomschrijving',
     'website' => 'Website',
         'billing_tool_url' => 'bijv. https://facturatie.jouwbedrijf.nl',
+        'tax_regime' => 'bijv. Vereenvoudigd regime',
+        'substitute_tax_rate' => 'bijv. 15',
+        'profitability_coefficient' => 'bijv. 67',
+        'annual_revenue_cap' => 'bijv. 85000',
+        'pension_fund' => 'bijv. GS INPS',
+        'pension_registration_number' => 'bijv. 3300',
+        'ateco_code' => 'bijv. 62.01',
+        'ateco_description' => 'bijv. Softwareontwikkeling',
     'logo' => 'Logo',
     
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'bv. IT Software Solutions',
         'business_description' => 'bv. Advies en maatwerksoftwareontwikkeling',
         'website' => 'bv. https://jouwbedrijf.it',
+        'invoice_note' => 'bijv. BTW-vrijgesteld o.g.v. art. 25 Wet OB',
     ],
     
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'gebruikersprofiel lezen',
     'billing_tool' => 'Facturatietool',
     'billing_tool_url' => 'URL van de facturatietool',
+        'tax_regime' => 'bijv. Vereenvoudigd regime',
+        'substitute_tax_rate' => 'bijv. 15',
+        'profitability_coefficient' => 'bijv. 67',
+        'annual_revenue_cap' => 'bijv. 85000',
+        'pension_fund' => 'bijv. GS INPS',
+        'pension_registration_number' => 'bijv. 3300',
+        'ateco_code' => 'bijv. 62.01',
+        'ateco_description' => 'bijv. Softwareontwikkeling',
     'billing_tool_url_hint' => 'Vul de link in van de tool die je gebruikt om facturen uit te sturen.',
+
+    // Documents tab
+    'documents_tab' => 'Documenten',
+    'documents' => [
+        'title' => 'Persoonlijke documenten / BTW',
+        'description' => 'Upload documenten gerelateerd aan uw bedrijf: BTW-registratie, ATECO-wijzigingen, enz.',
+        'upload' => 'Document uploaden',
+        'name' => 'Documentnaam',
+        'notes' => 'Notities',
+        'file' => 'Bestand',
+        'uploaded_at' => 'Geüpload op',
+        'no_documents' => 'Geen documenten geüpload.',
+        'created' => 'Document geüpload.',
+        'updated' => 'Document bijgewerkt.',
+        'deleted' => 'Document verwijderd.',
+        'delete_confirm' => 'Dit document verwijderen?',
+        'placeholder_name' => 'bijv. BTW-registratiecertificaat',
+        'placeholder_notes' => 'bijv. Officieel document van de Belastingdienst',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Factuurnoot',
+    'invoice_note' => 'Juridische / fiscale noot',
+    'invoice_note_hint' => 'Tekst die onderaan de factuur verschijnt.',
 ];

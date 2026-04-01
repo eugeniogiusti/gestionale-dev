@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title'               => 'Worked Hours',
+    'title' => '工时',
     'saved_successfully'  => 'Timesheet saved successfully.',
     'deleted_successfully' => 'Timesheet deleted successfully.',
     'no_rate_warning'     => 'No hourly rate set for this project. Update it via the Edit button.',

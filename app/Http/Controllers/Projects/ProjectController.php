@@ -21,10 +21,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // Retrieve paginated projects with filters applied
-        $total = Project::count();
         $projects = (new ProjectIndexQuery())->handle();
-        $stats = (new ProjectStatsQuery())->handle($total);
+        $stats = (new ProjectStatsQuery())->handle();
 
         return view('projects.index', compact('projects', 'stats'));
     }

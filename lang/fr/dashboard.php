@@ -2,11 +2,11 @@
 
 return [
     'title' => 'Tableau de bord',
-    'welcome_message' => 'Vue d'ensemble de ton business',
+    'welcome_message' => "Vue d'ensemble de ton business",
 
     // Welcome Card
     'welcome_title' => 'Bienvenue sur IndieDesk',
-    'welcome_subtitle' => 'Ton espace de travail d'Indie Developer',
+    'welcome_subtitle' => "Ton espace de travail d'Indie Developer",
     'welcome_description' => 'Gère clients, projets, tâches et paiements dans un seul tableau de bord. Tout organisé et toujours sous contrôle.',
     'welcome_feature_clients' => 'Gère tes clients',
     'welcome_feature_projects' => 'Suis projets et échéances',

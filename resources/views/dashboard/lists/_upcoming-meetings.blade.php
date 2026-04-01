@@ -23,7 +23,12 @@
                         </div>
                         <div class="min-w-0 flex-1">
                             <p class="text-sm text-gray-900 dark:text-white truncate">{{ $meeting->title }}</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">{{ $meeting->project->name }}</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">
+                                {{ $meeting->project->name }}
+                                @if($meeting->project->client)
+                                    <span class="text-gray-400 dark:text-gray-500">· {{ $meeting->project->client->name }}</span>
+                                @endif
+                            </p>
                             <div class="mt-1"><x-meetings.status-badge :status="$meeting->status" /></div>
                         </div>
                         <span class="text-xs text-gray-500 shrink-0">

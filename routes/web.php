@@ -10,6 +10,8 @@ use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Settings\LocaleController;
 use App\Http\Controllers\Settings\AiSettingsController;
 use App\Http\Controllers\Settings\BusinessSettingsController;
+use App\Http\Controllers\Settings\AtecoCodeController;
+use App\Http\Controllers\Settings\BusinessDocumentController;
 use App\Http\Controllers\Clients\ClientController;
 use App\Http\Controllers\Clients\ClientFollowupController;
 use App\Http\Controllers\Projects\ProjectController;
@@ -185,6 +187,14 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::get('/business', [BusinessSettingsController::class, 'edit'])->name('settings.business.edit');
         Route::put('/business', [BusinessSettingsController::class, 'update'])->name('settings.business.update');
         Route::delete('/business/logo', [BusinessSettingsController::class, 'deleteLogo'])->name('settings.business.delete-logo');
+        Route::post('/ateco', [AtecoCodeController::class, 'store'])->name('settings.ateco.store');
+        Route::delete('/ateco/{atecoCode}', [AtecoCodeController::class, 'destroy'])->name('settings.ateco.destroy');
+        Route::patch('/ateco/{atecoCode}/set-primary', [AtecoCodeController::class, 'setPrimary'])->name('settings.ateco.set-primary');
+        Route::post('/business-documents', [BusinessDocumentController::class, 'store'])->name('settings.business-documents.store');
+        Route::patch('/business-documents/{businessDocument}', [BusinessDocumentController::class, 'update'])->name('settings.business-documents.update');
+        Route::delete('/business-documents/{businessDocument}', [BusinessDocumentController::class, 'destroy'])->name('settings.business-documents.destroy');
+        Route::get('/business-documents/{businessDocument}/download', [BusinessDocumentController::class, 'download'])->name('settings.business-documents.download');
+        Route::get('/business-documents/{businessDocument}/preview', [BusinessDocumentController::class, 'preview'])->name('settings.business-documents.preview');
         // AI Settings Routes - API key management
         Route::get('/ai', [AiSettingsController::class, 'edit'])->name('settings.ai.edit');
         Route::patch('/ai', [AiSettingsController::class, 'update'])->name('settings.ai.update');

@@ -191,4 +191,5 @@ return [
     'more' => 'Más',
     'no_repository_data' => 'No hay datos disponibles para este repositorio.',
     'repository_fetch_error' => 'Error al cargar datos de GitHub.',
+    'editor_tab' => 'Editor',
 ];

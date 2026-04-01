@@ -22,7 +22,10 @@
                                 {{ number_format($payment->amount, 2) }} {{ $payment->currency }}
                             </p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">
-                                {{ $payment->project->client->name ?? $payment->project->name }}
+                                {{ $payment->project->name }}
+                                @if($payment->project->client)
+                                    <span class="text-gray-400 dark:text-gray-500">· {{ $payment->project->client->name }}</span>
+                                @endif
                             </p>
                         </div>
                         <div class="text-right shrink-0">

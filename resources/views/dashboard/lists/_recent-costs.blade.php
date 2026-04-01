@@ -20,7 +20,12 @@
                         <p class="text-sm font-medium text-red-600">
                             -{{ number_format($cost->amount, 2) }} {{ $cost->currency }}
                         </p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">{{ $cost->project?->name ?? '—' }}</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                            {{ $cost->project?->name ?? '—' }}
+                            @if($cost->project?->client)
+                                <span class="text-gray-400 dark:text-gray-500">· {{ $cost->project->client->name }}</span>
+                            @endif
+                        </p>
                         <div class="mt-1"><x-costs.type-badge :type="$cost->type" /></div>
                     </a>
                     <span class="text-xs text-gray-500 shrink-0">

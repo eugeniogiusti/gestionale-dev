@@ -8,7 +8,7 @@ return [
     
     // Tabs
     'personal_info' => 'Personal Info',
-    'legal_address' => 'Registered Office',
+    'legal_address_tab' => 'Registered Office',
     'tax_info' => 'Tax Details',
     'contacts' => 'Contacts',
     'business_info' => 'Business',
@@ -29,8 +29,32 @@ return [
     'tax_id' => 'Tax Code',
     'vat_number' => 'VAT Number',
     'iban' => 'IBAN',
-    'default_currency' => 'Default Currency', 
-    
+    'default_currency' => 'Default Currency',
+
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Tax Regime',
+    'tax_regime' => 'Tax Regime',
+    'substitute_tax_rate' => 'Substitute Tax Rate',
+    'profitability_coefficient' => 'Profitability Coefficient',
+    'annual_revenue_cap' => 'Annual Revenue Cap',
+    'business_start_date' => 'Business Start Date',
+
+    // Pension
+    'pension_section' => 'Pension',
+    'pension_fund' => 'Pension Fund',
+    'pension_registration_number' => 'Registration Number',
+    'pension_registration_date' => 'Registration Date',
+
+    // ATECO
+    'ateco_section' => 'ATECO Codes',
+    'ateco_code' => 'Code',
+    'ateco_description' => 'Description',
+    'ateco_primary' => 'Primary',
+    'ateco_add' => 'Add',
+    'ateco_set_primary' => 'Set as primary',
+    'ateco_no_codes' => 'No ATECO codes added',
+    'ateco_delete_confirm' => 'Delete this ATECO code?',
+
     // Contacts
     'email' => 'Email',
     'certified_email' => 'Certified Email (PEC)',
@@ -73,6 +97,15 @@ return [
         'business_description' => 'e.g. Custom software development and consulting services',
         'website' => 'e.g. https://yourcompany.com',
         'billing_tool_url' => 'e.g. https://billing.yourcompany.com',
+        'tax_regime' => 'e.g. Flat-rate scheme',
+        'substitute_tax_rate' => 'e.g. 15',
+        'profitability_coefficient' => 'e.g. 67',
+        'annual_revenue_cap' => 'e.g. 85000',
+        'pension_fund' => 'e.g. GS INPS',
+        'pension_registration_number' => 'e.g. 3300',
+        'ateco_code' => 'e.g. 62.01',
+        'ateco_description' => 'e.g. Production of software not connected to publishing',
+        'invoice_note' => 'e.g. VAT exempt pursuant to Art. 1, par. 54-89, Law 190/2014',
     ],
     
     // Hints
@@ -95,4 +128,28 @@ return [
     'billing_tool' => 'Billing Tool',
     'billing_tool_url' => 'Billing Tool URL',
     'billing_tool_url_hint' => 'Enter the link of the tool you use to issue invoices.',
+
+    // Documents tab
+    'documents_tab' => 'Documents',
+    'documents' => [
+        'title' => 'Personal / VAT Documents',
+        'description' => 'Upload documents related to your business: VAT registration, ATECO changes, etc.',
+        'upload' => 'Upload Document',
+        'name' => 'Document name',
+        'notes' => 'Notes',
+        'file' => 'File',
+        'uploaded_at' => 'Uploaded on',
+        'no_documents' => 'No documents uploaded.',
+        'created' => 'Document uploaded successfully.',
+        'updated' => 'Document updated successfully.',
+        'deleted' => 'Document deleted successfully.',
+        'delete_confirm' => 'Delete this document?',
+        'placeholder_name' => 'e.g. VAT Registration Certificate',
+        'placeholder_notes' => 'e.g. Official document from Tax Authority',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Invoice Note',
+    'invoice_note' => 'Legal / tax note',
+    'invoice_note_hint' => 'Text that will appear at the bottom of the invoice.',
 ];

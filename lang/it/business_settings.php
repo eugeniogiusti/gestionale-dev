@@ -8,7 +8,7 @@ return [
     
     // Tabs
     'personal_info' => 'Dati Personali',
-    'legal_address' => 'Sede Legale',
+    'legal_address_tab' => 'Sede Legale',
     'tax_info' => 'Dati Fiscali',
     'contacts' => 'Contatti',
     'business_info' => 'Attività',
@@ -30,6 +30,30 @@ return [
     'vat_number' => 'Partita IVA',
     'iban' => 'IBAN',
     'default_currency' => 'Valuta Predefinita',
+
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Regime Fiscale',
+    'tax_regime' => 'Regime Fiscale',
+    'substitute_tax_rate' => 'Imposta Sostitutiva',
+    'profitability_coefficient' => 'Coeff. Redditività',
+    'annual_revenue_cap' => 'Fatturato Annuo Massimo',
+    'business_start_date' => 'Inizio Attività',
+
+    // Pension
+    'pension_section' => 'Previdenza',
+    'pension_fund' => 'Cassa Previdenziale',
+    'pension_registration_number' => 'Matricola',
+    'pension_registration_date' => 'Data Iscrizione',
+
+    // ATECO
+    'ateco_section' => 'Codici ATECO',
+    'ateco_code' => 'Codice',
+    'ateco_description' => 'Descrizione',
+    'ateco_primary' => 'Principale',
+    'ateco_add' => 'Aggiungi',
+    'ateco_set_primary' => 'Imposta come principale',
+    'ateco_no_codes' => 'Nessun codice ATECO aggiunto',
+    'ateco_delete_confirm' => 'Eliminare questo codice ATECO?',
     
     // Contacts
     'email' => 'Email',
@@ -73,6 +97,15 @@ return [
         'business_description' => 'es. Consulenza e sviluppo software personalizzato',
         'website' => 'es. https://tuaazienda.it',
         'billing_tool_url' => 'es. https://fatture.tuaazienda.it',
+        'tax_regime' => 'es. Forfettario',
+        'substitute_tax_rate' => 'es. 15',
+        'profitability_coefficient' => 'es. 67',
+        'annual_revenue_cap' => 'es. 85000',
+        'pension_fund' => 'es. GS INPS',
+        'pension_registration_number' => 'es. 3300',
+        'ateco_code' => 'es. 62.01',
+        'ateco_description' => 'es. Produzione di software non connesso all\'edizione',
+        'invoice_note' => 'es. Operazione in franchigia IVA ai sensi dell\'art. 1, c. 54-89, L. 190/2014',
     ],
     
     // Hints
@@ -84,6 +117,30 @@ return [
     'logo_max_size' => 'Il logo non può superare 2MB.',
     'logo_allowed_formats' => 'Formati consentiti: JPEG, JPG, PNG, SVG.',
     'iban_invalid_format' => 'Formato IBAN non valido', 
+
+    // Invoice Note
+    'invoice_note_section' => 'Nota Fattura',
+    'invoice_note' => 'Nota legale / fiscale',
+    'invoice_note_hint' => 'Testo che verrà riportato in calce alla fattura (es. esenzione IVA regime forfettario).',
+
+    // Documents tab
+    'documents_tab' => 'Documenti',
+    'documents' => [
+        'title' => 'Documenti Personali / P.IVA',
+        'description' => 'Carica documenti relativi alla tua attività: certificato apertura P.IVA, variazioni ATECO, visure, ecc.',
+        'upload' => 'Carica Documento',
+        'name' => 'Nome documento',
+        'notes' => 'Note',
+        'file' => 'File',
+        'uploaded_at' => 'Caricato il',
+        'no_documents' => 'Nessun documento caricato.',
+        'created' => 'Documento caricato con successo.',
+        'updated' => 'Documento aggiornato con successo.',
+        'deleted' => 'Documento eliminato con successo.',
+        'delete_confirm' => 'Eliminare questo documento?',
+        'placeholder_name' => 'es. Certificato apertura P.IVA',
+        'placeholder_notes' => 'es. Documento ufficiale Agenzia Entrate',
+    ],
 
     // Integrations
     'integrations' => 'Integrazioni',

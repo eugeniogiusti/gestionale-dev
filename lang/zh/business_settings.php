@@ -8,7 +8,7 @@ return [
 
     // Tabs
     'personal_info' => '个人信息',
-    'legal_address' => '法定地址',
+    'legal_address_tab' => '法定地址',
     'tax_info' => '税务信息',
     'contacts' => '联系方式',
     'business_info' => '业务信息',
@@ -30,6 +30,30 @@ return [
     'iban' => 'IBAN',
     'default_currency' => '默认货币',
 
+    // Fiscal Regime
+    'fiscal_regime_section' => '税收制度',
+    'tax_regime' => '税收制度',
+    'substitute_tax_rate' => '替代税率',
+    'profitability_coefficient' => '盈利系数',
+    'annual_revenue_cap' => '年度最高营业额',
+    'business_start_date' => '营业开始日期',
+
+    // Pension
+    'pension_section' => '养老保险',
+    'pension_fund' => '养老基金',
+    'pension_registration_number' => '注册编号',
+    'pension_registration_date' => '注册日期',
+
+    // ATECO
+    'ateco_section' => 'ATECO代码',
+    'ateco_code' => '代码',
+    'ateco_description' => '描述',
+    'ateco_primary' => '主要',
+    'ateco_add' => '添加',
+    'ateco_set_primary' => '设为主要',
+    'ateco_no_codes' => '未添加ATECO代码',
+    'ateco_delete_confirm' => '删除此ATECO代码？',
+
     // Contacts
     'email' => '邮箱',
     'certified_email' => '认证邮箱 (PEC)',
@@ -41,6 +65,14 @@ return [
     'business_description' => '服务描述',
     'website' => '网站',
         'billing_tool_url' => '例如 https://billing.yourcompany.com',
+        'tax_regime' => '例如 简化制度',
+        'substitute_tax_rate' => '例如 15',
+        'profitability_coefficient' => '例如 67',
+        'annual_revenue_cap' => '例如 85000',
+        'pension_fund' => '例如 GS INPS',
+        'pension_registration_number' => '例如 3300',
+        'ateco_code' => '例如 62.01',
+        'ateco_description' => '例如 软件开发',
     'logo' => 'Logo',
 
     // Actions
@@ -72,6 +104,7 @@ return [
         'business_name' => '例如：IT Software Solutions',
         'business_description' => '例如：定制软件咨询与开发',
         'website' => '例如：https://yourcompany.it',
+        'invoice_note' => '例：依据增值税法第X条免税',
     ],
 
     // Hints
@@ -93,5 +126,37 @@ return [
     'github_scope_read_user' => '读取用户资料',
     'billing_tool' => '账单工具',
     'billing_tool_url' => '账单工具网址',
+        'tax_regime' => '例如 简化制度',
+        'substitute_tax_rate' => '例如 15',
+        'profitability_coefficient' => '例如 67',
+        'annual_revenue_cap' => '例如 85000',
+        'pension_fund' => '例如 GS INPS',
+        'pension_registration_number' => '例如 3300',
+        'ateco_code' => '例如 62.01',
+        'ateco_description' => '例如 软件开发',
     'billing_tool_url_hint' => '输入您用于开具发票的工具的链接。',
+
+    // Documents tab
+    'documents_tab' => '文件',
+    'documents' => [
+        'title' => '个人/增值税文件',
+        'description' => '上传与业务相关的文件：增值税注册、ATECO变更等。',
+        'upload' => '上传文件',
+        'name' => '文件名称',
+        'notes' => '备注',
+        'file' => '文件',
+        'uploaded_at' => '上传日期',
+        'no_documents' => '暂无上传文件。',
+        'created' => '文件上传成功。',
+        'updated' => '文件更新成功。',
+        'deleted' => '文件删除成功。',
+        'delete_confirm' => '确定删除此文件？',
+        'placeholder_name' => '例：增值税注册证书',
+        'placeholder_notes' => '例：税务局官方文件',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => '发票备注',
+    'invoice_note' => '法律/税务备注',
+    'invoice_note_hint' => '将显示在发票底部的文字。',
 ];

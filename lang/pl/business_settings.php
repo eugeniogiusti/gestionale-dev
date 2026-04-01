@@ -8,7 +8,7 @@ return [
 
     // Tabs
     'personal_info' => 'Dane osobowe',
-    'legal_address' => 'Siedziba prawna',
+    'legal_address_tab' => 'Siedziba prawna',
     'tax_info' => 'Dane podatkowe',
     'contacts' => 'Kontakty',
     'business_info' => 'Działalność',
@@ -31,6 +31,30 @@ return [
     'iban' => 'IBAN',
     'default_currency' => 'Domyślna Waluta',
 
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Reżim Podatkowy',
+    'tax_regime' => 'Reżim Podatkowy',
+    'substitute_tax_rate' => 'Podatek Zastępczy',
+    'profitability_coefficient' => 'Współczynnik Rentowności',
+    'annual_revenue_cap' => 'Maks. Roczny Przychód',
+    'business_start_date' => 'Data Rozpoczęcia Działalności',
+
+    // Pension
+    'pension_section' => 'Ubezpieczenie Emerytalne',
+    'pension_fund' => 'Fundusz Emerytalny',
+    'pension_registration_number' => 'Numer Rejestracyjny',
+    'pension_registration_date' => 'Data Rejestracji',
+
+    // ATECO
+    'ateco_section' => 'Kody ATECO',
+    'ateco_code' => 'Kod',
+    'ateco_description' => 'Opis',
+    'ateco_primary' => 'Główny',
+    'ateco_add' => 'Dodaj',
+    'ateco_set_primary' => 'Ustaw jako główny',
+    'ateco_no_codes' => 'Nie dodano kodów ATECO',
+    'ateco_delete_confirm' => 'Usunąć ten kod ATECO?',
+
     // Contacts
     'email' => 'Email',
     'certified_email' => 'PEC',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Opis usług',
     'website' => 'Strona www',
         'billing_tool_url' => 'np. https://faktury.twojaFirma.pl',
+        'tax_regime' => 'np. Ryczałt',
+        'substitute_tax_rate' => 'np. 15',
+        'profitability_coefficient' => 'np. 67',
+        'annual_revenue_cap' => 'np. 85000',
+        'pension_fund' => 'np. GS INPS',
+        'pension_registration_number' => 'np. 3300',
+        'ateco_code' => 'np. 62.01',
+        'ateco_description' => 'np. Produkcja oprogramowania',
     'logo' => 'Logo',
 
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'np. IT Software Solutions',
         'business_description' => 'np. Doradztwo i tworzenie oprogramowania na zamówienie',
         'website' => 'np. https://twojafirma.pl',
+        'invoice_note' => 'np. Zwolnienie z VAT na podstawie art. 113 ustawy o VAT',
     ],
 
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'odczyt profilu użytkownika',
     'billing_tool' => 'Narzędzie do fakturowania',
     'billing_tool_url' => 'URL narzędzia do fakturowania',
+        'tax_regime' => 'np. Ryczałt',
+        'substitute_tax_rate' => 'np. 15',
+        'profitability_coefficient' => 'np. 67',
+        'annual_revenue_cap' => 'np. 85000',
+        'pension_fund' => 'np. GS INPS',
+        'pension_registration_number' => 'np. 3300',
+        'ateco_code' => 'np. 62.01',
+        'ateco_description' => 'np. Produkcja oprogramowania',
     'billing_tool_url_hint' => 'Wprowadź link do narzędzia, którego używasz do wystawiania faktur.',
+
+    // Documents tab
+    'documents_tab' => 'Dokumenty',
+    'documents' => [
+        'title' => 'Dokumenty osobiste / NIP',
+        'description' => 'Prześlij dokumenty związane z działalnością: rejestracja VAT, zmiany ATECO itp.',
+        'upload' => 'Prześlij dokument',
+        'name' => 'Nazwa dokumentu',
+        'notes' => 'Notatki',
+        'file' => 'Plik',
+        'uploaded_at' => 'Przesłano dnia',
+        'no_documents' => 'Brak przesłanych dokumentów.',
+        'created' => 'Dokument przesłany.',
+        'updated' => 'Dokument zaktualizowany.',
+        'deleted' => 'Dokument usunięty.',
+        'delete_confirm' => 'Usunąć ten dokument?',
+        'placeholder_name' => 'np. Zaświadczenie o rejestracji VAT',
+        'placeholder_notes' => 'np. Oficjalny dokument z Urzędu Skarbowego',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Uwaga na fakturze',
+    'invoice_note' => 'Uwaga prawna / podatkowa',
+    'invoice_note_hint' => 'Tekst widoczny na dole faktury.',
 ];

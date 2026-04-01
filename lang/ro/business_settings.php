@@ -8,7 +8,7 @@ return [
 
     // Tabs
     'personal_info' => 'Date personale',
-    'legal_address' => 'Sediu legal',
+    'legal_address_tab' => 'Sediu legal',
     'tax_info' => 'Date fiscale',
     'contacts' => 'Contacte',
     'business_info' => 'Activitate',
@@ -31,6 +31,30 @@ return [
     'iban' => 'IBAN',
     'default_currency' => 'Moneda Implicită',
 
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Regim Fiscal',
+    'tax_regime' => 'Regim Fiscal',
+    'substitute_tax_rate' => 'Impozit Substitutiv',
+    'profitability_coefficient' => 'Coef. de Rentabilitate',
+    'annual_revenue_cap' => 'Cifră de Afaceri Anuală Max.',
+    'business_start_date' => 'Data Începerii Activității',
+
+    // Pension
+    'pension_section' => 'Pensie',
+    'pension_fund' => 'Fond de Pensii',
+    'pension_registration_number' => 'Număr de Înregistrare',
+    'pension_registration_date' => 'Data Înscrierii',
+
+    // ATECO
+    'ateco_section' => 'Coduri ATECO',
+    'ateco_code' => 'Cod',
+    'ateco_description' => 'Descriere',
+    'ateco_primary' => 'Principal',
+    'ateco_add' => 'Adaugă',
+    'ateco_set_primary' => 'Setează ca principal',
+    'ateco_no_codes' => 'Niciun cod ATECO adăugat',
+    'ateco_delete_confirm' => 'Ștergeți acest cod ATECO?',
+
     // Contacts
     'email' => 'Email',
     'certified_email' => 'PEC',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Descriere servicii',
     'website' => 'Site web',
         'billing_tool_url' => 'ex. https://facturare.companiadumneavoastra.ro',
+        'tax_regime' => 'ex. Microîntreprindere',
+        'substitute_tax_rate' => 'ex. 15',
+        'profitability_coefficient' => 'ex. 67',
+        'annual_revenue_cap' => 'ex. 85000',
+        'pension_fund' => 'ex. GS INPS',
+        'pension_registration_number' => 'ex. 3300',
+        'ateco_code' => 'ex. 62.01',
+        'ateco_description' => 'ex. Producție de software',
     'logo' => 'Logo',
 
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'ex. IT Software Solutions',
         'business_description' => 'ex. Consultanță și dezvoltare software personalizată',
         'website' => 'ex. https://companiata.ro',
+        'invoice_note' => 'ex. Scutit de TVA conform art. 310 Cod Fiscal',
     ],
 
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'citirea profilului utilizatorului',
     'billing_tool' => 'Instrument de facturare',
     'billing_tool_url' => 'URL-ul instrumentului de facturare',
+        'tax_regime' => 'ex. Microîntreprindere',
+        'substitute_tax_rate' => 'ex. 15',
+        'profitability_coefficient' => 'ex. 67',
+        'annual_revenue_cap' => 'ex. 85000',
+        'pension_fund' => 'ex. GS INPS',
+        'pension_registration_number' => 'ex. 3300',
+        'ateco_code' => 'ex. 62.01',
+        'ateco_description' => 'ex. Producție de software',
     'billing_tool_url_hint' => 'Introduceți linkul instrumentului pe care îl folosiți pentru a emite facturi.',
+
+    // Documents tab
+    'documents_tab' => 'Documente',
+    'documents' => [
+        'title' => 'Documente personale / CIF',
+        'description' => 'Încărcați documente legate de activitatea dvs.: înregistrare TVA, modificări ATECO etc.',
+        'upload' => 'Încarcă document',
+        'name' => 'Nume document',
+        'notes' => 'Note',
+        'file' => 'Fișier',
+        'uploaded_at' => 'Încărcat pe',
+        'no_documents' => 'Niciun document încărcat.',
+        'created' => 'Document încărcat.',
+        'updated' => 'Document actualizat.',
+        'deleted' => 'Document șters.',
+        'delete_confirm' => 'Ștergeți acest document?',
+        'placeholder_name' => 'ex. Certificat înregistrare TVA',
+        'placeholder_notes' => 'ex. Document oficial ANAF',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Notă factură',
+    'invoice_note' => 'Notă legală / fiscală',
+    'invoice_note_hint' => 'Text afișat în partea de jos a facturii.',
 ];

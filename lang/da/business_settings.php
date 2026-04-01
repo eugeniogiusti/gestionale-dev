@@ -8,7 +8,7 @@ return [
     
     // Tabs
     'personal_info' => 'Personlige data',
-    'legal_address' => 'Juridisk adresse',
+    'legal_address_tab' => 'Juridisk adresse',
     'tax_info' => 'Skatteoplysninger',
     'contacts' => 'Kontakter',
     'business_info' => 'Virksomhed',
@@ -30,6 +30,30 @@ return [
     'vat_number' => 'Momsnummer',
     'iban' => 'IBAN',
     'default_currency' => 'Standardvaluta',
+
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Skatteordning',
+    'tax_regime' => 'Skatteordning',
+    'substitute_tax_rate' => 'Erstatningsskat',
+    'profitability_coefficient' => 'Rentabilitetskoefficient',
+    'annual_revenue_cap' => 'Maks. Årlig Omsætning',
+    'business_start_date' => 'Startdato for Virksomhed',
+
+    // Pension
+    'pension_section' => 'Pension',
+    'pension_fund' => 'Pensionsfond',
+    'pension_registration_number' => 'Registreringsnummer',
+    'pension_registration_date' => 'Indmeldelsesdato',
+
+    // ATECO
+    'ateco_section' => 'ATECO-koder',
+    'ateco_code' => 'Kode',
+    'ateco_description' => 'Beskrivelse',
+    'ateco_primary' => 'Primær',
+    'ateco_add' => 'Tilføj',
+    'ateco_set_primary' => 'Angiv som primær',
+    'ateco_no_codes' => 'Ingen ATECO-koder tilføjet',
+    'ateco_delete_confirm' => 'Slet denne ATECO-kode?',
     
     // Contacts
     'email' => 'Email',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Servicebeskrivelse',
     'website' => 'Hjemmeside',
         'billing_tool_url' => 'f.eks. https://fakturering.ditfirma.dk',
+        'tax_regime' => 'f.eks. Forenklet ordning',
+        'substitute_tax_rate' => 'f.eks. 15',
+        'profitability_coefficient' => 'f.eks. 67',
+        'annual_revenue_cap' => 'f.eks. 85000',
+        'pension_fund' => 'f.eks. GS INPS',
+        'pension_registration_number' => 'f.eks. 3300',
+        'ateco_code' => 'f.eks. 62.01',
+        'ateco_description' => 'f.eks. Softwareudvikling',
     'logo' => 'Logo',
     
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'fx IT Software Solutions',
         'business_description' => 'fx Rådgivning og skræddersyet softwareudvikling',
         'website' => 'fx https://dinvirksomhed.it',
+        'invoice_note' => 'fx Momsfritaget jf. CVR-loven',
     ],
     
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'læse brugerprofil',
     'billing_tool' => 'Faktureringsværktøj',
     'billing_tool_url' => 'URL til faktureringsværktøj',
+        'tax_regime' => 'f.eks. Forenklet ordning',
+        'substitute_tax_rate' => 'f.eks. 15',
+        'profitability_coefficient' => 'f.eks. 67',
+        'annual_revenue_cap' => 'f.eks. 85000',
+        'pension_fund' => 'f.eks. GS INPS',
+        'pension_registration_number' => 'f.eks. 3300',
+        'ateco_code' => 'f.eks. 62.01',
+        'ateco_description' => 'f.eks. Softwareudvikling',
     'billing_tool_url_hint' => 'Indtast linket til det værktøj, du bruger til at udstede fakturaer.',
+
+    // Documents tab
+    'documents_tab' => 'Dokumenter',
+    'documents' => [
+        'title' => 'Personlige dokumenter / CVR',
+        'description' => 'Upload dokumenter relateret til din virksomhed: CVR-registrering, ATECO-ændringer osv.',
+        'upload' => 'Upload dokument',
+        'name' => 'Dokumentnavn',
+        'notes' => 'Noter',
+        'file' => 'Fil',
+        'uploaded_at' => 'Uploadet den',
+        'no_documents' => 'Ingen dokumenter uploadet.',
+        'created' => 'Dokument uploadet.',
+        'updated' => 'Dokument opdateret.',
+        'deleted' => 'Dokument slettet.',
+        'delete_confirm' => 'Slet dette dokument?',
+        'placeholder_name' => 'fx CVR-registreringscertifikat',
+        'placeholder_notes' => 'fx Officielt dokument fra Skattestyrelsen',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Fakturanote',
+    'invoice_note' => 'Juridisk / fiskal note',
+    'invoice_note_hint' => 'Tekst der vises i bunden af fakturaen.',
 ];

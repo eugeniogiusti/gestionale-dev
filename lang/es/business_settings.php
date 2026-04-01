@@ -8,7 +8,7 @@ return [
     
     // Tabs
     'personal_info' => 'Datos personales',
-    'legal_address' => 'Domicilio fiscal',
+    'legal_address_tab' => 'Domicilio fiscal',
     'tax_info' => 'Datos fiscales',
     'contacts' => 'Contactos',
     'business_info' => 'Actividad',
@@ -30,6 +30,30 @@ return [
     'vat_number' => 'NIF / IVA',
     'iban' => 'IBAN',
     'default_currency' => 'Moneda Predeterminada',
+
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Régimen Fiscal',
+    'tax_regime' => 'Régimen Fiscal',
+    'substitute_tax_rate' => 'Impuesto Sustitutivo',
+    'profitability_coefficient' => 'Coef. de Rentabilidad',
+    'annual_revenue_cap' => 'Facturación Anual Máxima',
+    'business_start_date' => 'Inicio de Actividad',
+
+    // Pension
+    'pension_section' => 'Previsión Social',
+    'pension_fund' => 'Fondo de Pensiones',
+    'pension_registration_number' => 'Número de Afiliación',
+    'pension_registration_date' => 'Fecha de Inscripción',
+
+    // ATECO
+    'ateco_section' => 'Códigos ATECO',
+    'ateco_code' => 'Código',
+    'ateco_description' => 'Descripción',
+    'ateco_primary' => 'Principal',
+    'ateco_add' => 'Agregar',
+    'ateco_set_primary' => 'Establecer como principal',
+    'ateco_no_codes' => 'No se han añadido códigos ATECO',
+    'ateco_delete_confirm' => '¿Eliminar este código ATECO?',
     
     // Contacts
     'email' => 'Email',
@@ -42,6 +66,14 @@ return [
     'business_description' => 'Descripción de servicios',
     'website' => 'Sitio web',
         'billing_tool_url' => 'p.ej. https://facturacion.tuempresa.es',
+        'tax_regime' => 'p.ej. Régimen simplificado',
+        'substitute_tax_rate' => 'p.ej. 15',
+        'profitability_coefficient' => 'p.ej. 67',
+        'annual_revenue_cap' => 'p.ej. 85000',
+        'pension_fund' => 'p.ej. GS INPS',
+        'pension_registration_number' => 'p.ej. 3300',
+        'ateco_code' => 'p.ej. 62.01',
+        'ateco_description' => 'p.ej. Producción de software',
     'logo' => 'Logo',
     
     // Actions
@@ -73,6 +105,7 @@ return [
         'business_name' => 'p. ej. IT Software Solutions',
         'business_description' => 'p. ej. Consultoría y desarrollo de software a medida',
         'website' => 'p. ej. https://tuempresa.it',
+        'invoice_note' => 'ej. Operación exenta de IVA según art. 20 LIVA',
     ],
     
     // Hints
@@ -94,5 +127,37 @@ return [
     'github_scope_read_user' => 'leer perfil de usuario',
     'billing_tool' => 'Herramienta de facturación',
     'billing_tool_url' => 'URL de la herramienta de facturación',
+        'tax_regime' => 'p.ej. Régimen simplificado',
+        'substitute_tax_rate' => 'p.ej. 15',
+        'profitability_coefficient' => 'p.ej. 67',
+        'annual_revenue_cap' => 'p.ej. 85000',
+        'pension_fund' => 'p.ej. GS INPS',
+        'pension_registration_number' => 'p.ej. 3300',
+        'ateco_code' => 'p.ej. 62.01',
+        'ateco_description' => 'p.ej. Producción de software',
     'billing_tool_url_hint' => 'Introduce el enlace de la herramienta que usas para emitir facturas.',
+
+    // Documents tab
+    'documents_tab' => 'Documentos',
+    'documents' => [
+        'title' => 'Documentos personales / NIF',
+        'description' => 'Sube documentos relacionados con tu actividad: alta autónomo, cambios ATECO, etc.',
+        'upload' => 'Subir documento',
+        'name' => 'Nombre del documento',
+        'notes' => 'Notas',
+        'file' => 'Archivo',
+        'uploaded_at' => 'Subido el',
+        'no_documents' => 'No hay documentos subidos.',
+        'created' => 'Documento subido correctamente.',
+        'updated' => 'Documento actualizado correctamente.',
+        'deleted' => 'Documento eliminado correctamente.',
+        'delete_confirm' => '¿Eliminar este documento?',
+        'placeholder_name' => 'ej. Certificado alta autónomo',
+        'placeholder_notes' => 'ej. Documento oficial de la Agencia Tributaria',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Nota de factura',
+    'invoice_note' => 'Nota legal / fiscal',
+    'invoice_note_hint' => 'Texto que aparecerá al pie de la factura.',
 ];

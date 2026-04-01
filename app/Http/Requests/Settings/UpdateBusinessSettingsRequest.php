@@ -53,6 +53,21 @@ class UpdateBusinessSettingsRequest extends FormRequest
             // Logo (max 2MB, only images)
             'logo' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,jpg,png,svg'],
 
+            // Fiscal regime
+            'tax_regime' => ['nullable', 'string', 'max:100'],
+            'substitute_tax_rate' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'profitability_coefficient' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'annual_revenue_cap' => ['nullable', 'numeric', 'min:0'],
+            'business_start_date' => ['nullable', 'date'],
+
+            // Pension
+            'pension_fund' => ['nullable', 'string', 'max:100'],
+            'pension_registration_number' => ['nullable', 'string', 'max:50'],
+            'pension_registration_date' => ['nullable', 'date'],
+
+            // Invoice note (e.g. forfettario VAT exemption clause)
+            'invoice_note' => ['nullable', 'string', 'max:1000'],
+
             // Integrations
             'github_pat' => ['nullable', 'string', 'max:255'],
             'billing_tool_url' => ['nullable', 'url', 'max:255'],

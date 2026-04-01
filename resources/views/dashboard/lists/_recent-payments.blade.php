@@ -20,7 +20,12 @@
                         <p class="text-sm font-medium text-emerald-600">
                             +{{ number_format($payment->amount, 2) }} {{ $payment->currency }}
                         </p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">{{ $payment->project->name }}</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                            {{ $payment->project->name }}
+                            @if($payment->project->client)
+                                <span class="text-gray-400 dark:text-gray-500">· {{ $payment->project->client->name }}</span>
+                            @endif
+                        </p>
                         <div class="mt-1"><x-payments.method-badge :method="$payment->method" /></div>
                     </a>
                     <span class="text-xs text-gray-500 shrink-0">

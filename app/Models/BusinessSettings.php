@@ -50,6 +50,23 @@ class BusinessSettings extends Model
         'logo_path',
         'github_pat',
         'billing_tool_url',
+        'tax_regime',
+        'substitute_tax_rate',
+        'profitability_coefficient',
+        'annual_revenue_cap',
+        'business_start_date',
+        'pension_fund',
+        'pension_registration_number',
+        'pension_registration_date',
+        'invoice_note',
+    ];
+
+    protected $casts = [
+        'business_start_date' => 'date',
+        'pension_registration_date' => 'date',
+        'substitute_tax_rate' => 'decimal:2',
+        'profitability_coefficient' => 'decimal:2',
+        'annual_revenue_cap' => 'decimal:2',
     ];
 
     /**

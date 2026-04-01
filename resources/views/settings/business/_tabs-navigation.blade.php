@@ -17,7 +17,7 @@
                 ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
             class="px-6 py-4 border-b-2 font-medium text-sm transition whitespace-nowrap">
-            📍 {{ __('business_settings.legal_address') }}
+            📍 {{ __('business_settings.legal_address_tab') }}
         </button>
         
         <button 
@@ -58,6 +58,16 @@
                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
             class="px-6 py-4 border-b-2 font-medium text-sm transition whitespace-nowrap">
             🔗 {{ __('business_settings.integrations') }}
+        </button>
+
+        <button
+            type="button"
+            @click="activeTab = 'documents'; window.location.hash = 'documents'"
+            :class="activeTab === 'documents'
+                ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'"
+            class="px-6 py-4 border-b-2 font-medium text-sm transition whitespace-nowrap">
+            📄 {{ __('business_settings.documents_tab') }}
         </button>
     </nav>
 </div>

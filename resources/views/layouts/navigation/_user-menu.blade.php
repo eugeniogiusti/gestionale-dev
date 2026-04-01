@@ -1,6 +1,26 @@
 {{-- USER MENU DESKTOP --}}
 <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-3">
 
+    {{-- Locale Select --}}
+    <select
+        class="text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-2 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        onchange="window.location.href='{{ url('locale') }}/' + this.value"
+    >
+        <option value="da" {{ app()->getLocale() == 'da' ? 'selected' : '' }}>🇩🇰</option>
+        <option value="de" {{ app()->getLocale() == 'de' ? 'selected' : '' }}>🇩🇪</option>
+        <option value="it" {{ app()->getLocale() == 'it' ? 'selected' : '' }}>🇮🇹</option>
+        <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>🇬🇧</option>
+        <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>🇪🇸</option>
+        <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>🇫🇷</option>
+        <option value="nl" {{ app()->getLocale() == 'nl' ? 'selected' : '' }}>🇳🇱</option>
+        <option value="pl" {{ app()->getLocale() == 'pl' ? 'selected' : '' }}>🇵🇱</option>
+        <option value="pt" {{ app()->getLocale() == 'pt' ? 'selected' : '' }}>🇵🇹</option>
+        <option value="ro" {{ app()->getLocale() == 'ro' ? 'selected' : '' }}>🇷🇴</option>
+        <option value="ru" {{ app()->getLocale() == 'ru' ? 'selected' : '' }}>🇷🇺</option>
+        <option value="uk" {{ app()->getLocale() == 'uk' ? 'selected' : '' }}>🇺🇦</option>
+        <option value="zh" {{ app()->getLocale() == 'zh' ? 'selected' : '' }}>🇨🇳</option>
+    </select>
+
     {{-- Toggle Dark/Light --}}
     <button
         type="button"

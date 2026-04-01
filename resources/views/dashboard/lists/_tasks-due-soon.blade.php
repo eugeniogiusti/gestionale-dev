@@ -24,7 +24,12 @@
                     "></span>
                     <a href="{{ route('projects.show', [$task->project, 'tab' => 'tasks']) }}" class="min-w-0 flex-1">
                         <p class="text-sm text-gray-900 dark:text-white truncate">{{ $task->title }}</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">{{ $task->project->name }}</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                            {{ $task->project->name }}
+                            @if($task->project->client)
+                                <span class="text-gray-400 dark:text-gray-500">· {{ $task->project->client->name }}</span>
+                            @endif
+                        </p>
                         <div class="mt-1"><x-tasks.type-badge :type="$task->type" /></div>
                     </a>
                     <span class="text-xs shrink-0 {{ $task->isOverdue() ? 'text-red-500 font-medium' : 'text-gray-500' }}">

@@ -1,5 +1,5 @@
 {{-- Search Filter --}}
-<div>
+<div class="md:col-span-2">
     <input 
         type="text" 
         name="search" 

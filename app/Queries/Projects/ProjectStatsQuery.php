@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\DB;
  */
 class ProjectStatsQuery
 {
-    public function handle(int $total): array
+    public function handle(): array
     {
-
         // Projects by status
         $byStatus = Project::select('status', DB::raw('count(*) as count'))
             ->groupBy('status')
             ->pluck('count', 'status')
             ->toArray();
+
+        $total = array_sum($byStatus);
 
         // New projects this month
         $newThisMonth = Project::whereYear('created_at', now()->year)

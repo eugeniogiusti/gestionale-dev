@@ -8,7 +8,7 @@ return [
 
     // Tabs
     'personal_info' => 'Личные данные',
-    'legal_address' => 'Юридический адрес',
+    'legal_address_tab' => 'Юридический адрес',
     'tax_info' => 'Налоговые данные',
     'contacts' => 'Контакты',
     'business_info' => 'Бизнес',
@@ -30,6 +30,30 @@ return [
     'iban' => 'IBAN',
     'default_currency' => 'Валюта по умолчанию',
 
+    // Fiscal Regime
+    'fiscal_regime_section' => 'Налоговый Режим',
+    'tax_regime' => 'Налоговый Режим',
+    'substitute_tax_rate' => 'Заменяющий Налог',
+    'profitability_coefficient' => 'Коэффициент Рентабельности',
+    'annual_revenue_cap' => 'Макс. Годовой Доход',
+    'business_start_date' => 'Дата Начала Деятельности',
+
+    // Pension
+    'pension_section' => 'Пенсионное Обеспечение',
+    'pension_fund' => 'Пенсионный Фонд',
+    'pension_registration_number' => 'Регистрационный Номер',
+    'pension_registration_date' => 'Дата Регистрации',
+
+    // ATECO
+    'ateco_section' => 'Коды ATECO',
+    'ateco_code' => 'Код',
+    'ateco_description' => 'Описание',
+    'ateco_primary' => 'Основной',
+    'ateco_add' => 'Добавить',
+    'ateco_set_primary' => 'Установить как основной',
+    'ateco_no_codes' => 'Коды ATECO не добавлены',
+    'ateco_delete_confirm' => 'Удалить этот код ATECO?',
+
     // Contacts
     'email' => 'Email',
     'certified_email' => 'PEC',
@@ -41,6 +65,14 @@ return [
     'business_description' => 'Описание услуг',
     'website' => 'Веб-сайт',
         'billing_tool_url' => 'напр. https://billing.vashakompaniya.ru',
+        'tax_regime' => 'напр. Упрощённая система',
+        'substitute_tax_rate' => 'напр. 15',
+        'profitability_coefficient' => 'напр. 67',
+        'annual_revenue_cap' => 'напр. 85000',
+        'pension_fund' => 'напр. GS INPS',
+        'pension_registration_number' => 'напр. 3300',
+        'ateco_code' => 'напр. 62.01',
+        'ateco_description' => 'напр. Разработка программного обеспечения',
     'logo' => 'Логотип',
 
     // Actions
@@ -72,6 +104,7 @@ return [
         'business_name' => 'напр. IT Software Solutions',
         'business_description' => 'напр. Консалтинг и разработка кастомного ПО',
         'website' => 'напр. https://yourcompany.it',
+        'invoice_note' => 'напр. Освобождён от НДС согласно ст. 145 НК РФ',
     ],
 
     // Hints
@@ -93,5 +126,37 @@ return [
     'github_scope_read_user' => 'чтение профиля пользователя',
     'billing_tool' => 'Инструмент выставления счетов',
     'billing_tool_url' => 'URL инструмента выставления счетов',
+        'tax_regime' => 'напр. Упрощённая система',
+        'substitute_tax_rate' => 'напр. 15',
+        'profitability_coefficient' => 'напр. 67',
+        'annual_revenue_cap' => 'напр. 85000',
+        'pension_fund' => 'напр. GS INPS',
+        'pension_registration_number' => 'напр. 3300',
+        'ateco_code' => 'напр. 62.01',
+        'ateco_description' => 'напр. Разработка программного обеспечения',
     'billing_tool_url_hint' => 'Введите ссылку на инструмент, который вы используете для выставления счетов.',
+
+    // Documents tab
+    'documents_tab' => 'Документы',
+    'documents' => [
+        'title' => 'Личные документы / ИНН',
+        'description' => 'Загрузите документы, связанные с деятельностью: регистрация НДС, изменения ATECO и т.д.',
+        'upload' => 'Загрузить документ',
+        'name' => 'Название документа',
+        'notes' => 'Примечания',
+        'file' => 'Файл',
+        'uploaded_at' => 'Загружено',
+        'no_documents' => 'Документы не загружены.',
+        'created' => 'Документ загружен.',
+        'updated' => 'Документ обновлён.',
+        'deleted' => 'Документ удалён.',
+        'delete_confirm' => 'Удалить этот документ?',
+        'placeholder_name' => 'напр. Свидетельство о регистрации НДС',
+        'placeholder_notes' => 'напр. Официальный документ налоговой службы',
+    ],
+
+    // Invoice Note
+    'invoice_note_section' => 'Примечание к счёту',
+    'invoice_note' => 'Правовое / налоговое примечание',
+    'invoice_note_hint' => 'Текст, отображаемый внизу счёта.',
 ];
