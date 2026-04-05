@@ -103,16 +103,13 @@ IndieDesk ships with built-in translations. No setup required.
 
 ## License
 
-IndieDesk is a commercial Laravel template.
+IndieDesk is released under the **GNU General Public License v3 (GPL-3.0)**.
 
-By purchasing a license, you are granted a non-exclusive,
-non-transferable right to use the source code for your own
-personal or commercial projects.
+You are free to use, modify and distribute this software.  
+Any modified version you distribute must also be released under GPL v3.  
+You cannot close the source and sell it as a proprietary product.
 
-You may modify the code and run it on your own infrastructure.
-
-Redistribution, resale, or sublicensing of the source code
-or any derivative work is not permitted.
+Full license: [https://www.gnu.org/licenses/gpl-3.0.txt](https://www.gnu.org/licenses/gpl-3.0.txt)
 
 ---
 

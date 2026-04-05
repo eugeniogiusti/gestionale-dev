@@ -1,44 +1,28 @@
-Copyright (c) 2026 Eugenio Giusti
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
 
-INDIEDESK COMMERCIAL LICENSE
+Copyright (C) 2026 Eugenio Giusti
 
-IndieDesk is a commercial Laravel template sold at https://eugeniogiusti.gumroad.com/l/indiedesk
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-------------------------------------------------------------------------------
-GRANT OF LICENSE
-------------------------------------------------------------------------------
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-By purchasing a license, you are granted a non-exclusive, non-transferable,
-perpetual right to use the source code for your own personal or commercial
-projects (one license per project).
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-You may:
-  - Use the template to build one end product for yourself or a client
-  - Modify the source code to suit your project's needs
-  - Deploy the end product on your own infrastructure
+---
 
-You may NOT:
-  - Redistribute, resell, rent, lease, or sublicense the source code
-  - Use the template to create a product that competes with IndieDesk
-    (e.g., another template, starter kit, or boilerplate for resale)
-  - Share access to the source code with anyone who has not purchased a license
-  - Remove or alter this license notice
+What this means in practice:
 
-------------------------------------------------------------------------------
-REFUND POLICY
-------------------------------------------------------------------------------
+- You can use, study, modify and distribute this software freely.
+- Any modified version you distribute must also be released under GPL v3.
+- You cannot take this code, close it up and sell it as a proprietary product.
+- The source code must always remain open and available.
 
-Due to the nature of this product (digital download with full source code),
-refunds are not available once the product has been downloaded.
-
-
-------------------------------------------------------------------------------
-DISCLAIMER
-------------------------------------------------------------------------------
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE
-USE OF THIS SOFTWARE.
-
+Full license text: https://www.gnu.org/licenses/gpl-3.0.txt
