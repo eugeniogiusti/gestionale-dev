@@ -22,7 +22,7 @@
                    class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                     📝 {{ __('footer.changelog') }}
                 </a>
-                <a href="https://github.com/eugeniogiusti/indiedesk" 
+                <a href="https://github.com/eugeniogiusti/gestionale-dev" 
                    target="_blank"
                    class="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
