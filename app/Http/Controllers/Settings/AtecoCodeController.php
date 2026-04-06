@@ -3,17 +3,14 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Settings\StoreAtecoCodeRequest;
 use App\Models\AtecoCode;
-use Illuminate\Http\Request;
 
 class AtecoCodeController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreAtecoCodeRequest $request)
     {
-        $validated = $request->validate([
-            'code' => ['required', 'string', 'max:20'],
-            'description' => ['nullable', 'string', 'max:255'],
-        ]);
+        $validated = $request->validated();
 
         AtecoCode::create($validated);
 
