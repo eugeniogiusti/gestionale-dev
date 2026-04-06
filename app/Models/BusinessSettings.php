@@ -67,6 +67,7 @@ class BusinessSettings extends Model
         'substitute_tax_rate' => 'decimal:2',
         'profitability_coefficient' => 'decimal:2',
         'annual_revenue_cap' => 'decimal:2',
+        'github_pat' => 'encrypted',
     ];
 
     /**

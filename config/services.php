@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'google' => [
+        'calendar_embed_url' => env('GOOGLE_CALENDAR_EMBED_URL'),
+    ],
+
 ];

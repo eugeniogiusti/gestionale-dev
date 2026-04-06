@@ -124,7 +124,7 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
     // Restore and force delete
     Route::post('/projects/{id}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');
-    
+
     // ==========================================
     // TIMESHEETS MODULE
     // ==========================================
@@ -272,7 +272,6 @@ Route::middleware(['auth', 'verified', '2fa'])->group(function () {
         Route::delete('/{payment}', [PaymentController::class, 'destroy'])->name('destroy');
     });
 
-    
     // ==========================================
     // COSTS MODULE
     // ==========================================
