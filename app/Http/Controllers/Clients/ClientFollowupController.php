@@ -10,6 +10,9 @@ use App\Models\ClientFollowup;
 
 class ClientFollowupController extends Controller
 {
+    /**
+     * Store a new follow-up for the given client.
+     */
     public function store(StoreClientFollowupRequest $request, Client $client)
     {
         $client->followups()->create($request->validated());
@@ -17,6 +20,9 @@ class ClientFollowupController extends Controller
         return redirect()->route('clients.show', $client)->with('success', __('clients.followup.created'));
     }
 
+    /**
+     * Update an existing client follow-up.
+     */
     public function update(UpdateClientFollowupRequest $request, Client $client, ClientFollowup $followup)
     {
         $followup->update($request->validated());
@@ -24,6 +30,9 @@ class ClientFollowupController extends Controller
         return redirect()->route('clients.show', $client)->with('success', __('clients.followup.updated'));
     }
 
+    /**
+     * Delete a client follow-up.
+     */
     public function destroy(Client $client, ClientFollowup $followup)
     {
         $followup->delete();

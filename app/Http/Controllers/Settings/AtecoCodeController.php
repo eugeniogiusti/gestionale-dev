@@ -8,6 +8,9 @@ use App\Models\AtecoCode;
 
 class AtecoCodeController extends Controller
 {
+    /**
+     * Store a new ATECO code.
+     */
     public function store(StoreAtecoCodeRequest $request)
     {
         $validated = $request->validated();
@@ -19,6 +22,9 @@ class AtecoCodeController extends Controller
             ->with('success', __('business_settings.ateco_add'));
     }
 
+    /**
+     * Delete an ATECO code.
+     */
     public function destroy(AtecoCode $atecoCode)
     {
         $atecoCode->delete();
@@ -27,6 +33,9 @@ class AtecoCodeController extends Controller
             ->withFragment('ateco');
     }
 
+    /**
+     * Set the given ATECO code as primary, unsetting all others.
+     */
     public function setPrimary(AtecoCode $atecoCode)
     {
         AtecoCode::query()->update(['is_primary' => false]);
