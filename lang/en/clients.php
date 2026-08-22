@@ -210,6 +210,7 @@ return [
         'confirm_delete' => 'Delete this follow-up?',
         'type' => 'Type',
         'contacted_at' => 'Contact date',
+        'contact_number' => 'Contact no.',
         'last_contact' => 'Last contact',
         'note' => 'Note',
         'note_placeholder' => 'Briefly describe the contact...',

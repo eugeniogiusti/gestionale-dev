@@ -211,6 +211,7 @@ return [
         'confirm_delete' => 'Eliminare questo follow-up?',
         'type' => 'Tipo',
         'contacted_at' => 'Data contatto',
+        'contact_number' => 'Contatto n.',
         'last_contact' => 'Ultimo contatto',
         'note' => 'Nota',
         'note_placeholder' => 'Descrivi brevemente il contatto...',

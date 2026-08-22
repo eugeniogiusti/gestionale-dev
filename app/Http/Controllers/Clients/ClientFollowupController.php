@@ -20,9 +20,9 @@ class ClientFollowupController extends Controller
      */
     public function store(StoreClientFollowupRequest $request, Client $client)
     {
-        $followup = $client->followups()->create($request->validated());
+        $client->followups()->create($request->validated());
 
-        $this->calendarSync->sync($followup);
+        $this->syncClientFollowups($client);
 
         return redirect()->route('clients.show', $client)->with('success', __('clients.followup.created'));
     }
@@ -34,7 +34,7 @@ class ClientFollowupController extends Controller
     {
         $followup->update($request->validated());
 
-        $this->calendarSync->sync($followup);
+        $this->syncClientFollowups($client);
 
         return redirect()->route('clients.show', $client)->with('success', __('clients.followup.updated'));
     }
@@ -47,6 +47,8 @@ class ClientFollowupController extends Controller
         $this->calendarSync->delete($followup);
 
         $followup->delete();
+
+        $this->syncClientFollowups($client);
 
         return redirect()->route('clients.show', $client)->with('success', __('clients.followup.deleted'));
     }
@@ -61,5 +63,17 @@ class ClientFollowupController extends Controller
         $this->calendarSync->sync($followup);
 
         return redirect()->route('clients.show', $client)->with('success', __('clients.followup.updated'));
+    }
+
+    /**
+     * Re-sync every follow-up of the client, not just the edited one: adding,
+     * deleting or re-dating one shifts the others' sequence number, which is
+     * part of the calendar event title.
+     */
+    private function syncClientFollowups(Client $client): void
+    {
+        foreach ($client->followups()->get() as $followup) {
+            $this->calendarSync->sync($followup->setRelation('client', $client));
+        }
     }
 }

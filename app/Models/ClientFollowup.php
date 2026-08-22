@@ -37,12 +37,33 @@ class ClientFollowup extends Model implements CalendarEventable
         return $this->contacted_at !== null;
     }
 
+    /**
+     * Position of this follow-up among the client's ones, in chronological
+     * order (1 = first contact). Used to show "which attempt this is" both
+     * in the app and on the synced calendar event.
+     */
+    public function sequenceNumber(): int
+    {
+        if (!$this->client_id) {
+            return 1;
+        }
+
+        $position = static::query()
+            ->where('client_id', $this->client_id)
+            ->orderBy('contacted_at')
+            ->orderBy('id')
+            ->pluck('id')
+            ->search($this->id);
+
+        return $position === false ? 1 : $position + 1;
+    }
+
     public function toCalendarEvent(): CalendarEvent
     {
         $prefix = $this->completed ? '✅' : '📞';
 
         return new CalendarEvent(
-            title: "{$prefix} {$this->calendarTitleBody()}",
+            title: "{$prefix} #{$this->sequenceNumber()} {$this->calendarTitleBody()}",
             description: $this->buildCalendarDescription(),
             startDate: $this->contacted_at->startOfDay(),
             endDate: null,
@@ -79,6 +100,7 @@ class ClientFollowup extends Model implements CalendarEventable
 
         $lines[] = '📞 ' . mb_strtoupper(__('clients.followup.section_title'));
         $lines[] = '────────────────';
+        $lines[] = __('clients.followup.contact_number') . ': ' . $this->sequenceNumber();
         $lines[] = __('clients.followup.type') . ': ' . __('clients.followup.type_' . $this->type);
         $lines[] = __('clients.followup.contacted_at') . ': ' . $this->contacted_at->format('d/m/Y');
 
